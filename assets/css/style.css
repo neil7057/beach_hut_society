@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/*--------------------------------------------Colours*/
+
+body {
+    background-color: #dfe7ee;
+    background: url("../images/hero.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: lighten;
+    margin: 0px;
+}
+
+.inline-block {
+    color: #af9442;
+}
+
+.section-details {
+    background-color: #dffcff;
+    border-color:#8913b0;
+}
+
+.list-inline-item {
+    margin-bottom: 20px;
+}
+
+/* ----------------------------------------Special paddings/margins/text */
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    font-family: 'Inclusive+Sans', sans-serif;
+}
+
+
+.solid-border {
+    border-style: solid;
+    border-width: 2px 0 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-color:#8913b0;
+}
+
+.button-border {
+    border: 3px solid #8913b0;
+    border-radius: 0 0 5% 5%;
+}
+
+
+
+li {
+    margin-right: 20px;
+}
+
+.content-hidden {
+    display: none;
+}
+
+/*--------------------------------------------Heading*/
+
+#header-details {
+     text-align: center;
+}
+ 
+/*--------------------------------------------Images*/
+
+.logo-img {
+    max-height: 150px;
+    max-width: 150px;
+}
+
+
+
+/*--------------------------------------------Titles*/
+
+.title {
+    font-family: "Inclusive+Sans", sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #4203bf;
+    text-align: center;
+}
+
+.sub-title {
+    font-family: "Inclusive+Sans", sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #4203bf;
+}
+
+.modal-text {
+    font-family: "Inclusive+Sans", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #4203bf;
+}
+
+.foot-title {
+    color: #4203bf;
+    font-size: 22px;
+    padding: 10px 0 0 0;
+    text-align: center;
+}
+
+.center {
+    margin: auto;
+}
+
+.center-content {
+    text-align: center !important;
+}
+
+
+
+.text-left {
+    text-align: left !important;
+}
+
+
+
+
+
+/*--------------------------------------------footer*/
+
+footer {
+    color: #fff;
+    min-height: 120px;
+}
+
+.social-links {
+    padding-left: 1em;
+    padding-top: 1em;
+}
+
+.social-links li a i {
+    width: 32px;
+    height: 32px;
+    padding: 12px 0;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 7px;
+    text-align: center;
+    color: #efe9d7;
+    background: #474747;
+    transition: all 0.35s ease-in-out;
+}
+
+#footer-details {
+    text-align: center;
+}
+
+/* ----------------------------------------Contact Form */
+
+.comment-text {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.text-muted-wcag {
+    /* to provide sufficient WCAG contrast */
+    color: #4203bf !important;
+}
+
+/* ----------------------------------------overriding some form-control settings to provide a crisper colour contrast */
+
+.form-control {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #af9442;
+    background-color: #a4c8ef;
+    border: 2px solid #8913b0;   
+    border-radius: 2rem;
+}
+
+.center-form {
+    padding-top: 10px;
+    margin: 0 auto;
+    max-width: 70%;
+}
+
+.label-font-size {
+    font-size: 24px;
+}
+
+/* ----------------------------------------fixed size on page with scrollbar */
+
+textarea {
+    min-height: 200px;
+    max-height: 300px;
+    resize: none;
+}
+
+.btn-block {
+    background-color: #4203bf;
+    color: #e8edf3;
+    border: 3px solid #8913b0;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 50px;
+    text-align: left;
+    padding: 0 20px;
+    border-radius: 2rem;
+}
+
+.btn-block:hover {
+    background-color: #D31ABC;
+    color: #f0f0f0;
+}
+
+.btn-primary {
+    background-color: #0054ad;
+}
+
+.btn-secondary {
+    background-color: #007bff;
+    color: #082137;
+    border-radius: 2rem;
+    margin: 25px;
+    border: 5px solid #8913b0;
+}
+
+.btn-secondary:hover {
+    background-color: #8913b0;
+    color: #01080f
+}
+
+button[type="submit"] {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.modal-btn {
+    font-size: 44px;
+    font-weight: 500;
+    color: #8913b0;
+    background-color: #2e89e9;
+}
+
+.btn-lg {
+    border-radius: 2rem;
+    border: 3px solid #8913b0;
+    font-size: .5rem;
+}
+
+/* ----------------------------------------hovering home button */
+/* w3schools.com example with changes to formatting and trigger moved from html to js */
+
+#myHomeBtn {
+    display: none; 
+    position: fixed; 
+    bottom: 20px; 
+    right: 15px; 
+    z-index: 99; 
+    border: 5px solid #e71867;
+    border-radius: 25%; 
+    outline: none; 
+    background-color: #4203bf;
+    color: white; 
+    cursor: pointer; 
+    padding: 5px; 
+    font-size: 18px;
+  }
+
+/* ----------------------------------------reverse colors on hover */
+#myHomeBtn:hover {
+    border: 5px solid #4203bf;
+    background-color: #e71867;
+  }
+
+/* ----------------------------------------change shape and text color of active menu item */
+
+.btn-lg.active {
+    border-radius: 50%;
+    color: #2be712 !important;
+}
+
+/* ----------------------------------------contrasts to comply with WCAG */
+
+.btn-home {
+    background-color: #0f5661;
+    color: white;
+}
+
+.btn-myth {
+    background-color: #610f19;
+    color: white;
+}
+
+.btn-quiz {
+    background-color: #002a57;
+    color: white;
+}
+
+.btn-contact {
+    background-color: #574100;
+    color: white;
+}
+
+.btn-message {
+    background-color: #003b7a;
+    color: white;
+}
+
+.btn-shadow {
+/* Courtesy of https://getcssscan.com/css-box-shadow-examples */
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, 
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+a {
+    color: #002a57;
+}
+
+.btn-lg:hover {
+    background-color: #8913b0;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* ----------------------------------------add arrow icon to drop down buttons */
+
+.btn-icon:before {
+    font-family: 'FontAwesome';  
+    content: "\f424";
+    float: right; 
+}
+
+/* ----------------------------------------The Modal (background) */
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+  }
+  
+  .contact-modal-content {
+    background-color: #94c2e7;
+    margin: 5% auto; /*top and centered */
+    padding: 20px;
+    border: 5px solid #8913b0;
+    border-radius: 5%;
+    width: 80%; 
+  }
+
+  .modal-backdrop {
+    position: relative;
+  }
+  
+/* ----------------------------------------Media Queries */
+
+/* ----------------------------------------Amend modal width and height on larger screen sizes. */
+
+@media (min-width: 1400px) {
+    .contact-modal-content {
+        width: 50%;
+    }
+}
