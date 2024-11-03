@@ -12,6 +12,7 @@ body {
     background-size: cover;
     opacity: 0.6;
     width: 95%;
+    min-height: 800px;
     margin: auto;;
 }
 
@@ -52,7 +53,18 @@ h4 {
     font-weight: 700;
 }
 
+.text-green {
+    font-family: 'Original+Surfer', sans-serif;
+    color: #46e514; 
+    font-weight: 700;
+}
 
+
+.text-blue {
+    font-family: 'Original+Surfer', sans-serif;
+    color: #4203bf; 
+    font-weight: 700;
+}
 
 li {
     margin-right: 20px;
@@ -215,7 +227,7 @@ textarea {
 }
 
 .btn-block:hover {
-    background-color: #D31ABC;
+    background-color: #967c93;
     color: #f0f0f0;
 }
 
@@ -225,10 +237,10 @@ textarea {
 
 .btn-secondary {
     background-color: #007bff;
-    color: #082137;
+    color: #469207;
     border-radius: 2rem;
     margin: 25px;
-    border: 5px solid #4203bf;
+    border: 5px solid #bf9403;
 }
 
 .btn-secondary:hover {
@@ -246,14 +258,13 @@ button[type="submit"] {
 .modal-btn {
     font-size: 44px;
     font-weight: 500;
-    color: #4203bf;
-    background-color: #2e89e9;
+    color: #469207;
+    background-color: #b6cee9;
 }
 
 .btn-lg {
     border-radius: 2rem;
     border: 3px solid #4203bf;
-    /* font-size: .5rem; */
 }
 
 /* ----------------------------------------hovering home button */
@@ -265,7 +276,7 @@ button[type="submit"] {
     bottom: 20px; 
     right: 15px; 
     z-index: 99; 
-    border: 5px solid #e71867;
+    border: 5px solid #c0742d;
     border-radius: 25%; 
     outline: none; 
     background-color: #4203bf;
@@ -294,8 +305,6 @@ button[type="submit"] {
     background-color: #0f5661;
     color: white;
 }
-
-
 
 .btn-message {
     background-color: #003b7a;
@@ -336,7 +345,7 @@ a {
     background-color: #94c2e7;
     margin: 5% auto; /*top and centered */
     padding: 20px;
-    border: 5px solid #4203bf;
+    border: 5px solid #bf9403;
     border-radius: 5%;
     width: 80%; 
   }
