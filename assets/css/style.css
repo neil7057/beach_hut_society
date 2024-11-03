@@ -40,14 +40,6 @@ h4 {
 }
 
 
-.solid-border {
-    border-style: solid;
-    border-width: 2px 0 0;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-color:#4203bf;
-}
-
 .button-border {
     border: 3px solid #4203bf;
     border-radius: 0 0 5% 5%;
@@ -285,7 +277,7 @@ button[type="submit"] {
 /* ----------------------------------------reverse colors on hover */
 #myHomeBtn:hover {
     border: 5px solid #4203bf;
-    background-color: #e71867;
+    background-color: #da5619;
   }
 
 /* ----------------------------------------change shape and text color of active menu item */
@@ -306,7 +298,7 @@ button[type="submit"] {
 
 .btn-message {
     background-color: #003b7a;
-    color: white;
+    color: #da5619;
 }
 
 .btn-shadow {
