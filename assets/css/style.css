@@ -1,15 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Original+Surfer&display=swap');
 /*--------------------------------------------Colours*/
 
 body {
-    background-color: #dfe7ee;
-    background: url("../images/hero.jpg");
-    background-position: center;
+    background-color: #ddeefd;
+}
+
+.bg-image {
+    background-image: url("../images/hero.jpg");
+    background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-blend-mode: lighten;
-    margin: 0px;
+    opacity: 0.6;
+    width: 95%;
+    margin: auto;;
 }
+
 
 .inline-block {
     color: #af9442;
@@ -17,7 +22,7 @@ body {
 
 .section-details {
     background-color: #dffcff;
-    border-color:#8913b0;
+    border-color:#4203bf;
 }
 
 .list-inline-item {
@@ -31,7 +36,7 @@ h2,
 h3,
 h4 {
     margin: 0;
-    font-family: 'Inclusive+Sans', sans-serif;
+    font-family: 'Original+Surfer', sans-serif;
 }
 
 
@@ -40,12 +45,18 @@ h4 {
     border-width: 2px 0 0;
     padding-left: 15px;
     padding-right: 15px;
-    border-color:#8913b0;
+    border-color:#4203bf;
 }
 
 .button-border {
-    border: 3px solid #8913b0;
+    border: 3px solid #4203bf;
     border-radius: 0 0 5% 5%;
+}
+
+.text-sand {
+    font-family: 'Original+Surfer', sans-serif;
+    color: #da5619; 
+    font-weight: 700;
 }
 
 
@@ -76,7 +87,7 @@ li {
 /*--------------------------------------------Titles*/
 
 .title {
-    font-family: "Inclusive+Sans", sans-serif;
+    font-family: "Original+Surfer", sans-serif;
     font-size: 25px;
     font-weight: 700;
     margin-top: 10px;
@@ -86,7 +97,7 @@ li {
 }
 
 .sub-title {
-    font-family: "Inclusive+Sans", sans-serif;
+    font-family: "Original+Surfer", sans-serif;
     font-weight: 800;
     font-size: 24px;
     margin-top: 20px;
@@ -96,7 +107,7 @@ li {
 }
 
 .modal-text {
-    font-family: "Inclusive+Sans", sans-serif;
+    font-family: "Original+Surfer", sans-serif;
     font-weight: 600;
     font-size: 20px;
     margin-top: 20px;
@@ -125,8 +136,6 @@ li {
 .text-left {
     text-align: left !important;
 }
-
-
 
 
 
@@ -178,7 +187,7 @@ footer {
     font-weight: 500;
     color: #af9442;
     background-color: #a4c8ef;
-    border: 2px solid #8913b0;   
+    border: 2px solid #4203bf;   
     border-radius: 2rem;
 }
 
@@ -203,7 +212,7 @@ textarea {
 .btn-block {
     background-color: #4203bf;
     color: #e8edf3;
-    border: 3px solid #8913b0;
+    border: 3px solid #4203bf;
     font-weight: 600;
     font-size: 16px;
     margin-top: 50px;
@@ -226,11 +235,11 @@ textarea {
     color: #082137;
     border-radius: 2rem;
     margin: 25px;
-    border: 5px solid #8913b0;
+    border: 5px solid #4203bf;
 }
 
 .btn-secondary:hover {
-    background-color: #8913b0;
+    background-color: #4203bf;
     color: #01080f
 }
 
@@ -244,14 +253,14 @@ button[type="submit"] {
 .modal-btn {
     font-size: 44px;
     font-weight: 500;
-    color: #8913b0;
+    color: #4203bf;
     background-color: #2e89e9;
 }
 
 .btn-lg {
     border-radius: 2rem;
-    border: 3px solid #8913b0;
-    font-size: .5rem;
+    border: 3px solid #4203bf;
+    /* font-size: .5rem; */
 }
 
 /* ----------------------------------------hovering home button */
@@ -293,20 +302,7 @@ button[type="submit"] {
     color: white;
 }
 
-.btn-myth {
-    background-color: #610f19;
-    color: white;
-}
 
-.btn-quiz {
-    background-color: #002a57;
-    color: white;
-}
-
-.btn-contact {
-    background-color: #574100;
-    color: white;
-}
 
 .btn-message {
     background-color: #003b7a;
@@ -325,17 +321,9 @@ a {
 }
 
 .btn-lg:hover {
-    background-color: #8913b0;
+    background-color: #4203bf;
     color: #fff;
     font-weight: 500;
-}
-
-/* ----------------------------------------add arrow icon to drop down buttons */
-
-.btn-icon:before {
-    font-family: 'FontAwesome';  
-    content: "\f424";
-    float: right; 
 }
 
 /* ----------------------------------------The Modal (background) */
@@ -355,7 +343,7 @@ a {
     background-color: #94c2e7;
     margin: 5% auto; /*top and centered */
     padding: 20px;
-    border: 5px solid #8913b0;
+    border: 5px solid #4203bf;
     border-radius: 5%;
     width: 80%; 
   }
@@ -371,5 +359,11 @@ a {
 @media (min-width: 1400px) {
     .contact-modal-content {
         width: 50%;
+    }
+}
+
+@media (max-width: 500px) {
+    .btn-lg {
+        font-size: .5rem;
     }
 }
