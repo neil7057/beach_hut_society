@@ -16,6 +16,7 @@ body {
 }
 
 
+
 .inline-block {
     color: #af9442;
 }
@@ -277,7 +278,7 @@ button[type="submit"] {
 /* ----------------------------------------reverse colors on hover */
 #myHomeBtn:hover {
     border: 5px solid #4203bf;
-    background-color: #da5619;
+    background-color: #e71867;
   }
 
 /* ----------------------------------------change shape and text color of active menu item */
