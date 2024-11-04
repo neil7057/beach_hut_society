@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Original+Surfer&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Original+Surfer&family=Seaweed+Script&display=swap');
+
 /*--------------------------------------------Colours*/
 
 body {
-    background-color: #ddeefd;
+    background-color: #277ecb;
 }
 
 .bg-image {
@@ -38,7 +39,7 @@ h2,
 h3,
 h4 {
     margin: 0;
-    font-family: 'Original+Surfer', sans-serif;
+    font-family: 'Seaweed Script', sans-serif;
 }
 
 
@@ -48,20 +49,20 @@ h4 {
 }
 
 .text-sand {
-    font-family: 'Original+Surfer', sans-serif;
+    font-family: 'Original Surfer', sans-serif;
     color: #da5619; 
     font-weight: 700;
 }
 
 .text-green {
-    font-family: 'Original+Surfer', sans-serif;
+    font-family: 'Original Surfer', sans-serif;
     color: #46e514; 
     font-weight: 700;
 }
 
 
 .text-blue {
-    font-family: 'Original+Surfer', sans-serif;
+    font-family: 'Original Surfer', sans-serif;
     color: #4203bf; 
     font-weight: 700;
 }
@@ -87,13 +88,19 @@ li {
     max-width: 150px;
 }
 
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 
 
 /*--------------------------------------------Titles*/
 
 .title {
-    font-family: "Original+Surfer", sans-serif;
-    font-size: 25px;
+    font-family: "Original Surfer", sans-serif;
+    font-size: 35px;
     font-weight: 700;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -102,17 +109,17 @@ li {
 }
 
 .sub-title {
-    font-family: "Original+Surfer", sans-serif;
+    font-family: 'Seaweed Script', sans-serif;
     font-weight: 800;
-    font-size: 24px;
+    font-size: 34px;
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: center;
-    color: #4203bf;
+    color: #03bf82;
 }
 
 .modal-text {
-    font-family: "Original+Surfer", sans-serif;
+    font-family: "Original Surfer", sans-serif;
     font-weight: 600;
     font-size: 20px;
     margin-top: 20px;
@@ -164,8 +171,10 @@ footer {
     font-size: 20px;
     line-height: 7px;
     text-align: center;
-    color: #efe9d7;
-    background: #474747;
+    /* color: #da5619; */
+    color: #1c1818;
+    background: #da5619;
+    /* background: #474747; */
     transition: all 0.35s ease-in-out;
 }
 
@@ -181,7 +190,7 @@ footer {
 }
 
 .text-muted-wcag {
-    /* to provide sufficient WCAG contrast */
+    to provide sufficient WCAG contrast
     color: #4203bf !important;
 }
 
