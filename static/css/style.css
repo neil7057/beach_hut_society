@@ -3,20 +3,19 @@
 /*--------------------------------------------Colours*/
 
 body {
-    background-color: #277ecb;
+    background-color: #c8e4fd;
 }
 
 .bg-image {
-    background-image: url("../images/hero.jpg");
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.6;
     width: 95%;
-    min-height: 800px;
-    margin: auto;;
+    min-height: 400px;
+    margin: auto;
+    [adding: 200px 0 150px;]
 }
-
 
 
 .inline-block {
@@ -171,10 +170,8 @@ footer {
     font-size: 20px;
     line-height: 7px;
     text-align: center;
-    /* color: #da5619; */
     color: #1c1818;
     background: #da5619;
-    /* background: #474747; */
     transition: all 0.35s ease-in-out;
 }
 

@@ -9,103 +9,69 @@
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css"
         type="text/css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/favicon/favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
     <title>Beach Hut Appreciation Society</title>
+
+     <!-- Public key for emailjs service -->
+     <script>
+        (function () {
+            emailjs.init("9UA9z-ZJ6N_glwYK7");
+                })();
+    </script>
 </head>
 
 <body>
-    <header class="container">
-        <div class="header"></div>
-            <div class="row">
-                <div class="col-12">    
+    <nav class="container">
+        <div class="row">
+            <div class="col-12">    
                 <div class="row pb-3"></div>
-                    <div class="center-content">
-                        <a class="btn-shadow btn-lg active" aria-label="This is the current page, home">Home</a>
+                <div class="center-content">
+                        <a class="btn-shadow btn-lg active" aria-label="This is the current page, home" href="{{ url_for('index') }}">Home</a>
                         <a class="btn-shadow btn-lg text-sand" aria-label="Go to the page (opens in a new tab)"
-                        href=#>forum</a>
+                        href=#>Forum</a>
                         <a class="btn-shadow btn-lg text-sand" aria-label="Go to the page (opens in a new tab)"
-                        href=#>admin</a>
+                        href="{{ url_for('about') }}">About</a>
                         <a class="btn-shadow btn-lg text-sand" aria-label="Go to the contacts page (opens in a new tab)"
-                        href="contact.html">Contact</a>
-                    </div>
+                        href="{{ url_for('contact') }}">Contact</a>
+                        <div class="row pb-3"></div>
                 </div>
-                <div class="col-12">    
-                    <div class="row pb-3"></div>
-                    <div>
+            </div>
+        </div>
+    </nav>    
+<!-- Page Header -->
+    <header class="bg-image" style="background-image: url('{{ url_for('static', filename='images/hero.jpg') }}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
                         <h1 class="title center-content">Beach Hut Appreciation Society</h1>
-                        <br>
+                    </div>
+                    <div class="col-12">
+                        <img class="logo-img center d-none d-xl-block" src="{{ url_for('static', filename='images/bh-tower.png') }}" alt="Beach Hut Logo"
+                            aria-label="beach hut image blue and white.">
+                        <div class="row pb-6"></div>
                     </div>
                 </div>
-                <div class="col-12">
-                    <img class="logo-img center d-none d-xl-block" src="assets/images/bh-tower.png" alt="Beach Hut Logo"
-                        aria-label="beach hut image blue and white.">
-                    <div class="row pb-3"></div>
-                </div>
-            </div>    
+            </div>
         </div>
     </header>
 
     <!-- start of main content -->
+    <button class="btn-sm btn-shadow" id="myHomeBtn" title="Go to top of page">Top</button>
+    <div class="container-fluid pb-3">
 
-    <main>
-        <section>
-            <button class="btn-sm btn-shadow" id="myHomeBtn" title="Go to top of page">Top</button>
-            <div class="container-fluid pb-3">
-                <div class="row no-gutters">
-                    <br>
-                    <div class="col-md-2 col-sm-1 col-xl-3">
-                    </div>
-                    <div class="col-md-8 col-sm-10 col-xl-6">
-                        <div class ="center-content">
-                            <a class="btn-lg btn-shadow text-sand" aria-label="Login Button (opens in a new tab)"
-                            href=#>Login</a>
-                            <a class="btn-lg btn-shadow text-sand" aria-label="Login Button (opens in a new tab)"
-                            href=#>Signup</a>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid bg-image">
-                <div class="row no-gutters">
-                    <br>
-                    <div class="col-md-2 col-sm-1 col-xl-3">
-                    </div>
-                    <div class="col-md-8 col-sm-10 col-xl-6">
-                        <h2 class="sub-title">Beach Huts</h2>
-                        <div class="text-blue">
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                                Natus maiores quod provident, ratione repudiandae eligendi, iste eveniet delectus
-                                 non ex fugiat optio, modi sequi earum pariatur doloremque corrupti ut error.
-                            </p>
-                            <br>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                                Natus maiores quod provident, ratione repudiandae eligendi, iste eveniet delectus
-                                 non ex fugiat optio, modi sequi earum pariatur doloremque corrupti ut error.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row no-gutters section-details">
-                    <div class="col-md-4">
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row no-gutters section-details">
-                    <div class="col-md-2 col-sm-1 col-xl-3">
-                    </div>
-                </div>
-            </div>
             
-        </section>
-    </main>
+    {% block content %}
+    {% endblock %}
+                
+
+    </div>
+
+        
     <footer>
         <!-- direct email or link to comments page -->
         <div class="container-fluid">
@@ -160,16 +126,21 @@
                             </a>
                         </li>
                     </ul>
+                    <p class="copyright text-muted">Copyright &copy; Your Website <span id="copyright"></span></p>
                 </div>
             </div>
         </div>
     </footer>
     <!-- JavaScript Scripts  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/email.js') }}"></script>
     <script src="https://kit.fontawesome.com/6e6c671d1b.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
+    </script>
+    <script>
+        $("#copyright").text(new Date().getFullYear());
     </script>
 </body>
 
