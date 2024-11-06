@@ -117,16 +117,6 @@ li {
     color: #03bf82;
 }
 
-.modal-text {
-    font-family: "Original Surfer", sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #4203bf;
-}
-
 .foot-title {
     color: #4203bf;
     font-size: 22px;
@@ -142,13 +132,20 @@ li {
     text-align: center !important;
 }
 
-
-
 .text-left {
     text-align: left !important;
 }
 
 
+.flashes {
+    font-family: 'Seaweed Script', sans-serif;
+    font-size: 35px;
+    text-align: center;
+}
+
+.flashes li {
+    list-style: none;
+}
 
 /*--------------------------------------------footer*/
 
@@ -177,6 +174,26 @@ footer {
 
 #footer-details {
     text-align: center;
+}
+
+.solid-border {
+    border-style: solid;
+    border-width: 2px 0 0;
+    width: 95%;
+    border-color:#4203bf;
+}
+
+/* ----------------------------------------forum specific formatting */
+
+.forum-post {
+    border-style: solid;
+    border-width: 4px;
+    border-color:#da5619;
+    border-radius: 2rem;
+}
+
+.indent-post {
+    margin: 20px;
 }
 
 /* ----------------------------------------Contact Form */

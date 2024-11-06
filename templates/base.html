@@ -16,13 +16,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
     <title>Beach Hut Appreciation Society</title>
 
-     <!-- Public key for emailjs service -->
-     <script>
-        (function () {
-            emailjs.init("9UA9z-ZJ6N_glwYK7");
-                })();
-    </script>
-</head>
 
 <body>
     <nav class="container">
@@ -30,7 +23,7 @@
             <div class="col-12">    
                 <div class="row pb-3"></div>
                 <div class="center-content">
-                        <a class="btn-shadow btn-lg active" aria-label="This is the current page, home" href="{{ url_for('index') }}">Home</a>
+                        <a class="btn-shadow btn-lg text-sand" aria-label="This is the current page, home" href="{{ url_for('index') }}">Home</a>
                         <a class="btn-shadow btn-lg text-sand" aria-label="Go to the page (opens in a new tab)"
                         href=#>Forum</a>
                         <a class="btn-shadow btn-lg text-sand" aria-label="Go to the page (opens in a new tab)"
@@ -62,7 +55,7 @@
 
     <!-- start of main content -->
     <button class="btn-sm btn-shadow" id="myHomeBtn" title="Go to top of page">Top</button>
-    <div class="container-fluid pb-3">
+    <div class="container-fluid pb-3 solid-border">
 
             
     {% block content %}
@@ -74,12 +67,12 @@
         
     <footer>
         <!-- direct email or link to comments page -->
-        <div class="container-fluid">
+        <div class="container-fluid solid-border">
             <div id="footer-details" class="row no-gutters">
                 <div class="col-sm-6">
                     <h3 class="uppercase sub-title">Contact</h3>
                     <p class="foot-title">
-                        <a href="contact.html" class="hvr-grow text-sand"
+                        <a href="{{ url_for('contact') }}" class="hvr-grow text-sand"
                             aria-label="go to my comments, feedback page (opens in a new tab)">Contact Admin</a>
                     </p>
                     <br>
@@ -126,15 +119,14 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website <span id="copyright"></span></p>
                 </div>
+                <p class="copyright text-sand center-content col-12">Copyright &copy; B.H.A.S <span id="copyright"></span></p>
             </div>
         </div>
     </footer>
     <!-- JavaScript Scripts  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/email.js') }}"></script>
     <script src="https://kit.fontawesome.com/6e6c671d1b.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
