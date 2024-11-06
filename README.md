@@ -8,7 +8,7 @@
 
 This is my website   
 
-[View the live project here.](https://neil7057.github.io/beach_hut_society/)
+[View the live project here.](https://beach-hut-appreciation-society-0c8700c133d2.herokuapp.com/)
 
 # Table of Contents
 
@@ -379,7 +379,8 @@ This is my website
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 -   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
--   python
+-   pytho
+
 
 ### Frameworks, Libraries & Programs Used
 
@@ -399,6 +400,7 @@ This is my website
     - GitHub is used to store the project's code after being pushed from the development environment.
 1. [Balsamiq:](https://balsamiq.com/)
     - Balsamiq was used to create the [wireframes](#wireframes) during the design process.
+1. flask
 
 ## Testing
 
@@ -762,7 +764,7 @@ The project was deployed to GitHub Pages using the following steps:
     - Click 'Save'.
     - A live link will be displayed in a green banner when published successfully. 
 
-    [The live link can be found here](https://neil7057.github.io/beach_hut_society/)
+    [The live link can be found here](https://beach-hut-appreciation-society-0c8700c133d2.herokuapp.com/)
 
 
 ### Clone the Repository Code Locally
