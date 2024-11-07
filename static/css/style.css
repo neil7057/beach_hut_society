@@ -38,9 +38,14 @@ h2,
 h3,
 h4 {
     margin: 0;
-    font-family: 'Seaweed Script', sans-serif;
+    font-family: 'Original Surfer', sans-serif;
 }
 
+p {
+    margin: 0;
+    font-family: 'Original Surfer', sans-serif;
+    font-size: 25px;
+}
 
 .button-border {
     border: 3px solid #4203bf;
