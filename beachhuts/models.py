@@ -5,6 +5,9 @@ from sqlalchemy.sql import func
 
 class User(db.Model, UserMixin):
     # schema for the User Model
+    """
+    UserMixin supporst Flask_login for authentication checkimg.
+    """
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50))
     email_address = db.Column(db.String(100))
