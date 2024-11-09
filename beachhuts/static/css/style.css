@@ -114,19 +114,11 @@ li {
 
 .sub-title {
     font-family: 'Seaweed Script', sans-serif;
-    font-weight: 800;
     font-size: 34px;
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: center;
     color: #03bf82;
-}
-
-.foot-title {
-    color: #4203bf;
-    font-size: 22px;
-    padding: 10px 0 0 0;
-    text-align: center;
 }
 
 .center {
@@ -140,7 +132,6 @@ li {
 .text-left {
     text-align: left !important;
 }
-
 
 .flashes {
     font-family: 'Seaweed Script', sans-serif;
@@ -188,6 +179,14 @@ footer {
     border-color:#4203bf;
 }
 
+.copyright {
+    font-family: 'Original Surfer', sans-serif;
+    text-align: center;
+    color: #da5619; 
+    font-weight: 500;
+    font-size: 1.15rem;
+}
+
 /* ----------------------------------------forum specific formatting */
 
 .forum-post {
@@ -222,6 +221,10 @@ footer {
     background-color: #a4c8ef;
     border: 2px solid #4203bf;   
     border-radius: 2rem;
+}
+
+.form-group {
+    color: #4203bf;
 }
 
 .center-form {
@@ -280,7 +283,6 @@ button[type="submit"] {
     margin-top: 15px;
     margin-bottom: 20px;
     font-size: 22px;
-    font-weight: 500;
 }
 
 .modal-btn {
@@ -291,8 +293,13 @@ button[type="submit"] {
 }
 
 .btn-lg {
+    background-color: #e5f1a4;
     border-radius: 2rem;
-    border: 3px solid #4203bf;
+}
+
+.btn-lg:hover {
+    /* border: 3px solid #e5f1a4; */
+    text-decoration: none;
 }
 
 /* ----------------------------------------hovering home button */

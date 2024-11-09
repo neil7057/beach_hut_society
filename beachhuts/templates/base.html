@@ -23,12 +23,12 @@
             <div class="col-12">    
                 <div class="row pb-3"></div>
                 <div class="center-content">
-                        <a class="btn-lg text-sand" aria-label="This is the current page, home" href="{{ url_for('index') }}">Home</a>
-                        <a class="btn-lg text-sand" aria-label="Go to the page (opens in a new tab)"
+                        <a class="btn-lg hvr-grow text-sand" aria-label="Go to the home page" href="{{ url_for('index') }}">Home</a>
+                        <a class="btn-lg hvr-grow text-sand" aria-label="Go to the page (opens in a new tab)"
                         href=#>Forum</a>
-                        <a class="btn-lg text-sand" aria-label="Go to the page (opens in a new tab)"
+                        <a class="btn-lg hvr-grow text-sand" aria-label="Go to the page (opens in a new tab)"
                         href="{{ url_for('about') }}">About</a>
-                        <a class="btn-lg text-sand" aria-label="Go to the contacts page (opens in a new tab)"
+                        <a class="btn-lg hvr-grow text-sand" aria-label="Go to the contacts page (opens in a new tab)"
                         href="{{ url_for('contact') }}">Contact</a>
                         <div class="row pb-3"></div>
                 </div>
@@ -71,7 +71,7 @@
             <div id="footer-details" class="row no-gutters">
                 <div class="col-sm-6">
                     <h3 class="uppercase sub-title">Contact</h3>
-                    <p class="foot-title">
+                    <p>
                         <a href="{{ url_for('contact') }}" class="hvr-grow text-sand"
                             aria-label="go to my comments, feedback page (opens in a new tab)">Contact Admin</a>
                     </p>
@@ -120,7 +120,7 @@
                         </li>
                     </ul>
                 </div>
-                <p class="copyright text-sand center-content col-12">Copyright &copy; B.H.A.S <span id="copyright"></span></p>
+                <p class="copyright col-12">Copyright &copy; B.H.A.S <span id="copyright"></span></p>
             </div>
         </div>
     </footer>
