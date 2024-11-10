@@ -9,11 +9,11 @@ class User(db.Model, UserMixin):
     UserMixin supporst Flask_login for authentication checkimg.
     """
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(50))
-    email_address = db.Column(db.String(100))
-    fname = db.Column(db.String(50))
-    lname = db.Column(db.String(50))
-    password = db.Column(db.String(255))
+    username = db.Column(db.String(25))
+    email_address = db.Column(db.String(50))
+    fname = db.Column(db.String(20))
+    lname = db.Column(db.String(30))
+    password = db.Column(db.String(30))
     site_admin = db.Column(db.Boolean, default=False, nullable=False)
     created_td = db.Column(db.DateTime(timezone=True), default=func.now())
 
@@ -28,7 +28,7 @@ class Thread(db.Model):
                             'Tag',
                             secondary=thread_tag_link,
                             lazy='subquery',
-                            backref=db.backref('threads', lazy=True)
+                            backref=db.backref('thread', lazy=True)
                             )
     author_id = db.Column(
         db.Integer,
@@ -37,7 +37,7 @@ class Thread(db.Model):
     created_td = db.Column(db.DateTime(timezone=True), default=func.now())
 
     # relationship
-    author = db.relationship('User', backref='threads')
+    author = db.relationship('User', backref='thread')
 
     def __repr__(self):
         return "Thread #{0} - Title: {1} | Urgent: {2}".format(
@@ -66,7 +66,7 @@ class Comments(db.Model):
     # Relationships
     author = db.relationship('User', backref='posts')
     question = db.relationship('Thread', backref=db.backref(
-        'posts',
+        'comments',
         lazy=True,
         cascade="all, delete-orphan"
         ))
