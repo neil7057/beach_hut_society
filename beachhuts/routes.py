@@ -6,6 +6,7 @@ from flask_login import current_user, LoginManager
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+
 # Sort threads by date using SQLAlchemy desc to present most recent first
 from sqlalchemy import desc, or_, func
 from datetime import datetime
