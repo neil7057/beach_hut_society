@@ -18,6 +18,33 @@ class User(db.Model, UserMixin):
     created_td = db.Column(db.DateTime(timezone=True), default=func.now())
 
 
+class Tag(db.Model):
+    # schema for the Tag model
+    id = db.Column(db.Integer, primary_key=True)
+    tag_name = db.Column(db.String(50), unique=True, nullable=False)
+
+    def __repr__(self):
+        # __repr___ to represent itself in the form of a string
+        return self.tag_name  
+
+
+# Intermediate table to implement M:M relationship
+Thread_tag_link = db.Table(
+    'links a tag to a thread',
+    db.Column(
+        'thread_id',
+        db.Integer,
+        db.ForeignKey('thread.id'),
+        primary_key=True
+        ),
+    db.Column(
+        'tag_id',
+        db.Integer,
+        db.ForeignKey('tag.id'),
+        primary_key=True
+        )
+)
+
 
 class Thread(db.Model):
     # schema for the Thread model
@@ -26,7 +53,7 @@ class Thread(db.Model):
     thread_body = db.Column(db.Text, nullable=False)
     tags = db.relationship(
                             'Tag',
-                            secondary=thread_tag_link,
+                            secondary=Thread_tag_link,
                             lazy='subquery',
                             backref=db.backref('thread', lazy=True)
                             )
@@ -43,7 +70,6 @@ class Thread(db.Model):
         return "Thread #{0} - Title: {1} | Urgent: {2}".format(
             self.id, self.thread_title, self.author_id
         )
-
 
 # Add comments model
 class Comments(db.Model):
@@ -76,33 +102,3 @@ class Comments(db.Model):
             f'Comment #{self.id} by User ID {self.author_id} '
             f'on Thread ID {self.thread_id}'
         )
-
-
-class Tag(db.Model):
-    # schema for the Tag model
-    id = db.Column(db.Integer, primary_key=True)
-    tag_name = db.Column(db.String(50), unique=True, nullable=False)
-
-    def __repr__(self):
-        # __repr___ to represent itself in the form of a string
-        return self.tag_name  
-
-
-# Intermediate table to implement M:M relationship
-Thread_tag_link = db.Table(
-    'links a tag to a thread',
-    db.Column(
-        'thread_id',
-        db.Integer,
-        db.ForeignKey('thread.id'),
-        primary_key=True
-        ),
-    db.Column(
-        'tag_id',
-        db.Integer,
-        db.ForeignKey('tag.id'),
-        primary_key=True
-        )
-)
-
-
