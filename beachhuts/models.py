@@ -29,7 +29,7 @@ class Tag(db.Model):
 
 
 # Intermediate table to implement M:M relationship
-Thread_tag_link = db.Table(
+thread_tag_link = db.Table(
     'links a tag to a thread',
     db.Column(
         'thread_id',
@@ -53,9 +53,9 @@ class Thread(db.Model):
     thread_body = db.Column(db.Text, nullable=False)
     tags = db.relationship(
                             'Tag',
-                            secondary=Thread_tag_link,
+                            secondary=thread_tag_link,
                             lazy='subquery',
-                            backref=db.backref('thread', lazy=True)
+                            backref=db.backref('threads', lazy=True)
                             )
     author_id = db.Column(
         db.Integer,
@@ -64,7 +64,7 @@ class Thread(db.Model):
     created_td = db.Column(db.DateTime(timezone=True), default=func.now())
 
     # relationship
-    author = db.relationship('User', backref='thread')
+    author = db.relationship('User', backref='threads')
 
     def __repr__(self):
         return "Thread #{0} - Title: {1} | Urgent: {2}".format(
@@ -86,11 +86,12 @@ class Comments(db.Model):
     thread_id = db.Column(
         db.Integer,
         db.ForeignKey('thread.id'),
-        nullable=False)
+        nullable=False
+    )
     created_td = db.Column(db.DateTime(timezone=True), default=func.now())
 
     # Relationships
-    author = db.relationship('User', backref='posts')
+    author = db.relationship('User', backref='comments')
     question = db.relationship('Thread', backref=db.backref(
         'comments',
         lazy=True,

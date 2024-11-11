@@ -1,1 +1,0 @@
-INSERT INTO "User" ("id", "userame", "email_address", "fname", "lname", "password", "site_admin", "created_td") VALUES (1, "Compo", "admin@admin.mail", "Site", "Admin", "Picachu999", True, '05/11/2024';

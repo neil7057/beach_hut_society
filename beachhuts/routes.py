@@ -47,6 +47,7 @@ def sign_up():
         username = request.form.get('username')
         fname = request.form.get('fname')
         lname = request.form.get('lname')
+        site_admin = True
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
@@ -85,6 +86,7 @@ def sign_up():
                 username=username,
                 fname=fname,
                 lname=lname,
+                site_admin=site_admin,
                 password=generate_password_hash(
                     request.form.get("password1")
                 )

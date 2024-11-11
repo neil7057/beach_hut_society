@@ -302,6 +302,14 @@ button[type="submit"] {
     text-decoration: none;
 }
 
+.sign-up-container {
+    width: 75%;
+    padding: 40px 0;
+    margin-top: 25px;
+    border-radius: 15px;
+    background-color: #2cceff;
+}
+
 /* ----------------------------------------hovering home button */
 /* w3schools.com example with changes to formatting and trigger moved from html to js */
 
