@@ -64,6 +64,16 @@
 
                 </div>
                 <div class="row pb-3"></div>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  <ul class="flashes">
+                  {% for message in messages %}
+                    <li class="text-sand">{{ message }}</li>
+                  {% endfor %}
+                  </ul>
+                  <div class="row pb-3"></div>
+                  {% endif %}
+              {% endwith %}
             </div>
         </div>
     </nav>

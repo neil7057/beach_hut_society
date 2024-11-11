@@ -13,7 +13,7 @@ class User(db.Model, UserMixin):
     email_address = db.Column(db.String(50))
     fname = db.Column(db.String(20))
     lname = db.Column(db.String(30))
-    password = db.Column(db.String(30))
+    password = db.Column(db.String(255))    # password has to be 255 to cater for hashed length
     site_admin = db.Column(db.Boolean, default=False, nullable=False)
     created_td = db.Column(db.DateTime(timezone=True), default=func.now())
 

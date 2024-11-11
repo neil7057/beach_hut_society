@@ -62,7 +62,7 @@ def sign_up():
         user_name = User.query.filter_by(username=username).first()
         if user_name:
             flash(
-                'Username alreday in use. Please choose another',
+                'Username already in use. Please choose another',
                 category='error'
             )
         if len(username) < 1:
@@ -98,7 +98,12 @@ def sign_up():
                 category='success'
             )
             return redirect(url_for('login'))
-
+    
+    return render_template(
+            "sign_up.html",
+            page_title="Sign Up!",
+            user=current_user
+            )
 
 
 @app.route("/login", methods=['GET', 'POST'])
