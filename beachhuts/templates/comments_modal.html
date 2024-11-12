@@ -1,0 +1,19 @@
+<!-- show first comment only to avoid busy screen -->
+<div class="comments">
+    {% for comments in thread.comments %}
+    {% if loop.index == 1 %}
+    <div class="comments-header">
+        <strong>{{ comments.author.username }} commented :</strong>
+    </div>
+    <div class="comment-body">
+        <p class="comment-text">{{ comments.comments_body }}
+            </p>
+        <p class="reply-date">{{ comments.created_td.strftime('%d-%m-%Y') }}</p>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+<!-- If more than one reply, link to view full thread -->
+{% if thread.comments|length > 1 %}
+<a href="{{url_for('view_full_thread', thread_id=thread.id)}}">View Full Post</a>
+{% endif %}

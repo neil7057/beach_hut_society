@@ -1,0 +1,66 @@
+% extends "base.html" %}
+{% block content %}
+<div class="container-fluid full-thread-container">
+    <h2>View Full Thread</h2>
+    <div class="threads col-12 col-md-10 offset-md-1">
+        <div class="thread-block">
+          <div class="thread-title">
+            <h5>{{ thread.thread_title }}</h5>
+          </div>
+          <div class="thread-body">
+            <p>{{ thread.thread_body }}</p>
+          </div>
+          <br>
+          <div class="thread-tag-title">
+            <p><strong>Tags</strong></p>
+          </div>
+          <div class="container-fluid tag-container">
+            <div class="row justify-content-left thread-tags">
+              
+              {% for tag in thread.tags %}
+              <div><span class="topic-badge text-center">{{ tag.tag_name }}</span></div>
+              
+              {% endfor %}
+            </div>
+          </div>
+          <div class="thread-author">
+            <p>
+              Author: <span class=font-weight-bold>{{ thread.author.username }}</span>
+            </p>
+          </div>
+          {% if current_user.is_authenticated %}
+          <div id="replyForm" class="d-none replyForm" data-question-id="{{ thread.id }}">
+            <form action="{{ url_for('submit_reply', thread_id=thread.id) }}" method="POST">
+              <div class="form-group">
+                <label for="replyBody">Your Reply:</label>
+                <textarea class="form-control" id="replyBody" name="reply_body" rows="4" required></textarea>
+              </div>
+              <button class="btn btn-secondary" onclick="hideReplyForm('{{ thread.id }}')">Cancel</button>
+              <button type="submit" class="btn btn-primary acc-btn">Submit Reply</button>
+      
+            </form>
+          </div>
+          <a class="btn btn-primary" onclick="showReplyForm('{{ thread.id }}')">Comment</a>
+          {% if current_user.id == question.author_id %}
+          <a href="{{url_for('edit_thread', thread_id=thread.id)}}" class="btn btn-secondary btn-edit">Edit</a>
+          {% include 'delete_thread_modal.html' %}
+          {% endif %}
+          <div class="comments">
+            {% for comments in thread.comments %}
+            <div class="reply-header">
+                <!-- Display the comment author username and posting date -->
+                <strong>{{ comments.author.username }} commented :</strong>
+            </div>
+            <div class="comment-body">
+                <p class="comment-text">{{ comments.comments_body }}
+                    </p>
+                <p class="comment-date">{{ comments.created_td.strftime('%d-%m-%Y %H:%M') }}</p>
+            </div>
+            {% endfor %}
+        </div>
+          {% endif %}
+      
+        </div>
+      </div>
+</div>
+{% endblock %}

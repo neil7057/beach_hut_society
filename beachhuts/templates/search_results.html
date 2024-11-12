@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid search-container">
+  <h2>Search Results for "{{ search_term }}"</h2>
+  {% if not current_user.is_authenticated %}
+  <p>Can you help? <a href="{{url_for('login')}}">Log In</a> or <a href="{{url_for('sign_up')}}">Sign Up</a> to help
+    answer questions and get involved in the conversation!</p>
+  {% endif %}
+  {% if questions %}
+  <div class="row search-results">
+    {% for thread in threads %}
+    <div class="col12 col-lg-6 col-xl-4">
+      <div class="thread-block">
+        <div class="thread-title">
+          <h5>{{ thread.thread_title }}</h5>
+        </div>
+        <div class="thread-body">
+          <p>{{ thread.thread_body }}</p>
+        </div>
+        <br>
+        <div class="thread-tag-title">
+          <p><strong>Tags</strong></p>
+        </div>
+        <div class="container-fluid">
+          <div class="row justify-content-left thread-tags">
+            {% set num_tags = thread.tags|length %}
+            {% set col_class = 'col-4' if num_tags < 3 else 'col-3' %}
+            {% for tag in thread.tags %}
+            <span class="{{ col_class }} tag-badge text-center">{{ tag.tag_name }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="question-author">
+          <p>Author: <span class=font-weight-bold>{{ thread.author.username }}</span> </p>
+        </div>
+        <!-- Jinja templating will be used to display a series of buttons depending on user login status and author status -->
+        {% if current_user.is_authenticated %}
+        <a class="btn btn-primary">Comment</a>
+        {% if current_user.id == thread.author_id %}
+        <a href="{{url_for('edit_thread', thread_id=thread.id)}}" class="btn btn-secondary btn-edit">Edit</a>
+    {% include 'delete_thread_modal.html' %}
+    {% endif %}
+    {% include 'comments_modal.html' %}
+    {% endif %}
+
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+
+</div>
+    
+{% else %}
+    <p>No results found for the given tag. <a href="{{url_for('tags')}}"></p>
+{% endif %}
+
+{% endblock %}

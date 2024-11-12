@@ -14,9 +14,14 @@ body {
     width: 95%;
     min-height: 400px;
     margin: auto;
-    [adding: 200px 0 150px;]
+    /* [adding: 200px 0 150px;] */
 }
 
+.image-round {
+    width: 85%;
+    border-radius: 15px;
+    margin: 20px 0;
+}
 
 .inline-block {
     color: #af9442;
@@ -233,6 +238,14 @@ footer {
     max-width: 70%;
 }
 
+.form-container {
+    width: 75%;
+    padding: 40px 0;
+    margin-top: 25px;
+    border-radius: 15px;
+    background-color: #2cceff;
+}
+
 .label-font-size {
     font-size: 24px;
 }
@@ -300,14 +313,6 @@ button[type="submit"] {
 .btn-lg:hover {
     /* border: 3px solid #e5f1a4; */
     text-decoration: none;
-}
-
-.sign-up-container {
-    width: 75%;
-    padding: 40px 0;
-    margin-top: 25px;
-    border-radius: 15px;
-    background-color: #2cceff;
 }
 
 /* ----------------------------------------hovering home button */
@@ -407,8 +412,20 @@ a {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 510px) {
     .btn-lg {
-        font-size: .5rem;
+        font-size: .7rem;
+    }
+}
+
+@media (max-width: 950px) {
+    .form-container {
+        width: 95%;
+    }
+}
+
+@media (max-width: 360px) {
+    .btn-lg {
+        font-size: .4rem;
     }
 }

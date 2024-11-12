@@ -13,14 +13,262 @@ from wtforms.validators import DataRequired
 from sqlalchemy import desc, or_, func
 from datetime import datetime
 
+
+# Home Route
 @app.route("/")
-def index():
-    return render_template("index.html", page_title="Latest Forum Posts")
+def home():
+    threads = list(Thread.query.order_by(desc(Thread.created_td)).all())
+    # get date to calculate length of membership
+    current_date = datetime.now()
+
+    # obtain post count for current user (if logged in)
+    if current_user.is_authenticated:
+        user_thread_count = db.session.query(
+            func.count(
+                Thread.id
+            )).filter(Thread.author_id == current_user.id).scalar()
+    else:
+        user_thread_count = None
+    return render_template(
+        "index.html",
+        page_title="Latest Forum Posts",
+        user=current_user,
+        threads=threads,
+        urgent_questions=urgent_questions,
+        user_thread_count=user_thread_count,
+        current_date=current_date
+    )
 
 
 @app.route("/about")
 def about():
     return render_template("about.html", page_title="About B.H.A.S")
+
+
+# Tag Routes
+@app.route("/tags")
+def tags():
+    """
+    Displaying a grid of current tags
+    """
+    tags = list(Tag.query.order_by(Tag.tag_name).all())
+    return render_template(
+        "tags.html",
+        page_title="Browse by Tags",
+        user=current_user,
+        tags=tags
+        )
+
+
+# Add New Tag
+class AddTagForm(FlaskForm):
+    tag_name = StringField('Tag Name', validators=[DataRequired()])
+    submit = SubmitField('Add Tag')
+
+
+@app.route("/add_tag", methods=["GET", "POST"])
+@login_required  # restricted to admin access only 
+def add_tag():
+    """
+    Loads form to add a new tag
+    """
+    form = AddTagForm()
+    if form.validate_on_submit():
+        existing_tag = Tag.query.filter_by(
+            tag_name=form.tag_name.data
+            ).first()
+        if existing_tag is None:
+            tag = Tag(tag_name=form.tag_name.data)
+            db.session.add(tag)
+            db.session.commit()
+            flash('Tag added successfully.', category='success')
+            return redirect(url_for("tags"))
+        else:
+            flash('Tag already exists.', category='error')
+    return render_template(
+        "add_tag.html",
+        page_title="Add a Tag",
+        form=form,
+        user=current_user
+        )
+
+
+# Delete Tags
+@app.route("/delete_tag/<int:tag_id>")
+@login_required
+def delete_topic(tag_id):
+    """
+    resricted to Admin only by button visibility
+    """
+    if not current_user.is_admin:
+        flash('Only Admins can edit or delete tags', category='error')
+        return redirect(url_for('tags'))
+    else:
+        tag = Tag.query.get_or_404(tag_id)
+        db.session.delete(tag)
+        db.session.commit()
+        flash('Deletion Successful', category='success')
+        return redirect(url_for('tag'))
+
+
+# Threads  Routes
+# Add a Thread
+@app.route('/submit_thread', methods=['GET', 'POST'])
+@login_required
+def submit_thread():
+    """
+    Logged in Users can submit a new thread
+    Users can ad existing tag caegories
+    """
+    if request.method == 'POST':
+        thread_title = request.form.get('thread_title')
+        thread_body = request.form.get('thread_body')
+        selected_tag_ids = request.form.getlist('thread_tags[]')
+
+        new_thread = Thread(
+                            thread_title=thread_title,
+                            thread_body=thread_body,
+                            author_id=current_user.id,
+                            )
+
+        # Add/append each tag to the thread
+        for tid in selected_tag_ids:
+            tag = Tag.query.get(int(tid))
+            print(tag)
+            if tag:
+                new_thread.tags.append(tag)
+        print(selected_tag_ids)
+        print(request.form)
+        db.session.add(new_thread)
+        db.session.commit()
+        flash('Your thread is now Live', category='success')
+        return redirect(url_for('home'))
+
+    tags = Tag.query.all()
+    return render_template(
+        "submit_thread.html",
+        page_title="Create a Forum Post",
+        tags=tags,
+        user=current_user)
+
+
+# Edit Thread
+@app.route('/edit_thread/<int:thread_id>', methods=['GET', 'POST'])
+@login_required
+def edit_thread(thread_id):
+    """
+    Edit existing thread post
+    """
+    thread = Thread.query.get_or_404(thread_id)
+    # check for author id, only author can edit their own thread
+    if current_user.id != thread.author_id:
+        flash('You can only edit your own Posts.', category='error')
+        return redirect(url_for('home'))
+
+    tags = Tag.query.all()
+
+    if request.method == 'POST':
+        thread_title = request.form['thread_title']
+        thread_body = request.form['thread_body']
+        selected_tags_ids = request.form.getlist('thread_tags[]')
+        # Update thread data
+        thread.thread_title = thread_title
+        thread.thread_body = thread_body
+        thread.tags = [
+            Tag.query.get(int(tid)) for tid in selected_tags_ids
+            ]
+        # commit these changes
+        db.session.commit()
+        flash('Forum Post updated successfully', category='success')
+        return redirect(url_for('home', thread_id=thread.id))
+
+    return render_template(
+                        'edit_thread.html',
+                        thread_id=thread.id,
+                        page_title="Edit Forum Post",
+                        thread=thread,
+                        tags=tags,
+                        user=current_user
+    )
+
+
+# Delete forum post (thread)
+@app.route('/delete_thread/<int:thread_id>')
+@login_required
+def delete_thread(thread_id):
+    """
+    Allows users to delete their own forum posts (thread table)
+    """
+    thread = Thread.query.get_or_404(thread_id)
+    if current_user.id != thread.author_id:
+        flash('You can only delete your own posts.', category='error')
+        return redirect(url_for('home'))
+    db.session.delete(thread)
+    db.session.commit()
+    flash('Your Post has been successfully removed.')
+    return redirect(url_for('home'))
+
+
+# comment Route code
+# add comment to a thread
+@app.route('/submit_comment/<int:thread_id>', methods=['POST'])
+# Only logged in users can comment on threads
+@login_required
+def submit_reply(thread_id):
+    """
+    add comment and link to thread
+    """
+    comment_body = request.form.get('comment_body')
+    if comment_body:
+        comment = Comment(
+            comment_body=comment_body,
+            thread_id=thread_id,
+            author_id=current_user.id
+        )
+        db.session.add(comment)
+        db.session.commit()
+        flash('Your comment has been added top the Thread.', category='success')
+    else:
+        flash('Comment cannot be empty.', category='error')
+
+    return redirect(url_for('home'))
+
+
+# View Full Thread
+@app.route('/view_full_thread/<int:thread_id>')
+@login_required
+def view_full_thread(thread_id):
+    thread = Thread.query.get_or_404(thread_id)
+    return render_template(
+        'view_full_thread.html',
+        thread=thread,
+        user=current_user
+    )
+
+
+# Search Route functionalitys
+@app.route('/search_results', methods=['GET', 'POST'])
+def search_results():
+    """
+    inspiration from
+    https://stackoverflow.com/questions/7942547/using-or-in-sqlalchemy 
+    """
+    search_term = request.args.get('search_term')
+    if search_term:
+        threads = Thread.query.join(Thread.tags).filter(
+            or_(
+                Thread.thread_title.ilike(f'%{search_term}%'),
+                Thread.thread_body.ilike(f'%{search_term}%'),
+                Tag.tag_name.ilike(f'%{search_term}%')
+            )
+        ).distinct().all()
+    else:
+        threads = []
+    return render_template(
+        'search_results.html',
+        threads=threads,
+        search_term=search_term,
+        user=current_user)
 
 
 @app.route("/contact", methods=["GET", "POST"])
@@ -103,7 +351,7 @@ def sign_up():
     
     return render_template(
             "sign_up.html",
-            page_title="Sign Up!",
+            page_title="Sign Up",
             user=current_user
             )
 
@@ -141,7 +389,7 @@ def login():
 
     return render_template(
         "login.html",
-        page_title="Log In!",
+        page_title="Log In",
         user=current_user)
 
 
