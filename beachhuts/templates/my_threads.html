@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid search-container">
+    <h2 class="text-sand">View Your Threads and Comments</h2>
+    {% if not current_user.is_authenticated %}
+    <p>Sorry, you haven't asked posted anything yet. <a href="{{url_for('login')}}">Log In</a> or <a
+            href="{{url_for('sign_up')}}">Sign Up</a> to Post</p>
+    {% endif %}
+    {% if threads %}
+    <div class="row search-results">
+        {% for thread in threads %}
+        {% if current_user.id == thread.author_id %}
+        {% include 'thread_portion.html' %}
+        {% endif %}
+        {% endfor %}
+
+    </div>
+    {% else %}
+    <div class="row search-results">
+        <p>Oh! It looks like you haven't asked any questions yet!</p>
+        <a href="{{url_for('submit_question')}}">
+            <p>Start a conversation... <i class="fa-solid fa-comments"></i></p>
+        </a>
+
+    </div>
+    {% endif %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- <div class="container home-container"> -->
+<div class="container-fluid width-90 text-center">
+    <br>
+    <h1 class="text-uppercase text-sand">
+      {{ page_title }}
+    </h1>
+    <form method="POST" class="account-form submit-thread-form">
+    <!-- <h3 class="text-center account-title mb-3">Create Your Forum Post</h3> -->
+    <div class="form-group">
+      <label for="thread_title">Title</label>
+      <input type="text" class="form-control" id="thread_title" name="thread_title"
+        placeholder="Give your post a helpful title" required>
+    </div>
+    <div class="form-group">
+      <label for="thread_body">Content</label>
+      <textarea class="form-control" id="thread_body" name="thread_body"
+        placeholder="Go for it....." required></textarea>
+    </div>
+    
+    <div class="form-group">
+      <!-- <label for="thread_tags">Select tags (Up to 3)</label> -->
+      <!-- max 3 tags per post(thread), if not exist, user can create a new one -->
+      <select class="custom-select text-sand" id="thread_tags" name="thread_tags[]" multiple required>
+        <option class="text-blue" value="" disabled>Select up to 3 tags</option>
+        {% for tag in tags %}
+        <option value="{{ tag.id }}">{{ tag.tag_name }}</option>
+        {% endfor %}
+      </select>
+      
+    </div>
+    <div class="add-tag-link text-sand">
+      <p>If you cannot see the tag you want, <a href="{{url_for('add_tag')}}">click here</a> to add tag(s)</p>
+    </div>
+    <br>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="thread_confirm" name="thread_confirm">
+      <label class="form-check-label text-blue" for="thread_confirm">Remember: Be nice, Be Polite, Be courteous. Keep the language
+        clean</label>
+    </div>
+    <button type="submit" class="btn-lg btn-circle text-sand"><span class="fa-solid fa-thumbs-up text-info"></span> Submit</button>
+  </form>
+</div>
+{% endblock %}

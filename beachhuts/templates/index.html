@@ -1,28 +1,39 @@
 
-{% extends "base.html" %}
 {% block content %}
-    <h2 class="sub-title">{{ page_title }}</h2>
 
-    <div class="row">
-        <div class="col xl-12 col-lg-8 col-md-10 mx-auto">
-            <div class="forum-post">
-                <a href="post.html">
-                    <h2 class="indent-post">
-                        Man must explore, and this is exploration at its greatest
-                    </h2>
-                    <h3 class="indent-post">
-                        Problems look mighty small from 150 miles up
-                    </h3>
-                </a>
-                <p class="post-meta indent-post text-sand">Posted by
-                    <a href="#">Start Bootstrap</a>
-                    on September 24, 2019</p>
-            </div>
-            <hr>
-            <!-- Pager -->
-            <div class="clearfix">
-                <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-            </div>
+<div class="container home-container">
+  <div class="row">
+    {% if current_user.is_authenticated %}
+    <div class="col-4 d-none d-md-block main-container">
+      <div class="home-blocks user-block">
+        <div class="user-container">
+          <h4>Hi, {{ current_user.fname }}</h4>
+          <p>Take a look at your current profile info</p>
+          <div class="user-info">
+            <p>Username: {{ current_user.username }}</p>
+            <p>Questions: {{ user_thread_count }} | <a href="{{url_for('my_threads')}}">View All</a> </p>
+            <p>Member Since: {{ current_user.created_td.strftime('%B %d, %Y') }}</p>
+            <a href="{{url_for('submit_thread')}}">
+              <p>Create a New Post <i class="fa-brands fa-microblog"></i></p>
+            </a>
+          </div>
         </div>
+      </div>
     </div>
+    {% endif %}
+    <!-- Build list of threads for user -->
+    <div class="col-11 col-lg-12 home-blocks all-threads-container">
+      <h2 id="recent" class="home-titles">All Recent Posts</h2>
+      {% if not current_user.is_authenticated %}
+      <p>You need to login <a href="{{url_for('login')}}">Log In</a> or <a href="{{url_for('sign_up')}}">Sign Up</a> before you can post and 
+        add comments to existing posts</p>
+      {% endif %}
+      <div class="row thread-container">
+        {% for thread in threads %}
+        {% include 'thread_portion.html' %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

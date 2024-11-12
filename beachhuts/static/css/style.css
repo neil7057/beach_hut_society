@@ -36,6 +36,11 @@ body {
     margin-bottom: 20px;
 }
 
+.width-90 {
+    width: 90%;
+    margin: auto;
+  }
+
 /* ----------------------------------------Special paddings/margins/text */
 
 h1,
@@ -75,14 +80,6 @@ p {
     color: #4203bf; 
     font-weight: 700;
 }
-
-.error-flash {
-    color: #D10000;
-  }
-  
-  .success-flash {
-    color: #fba018;
-  }
 
 li {
     margin-right: 20px;
@@ -198,8 +195,31 @@ li {
     list-style: none;
 }
 
+.error-flash {
+    color: #D10000;
+}
+  
+.success-flash {
+    color: #da5619;
+}
+
 /*--------------------------------------------Threads*/
 
+.custom-select[multiple] {
+    height: auto;
+    max-height: 100px;
+    overflow-y: auto;
+    width: 40%;
+  }
+  
+  .custom-select {
+    width: 100%;
+  }
+  
+  .submit-thread-form {
+    width: 80%;
+    margin: auto;
+  }
 
 /*--------------------------------------------Comments*/
 
@@ -407,6 +427,10 @@ button[type="submit"] {
     background-color: #b6cee9;
 }
 
+.btn-circle {
+    border-radius: 50%;
+}
+
 .btn-lg {
     background-color: #e5f1a4;
     border-radius: 2rem;
@@ -461,13 +485,6 @@ button[type="submit"] {
     color: #da5619;
 }
 
-.btn-shadow {
-/* Courtesy of https://getcssscan.com/css-box-shadow-examples */
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, 
-    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
-    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-}
-
 a {
     color: #002a57;
 }
@@ -502,6 +519,19 @@ a {
 
   .modal-backdrop {
     position: relative;
+  }
+
+  .modal-footer {
+    display: block;
+  }
+
+  .modal-content {
+    display: block;
+    border-radius: 15px;
+  }
+
+  .modal-header {
+    display: block;
   }
   
 /* ----------------------------------------Media Queries */

@@ -135,8 +135,7 @@ def submit_thread():
             print(tag)
             if tag:
                 new_thread.tags.append(tag)
-        # print(selected_tag_ids)
-        # print(request.form)
+
         db.session.add(new_thread)
         db.session.commit()
         flash('Your thread is now Live', category='success')
@@ -204,6 +203,20 @@ def delete_thread(thread_id):
     db.session.commit()
     flash('Your Post has been successfully removed.')
     return redirect(url_for('home'))
+
+
+# My Questions
+@app.route('/my_threads')
+def my_threads():
+    """
+    present current users thread posts
+    """
+    threads = list(Thread.query.order_by(desc(Thread.date)).all())
+    return render_template(
+        "my_threads.html",
+        page_title="My Forum Posts",
+        user=current_user,
+        threads=threads)
 
 
 # comment Route code
