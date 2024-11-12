@@ -152,6 +152,36 @@ li {
 }
 
 
+/*--------------------------------------------Containers*/
+.home-container {
+    margin-top: 50px;
+  }
+  
+  .thread-container {
+    margin: auto;
+  }
+  
+  .all-thread-container {
+    margin-top: 40px;
+  
+  }
+  
+  .home-titles {
+    margin: 10px 20px;
+  }
+  
+  .user-block {
+    max-height: 100%;
+    padding: 20px 30px 25px 30px !important;
+  }
+  
+  .main-container {
+    padding: 0 0 0 30px;
+  }
+  .user-container {
+    margin-top: 15px;
+  }
+
 /*--------------------------------------------Titles*/
 
 .title {
@@ -553,6 +583,12 @@ a {
 @media (max-width: 950px) {
     .form-container {
         width: 95%;
+    }
+    h2 {
+        font-size: 18px
+    }
+    p {
+        font-size:15px;
     }
 }
 
