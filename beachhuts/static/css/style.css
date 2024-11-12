@@ -76,6 +76,14 @@ p {
     font-weight: 700;
 }
 
+.error-flash {
+    color: #D10000;
+  }
+  
+  .success-flash {
+    color: #fba018;
+  }
+
 li {
     margin-right: 20px;
 }
@@ -84,12 +92,54 @@ li {
     display: none;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
 /*--------------------------------------------Heading*/
 
 #header-details {
      text-align: center;
 }
  
+/*--------------------------------------------Search Items*/
+
+.search-bar {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .search-button {
+    background-color: #FBAC35;
+    border: none;
+  }
+  
+  .search-button:hover,
+  .search-button:active,
+  .search-button:focus,
+  .search-button:active:focus {
+    background-color: #00008B;
+  }
+
+  .search-container {
+    max-width: 90%;
+    margin-top: 50px;
+    background-color: rgba(250,250,250, 0.4);
+    padding: 30px 50px;
+    border-radius: 20px;
+  }
+  
+  .search-results {
+    margin-top: 35px;
+  }
+
 /*--------------------------------------------Images*/
 
 .logo-img {
@@ -147,6 +197,58 @@ li {
 .flashes li {
     list-style: none;
 }
+
+/*--------------------------------------------Threads*/
+
+
+/*--------------------------------------------Comments*/
+
+
+/*--------------------------------------------Tags*/
+
+.tag-badge {
+    background: #fba018;
+    color: #00008B;
+    border-radius: 50px;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    margin-right: 5px;
+  }
+  
+  .tag-badge-container {
+    margin-top: 5px;
+  }
+  
+  .tag-container {
+    width: 90%;
+    margin: auto;
+    padding-left: 0;
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+  
+/*--------------------------------------------cards*/
+
+.tag-card {
+    padding: 10px 15px;
+    margin: 20px 10px;
+    text-align: center;
+    background: #b5ac69;
+    color: #00008B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+  }
+  
+  .tag-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .pad-input {
+    margin: 20px 0;
+  }
 
 /*--------------------------------------------footer*/
 

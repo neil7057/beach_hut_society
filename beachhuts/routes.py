@@ -57,8 +57,7 @@ def tags():
         "tags.html",
         page_title="Browse by Tags",
         user=current_user,
-        tags=tags
-        )
+        tags=tags)
 
 
 # Add New Tag
@@ -90,8 +89,7 @@ def add_tag():
         "add_tag.html",
         page_title="Add a Tag",
         form=form,
-        user=current_user
-        )
+        user=current_user)
 
 
 # Delete Tags
@@ -99,7 +97,7 @@ def add_tag():
 @login_required
 def delete_tag(tag_id):
     """
-    resricted to Admin only by button visibility
+    restricted to Admin only by button visibility
     """
     if not current_user.site_admin:
         flash('Only Admins can edit or delete tags', category='error')
@@ -129,8 +127,7 @@ def submit_thread():
         new_thread = Thread(
                             thread_title=thread_title,
                             thread_body=thread_body,
-                            author_id=current_user.id,
-                            )
+                            author_id=current_user.id,)
 
         # Add/append each tag to the thread
         for tid in selected_tag_ids:
@@ -138,8 +135,8 @@ def submit_thread():
             print(tag)
             if tag:
                 new_thread.tags.append(tag)
-        print(selected_tag_ids)
-        print(request.form)
+        # print(selected_tag_ids)
+        # print(request.form)
         db.session.add(new_thread)
         db.session.commit()
         flash('Your thread is now Live', category='success')
@@ -189,8 +186,7 @@ def edit_thread(thread_id):
                         page_title="Edit Forum Post",
                         thread=thread,
                         tags=tags,
-                        user=current_user
-    )
+                        user=current_user)
 
 
 # Delete forum post (thread)
@@ -212,21 +208,21 @@ def delete_thread(thread_id):
 
 # comment Route code
 # add comment to a thread
-@app.route('/submit_comment/<int:thread_id>', methods=['POST'])
+@app.route('/submit_comments/<int:thread_id>', methods=['POST'])
 # Only logged in users can comment on threads
 @login_required
-def submit_reply(thread_id):
+def submit_comments(thread_id):
     """
     add comment and link to thread
     """
-    comment_body = request.form.get('comment_body')
+    comments_body = request.form.get('comments_body')
     if comment_body:
-        comment = Comment(
-            comment_body=comment_body,
+        comments = Comments(
+            comments_body=comments_body,
             thread_id=thread_id,
-            author_id=current_user.id
-        )
-        db.session.add(comment)
+            author_id=current_user.id)
+
+        db.session.add(comments)
         db.session.commit()
         flash('Your comment has been added top the Thread.', category='success')
     else:
@@ -243,8 +239,7 @@ def view_full_thread(thread_id):
     return render_template(
         'view_full_thread.html',
         thread=thread,
-        user=current_user
-    )
+        user=current_user)
 
 
 # Search Route functionalitys
@@ -334,13 +329,13 @@ def sign_up():
         else:
             # add new user to database
             new_user = User(
-                email_address=email_address,
                 username=username,
+                email_address=email_address,
                 fname=fname,
                 lname=lname,
-                site_admin=site_admin,
                 password=generate_password_hash(
-                    request.form.get("password1")
+                    request.form.get("password1"),
+                site_admin=site_admin,
                 )
             )
             # add user to system
@@ -369,10 +364,8 @@ def login():
         email_address = request.form.get('loginEmail').lower()
         password = request.form.get('password')
         remember_me = 'remember_me' in request.form
-        print(f"Attempting login with email: {email_address}")
         user = User.query.filter_by(email_address=email_address).first()
         if user:
-            print(f"User found: {user.email_address}")  # Debug print
             if check_password_hash(user.password, password):
                 flash('You are Logged In!', category='success')
                 if remember_me:
