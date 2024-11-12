@@ -41,7 +41,9 @@ def home():
 
 @app.route("/about")
 def about():
-    return render_template("about.html", page_title="About B.H.A.S")
+    return render_template("about.html",
+    page_title="About B.H.A.S",
+    user=current_user)
 
 
 # Tag Routes
@@ -275,7 +277,10 @@ def contact():
     if request.method == "POST":
         flash("Thanks {}, we have received your message!".format(
             request.form.get("name")))
-    return render_template("contact.html", page_title="Contact Admin")
+    return render_template(
+        "contact.html",
+        page_title="Contact Admin",
+        user=current_user)
 
 
 
