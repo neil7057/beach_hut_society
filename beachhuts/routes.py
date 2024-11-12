@@ -95,11 +95,11 @@ def add_tag():
 # Delete Tags
 @app.route("/delete_tag/<int:tag_id>")
 @login_required
-def delete_topic(tag_id):
+def delete_tag(tag_id):
     """
     resricted to Admin only by button visibility
     """
-    if not current_user.is_admin:
+    if not current_user.site_admin:
         flash('Only Admins can edit or delete tags', category='error')
         return redirect(url_for('tags'))
     else:
@@ -107,7 +107,7 @@ def delete_topic(tag_id):
         db.session.delete(tag)
         db.session.commit()
         flash('Deletion Successful', category='success')
-        return redirect(url_for('tag'))
+        return redirect(url_for('tags'))
 
 
 # Threads  Routes

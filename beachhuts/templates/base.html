@@ -59,10 +59,12 @@
             <div class="col-12">    
                 <div class="row pb-3"></div>
                 <div class="center-content">
-
+                {% if user.is_authenticated %}
+                    <a class="btn-lg hvr-grow text-sand" aria-label="logout button" href="{{ url_for('logout') }}"><span class="text-info fa-solid fa-user-plus"></span> Log Out</a>
+                {% else %}
                     <a class="btn-lg hvr-grow text-sand" aria-label="Go to the signup page" href="{{ url_for('sign_up') }}"><span class="text-info fa-solid fa-user-plus"></span> Sign Up</a>
                     <a class="btn-lg hvr-grow text-sand" aria-label="Go to the login page" href="{{ url_for('login') }}"><span class="text-info fa-solid fa-warehouse"></span> Log In</a>
-
+                {% endif %}
                 </div>
                 <div class="row pb-3"></div>
                 {% with messages = get_flashed_messages() %}
