@@ -34,7 +34,6 @@ def home():
         page_title="Latest Forum Posts",
         user=current_user,
         threads=threads,
-        urgent_questions=urgent_questions,
         user_thread_count=user_thread_count,
         current_date=current_date
     )
