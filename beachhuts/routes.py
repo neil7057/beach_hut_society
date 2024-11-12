@@ -295,13 +295,13 @@ def sign_up():
         return redirect(url_for('home'))
 
     if request.method == 'POST':
-        email_address = request.form.get('email_address').lower()
         username = request.form.get('username')
+        email_address = request.form.get('email_address').lower()
         fname = request.form.get('fname')
         lname = request.form.get('lname')
-        site_admin = True
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
+        site_admin = False
 
         # Validate user email and ensure it is unique
         user = User.query.filter_by(email_address=email_address).first()
