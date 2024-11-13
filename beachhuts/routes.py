@@ -230,6 +230,7 @@ def submit_comments(thread_id):
     """
     comment_body = request.form.get('comment_body')
     if comment_body:
+        print(comment-body)
         comments = Comments(
             comment_body=comment_body,
             thread_id=thread_id,
@@ -309,7 +310,7 @@ def sign_up():
         lname = request.form.get('lname')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
-        site_admin = False
+        site_admin = True
 
         # Validate user email and ensure it is unique
         user = User.query.filter_by(email_address=email_address).first()
@@ -346,9 +347,9 @@ def sign_up():
                 email_address=email_address,
                 fname=fname,
                 lname=lname,
-                password=generate_password_hash(
-                    request.form.get("password1"),
                 site_admin=site_admin,
+                password=generate_password_hash(
+                    request.form.get("password1")
                 )
             )
             # add user to system
