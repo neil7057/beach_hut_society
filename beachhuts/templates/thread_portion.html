@@ -1,58 +1,62 @@
-<div class="threads col-12 col-lg-6 col-xl-4">
-    <div class="thread-block">
-      <div class="thread-title">
-        <h5>{{ thread.thread_title }}</h5>
-      </div>
-      <div class="thread-body">
-        <p>{{ thread.thread_body }}</p>
-      </div>
-      <br>
-      <div class="thread-tag-title">
-        <p><strong>Category Tags</strong></p>
-      </div>
-      <div class="container-fluid tag-container">
-        <div class="row justify-content-left thread-tags">
-          
-          {% for tag in thread.tags %}
-          <div><span class="topic-badge text-center">{{ tag.tag_name }}</span></div>
-          
-          {% endfor %}
-        </div>
-      </div>
-      <div class="thread-author">
-        <p>
-          Author: <span class=font-weight-bold>{{ thread.author.username }}</span>
-        </p>
-      </div>
 
-      {% if current_user.is_authenticated %}
-      <div id="replyForm" class="d-none replyForm" data-question-id="{{ thread.id }}">
-        <form action="{{ url_for('submit_comments', thread_id=thread.id) }}" method="POST">
-          <div class="form-group">
-            <label for="replyBody">Add a Comment:</label>
-            <textarea class="form-control" id="replyBody" name="comments_body" rows="4" required></textarea>
+      <div class="forum-post">
+        <div class="thread-title">
+          <p>{{ thread.thread_title }}</p>
+        </div>
+        <div>
+          <p class="indent-post text-sand">{{ thread.thread_body }}</p>
+        </div>
+        <br>
+        <div>
+          <p class="indent-post text-blue"><strong>Category Tags:</strong></p>
+        </div>
+        <div class="container-fluid">
+          <div class="row indent-post">
+            
+            {% for tag in thread.tags %}
+            <div><span class="tag-format text-center">{{ tag.tag_name }}</span></div>  
+            {% endfor %}
           </div>
-          <button class="btn-lg" onclick="hideReplyForm('{{ thread.id }}')">Cancel</button>
-          <button type="submit" class="btn-lg btn-success btn-circle">Post Comment</button>
+        </div>
+        <div>
+          <p class="indent-post text-info">
+            Posted by: <span class="font-weight-bold text-sand">{{ thread.author.username }}</span> on
+            <span class="font-weight-bold text-sand">{{ thread.created_td.strftime("%d %B, %Y") }}</span>
+          </p>
+        </div>
   
-        </form>
+        {% if current_user.is_authenticated %}
+        <div id="commentForm" class="d-none commentForm" data-thread-id="{{ thread.id }}">
+          <form action="{{ url_for('submit_comments', thread_id=thread.id) }}" method="POST">
+            <div class="form-group">
+              <label for="commentBody">Add a Comment:</label>
+              <textarea class="form-control" id="commentBody" name="comments_body" rows="4" required></textarea>
+            </div>
+            <button class="btn-lg btn-circle btn-danger" onclick="hideCommentForm('{{ thread.id }}')">Cancel</button>
+            <button type="submit" class="btn-lg btn-success btn-circle">Comment</button>
+          </form>
+        </div>
+        
+        {% endif %}
+    
+                <div class="card-action">
+                  {% if current_user.is_authenticated %}
+                  <div class="text-center">
+                  <a class="btn btn-success btn-circle " onclick="showCommentForm('{{ thread.id }}')">Comment</a>
+                 
+                  {% else %}
+                  <br>
+                  {% endif %}
+                  {% if current_user.id == thread.author_id %}
+                  <a href="{{url_for('edit_thread', thread_id=thread.id)}}"
+                    class="btn btn-info btn-circle">Edit</a>
+                  
+                  <!-- DELETE QUESTION SNIPPET -->
+                  {% include 'delete_thread_modal.html' %}
+                  {% endif %}
+                  {% include 'comments_modal.html' %}
+                </div>
+                </div>
       </div>
-      
-      {% endif %}
-  
-              <div class="card-action">
-                {% if current_user.is_authenticated %}
-                <a class="btn btn-primary" onclick="showReplyForm('{{ thread.id }}')">Post Comment</a>
-                {% else %}
-                <p>Please <a href="{{url_for('sign_up')}}">Sign Up </a>or <a href="{{url_for('login')}}">Log In</a> to Comment on a Post</p>
-                {% endif %}
-                {% if current_user.id == thread.author_id %}
-                <a href="{{url_for('edit_thread', thread_id=thread.id)}}"
-                  class="btn btn-secondary btn-edit">Edit</a>
-                <!-- DELETE QUESTION SNIPPET -->
-                {% include 'delete_thread_modal.html' %}
-                {% endif %}
-                {% include 'comments_modal.html' %}
-              </div>
-    </div>
-  </div>
+    <br>
+

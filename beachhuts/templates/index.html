@@ -1,37 +1,58 @@
-
+{% extends "base.html" %}
 {% block content %}
 
-<div class="container home-container">
-  <div class="row">
+<!-- <div class="container-fluid home-container">
+  <div class="row"> -->
     {% if current_user.is_authenticated %}
-    <div class="col-4 d-none d-md-block main-container">
-      <div class="home-blocks user-block">
-        <div class="user-container">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-3 col-lg-2 col-md-2"></div>
+    <div class="col-xl-6 col-lg-8 col-md-8">
+      <div class="user-display home-container text-blue">
+        <div>
           <h4>Hi, {{ current_user.fname }}</h4>
-          <p>Take a look at your current profile info</p>
+          <br>
+          <p class="text-center">Here's your profile information:</p>
+          <br>
           <div class="user-info">
-            <p>Username: {{ current_user.username }}</p>
-            <p>Questions: {{ user_thread_count }} | <a href="{{url_for('my_threads')}}">View All</a> </p>
-            <p>Member Since: {{ current_user.created_td.strftime('%B %d, %Y') }}</p>
-            <a href="{{url_for('submit_thread')}}">
-              <p>Create a New Post <i class="fa-brands fa-microblog"></i></p>
-            </a>
+            <p>Username:  <span class="text-sand">{{ current_user.username }}</span></p>
+            <br>
+            <p>Forum Posts:  <span class="text-sand">{{ user_thread_count }}</span>
+              <a class="btn-lg text-success" href="{{url_for('my_threads')}}">View All</a> </p>
+            <br>
+            <p>Member Since:  <span class="text-sand">{{ current_user.created_td.strftime('%B %d, %Y') }}</span></p>
+            <br>
+            <p class="text-right no-indent">
+            <a class="btn-lg hvr-grow text-sand " aria-label="Go to the page (opens in a new tab)"
+              href="{{ url_for('submit_thread') }}">Create A <span class="text-info fa-brands fa-microblog">
+              </span> New Post</a>
+            </p>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
     {% endif %}
     <!-- Build list of threads for user -->
-    <div class="col-11 col-lg-12 home-blocks all-threads-container">
-      <h2 id="recent" class="home-titles">All Recent Posts</h2>
+<div class="container-fluid home-container">
+  <div class="row">
+    <div  class="col xl-12 col-lg-8 col-md-10 mx-auto index-format">
+      <h2 id="recent" class="text-center text-sand">All Recent Posts</h2>
       {% if not current_user.is_authenticated %}
-      <p>You need to login <a href="{{url_for('login')}}">Log In</a> or <a href="{{url_for('sign_up')}}">Sign Up</a> before you can post and 
-        add comments to existing posts</p>
+      <br>
+      <p class="text-blue text-center">You need to login <a class="btn-lg hvr-grow text-sand" aria-label="Go to the login page"
+         href="{{ url_for('login') }}"><span class="text-info fa-solid fa-warehouse"></span> Log In</a>
+          or <a class="btn-lg hvr-grow text-sand" aria-label="Go to the signup page" href="{{ url_for('sign_up') }}"><span class="text-info fa-solid fa-user-plus"></span> Sign Up</a>
+           before you can post and add comments to existing posts</p>
+           <br>
       {% endif %}
-      <div class="row thread-container">
+      <div class="row index-format">
+        <div class="col-lg-12">
         {% for thread in threads %}
         {% include 'thread_portion.html' %}
         {% endfor %}
+        </div>
       </div>
     </div>
   </div>

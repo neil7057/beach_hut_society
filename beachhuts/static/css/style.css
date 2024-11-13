@@ -74,7 +74,6 @@ p {
     font-weight: 700;
 }
 
-
 .text-blue {
     font-family: 'Original Surfer', sans-serif;
     color: #4203bf; 
@@ -151,36 +150,36 @@ li {
     width: 50%;
 }
 
-
 /*--------------------------------------------Containers*/
 .home-container {
     margin-top: 50px;
   }
   
-  .thread-container {
+.thread-container {
+    width:75%;
     margin: auto;
-  }
+}
   
-  .all-thread-container {
+.all-thread-container {
     margin-top: 40px;
   
-  }
+}
   
-  .home-titles {
+.home-titles {
     margin: 10px 20px;
-  }
+}
   
-  .user-block {
+.user-block {
     max-height: 100%;
     padding: 20px 30px 25px 30px !important;
-  }
+}
   
-  .main-container {
+.main-container {
     padding: 0 0 0 30px;
-  }
-  .user-container {
+}
+.user-container {
     margin-top: 15px;
-  }
+}
 
 /*--------------------------------------------Titles*/
 
@@ -201,6 +200,16 @@ li {
     margin-bottom: 20px;
     text-align: center;
     color: #03bf82;
+}
+
+.thread-title {
+    font-family: "Original Surfer", sans-serif;
+    font-size: 2rem important!;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #4203bf;
+    text-align: center;
 }
 
 .center {
@@ -240,42 +249,89 @@ li {
     max-height: 100px;
     overflow-y: auto;
     width: 40%;
-  }
+}
   
-  .custom-select {
+.custom-select {
     width: 100%;
-  }
+}
   
-  .submit-thread-form {
+.submit-thread-form {
     width: 80%;
     margin: auto;
-  }
+}
+
+.index-format {
+    background: #8fedcb;
+    border-radius: 12px;
+    padding: 10px 20px;
+    border-radius: 2rem;
+}
+
+.user-display {
+    text-indent: 30px;
+    background: #79c7e5;
+    width: auto;
+    border-radius: 12px;
+    padding: 10px 20px;
+    border-radius: 2rem;
+}
+
+.no-indent {
+    text-indent: 0;
+}
+
+/* .thread-block {
+    background: rgba(250, 250, 250, 0.8);
+    border-radius: 10px;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+} */
 
 /*--------------------------------------------Comments*/
 
+/*--------------------commentForm--------------------*/
+
+.commentForm {
+    margin-bottom: 10px;
+  }
+    
+  .comment-body {
+    background-color: white;
+    margin: 5px 0 15px 0;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  .comment-date {
+    font-size: 0.7rem;
+    margin-top: -10px;
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+  
+  .comments {
+    margin-top: 15px;
+  }
+  
+  .comment-header {
+    text-transform: lowercase;
+    font-size: 0.9rem;
+  }
 
 /*--------------------------------------------Tags*/
 
-.tag-badge {
-    background: #fba018;
-    color: #00008B;
+.tag-format {
+    background: #ffab84;
+    color: #4203bf;
+    font-weight: 700;
     border-radius: 50px;
     padding: 5px 10px;
-    font-size: 0.75rem;
-    margin-right: 5px;
+    font-size: 1.25rem;
+    Margin: 15px;
   }
   
-  .tag-badge-container {
-    margin-top: 5px;
-  }
-  
-  .tag-container {
-    width: 90%;
-    margin: auto;
-    padding-left: 0;
-    margin-left: 0;
-    margin-bottom: 15px;
-  }
   
 /*--------------------------------------------cards*/
 
@@ -347,6 +403,7 @@ footer {
 /* ----------------------------------------forum specific formatting */
 
 .forum-post {
+    background-color:#a7c2fd;
     border-style: solid;
     border-width: 4px;
     border-color:#da5619;
@@ -571,6 +628,12 @@ a {
 @media (min-width: 1400px) {
     .contact-modal-content {
         width: 50%;
+    }
+}
+
+@media (max-width: 1800px) {
+    .thread-container {
+        width: 95%;
     }
 }
 

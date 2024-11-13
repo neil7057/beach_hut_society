@@ -19,3 +19,30 @@
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   });
+
+  // Toggle the comments reply form 
+function showCommentForm(threadId) {
+  let commentForms = document.querySelectorAll('.commentForm');
+  commentForms.forEach(function(form) {
+      if (form.getAttribute('data-thread-id') === threadId) {
+          form.classList.remove('d-none');
+          form.classList.add('d-block');
+      }
+  });
+
+}
+
+function hideCommentForm(threadId) {
+  let commentForms = document.querySelectorAll('.commentForm');
+  commentForms.forEach(function(form) {
+      if (form.getAttribute('data-thread-id') === threadId) {
+          form.classList.remove('d-block');
+          form.classList.add('d-none');
+      }
+  });
+}
+
+module.exports = {
+  showCommentForm,
+  hideCommentForm
+};

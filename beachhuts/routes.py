@@ -132,7 +132,7 @@ def submit_thread():
         # Add/append each tag to the thread
         for tid in selected_tag_ids:
             tag = Tag.query.get(int(tid))
-            print(tag)
+            # print(tag)
             if tag:
                 new_thread.tags.append(tag)
 
@@ -205,13 +205,13 @@ def delete_thread(thread_id):
     return redirect(url_for('home'))
 
 
-# My Questions
+# My Threads
 @app.route('/my_threads')
 def my_threads():
     """
     present current users thread posts
     """
-    threads = list(Thread.query.order_by(desc(Thread.date)).all())
+    threads = list(Thread.query.order_by(desc(Thread.created_td)).all())
     return render_template(
         "my_threads.html",
         page_title="My Forum Posts",
@@ -228,10 +228,10 @@ def submit_comments(thread_id):
     """
     add comment and link to thread
     """
-    comments_body = request.form.get('comments_body')
+    comment_body = request.form.get('comment_body')
     if comment_body:
         comments = Comments(
-            comments_body=comments_body,
+            comment_body=comment_body,
             thread_id=thread_id,
             author_id=current_user.id)
 
