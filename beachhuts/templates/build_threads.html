@@ -8,24 +8,25 @@
     </div>
     <br>
     <div>
-          <p class="indent-post text-blue"><strong>Category Tags:</strong></p>
+      <p class="indent-post text-blue"><strong>Category Tags:</strong></p>
 
-    <div class="container-fluid">
-          <div class="row indent-post">
-            
-            {% for tag in thread.tags %}
-            <div><span class="tag-format text-center">{{ tag.tag_name }}</span></div>  
-            {% endfor %}
-          </div>
-        </div>
-        </div>
-    <div>
-          <p class="indent-post text-info">
-            Posted by: <span class="font-weight-bold text-sand">{{ thread.author.username }}</span> on
-            <span class="font-weight-bold text-sand">{{ thread.created_td.strftime("%d %B, %Y") }}</span>
-          </p>
+      <div class="container-fluid">
+        <div class="row indent-post">
         
-        {% if current_user.is_authenticated %}
+          {% for tag in thread.tags %}
+          <div><span class="tag-format text-center">{{ tag.tag_name }}</span></div>  
+          {% endfor %}
+        </div>
+      </div>
+    </div>    
+
+    <div>
+      <p class="indent-post text-info">
+        Posted by: <span class="font-weight-bold text-sand">{{ thread.author.username }}</span> on
+        <span class="font-weight-bold text-sand">{{ thread.created_td.strftime("%d %B, %Y") }}</span>
+      </p>
+        
+      {% if current_user.is_authenticated %}
         <div id="commentForm" class="d-none commentForm" data-thread-id="{{ thread.id }}">
           <form action="{{ url_for('submit_comments', thread_id=thread.id) }}" method="POST">
             <div class="form-group">
@@ -38,33 +39,32 @@
             </div>
           </form>
         </div>  
-        {% endif %}
+       {% endif %}
     
-        <div class="card-action">
-        {% if current_user.is_authenticated %}
-          <div class="text-center">
-            <a class="btn btn-success btn-circle " onclick="showCommentForm('{{ thread.id }}')">Comment</a>                        
-        {% else %}
-            <br>
-        {% endif %}
-
         <!-- <div class="card-action"> -->
-        {% if current_user.id == thread.author_id %} 
+        {% if current_user.is_authenticated %}
+        <!-- if user logged in, show comments button -->
+        <div class="text-center card-action">
+          <a class="btn btn-success btn-circle " onclick="showCommentForm('{{ thread.id }}')">Comment</a>
+        <!-- if user create post show edit and delete buttons -->
+          {% if current_user.id == thread.author_id %} 
           <a href="{{url_for('edit_thread', thread_id=thread.id)}}"
             class="btn btn-info btn-circle">Edit</a>
           {% include 'delete_thread_modal.html' %}
-        {% else %}
+          {% else %}
+        <!-- check if site admin and if so, show edit and delete for all posts -->
           {% if user.site_admin %}
           <a href="{{url_for('edit_thread', thread_id=thread.id)}}"
             class="btn btn-info btn-circle">Edit</a>
             {% include 'delete_thread_modal.html' %}         
-            <!-- Delete thread modal -->
             {% endif %}
+          {% endif %}
+        </div>
         {% endif %}
-        {% include 'comments_modal.html' %}
-        </div>   
+        <!-- show comments whether logged in or not -->
+      {% include 'comments_modal.html' %}
+       
       </div>
-    </div>
     </div>
   <br>
 
