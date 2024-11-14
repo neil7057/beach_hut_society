@@ -40,7 +40,8 @@
         <div class="text-blue tag-content">
           <h5 class="tag-card-title text-uppercase">{{ tag.tag_name }}</h5>
         </div>
-        {% if current_user.is_authenticated %}
+        <!-- delete button only visible to admin -->
+        {% if user.site_admin %}
         <div class="card-action">
           <!-- Modal Trigger -->
           <button type="button" class="btn btn-circle btn-danger" data-toggle="modal"

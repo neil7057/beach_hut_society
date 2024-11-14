@@ -99,15 +99,12 @@ def delete_tag(tag_id):
     """
     restricted to Admin only by button visibility
     """
-    if not current_user.site_admin:
-        flash('Only Admins can edit or delete tags', category='error')
-        return redirect(url_for('tags'))
-    else:
-        tag = Tag.query.get_or_404(tag_id)
-        db.session.delete(tag)
-        db.session.commit()
-        flash('Deletion Successful', category='success')
-        return redirect(url_for('tags'))
+     
+    tag = Tag.query.get_or_404(tag_id)
+    db.session.delete(tag)
+    db.session.commit()
+    flash('Deletion Successful', category='success')
+    return redirect(url_for('tags'))
 
 
 # Threads  Routes
