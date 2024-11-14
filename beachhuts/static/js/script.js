@@ -41,8 +41,3 @@ function hideCommentForm(threadId) {
       }
   });
 }
-
-module.exports = {
-  showCommentForm,
-  hideCommentForm
-};

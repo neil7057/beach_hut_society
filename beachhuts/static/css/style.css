@@ -136,6 +136,17 @@ li {
     margin-top: 35px;
   }
 
+  .input-group>.form-control:not(:first-child) {
+    padding: 25px;
+    border-radius: 25px;
+  }
+  
+  .input-group>.input-group-append>.btn {
+    border-radius: 0 25px 25px 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
 /*--------------------------------------------Images*/
 
 .logo-img {
@@ -210,6 +221,7 @@ li {
     margin-bottom: 10px;
     color: #4203bf;
     text-align: center;
+    text-transform: capitalize;
 }
 
 .center {
@@ -290,6 +302,9 @@ li {
 
 /*--------------------------------------------Comments*/
 
+
+
+
 /*--------------------commentForm--------------------*/
 
 .commentForm {
@@ -297,11 +312,12 @@ li {
   }
     
   .comment-body {
-    background-color: white;
-    margin: 5px 0 15px 0;
+    background-color: #8fedcb;
+    margin: 5px 15px;
+    width: auto;
     padding: 10px 15px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    /* box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); */
   }
   
   .comment-date {
@@ -320,14 +336,15 @@ li {
     font-size: 0.9rem;
   }
 
+
 /*--------------------------------------------Tags*/
 
 .tag-format {
     background: #ffab84;
     color: #4203bf;
     font-weight: 700;
-    border-radius: 50px;
-    padding: 5px 10px;
+    border-radius: 15px;
+    padding: 0 10px;
     font-size: 1.25rem;
     Margin: 15px;
   }
@@ -414,6 +431,23 @@ footer {
     margin: 20px;
 }
 
+.btn-font {
+    font-size: 16px!important;
+}
+
+.thread-tag-title {
+    font-size: 0.9rem;
+}
+  
+.thread-tag-title p{
+     margin-bottom: 0.3rem;
+}
+  
+.thread-tags {
+    margin-bottom: 5px;
+    margin-left: 0;
+}
+
 /* ----------------------------------------Contact Form */
 
 .comment-text {
@@ -426,7 +460,7 @@ footer {
     color: #4203bf !important;
 }
 
-/* ----------------------------------------overriding some form-control settings to provide a crisper colour contrast */
+/* ----------------------------------------form-control settings*/
 
 .form-control {
     font-size: 1.5rem;
@@ -459,6 +493,21 @@ footer {
     font-size: 24px;
 }
 
+/* **SELECT2** */
+
+.select2-selection__choice {
+    background-color: #007bff !important;
+    border: 1px solid #006fe6 !important;
+    border-radius: 20px !important;
+    padding: 0 10px !important;
+    color: white !important;
+  }
+  
+  .select2-selection__choice__remove {
+    color: white !important;
+    cursor: pointer;
+    margin-right: 5px;
+  }
 /* ----------------------------------------fixed size on page with scrollbar */
 
 textarea {

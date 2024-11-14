@@ -4,17 +4,28 @@
 <div class="container home-container">
   
   <form method="POST" class="account-form submit-thread-form">
-    <h3 class="text-center account-title mb-3">Edit Your Question</h3>
+    <h3 class="text-center text-sand">Edit Your Post</h3>
     <div class="form-group">
-      <label for="thread_title">Thread Title</label>
+      <label class="text-sand index-format" for="thread_title">Thread Title</label>
       <input type="text" class="form-control" id="thread_title" name="thread_title"
         placeholder="Post title" value="{{ thread.thread_title }}" required>
     </div>
     <div class="form-group">
-      <label for="thread_body">Thread</label>
+      <label class="text-sand index-format" for="thread_body">Forum Post</label>
       <textarea class="form-control" id="thread_body" name="thread_body"
         placeholder="Post away. Remember, it's nice to be nice." required>{{ thread.thread_body }}</textarea>
     </div>
+
+    <div class="form-group">
+      <label for="thread_tags">Select Catgeory tags (Max. 3)</label>
+      <select class="custom-select" id="thread_tags" name="thread_tags[]" multiple="multiple">
+      <option value="" disabled>Select up to 3 topics</option>
+      {% for tag in tags %}
+      <option value="{{ tag.id }}" {% if tag in thread.tags %}selected{% endif %}>{{ tag.tag_name }}</option>
+      {% endfor %}
+    </select>
+    </div>
+
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="thread_confirm" name="thread_confirm" required>
       <label class="form-check-label" for="thread_confirm">Keep it polite and friendly and tick this to confirm</label>

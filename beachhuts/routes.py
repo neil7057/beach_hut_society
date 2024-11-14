@@ -227,10 +227,10 @@ def my_threads():
 def submit_comments(thread_id):
     """
     add comment and link to thread
+    be aware that table is Comments, field attribute name is comment
     """
     comment_body = request.form.get('comment_body')
     if comment_body:
-        print(comment-body)
         comments = Comments(
             comment_body=comment_body,
             thread_id=thread_id,
@@ -238,7 +238,7 @@ def submit_comments(thread_id):
 
         db.session.add(comments)
         db.session.commit()
-        flash('Your comment has been added top the Thread.', category='success')
+        flash('Your comment has been added to the Thread.', category='success')
     else:
         flash('Comment cannot be empty.', category='error')
 
@@ -310,7 +310,7 @@ def sign_up():
         lname = request.form.get('lname')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
-        site_admin = True
+        site_admin = false
 
         # Validate user email and ensure it is unique
         user = User.query.filter_by(email_address=email_address).first()
