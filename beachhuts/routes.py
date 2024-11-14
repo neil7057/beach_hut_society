@@ -365,6 +365,67 @@ def sign_up():
             user=current_user
             )
 
+@app.route("/edit_user", methods=['GET', 'POST'])
+def edit_user():
+    """
+    User can amend their profile.
+    """
+    if request.method == 'POST':
+        username = request.form.get('username')
+        email_address = current.user.email_address
+        fname = request.form.get('fname')
+        lname = request.form.get('lname')
+        password1 = request.form.get('password1')
+        password2 = request.form.get('password2')
+        site_admin = False
+
+        # Validate username and ensure it is unique
+        user_name = User.query.filter_by(username=username).first()
+        if user_name:
+            flash(
+                'Username already in use. Please choose another',
+                category='error'
+            )
+        if len(username) < 1:
+            flash('Username required', category='error')
+        elif len(fname) < 1:
+            flash('First Name is required', category='error')
+        elif len(lname) < 1:
+            flash('Last Name is required', category='error')
+        elif password1 != password2:
+            flash('Your passwords do not match', category='error')
+        elif len(password1) < 8:
+            flash(
+                'Password must be at least 8 characters',
+                category='error'
+            )
+        else:
+            # update user to database
+            updated_user = User(
+                username=username,
+                email_address=email_address,
+                fname=fname,
+                lname=lname,
+                site_admin=site_admin,
+                password=generate_password_hash(
+                    request.form.get("password1")
+                )
+            )
+            # update user 
+            db.session.update(updated_user)
+            db.session.commit()
+            # Success message flash
+            flash(
+                'Profile Successfully Updated',
+                category='success'
+            )
+            return redirect(url_for('login'))
+    
+    return render_template(
+            "edit_user.html",
+            page_title="Edit User Details",
+            user=current_user
+            )
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
