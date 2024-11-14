@@ -51,9 +51,9 @@
           </div>
           <div class="comments">
             {% for comments in thread.comments %}
-            <div class="comments-header text-center text-blue">
+            <div class="comments-header text-blue">
                 <!-- Display the comment author and details/posting date -->
-                <h4><strong>{{ comments.author.username }} commented :</strong></h4>
+                <h4 class="indent-post"><strong><span class ="text-sand">{{ comments.author.username }}</span> commented :</strong></h4>
             </div>
             <div class="comment-body">
                 <p class="text-sand">{{ comments.comment_body }}</p>
