@@ -12,9 +12,8 @@ body {
     background-size: cover;
     opacity: 0.6;
     width: 95%;
-    min-height: 400px;
+    min-height:250px;
     margin: auto;
-    /* [adding: 200px 0 150px;] */
 }
 
 .image-round {
@@ -68,6 +67,12 @@ p {
     font-weight: 700;
 }
 
+.text-cancel {
+    font-family: 'Original Surfer', sans-serif;
+    color: red; 
+    font-weight: 700;
+}
+
 .text-green {
     font-family: 'Original Surfer', sans-serif;
     color: #46e514; 
@@ -88,7 +93,7 @@ li {
     display: none;
 }
 
-.visually-hidden {
+/* .visually-hidden {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -97,7 +102,7 @@ li {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
-  }
+  } */
 
 /*--------------------------------------------Heading*/
 
@@ -173,7 +178,6 @@ li {
   
 .all-thread-container {
     margin-top: 40px;
-  
 }
   
 .home-titles {
@@ -287,7 +291,7 @@ li {
 }
 
 .user-display {
-    text-indent: 30px;
+    /* text-indent: 30px; */
     background: #79c7e5;
     width: auto;
     border-radius: 12px;
@@ -298,19 +302,6 @@ li {
 .no-indent {
     text-indent: 0;
 }
-
-/* .thread-block {
-    background: rgba(250, 250, 250, 0.8);
-    border-radius: 10px;
-    padding: 20px 25px;
-    margin-bottom: 20px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-} */
-
-/*--------------------------------------------Comments*/
-
-
-
 
 /*--------------------commentForm--------------------*/
 
@@ -362,6 +353,7 @@ li {
 .tag-card {
     padding: 10px 15px;
     margin: 20px 10px;
+    min-height: 120px;
     text-align: center;
     background: #b5ac69;
     color: #00008B;
@@ -374,6 +366,12 @@ li {
   .tag-card-title {
     font-size: 1.2rem;
     font-weight: bold;
+  }
+
+  .tag-form {
+    color: #da5619;
+    font-size: 1rem!important;
+    font-weight: 700;
   }
 
   .pad-input {
@@ -583,6 +581,14 @@ button[type="submit"] {
     border-radius: 2rem;
 }
 
+.btn-cancel {
+    background-color: #e5f1a4;
+    font-size: 22px;
+    color: red;
+    border-radius: 2rem;
+    border-style: solid;
+}
+
 .btn-admin {
     background-color: #46dd80;
 }
@@ -701,7 +707,7 @@ a {
     }
 }
 
-@media (max-width: 510px) {
+@media (max-width: 780px) {
     .btn-lg {
         font-size: .7rem;
     }
@@ -714,6 +720,9 @@ a {
     h2 {
         font-size: 18px
     }
+    h3 {
+        font-size: 16px
+    }
     h5 {
         font-size: 18px
     }
@@ -722,8 +731,14 @@ a {
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 460px) {
     .btn-lg {
-        font-size: .4rem;
+        font-size: .3rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .tag-form {
+        font-size: .5rem!important;
     }
 }

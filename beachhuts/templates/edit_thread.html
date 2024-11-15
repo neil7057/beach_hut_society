@@ -36,7 +36,9 @@
       <label class="form-check-label" for="thread_confirm">Keep it polite and friendly and tick this to confirm</label>
     </div>
     <div class="text-center">
-    <button type="submit" class="btn btn-success btn-circle">Update</button>
+      <a href="{{ url_for('cancel') }}" class="btn btn-cancel hvr-grow text-cancel">
+        <span class="text-danger fa-solid fa-circle-xmark"></span> <strong>Cancel</strong></a>
+      <button type="submit" class="btn-lg hvr-grow text-sand">Update</button>
     </div>
   </form>
 </div>

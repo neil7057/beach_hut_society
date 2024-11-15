@@ -18,7 +18,7 @@
 
 
 <body>
-    <nav class="container">
+    <nav class="container-fluid">
         <div class="row">
             <div class="col-12">    
                 <div class="row pb-3"></div>
@@ -40,10 +40,10 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
-                        <h1 class="title center-content">Beach Hut Appreciation Society</h1>
+                        <h1 class="center-content text-blue">Beach Hut Appreciation Society</h1>
                     </div>
                     <div class="col-12">
-                        <img class="logo-img center d-none d-xl-block" src="{{ url_for('static', filename='images/bh-tower.png') }}" alt="Beach Hut Logo"
+                        <img class="logo-img center d-none d-lg-block" src="{{ url_for('static', filename='images/bh-tower.png') }}" alt="Beach Hut Logo"
                             aria-label="beach hut image blue and white.">
                         <div class="row pb-6"></div>
                     </div>
@@ -63,7 +63,7 @@
                     <a class="btn-lg hvr-grow text-sand" aria-label="Go to the new post page (opens in a new tab)"
                         href="{{ url_for('submit_thread') }}"><span class="text-info fa-brands fa-microblog"></span> New Post</a>
                     <a class="btn-lg hvr-grow text-sand" aria-label="Go to the add tag page (opens in a new tab)"
-                        href="{{ url_for('tags') }}"><span class="text-info fa-solid fa-icons"></span> Add a Tag</a>
+                        href="{{ url_for('tags') }}"><span class="text-info fa-solid fa-icons"></span> Tag</a>
                     {% if user.site_admin %}
                         <a class="btn-lg btn-admin hvr-grow text-sand" aria-label="manage users button" href="{{ url_for('manage_users') }}">
                             <span class="text-danger fa-solid fa-wrench"></span> Manage Users</a>    

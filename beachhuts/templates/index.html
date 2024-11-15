@@ -12,22 +12,24 @@
           <div class ="center-content">
           <p class="text-center">Here's your profile information:</p>
           <br>
-          <div class="user-info">
+          <div>
             <p>Username:  <span class="text-sand">{{ current_user.username }}</span></p>
             <br>
-            <p><a class="btn-lg text-success" href="{{url_for('edit_user', id=user.id)}}">Edit Profile</a> </p>
+            <p><a class="btn-lg text-success" aria-label="Go to the edit post page (opens in a new tab)" href="{{url_for('edit_user', id=user.id)}}">
+              <span class="text-info fa-solid fa-user-pen"></span> Edit Profile</a> </p>
             <br>
             <p>Forum Posts:  <span class="text-sand">{{ user_thread_count }}</span></p>
             <br>
             <p>
-              <a class="btn-lg text-success" href="{{url_for('my_threads')}}">View All Posts</a> 
+              <a class="btn-lg text-success" aria-label="Go to the view all posts page (opens in a new tab)" href="{{url_for('my_threads')}}">
+                <span class="text-info fa-solid fa-binoculars"></span> View All Posts</a> 
             </p>
             <br>
              <p>Member Since:  <span class="text-sand">{{ current_user.created_td.strftime('%B %d, %Y') }}</span></p>
             <br>
             <p>
-            <a class="btn-lg text-success " aria-label="Go to the page (opens in a new tab)"
-              href="{{ url_for('submit_thread') }}">Create A New Post</a>
+            <a class="btn-lg text-success " aria-label="Go to the new post page (opens in a new tab)" href="{{ url_for('submit_thread') }}">
+              <span class="text-info fa-solid fa-square-plus"></span> Create A New Post</a>
             </p>
             <br>
             </div>

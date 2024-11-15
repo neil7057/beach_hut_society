@@ -461,6 +461,12 @@ def logout():
     flash('You have successfully logged out', category='success')
     return redirect(url_for('home'))
 
+@app.route('/cancel')
+# edit/create cancelled by user
+@login_required
+def cancel():
+    flash('Action Cancelled by User', category='success')
+    return redirect(url_for('home'))
 
 # ADMIN ONLY Function
 @app.route('/manage_users')
