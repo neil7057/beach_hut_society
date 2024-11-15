@@ -14,6 +14,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
     <title>Beach Hut Appreciation Society</title>
 
 
@@ -35,32 +38,32 @@
         </div>
     </nav>    
 <!-- Page Header -->
-    <header class="bg-image" style="background-image: url('{{ url_for('static', filename='images/hero.jpg') }}')">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="site-heading">
-                        <h1 class="center-content text-blue">Beach Hut Appreciation Society</h1>
+    <header class="hero-image">
+    <div class="overlay"></div>
+    <div class="container-fluid position-relative">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <div class="text-center text-white text-uppercase hero-image-content">
+                    <h1 class="text-blue mb-5">Beach Hut Appreciation Society</h1>
+                    <img class="logo-img center d-none d-lg-block" src="{{ url_for('static', filename='images/bh-tower.png') }}" alt="Beach Hut Logo"
+                        aria-label="beach hut image blue and white.">    
+
+                    <form action="{{ url_for('search_results') }}" method="GET" class="input-group search-bar">
+                    <label for="search_term" class="hide-labels">Search</label>
+                    <input type="text" name="search_term" class="form-control input-search" placeholder="Search Forum">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary search-button" aria-label="search" type="submit">
+                        <i class="fa fa-search"></i>
+                        </button>
                     </div>
-                        <img class="logo-img center d-none d-lg-block" src="{{ url_for('static', filename='images/bh-tower.png') }}" alt="Beach Hut Logo"
-                            aria-label="beach hut image blue and white.">    
-                    <!-- **** Search Bar based on https://codepen.io/gungorbudak/pen/ooKNpz **** -->
-                        <br>
-                        <form action="{{ url_for('search_results') }}" method="GET" class="input-group search-bar">
-                        <label for="search_term" class="hide-labels">Search</label>
-                        <input type="text" name="search_term" class="form-control" placeholder="Search the Forum">
-                        <div  class="input-group-append">
-                            <button class="btn btn-search " aria-label="search" type="submit">
-                            <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                        </form>
-                        <!-- **** /search bar **** -->
+                    </form>
+                </div>
+  <!-- **** /search bar **** -->
                 </div>
             </div>
         </div>
+    </div>
     </header>
-
     <nav class="container">
         <div class="row">
             <div class="col-12">    

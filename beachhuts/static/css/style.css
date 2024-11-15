@@ -109,11 +109,36 @@ li {
 #header-details {
      text-align: center;
 }
+
+.hero-image {
+    position: relative;
+    background: url("../images/hero.jpg") no-repeat left center;
+    background-size: cover;
+    height: 380px;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 100%;
+  }
+  
+  .hero-image-content {
+    margin-top: 5%;
+  }
+  
+  .hero-image-content h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    letter-spacing: 0.1rem;
+  }
  
 /*--------------------------------------------Search Items*/
 
 .search-bar {
-    max-width: 400px;
+    max-width: 50%;
     margin: auto;
 }
   
@@ -291,7 +316,6 @@ li {
 }
 
 .user-display {
-    /* text-indent: 30px; */
     background: #79c7e5;
     width: auto;
     border-radius: 12px;
@@ -461,9 +485,9 @@ footer {
 }
 
 .text-muted-wcag {
-    to provide sufficient WCAG contrast
-    color: #4203bf !important;
-}
+    /* to provide sufficient WCAG contrast */
+    color: #4203bf !important; 
+} 
 
 /* ----------------------------------------form-control settings*/
 
@@ -740,7 +764,7 @@ a {
     }
 }
 
-@media (max-width: 460px) {
+/* @media (max-width: 460px) {
     .btn-lg {
         font-size: .3rem;
     }
@@ -750,4 +774,6 @@ a {
     .tag-form {
         font-size: .5rem!important;
     }
-}
+} */
+
+  
