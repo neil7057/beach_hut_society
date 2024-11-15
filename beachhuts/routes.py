@@ -258,7 +258,6 @@ def view_full_thread(thread_id):
 @app.route('/search_results', methods=['GET', 'POST'])
 def search_results():
     """
-    inspiration from
     https://stackoverflow.com/questions/7942547/using-or-in-sqlalchemy 
     """
     search_term = request.args.get('search_term')

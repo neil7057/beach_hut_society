@@ -1,12 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container-fluid search-container">
-  <h2>Search Results for "{{ search_term }}"</h2>
-  {% if not current_user.is_authenticated %}
-  <p>Can you help? <a href="{{url_for('login')}}">Log In</a> or <a href="{{url_for('sign_up')}}">Sign Up</a> to help
-    answer questions and get involved in the conversation!</p>
-  {% endif %}
-  {% if questions %}
+  <div class="container-fluid search-container">
+    <h2 class="text-sand">Search Results for "{{ search_term }}"</h2>
+    {% if not current_user.is_authenticated %}
+    <div class="row">
+      <div class="col-xl-3 col-lg-2 col-md-2"></div>
+      <div class="col-xl-6 col-lg-8 col-md-8">
+        <br>
+        <p class="text-blue text-center">Why not login <a class="btn-lg hvr-grow text-sand" aria-label="Go to the login page"
+          href="{{ url_for('login') }}"><span class="text-info fa-solid fa-warehouse"></span> Log In</a>
+          or <a class="btn-lg hvr-grow text-sand" aria-label="Go to the signup page" href="{{ url_for('sign_up') }}"><span class="text-info fa-solid fa-user-plus"></span> Sign Up</a>
+          before you can post and add comments to existing posts</p>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  
+  {% if threads %}
   <div class="row search-results">
     {% for thread in threads %}
     <div class="col12 col-lg-6 col-xl-4">
@@ -19,23 +29,23 @@
         </div>
         <br>
         <div class="thread-tag-title">
-          <p><strong>Tags</strong></p>
+          <p><strong>Category Tags</strong></p>
         </div>
         <div class="container-fluid">
           <div class="row justify-content-left thread-tags">
             {% set num_tags = thread.tags|length %}
             {% set col_class = 'col-4' if num_tags < 3 else 'col-3' %}
             {% for tag in thread.tags %}
-            <span class="{{ col_class }} tag-badge text-center">{{ tag.tag_name }}</span>
+            <span class="{{ col_class }} topic-badge text-center">{{ tag.tag_name }}</span>
             {% endfor %}
           </div>
         </div>
-        <div class="question-author">
-          <p>Author: <span class=font-weight-bold>{{ thread.author.username }}</span> </p>
+        <div class="thread-author">
+          <p class="text-blue">Author: <span class="font-weight-bold text-sand">{{ thread.author.username }}</span> </p>
         </div>
         <!-- Jinja templating will be used to display a series of buttons depending on user login status and author status -->
         {% if current_user.is_authenticated %}
-        <a class="btn btn-primary">Comment</a>
+        <a class="btn btn-primary">Reply</a>
         {% if current_user.id == thread.author_id %}
         <a href="{{url_for('edit_thread', thread_id=thread.id)}}" class="btn btn-secondary btn-edit">Edit</a>
     {% include 'delete_thread_modal.html' %}
@@ -52,7 +62,8 @@
 </div>
     
 {% else %}
-    <p>No results found for the given tag. <a href="{{url_for('tags')}}"></p>
+    <p class="text-sand">No threads found for the given tag(s). <a href="{{url_for('tags')}}">Add your own tag</a>
+       and start posting..</p>
 {% endif %}
 
 {% endblock %}

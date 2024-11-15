@@ -36,17 +36,26 @@
     </nav>    
 <!-- Page Header -->
     <header class="bg-image" style="background-image: url('{{ url_for('static', filename='images/hero.jpg') }}')">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
                         <h1 class="center-content text-blue">Beach Hut Appreciation Society</h1>
                     </div>
-                    <div class="col-12">
                         <img class="logo-img center d-none d-lg-block" src="{{ url_for('static', filename='images/bh-tower.png') }}" alt="Beach Hut Logo"
-                            aria-label="beach hut image blue and white.">
-                        <div class="row pb-6"></div>
-                    </div>
+                            aria-label="beach hut image blue and white.">    
+                    <!-- **** Search Bar based on https://codepen.io/gungorbudak/pen/ooKNpz **** -->
+                        <br>
+                        <form action="{{ url_for('search_results') }}" method="GET" class="input-group search-bar">
+                        <label for="search_term" class="hide-labels">Search</label>
+                        <input type="text" name="search_term" class="form-control" placeholder="Search the Forum">
+                        <div  class="input-group-append">
+                            <button class="btn btn-search " aria-label="search" type="submit">
+                            <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                        </form>
+                        <!-- **** /search bar **** -->
                 </div>
             </div>
         </div>
