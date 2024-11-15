@@ -279,6 +279,13 @@ li {
     border-radius: 2rem;
 }
 
+.users-format {
+    background: #908fed;
+    border-radius: 12px;
+    padding: 10px 20px;
+    border-radius: 2rem;
+}
+
 .user-display {
     text-indent: 30px;
     background: #79c7e5;
@@ -489,6 +496,10 @@ footer {
     background-color: #2cceff;
 }
 
+.form-upd-back {
+    background-color: #b4dbb6;
+}
+
 .label-font-size {
     font-size: 24px;
 }
@@ -570,6 +581,10 @@ button[type="submit"] {
 .btn-lg {
     background-color: #e5f1a4;
     border-radius: 2rem;
+}
+
+.btn-admin {
+    background-color: #46dd80;
 }
 
 .btn-lg:hover {

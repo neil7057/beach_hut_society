@@ -9,14 +9,13 @@
       <div class="user-display home-container text-blue">
         <div>
           <h4>Hi, {{ current_user.fname }}</h4>
-          <br>
           <div class ="center-content">
           <p class="text-center">Here's your profile information:</p>
           <br>
           <div class="user-info">
             <p>Username:  <span class="text-sand">{{ current_user.username }}</span></p>
             <br>
-            <p><a class="btn-lg text-success" href="{{url_for('edit_user')}}">Edit Profile</a> </p>
+            <p><a class="btn-lg text-success" href="{{url_for('edit_user', id=user.id)}}">Edit Profile</a> </p>
             <br>
             <p>Forum Posts:  <span class="text-sand">{{ user_thread_count }}</span></p>
             <br>

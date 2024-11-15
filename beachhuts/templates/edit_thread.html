@@ -1,18 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container home-container">
-  
+<div class="container width-90 text-center">
+  <br>
+  <h1 class="text-uppercase text-center text-sand">Edit Your Post</h1>
+  <br>
+
   <form method="POST" class="account-form submit-thread-form">
-    <h3 class="text-center text-sand">Edit Your Post</h3>
     <div class="form-group">
-      <label class="text-sand index-format" for="thread_title">Thread Title</label>
-      <input type="text" class="form-control" id="thread_title" name="thread_title"
+      <label class="text-sand " for="thread_title">Title - Maximum of 50 Characters</label>
+      <input type="text" maxlength="50" class="form-control" id="thread_title" name="thread_title"
         placeholder="Post title" value="{{ thread.thread_title }}" required>
     </div>
     <div class="form-group">
-      <label class="text-sand index-format" for="thread_body">Forum Post</label>
-      <textarea class="form-control" id="thread_body" name="thread_body"
+      <label class="text-sand" for="thread_body">Content - Maximum Length: Be Sensible</label>
+      <textarea maxlength="2500" class="form-control" id="thread_body" name="thread_body"
         placeholder="Post away. Remember, it's nice to be nice." required>{{ thread.thread_body }}</textarea>
     </div>
 
@@ -25,7 +27,10 @@
       {% endfor %}
     </select>
     </div>
-
+    <div class="add-tag-link text-sand">
+      <p>If you cannot see the tag you want, <a href="{{url_for('add_tag')}}">click here</a> to add tag(s)</p>
+    </div>
+    <br>
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="thread_confirm" name="thread_confirm" required>
       <label class="form-check-label" for="thread_confirm">Keep it polite and friendly and tick this to confirm</label>

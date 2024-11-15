@@ -10,7 +10,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
 # Sort threads by date using SQLAlchemy desc to present most recent first
-from sqlalchemy import desc, or_, func
+from sqlalchemy import desc, asc, or_, func
 from datetime import datetime
 
 
@@ -154,8 +154,8 @@ def edit_thread(thread_id):
     Edit existing thread post
     """
     thread = Thread.query.get_or_404(thread_id)
-    # check for author id, only author can edit their own thread
-    if current_user.id != thread.author_id:
+    # check for author id, only author (or admin) can edit their own thread
+    if current_user.id != thread.author_id and not User.site_admin:
         flash('You can only edit your own Posts.', category='error')
         return redirect(url_for('home'))
 
@@ -193,7 +193,8 @@ def delete_thread(thread_id):
     Allows users to delete their own forum posts (thread table)
     """
     thread = Thread.query.get_or_404(thread_id)
-    if current_user.id != thread.author_id:
+    # check for author id, only author (or admin) can delete their own thread
+    if current_user.id != thread.author_id and not User.site_admin:
         flash('You can only delete your own posts.', category='error')
         return redirect(url_for('home'))
     db.session.delete(thread)
@@ -365,67 +366,57 @@ def sign_up():
             user=current_user
             )
 
-@app.route("/edit_user", methods=['GET', 'POST'])
-def edit_user():
+@app.route('/edit_user/<int:id>', methods=['GET', 'POST'])
+def edit_user(id):
     """
     User can amend their profile.
     """
+    user = User.query.get_or_404(id)
+
     if request.method == 'POST':
         username = request.form.get('username')
-        email_address = current.user.email_address
         fname = request.form.get('fname')
         lname = request.form.get('lname')
-        password1 = request.form.get('password1')
-        password2 = request.form.get('password2')
-        site_admin = False
 
-        # Validate username and ensure it is unique
+        # Validate username (if it has been updated) and ensure it is unique
         user_name = User.query.filter_by(username=username).first()
-        if user_name:
+        if user_name and username != user.username:
             flash(
                 'Username already in use. Please choose another',
                 category='error'
             )
-        if len(username) < 1:
+
+        elif len(username) < 1:
             flash('Username required', category='error')
         elif len(fname) < 1:
             flash('First Name is required', category='error')
         elif len(lname) < 1:
             flash('Last Name is required', category='error')
-        elif password1 != password2:
-            flash('Your passwords do not match', category='error')
-        elif len(password1) < 8:
-            flash(
-                'Password must be at least 8 characters',
-                category='error'
-            )
         else:
-            # update user to database
-            updated_user = User(
-                username=username,
-                email_address=email_address,
-                fname=fname,
-                lname=lname,
-                site_admin=site_admin,
-                password=generate_password_hash(
-                    request.form.get("password1")
-                )
-            )
-            # update user 
-            db.session.update(updated_user)
+            # update database fields
+            user.username=username
+            user.fname=fname,
+            user.lname=lname,
+
+            # update user on system
             db.session.commit()
             # Success message flash
             flash(
-                'Profile Successfully Updated',
+                'Profile Updated Successfully',
                 category='success'
             )
-            return redirect(url_for('login'))
+            return redirect(url_for('home'))
     
     return render_template(
             "edit_user.html",
-            page_title="Edit User Details",
+            user_id=user.id,
+            username=user.username,
+            fname=user.fname,
+            lname=user.lname,
+            page_title="Edit Your Profile",
             user=current_user
             )
+
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -469,3 +460,17 @@ def logout():
     logout_user()
     flash('You have successfully logged out', category='success')
     return redirect(url_for('home'))
+
+
+# ADMIN ONLY Function
+@app.route('/manage_users')
+def manage_users():
+    """
+    present current users to admin for actions
+    """
+    users = list(User.query.order_by(asc(User.id)).all())
+    return render_template(
+        "manage_users.html",
+        page_title="Manage Site Users",
+        user=current_user,
+        users=users)
