@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="container-fluid home-container">
-    <h2 class="text-sand text-center">View Your Threads and Comments</h2>
+    <h2 class="title-color text-center">View Your Threads and Comments</h2>
     <br>
     {% if not current_user.is_authenticated %}
     <p>Sorry, you need to be logged in to see your posts <a href="{{url_for('login')}}">Log In</a> or <a

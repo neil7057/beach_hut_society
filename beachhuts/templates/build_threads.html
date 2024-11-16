@@ -33,8 +33,11 @@
               <label class="text-sand indent-post" for="commentBody">Add a Comment:</label>
               <div class="text-center">
                 <textarea class="form-control" id="commentBody" name="comment_body" rows="6" required></textarea>
-                <button class="btn-circle btn-danger btn-font" onclick="hideCommentForm('{{ thread.id }}')">Cancel</button>
-                <button type="submit" class="btn-success btn-circle btn-font">Add To Post</button>
+                <!-- <button class="btn-circle btn-danger btn-font" onclick="hideCommentForm('{{ thread.id }}')">Cancel</button> -->
+                <a href="{{ url_for('cancel') }}" class="btn btn-cancel hvr-grow text-cancel">
+                  <span class="text-danger fa-solid fa-circle-xmark"></span> <strong>Cancel</strong></a>
+                <button type="submit" class="btn-lg hvr-grow text-sand">Add Comment</button>
+                <!-- <button type="submit" class="btn-success btn-circle btn-font">Add To Post</button> -->
               </div>
             </div>
           </form>

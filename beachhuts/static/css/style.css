@@ -6,16 +6,6 @@ body {
     background-color: #c8e4fd;
 }
 
-.bg-image {
-    background-position:center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.6;
-    width: 95%;
-    min-height:250px;
-    margin: auto;
-}
-
 .image-round {
     width: 85%;
     border-radius: 15px;
@@ -114,6 +104,7 @@ li {
     position: relative;
     background: url("../images/hero.jpg") no-repeat left center;
     background-size: cover;
+    opacity: 0.6;
     height: 380px;
   }
   
@@ -136,6 +127,12 @@ li {
   }
  
 /*--------------------------------------------Search Items*/
+
+.search-format {
+    background: #8fb5ed;
+    padding: 10px 20px;
+    border-radius: 2rem;
+}
 
 .search-bar {
     max-width: 50%;
@@ -253,6 +250,13 @@ li {
     text-transform: capitalize;
 }
 
+/* can change title color quickly for all titles */
+.title-color {
+    color: #4203bf;
+    text-align: center;
+    text-transform: capitalize;
+}
+
 .center {
     margin: auto;
 }
@@ -303,7 +307,6 @@ li {
 
 .index-format {
     background: #8fedcb;
-    border-radius: 12px;
     padding: 10px 20px;
     border-radius: 2rem;
 }
@@ -434,7 +437,6 @@ footer {
 .solid-border {
     border-style: solid;
     border-width: 2px 0 0;
-    width: 95%;
     border-color:#4203bf;
 }
 
@@ -526,6 +528,13 @@ footer {
     font-size: 24px;
 }
 
+input[type=radio] {
+    width: 20px;
+    height: 20px;
+    color: red;
+
+}
+
 /* **SELECT2** */
 
 .select2-selection__choice {
@@ -611,6 +620,7 @@ button[type="submit"] {
 .btn-lg {
     background-color: #e5f1a4;
     border-radius: 2rem;
+    padding: 6px 12px;
     border: .2rem solid #da5619;
 }
 
@@ -618,6 +628,16 @@ button[type="submit"] {
     background-color: #e5f1a4;
     font-size: 22px;
     color: red;
+    margin: 15px 0 20px;
+    border-radius: 2rem;
+    border: .2rem solid #da5619;
+}
+
+.btn-delete {
+    background-color: #e5f1a4;
+    font-size: 22px;
+    color: red;
+    margin: 15px 0 20px;
     border-radius: 2rem;
     border: .2rem solid #da5619;
 }
@@ -709,10 +729,17 @@ a {
 
   .modal-backdrop {
     position: relative;
+
+  }
+
+  .modal-body {
+    background-color: #c0ffdf;
   }
 
   .modal-footer {
     display: block;
+    background-color: #c0ffdf;
+    border-radius: 0 0 15px 15px;
   }
 
   .modal-content {
@@ -722,6 +749,8 @@ a {
 
   .modal-header {
     display: block;
+    background-color: #e91005;
+    border-radius: 15px 15px 0 0;
   }
   
 /* ----------------------------------------Media Queries */
@@ -740,18 +769,9 @@ a {
     }
 }
 
-@media (max-width: 785px) {
-    .btn-lg {
-        font-size: .7rem;
-    }
-}
-
 @media (max-width: 950px) {
     .form-container {
         width: 95%;
-    }
-    h2 {
-        font-size: 18px
     }
     h3 {
         font-size: 16px
@@ -760,20 +780,26 @@ a {
         font-size: 18px
     }
     p {
-        font-size:15px;
+        font-size: 1.3rem;
     }
 }
 
-/* @media (max-width: 460px) {
+@media (max-width: 460px) {
     .btn-lg {
-        font-size: .3rem;
+        font-size: .6rem;
     }
     h1 {
         font-size: 2rem;
     }
+    h2 {
+            font-size: 1.4rem;
+    }
     .tag-form {
         font-size: .5rem!important;
     }
-} */
+}
 
-  
+
+
+
+

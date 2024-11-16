@@ -365,6 +365,7 @@ def sign_up():
             user=current_user
             )
 
+
 @app.route('/edit_user/<int:id>', methods=['GET', 'POST'])
 def edit_user(id):
     """
@@ -412,9 +413,84 @@ def edit_user(id):
             username=user.username,
             fname=user.fname,
             lname=user.lname,
-            page_title="Edit Your Profile",
+            page_title="Edit User Profile",
             user=current_user
             )
+
+
+@app.route('/admin_edit_user/<int:id>', methods=['GET', 'POST'])
+def admin_edit_user(id):
+    """
+    Admin can amend any profile.
+    additional route required to set correct user.
+    """
+    user = User.query.get_or_404(id)
+
+    if request.method == 'POST':
+        username = request.form.get('username')
+        fname = request.form.get('fname')
+        lname = request.form.get('lname')
+        password = request.form.get('password')
+        siteadmin = request.form.get('siteadmin')
+
+        # Validate username (if it has been updated) and ensure it is unique
+        user_name = User.query.filter_by(username=username).first()
+        if user_name and username != user.username:
+            flash(
+                'Username already in use. Please choose another',
+                category='error'
+            )
+
+        elif len(username) < 1:
+            flash('Username required', category='error')
+        elif len(fname) < 1:
+            flash('First Name is required', category='error')
+        elif len(lname) < 1:
+            flash('Last Name is required', category='error')
+        else:
+            # update database fields
+            user.username=username
+            user.fname=fname,
+            user.lname=lname,
+            
+            # update user on system
+            db.session.commit()
+            # Success message flash
+            flash(
+                'Profile Updated Successfully',
+                category='success'
+            )
+            return redirect(url_for('manage_users'))
+    
+    return render_template(
+        "admin_edit_user.html",
+        user_id=user.id,
+        username=user.username,
+        fname=user.fname,
+        lname=user.lname,
+        siteadmin=user.site_admin,
+        page_title="Edit User Profile",
+        user=user
+    )
+
+
+# Delete user
+@app.route('/delete_user/<int:user_id>')
+@login_required
+def delete_user(user_id):
+    """
+    Allows admin user to delete user accounts
+    """
+    user = User.query.get_or_404(user_id)
+    # Only admin can users. non-admins should never get here but just in case.
+    if not User.site_admin:
+        flash('You must be site admin to delete a user account.', category='error')
+        return redirect(url_for('manage_users'))
+
+    db.session.delete(user)
+    db.session.commit()
+    flash('The User account has been successfully deleted.')
+    return redirect(url_for('manage_users'))
 
 
 @app.route("/login", methods=['GET', 'POST'])

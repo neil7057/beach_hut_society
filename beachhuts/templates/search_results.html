@@ -1,26 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="container-fluid search-container">
-    <h2 class="text-sand">Search Results for "{{ search_term }}"</h2>
-    {% if not current_user.is_authenticated %}
-    <div class="row">
-      <div class="col-xl-3 col-lg-2 col-md-2"></div>
-      <div class="col-xl-6 col-lg-8 col-md-8">
-        <br>
-        <p class="text-blue text-center">Why not login <a class="btn-lg hvr-grow text-sand" aria-label="Go to the login page"
-          href="{{ url_for('login') }}"><span class="text-info fa-solid fa-warehouse"></span> Log In</a>
-          or <a class="btn-lg hvr-grow text-sand" aria-label="Go to the signup page" href="{{ url_for('sign_up') }}"><span class="text-info fa-solid fa-user-plus"></span> Sign Up</a>
-          before you can post and add comments to existing posts</p>
+
+{% if not current_user.is_authenticated %}
+<div class="container-fluid home-container">
+  <div class="row">
+    <div class="col xl-8 col-lg-8 col-md-10 mx-auto search-format">
+      <div class="row">
+        <div class="col-12">
+          <br>
+          <p class="text-sand text-center">You need to<span class="text-blue"> Signup</span>
+             or <span class="text-blue"> Login</span></a>
+            before you can post and comment on existing posts</p>
+            <br>
+        </div>
       </div>
-    </div>
-    {% endif %}
+    </div>  
   </div>
-  
-  {% if threads %}
-  <div class="row search-results">
-    {% for thread in threads %}
-    <div class="col12 col-lg-6 col-xl-4">
-      <div class="thread-block">
+</div>
+{% endif %}
+
+<div class="container-fluid home-container"></div>
+  <div class="row">
+    <div class="col xl-12 col-lg-8 col-md-10 mx-auto index-format">
+      <h2 class="title-color">Search Results for "{{ search_term }}"</h2>
+    {% if threads %}
+      <div class="row search-results forum-post">
+      {% for thread in threads %}
+      <div>
+      <!-- <div class="thread-block"> -->
         <div class="thread-title">
           <h5>{{ thread.thread_title }}</h5>
         </div>
@@ -39,7 +46,7 @@
             <span class="{{ col_class }} topic-badge text-center">{{ tag.tag_name }}</span>
             {% endfor %}
           </div>
-        </div>
+
         <div class="thread-author">
           <p class="text-blue">Author: <span class="font-weight-bold text-sand">{{ thread.author.username }}</span> </p>
         </div>
@@ -54,16 +61,15 @@
     {% endif %}
 
       </div>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-
-  </div>
-
-</div>
-    
-{% else %}
+    </div>    
+    {% else %}
     <p class="text-sand">No threads found for the given tag(s). <a href="{{url_for('tags')}}">Add your own tag</a>
        and start posting..</p>
-{% endif %}
+    {% endif %}
+  </div>
+</div>
 
 {% endblock %}

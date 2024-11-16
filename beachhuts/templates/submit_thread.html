@@ -4,7 +4,7 @@
 <!-- <div class="container home-container"> -->
 <div class="container-fluid width-90 text-center">
   <br>
-  <h1 class="text-uppercase text-sand">
+  <h1 class="text-uppercase title-color">
     {{ page_title }}
   </h1>
   <br>
@@ -40,7 +40,9 @@
       <label class="form-check-label text-blue" for="thread_confirm">Remember: Be nice, Be Polite, Be courteous. Keep the language
         clean</label>
     </div>
-    <button type="submit" class="btn-lg btn-circle text-sand"><span class="fa-solid fa-thumbs-up text-info"></span> Submit</button>
+    <a href="{{ url_for('cancel') }}" class="btn btn-cancel hvr-grow text-cancel">
+      <span class="text-danger fa-solid fa-circle-xmark"></span> <strong>Cancel</strong></a>
+    <button type="submit" class="btn-lg btn-circle text-success"><span class="fa-solid fa-thumbs-up text-success"></span><strong> Submit</strong></button>
   </form>
 </div>
 {% endblock %}
