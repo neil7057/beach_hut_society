@@ -19,57 +19,84 @@
 </div>
 {% endif %}
 
-<div class="container-fluid home-container"></div>
+<div class="container-fluid home-container">
   <div class="row">
     <div class="col xl-12 col-lg-8 col-md-10 mx-auto index-format">
       <h2 class="title-color">Search Results for "{{ search_term }}"</h2>
-    {% if threads %}
-      <div class="row search-results forum-post">
-      {% for thread in threads %}
-      <div>
-      <!-- <div class="thread-block"> -->
-        <div class="thread-title">
-          <h5>{{ thread.thread_title }}</h5>
-        </div>
-        <div class="thread-body">
-          <p>{{ thread.thread_body }}</p>
-        </div>
-        <br>
-        <div class="thread-tag-title">
-          <p><strong>Category Tags</strong></p>
-        </div>
-        <div class="container-fluid">
-          <div class="row justify-content-left thread-tags">
-            {% set num_tags = thread.tags|length %}
-            {% set col_class = 'col-4' if num_tags < 3 else 'col-3' %}
-            {% for tag in thread.tags %}
-            <span class="{{ col_class }} topic-badge text-center">{{ tag.tag_name }}</span>
-            {% endfor %}
+      <br>
+      {% if threads %}
+        <div>
+        {% for thread in threads %}
+          <div class="forum-post">
+          <div class="thread-title">
+            <h3 class="thread-title">{{ thread.thread_title }}</h3>
           </div>
-
-        <div class="thread-author">
-          <p class="text-blue">Author: <span class="font-weight-bold text-sand">{{ thread.author.username }}</span> </p>
+          <div>
+          <p class="indent-post text-sand">{{ thread.thread_body }}</p>
+          </div>
+          <div>
+          <p class="indent-post text-blue"><strong>Category Tags:</strong></p>
+          <div class="container-fluid">
+            <div class="row indent-post">
+              {% for tag in thread.tags %}
+              <div><span class="tag-format text-center">{{ tag.tag_name }}</span></div>  
+              {% endfor %}
+            </div>
+          </div>
+          </div>   
+          <div>
+            <p class="indent-post text-info">
+              Posted by: <span class="font-weight-bold text-sand">{{ thread.author.username }}</span> on
+              <span class="font-weight-bold text-sand">{{ thread.created_td.strftime("%d %B, %Y") }}</span>
+            </p>
+            
+            {% if current_user.is_authenticated %}
+            <div id="commentForm" class="d-none commentForm" data-thread-id="{{ thread.id }}">
+              <form action="{{ url_for('submit_comments', thread_id=thread.id) }}" method="POST">
+                <div class="form-group">
+                  <label class="text-sand indent-post" for="commentBody">Add a Comment:</label>
+                  <div class="text-center">
+                    <textarea class="form-control" id="commentBody" name="comment_body" rows="6" required></textarea>
+                    <!-- <button class="btn-circle btn-danger btn-font" onclick="hideCommentForm('{{ thread.id }}')">Cancel</button> -->
+                    <a href="{{ url_for('cancel') }}" class="btn btn-cancel hvr-grow text-cancel">
+                      <span class="text-danger fa-solid fa-circle-xmark"></span> <strong>Cancel</strong></a>
+                    <button type="submit" class="btn-lg hvr-grow text-sand">Add Comment</button>
+                    <!-- <button type="submit" class="btn-success btn-circle btn-font">Add To Post</button> -->
+                  </div>
+                </div>
+              </form>
+            </div>  
+            {% endif %}
+        
+            {% if current_user.is_authenticated %}
+            <!-- if user logged in, show comments button -->
+            <div class="text-center card-action">
+              <a class="btn btn-success btn-circle " onclick="showCommentForm('{{ thread.id }}')">Comment</a>
+            <!-- if user create post show edit and delete buttons -->
+              {% if current_user.id == thread.author_id %} 
+              <a href="{{url_for('edit_thread', thread_id=thread.id)}}"
+                class="btn btn-info btn-circle">Edit</a>
+              {% include 'delete_thread_modal.html' %}
+              {% else %}
+            <!-- check if site admin and if so, show edit and delete for all posts -->
+              {% if user.site_admin %}
+              <a href="{{url_for('edit_thread', thread_id=thread.id)}}"
+                class="btn btn-info btn-circle">Edit</a>
+                {% include 'delete_thread_modal.html' %}         
+                {% endif %}
+              {% endif %}
+            </div>
+            {% endif %}
+            <!-- show comments whether logged in or not -->
+            {% include 'comments_modal.html' %}
         </div>
-        <!-- Jinja templating will be used to display a series of buttons depending on user login status and author status -->
-        {% if current_user.is_authenticated %}
-        <a class="btn btn-primary">Reply</a>
-        {% if current_user.id == thread.author_id %}
-        <a href="{{url_for('edit_thread', thread_id=thread.id)}}" class="btn btn-secondary btn-edit">Edit</a>
-    {% include 'delete_thread_modal.html' %}
-    {% endif %}
-    {% include 'comments_modal.html' %}
-    {% endif %}
-
-      </div>
-      </div>
-      {% endfor %}
+        <br> 
+          </div> 
+        <br>
+        {% endfor %}
+        </div>
+      {% endif %}
     </div>
-    </div>    
-    {% else %}
-    <p class="text-sand">No threads found for the given tag(s). <a href="{{url_for('tags')}}">Add your own tag</a>
-       and start posting..</p>
-    {% endif %}
   </div>
-</div>
-
+</div>     
 {% endblock %}
