@@ -25,18 +25,33 @@ This is my website
         *  [Design Considerations](#design-considerations)
     *   [Wireframes](#wireframes)
         *   [Index](#home)
-        *   [Myths](#myths)
-        *   [Quiz](#quiz)
+        *   [Sign Up](#sign-up)
+        *   [Log In](#log-in)
+        *   [About](#about)
         *   [Contact](#contact)
-        *   [Confirmation](#confirmation)
+        *   [Edit Profile](#edit-profile)
+        *   [Edit Profile - Admin](#edit-profile---admin)
+        *   [View All posts](#view-all-posts-for-user)
+        *   [Posts](#posts)
+            *   [Create Post](#create-a-new-post)
+            *   [Edit Post](#edit-post)
+            *   [Delete Post](#delete-post)
+        *   [Comments](#comments)
+            *   [Add Comment](#add-comment)
+            *   [Edit Comment](#edit-comment)
+            *   [Delete Comment](#delete-comment)
+        *   [Tags](#tags)
+            *   [Add Tag](#add-tag)
+            *   [Delete Tag](#delete-tag)
+        *   [Manage Users](#manage-users)
+        *   [Search Results](#search-results)
         *   [404](#404)
     *   [Structure](#structure)
 3. [Features](#features)
     *   [Landing Page](#landing-page)
-    *   [Myths Page](#myths-page)
-    *   [Quiz Page](#quiz-page)
+
     *   [Contact Page](#contact-page)
-    *   [Confirmation Popup](#confirmation-page)
+
     *   [Error 404 Page](#error-404-page)
     *   [Site Features](#site-features)
 4. [Technologies Used](#technologies-used)
@@ -101,122 +116,155 @@ This is my website
 
 -   ### Design
     -   #### Colour Scheme
-        -   I've used the main colours 
+        -   I've used the pastel beach themed colours to reflect the subject matter of the site. A pale blue (#C8E4FD) background for the body.
+        Titles alternatively in Dark Blue (#4203BF) and Sand (#DA5619) with text in Light Blue and Sand. Buttons are consistent according to function.
+        -   General navigation buttons are similarly styled and edit, comment and delete buttons are styled differently to differentiate but remain consistnet amongst the forum post and tag elements.
         -   Some colours were muted or changed to meet WAVE guidelines during final stage testing. 
         
     -   #### Typography
-        -   The
-        -   
+        -   The fonts chosen are Original Surfer and Seaweed Script to adhere to teh beach theme. Seaweed Script is novel but unsuitable for use in large text blocks as it can make it difficult to read. Sans-serif is the fallback font.
+ 
     -   #### Imagery
-        -   Each header
-        -   
-        -   The site has additional images where it adds clarity or is the best mechanism to communicate ideas.
+        -   There is a Hero image in teh base template which propogates to each page and gives the site a consistenmt look and feel.
+        -   There is a beach logo on larger screens but is hidden below 1000px.
+        -   The site has a couple of additional images on the About page but as a blog site is mostly text based, for now..
 
     -   #### Design Considerations
-        -   The header of each page
-        -   
-        -   Colours are 
+        -   The site is built with templates based on Base.html so retains a consistent Header and Footer
+     
+        -   Colours are Bold yet soft and are selected to communicate a fun, beach theme and reflect the varied colours that are common to beach hut installations.
 
-        -   There are wider margins on each page in larger screen sizes as is common practice in web development. These margins reduce at smaller screen sizes. 
+        -   The header and footer occupy the whole width of teh screen but contnet has wide margins on larger screen sizes with thin margins for tablet and mobile views.
 
-        -   The site is responsive with some items resized for smaller screens. 
+        -   The site is responsive with menus and text resized for smaller screens. 
 
-        -   Menu navigation is consistent across all pages and screen sizes and is central to each page. 
+        -   Menu navigation is consistent across all pages and screen sizes and is central to each page. Menus change according to login and admin status.
 
-        -   Menu button text is.
+        -   Menu button text is Sand witha  yellow background. The admin only function is highlighted in Green.
 
         -   There is a customised error-404 page 'just in case'.
 
-        -   There is a confirmation popup when a form is successfully submitted and a corresponding popup if the form submission is unsuccessful. The popup is dismissed when 'close' is slected or the user clicks outside of the form. The logo on the popup form also directs back to the Home Page.
+        -   There are popup confirmations on all Delete functions and each update page also offers a 'cancel' function rather than expecting teh user to use tha back button or actively click elsewhere.
+
+        -   Administrators have additional functions which are presented when they access different ares of the site.
+
+        -   Error and confirmation messages are displayed at the top of the main site area, below the secondary menus. I chose not to make these disappear automatically or after a stated time as I personally find that inconvenient and prefer to have messages displayed until i have read that at my pace and taken action to dismiss them.
+        
+        -   Threads(posts) and the first comment are visible to all visitors but user have to register and login to see full posts or comment.
+
+        -   Logged in users get to see their user profile, can edit it and can see all their own posts on a 'view all posts' page. I chose not to allow users to delete their own accounts as that would remove contnet from the site, incluidng any responses from other users. 
 
 -   ### Wireframes
+
+-   #### Base
+    <details><summary>Base Template</summary>
+    <img src="/workspace/beach_hut_society/beachhuts/static/docs/readme_images/screens/base-html.png">
+    </details>
+
 -   #### Home
-    <details><summary>Home - Desktop</summary>
-    <img src="docs/readme_images/index-desktop.png">
+    <details><summary>Home - Logged In</summary>
+    <img src="/workspace/beach_hut_society/beachhuts/static/docs/readme_images/screens/home-logged-in.png">
     </details>
     <br>
-    <details><summary>Home - Tablet</summary>
-    <img src="docs/readme_images/index-tablet.png">
+    <details><summary>Home - Logged Out</summary>
+    <img src="/workspace/beach_hut_society/beachhuts/static/docs/readme_images/screens/home-logged-out.png">
     </details>
     <br>
-    <details><summary>Home - Mobile</summary>
-    <img src="docs/readme_images/index-mobile.png">
+
+-   #### Sign Up
+    <details><summary>Sign Up</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
     </details>
 
--   #### Myths
-
-    <details><summary>Myths - Desktop</summary>
-    <img src="docs/readme_images/myths-desktop.png">
-    </details>
-    <br>
-     <details><summary>Myths Trip - Tablet</summary>
-    <img src="docs/readme_images/myths-tablet.png">
-    </details>
-    <br>
-    <details><summary>Myths - Mobile</summary>
-    <img src="docs/readme_images/myths-mobile.png">
+-   #### Log In
+    <details><summary>Log In</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
     </details>
 
--   #### Quiz
-
-    <details><summary>Quiz - Desktop</summary>
-    <img src="docs/readme_images/quiz-desktop.png">
-    </details>
-    <br>
-      <details><summary>Quiz - Tablet</summary>
-    <img src="docs/readme_images/quiz-tablet.png">
-    </details>
-    <br>
-      <details><summary>Quiz - Mobile</summary>
-    <img src="docs/readme_images/quiz-mobile.png">
-    </details>
-    <br>
-    <details><summary>Quiz - Intructions</summary>
-    <img src="docs/readme_images/quiz-instructions.png">
+-   #### About
+    <details><summary>About</summary>
+    <img src="/workspace/beach_hut_society/beachhuts/static/docs/readme_images/screens/about.png">
     </details>
 
 -   #### Contact
-
-    <details><summary>Contact -Desktop</summary>
-    <img src="docs/readme_images/contact-desktop.png">
+    <details><summary>Contact</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/contact.png">
     </details>
     <br>
-     <details><summary>Contact - Tablet</summary>
-    <img src="docs/readme_images/contact-tablet.png">
-    </details>
-    <br>
-     <details><summary>Contact - Mobile</summary>
-    <img src="docs/readme_images/contact-mobile.png">
+
+-   #### Edit Profile
+    <details><summary>Edit profile</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
     </details>
 
--   #### Confirmation
-
-    <details><summary>Confirmation - Desktop</summary>
-    <img src="docs/readme_images/confirmation-desktop.png">
-    </details>
-    <br>
-     <details><summary>Confirmation - Tablet</summary>
-    <img src="docs/readme_images/confirmation-tablet.png">
-    </details>
-    <br>
-     <details><summary>Confirmation - Mobile</summary>
-    <img src="docs/readme_images/confirmation-mobile.png">
+-   #### Edit Profile - Admin
+    <details><summary>Edit profile, Administrator</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
     </details>
 
+-   #### View All Posts For User
+    <details><summary>View All posts For A User</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    </details>
+
+-   #### Posts
+-   ##### Create A New Post
+    <details><summary>Create A New Post</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/create-post.png">
+    </details>
+
+-   ##### Edit Post
+    <details><summary>Edit post</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    </details>
+
+-   ##### Delete Post
+    <details><summary>Delete post</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    </details>
+
+-   #### Comments
+-   ##### Add Comment
+    <details><summary>Add Comment</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/add-comment.png">
+    </details>
+
+-   #### Edit Comment
+    <details><summary>Edit Comment</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    </details>
+
+-   #### Delete Comment
+    <details><summary>Delete Comment</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    </details>
+
+-   #### Tags
+-   ##### Add tag
+    <details><summary>Add Tag</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/tags.png">
+    </details>
+
+-   ##### Delete Tag
+    <details><summary>Delete Tag</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    </details>
+
+-   #### Manage Users
+    <details><summary>Manage Users</summary>
+    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    </details>
+
+-   #### Search Results 
+    <details><summary>Search Results</summary>
+    <img src="docs/readme_images/404-desktop.png">
+    </details>
 
 -   #### 404 
-
     <details><summary>404 -Desktop</summary>
     <img src="docs/readme_images/404-desktop.png">
     </details>
-    <br>
-    <details><summary>404 - Tablet</summary>
-    <img src="docs/readme_images/404-tablet.png">
-    </details>
-    <br>
-    <details><summary>404 - Mobile</summary>
-    <img src="docs/readme_images/404-mobile.png">
-    </details>
+
  
 -   ### **Structure**
 
