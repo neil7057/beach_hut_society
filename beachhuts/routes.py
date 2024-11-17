@@ -55,40 +55,42 @@ def tags():
     tags = list(Tag.query.order_by(Tag.tag_name).all())
     return render_template(
         "tags.html",
-        page_title="Browse by Tags",
+        page_title="Browse Tags",
         user=current_user,
         tags=tags)
 
 
-# Add New Tag
-class AddTagForm(FlaskForm):
-    tag_name = StringField('Tag Name', validators=[DataRequired()])
-    submit = SubmitField('Add Tag')
-
-
-@app.route("/add_tag", methods=["GET", "POST"])
-@login_required  # restricted to admin access only 
+# Add a Tag
+@app.route('/add_tag', methods=['GET', 'POST'])
+@login_required
 def add_tag():
     """
-    Loads form to add a new tag
+    Logged in Users can add tags
     """
-    form = AddTagForm()
-    if form.validate_on_submit():
+    if request.method == 'POST':
+        tag_name = request.form.get('tag_name')
+        selected_tag_ids = request.form.getlist('thread_tags[]')
+        new_tag = Tag(
+                    tag_name=tag_name,)
+        
         existing_tag = Tag.query.filter_by(
-            tag_name=form.tag_name.data
-            ).first()
+        tag_name=tag_name
+        ).first()
         if existing_tag is None:
-            tag = Tag(tag_name=form.tag_name.data)
-            db.session.add(tag)
+            tag = Tag(
+                tag_name=tag_name,)
+            db.session.add(new_tag)
             db.session.commit()
-            flash('Tag added successfully.', category='success')
-            return redirect(url_for("tags"))
+            flash('Your tag has been created', category='success')
+            return redirect(url_for('tags'))
         else:
             flash('Tag already exists.', category='error')
+
+
     return render_template(
         "add_tag.html",
-        page_title="Add a Tag",
-        form=form,
+        page_title="Add A New tag",
+        tags=tags,
         user=current_user)
 
 
@@ -107,7 +109,6 @@ def delete_tag(tag_id):
     return redirect(url_for('tags'))
 
 
-# Threads  Routes
 # Add a Thread
 @app.route('/submit_thread', methods=['GET', 'POST'])
 @login_required
@@ -200,6 +201,59 @@ def delete_thread(thread_id):
     db.session.delete(thread)
     db.session.commit()
     flash('Your Post has been successfully removed.')
+    return redirect(url_for('home'))
+
+
+# Edit Comment
+@app.route('/edit_comment/<int:comments_id>', methods=['GET', 'POST'])
+@login_required
+def edit_comment(comments_id):
+    """
+    Edit existing comment post
+    """
+    comments = Comments.query.get_or_404(comments_id)
+    # check for author id, only author (or admin) can edit their own comments
+    if current_user.id != comments.author_id and not User.site_admin:
+        flash('You can only edit your own comments.', category='error')
+        return redirect(url_for('home'))
+
+    tags = Tag.query.all()
+
+    if request.method == 'POST':
+        comment_body = request.form['comment_body']
+        # Update comment data
+        comments.comment_body = comment_body
+
+        # commit these changes
+        db.session.commit()
+        flash('Comment updated successfully', category='success')
+        return redirect(url_for('home'))
+
+    return render_template(
+                        'edit_comment.html',
+                        comments_id=comments.id,
+                        page_title="Edit Comment Post",
+                        comments=comments,
+                        user=current_user)
+
+
+# Delete forum post (thread)
+@app.route('/delete_comment/<int:comments_id>')
+@login_required
+def delete_comment(comments_id):
+    """
+    Allo user to delete their own comments
+    """
+    comment = Comments.query.get_or_404(comments_id)
+    # check for author id, only author (or admin) can delete their own comment
+    if current_user.id != Comments.author_id and not User.site_admin:
+        flash('You can only delete your own comments', category='error')
+        return redirect(url_for('home'))
+
+    db.session.delete(comment)
+    db.session.commit()
+
+    flash('The comment has been successfully removed.')
     return redirect(url_for('home'))
 
 

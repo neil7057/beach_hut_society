@@ -5,16 +5,25 @@
   <h1 class="text-uppercase title-color">
     {{ page_title }}
   </h1>
-  <div class="row justify-content-center">
-    <div class="col-sm-10 col-md-8 col-lg-6">
-      <form class ="pad-input tag-form" method="post">
-        {{ form.hidden_tag() }}
-        {{ form.tag_name.label }}
-        {{ form.tag_name() }}
-        {{ form.submit() }}
-    </form>
-    </div>
+  <br>
+  <form method="POST" class="account-form submit-tagform">
+  <div class ="row">
+    <div class="col-3 col-xs-1"></div>
+    <div class ="col-6 ">
+    <div class="form-group">
+    <label for="tag_name" class="text-sand">Tag Name - Maximum of 16 Characters</label>
+    <input type="text" maxlength="16" class="form-control" id="tag_name" name="tag_name"
+      placeholder="Keep it clean" required>
   </div>
+</div>
+</div>
+  <a href="{{ url_for('cancel') }}" class="btn btn-cancel hvr-grow text-cancel">
+    <span class="text-danger fa-solid fa-circle-xmark"></span> <strong>Cancel</strong></a>
+  <button type="submit" class="btn-lg hvr-grow text-blue"><span class="fas fa-plus-square right">
+  </span><strong> Add Tag</strong></button>
+  <a class="btn-lg hvr-grow text-sand" aria-label="Go to the add tag page (opens in a new tab)"
+  href="{{ url_for('tags') }}"><span class="text-info fa-solid fa-icons"></span> View Tags</a>
+</form>
   
 </div>
 {% endblock %}

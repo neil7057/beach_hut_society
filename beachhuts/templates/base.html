@@ -47,7 +47,7 @@
 
                     <form action="{{ url_for('search_results') }}" method="GET" class="input-group search-bar">
                     <label for="search_term" class="hide-labels">Search</label>
-                    <input type="text" name="search_term" class="form-control input-search" placeholder="Search Forum">
+                    <input type="text" name="search_term" class="form-control input-search" placeholder="Search">
                     <div class="input-group-append">
                         <button class="btn text-sand btn-search" aria-label="search" type="submit">
                         <i class="fa fa-search"></i>
@@ -72,17 +72,23 @@
                     <a class="btn-lg hvr-grow text-sand" aria-label="logout button" href="{{ url_for('logout') }}">
                         <span class="text-info fa-solid fa-user-plus"></span> Log Out</a>
                     <a class="btn-lg hvr-grow text-sand" aria-label="Go to the new post page (opens in a new tab)"
-                        href="{{ url_for('submit_thread') }}"><span class="text-info fa-brands fa-microblog"></span> New Post</a>
+                        href="{{ url_for('submit_thread') }}"><span class="text-info fa-brands fa-microblog"></span>Post</a>
                     <a class="btn-lg hvr-grow text-sand" aria-label="Go to the add tag page (opens in a new tab)"
-                        href="{{ url_for('tags') }}"><span class="text-info fa-solid fa-icons"></span> Tag</a>
-                    {% if user.site_admin %}
-                        <a class="btn-lg btn-admin hvr-grow text-sand" aria-label="manage users button" href="{{ url_for('manage_users') }}">
-                            <span class="text-danger fa-solid fa-wrench"></span> Manage Users</a>    
-                    {% endif %}
+                        href="{{ url_for('tags') }}"><span class="text-info fa-solid fa-icons"></span> Tags</a>
                 {% else %}
                     <a class="btn-lg hvr-grow text-sand" aria-label="Go to the signup page" href="{{ url_for('sign_up') }}"><span class="text-info fa-solid fa-user-plus"></span> Sign Up</a>
                     <a class="btn-lg hvr-grow text-sand" aria-label="Go to the login page" href="{{ url_for('login') }}"><span class="text-info fa-solid fa-warehouse"></span> Log In</a>
                 {% endif %}
+                <!-- admin only - by default will be logged in.. -->
+                {% if user.site_admin %}
+                    <div class="col-12">    
+                        <div class="row pb-3"></div>
+                        <div class="center-content">
+                <a class="btn-lg btn-admin hvr-grow text-sand" aria-label="manage users button" href="{{ url_for('manage_users') }}">
+                    <span class="text-danger fa-solid fa-wrench"></span> Manage Users</a>
+                        </div>
+                    </div>    
+            {% endif %}
                 </div>
                 <div class="row pb-3"></div>
                 {% with messages = get_flashed_messages() %}

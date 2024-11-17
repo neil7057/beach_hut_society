@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container width-90 text-center">
+  <br>
+  <h1 class="text-uppercase text-center title-color">Edit Your Comment</h1>
+  <br>
+
+  <form method="POST" class="account-form submit-content-form">
+    <div class="form-group">
+    <div class="form-group">
+      <label class="text-sand" for="comment_body">Content - Maximum Length: Be Sensible</label>
+      <textarea maxlength="2500" class="form-control" id="comment_body" name="comment_body"
+        placeholder="Post away. Remember, it's nice to be nice." required>{{ comments.comment_body }}</textarea>
+    </div>
+
+   
+    <br>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="comment_confirm" name="comment_confirm" required>
+      <label class="form-check-label" for="comment_confirm">Keep it polite and friendly and tick this to confirm</label>
+    </div>
+    <div class="text-center">
+      <a href="{{ url_for('cancel') }}" class="btn btn-cancel hvr-grow text-cancel">
+        <span class="text-danger fa-solid fa-circle-xmark"></span> <strong>Cancel</strong></a>
+      <button type="submit" class="btn-lg hvr-grow text-sand">Update</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
