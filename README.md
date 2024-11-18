@@ -23,6 +23,9 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
         *   [Typography](#typography)
         *   [Imagery](#imagery)
         *  [Design Considerations](#design-considerations)
+    *   [Database Design](#database-design)
+        *   [Table Struture](#table-structure)
+        *   [Diagram](#diagram)
     *   [Wireframes](#wireframes)
         *   [Base Template](#base)
         *   [Home](#home)
@@ -48,20 +51,39 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
             *   [Delete Tag](#delete-tag)
         *   [Manage Users](#manage-users)
         *   [Search Results](#search-results)
-        *   [404](#404)
     *   [Structure](#structure)
 3. [Features](#features)
+4. [Pages](#pages)
     *   [Landing Page](#landing-page)
-
+        *   [Menu Bar](#menu-bar)
+        *   [Floating Anchor](#floating-anchor)
+    *   [Sign Up Page](#sign-up-page)
+    *   [Log in Page](#log-in-page)
+    *   [About Page](#about-page)
+    *   [Edit Profile Page](#edit-profile-page)
+    *   [Edit Profile - Admin Page](#edit-profile---admin-page)
+    *   [View All Posts Page](#view-all-posts-page)
+    *   [Post Pages](#posts-pages)
+        *   [Create Post](#create-post-page)
+        *   [Edit Post](#edit-post-page)
+        *   [Delete Post](#delete-post-page)
+    *   [Comments Pages](#comments-pages)
+        *   [Create Post](#create-comment-page)
+        *   [Edit Post](#edit-comment-page)
+        *   [Delete Post](#delete-comment-page)
+    *   [Tag Pages](#tag-pages)
+        *   [Create Tag](#create-tag-page)
+        *   [Delete Tag](#delete-tag-page)
+    *   [Manage Users](#manage-users-page)
+    *   [Search Results](#search-results-page)
     *   [Contact Page](#contact-page)
-
-    *   [Error 404 Page](#error-404-page)
+    *   [Flash Messages](#flash-messages)
     *   [Site Features](#site-features)
-4. [Technologies Used](#technologies-used)
+5. [Technologies Used](#technologies-used)
     *   [Development Environment](#development-environment)
     *   [Languages Used](#languages-used)
     *   [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
-5. [Testing](#testing)
+6. [Testing](#testing)
     *   [HTML](#html)
     *   [CSS](#css)
     *   [JavaSceipt](#javascript)
@@ -75,21 +97,29 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     *   [Lighthouse Testing](#lighthouse-testing)
     *   [Functional Testing](#functional-testing)
         *   [Navigation Links](#navigation-links)
-        *   [Quiz Testing](#quiz-testing)
-        *   [Form Testing](#form-testing)
+        *   [Testing](#testing-approach)
+        *   [Sign Up](#sign-up-testing)
+        *   [Log In](#log-in-testing)
+        *   [Thread Post](#thread-post-testing)
+        *   [Comments](#comments-testing)
+        *   [Tags](#tags-testing)
+        *   [Manage Users](#manage-users-testing)
+        *   [Search Function](#search-function-testing)
+        *   [Contact](#contact-testing)   
         *   [Links Testing](#links-testing)
         *   [Footer Contact Information](#footer-contact-information)
     *   [Further Testing](#further-testing)
-    *   [404 Error Testing](#404-error-testing)
     *   [Bugs and Fixes](#bugs-and-fixes)
     *   [Known Bugs](#known-bugs)
     *   [Future Releases](#future-releases)
-6. [Deployment](#deployment)
+7. [Deployment](#deployment)
     *   [Version control](#version-control)
     *   [Github Pages](#github-pages)
     *   [Deployments to Github Pages](#deployment-to-github-pages)
     *   [Clone the repository locally](#clone-the-repository-code-locally)
-7. [Credits](#credits)
+    *   [Heroku](#heroku)
+    *   [App Deployment](#app-deployment-to-heroku)
+8. [Credits](#credits)
     *   [Code](#code)
     *   [Content](#content)
     *   [Media](#media)
@@ -157,119 +187,121 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
         -   Logged in users get to see their user profile, can edit it and can see all their own posts on a 'view all posts' page. I chose not to allow users to delete their own accounts as that would remove contnet from the site, incluidng any responses from other users. 
 
+-   ### Database Design
+-   #### Table Structure
+
+
+
+-   #### Diagram
+    <details><summary>Base Template</summary>
+    <img src="beachhuts/static/docs/.png">
+    </details>
+
 -   ### Wireframes
 
 -   #### Base
     <details><summary>Base Template</summary>
-    <img src="/workspace/beach_hut_society/beachhuts/static/docs/readme_images/screens/base-html.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/base-html.png">
     </details>
 
 -   #### Home
 -   ##### Logged In
     <details><summary>Home - Logged In</summary>
-    <img src="/workspace/beach_hut_society/beachhuts/static/docs/readme_images/screens/home-logged-in.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/home-logged-in.png">
     </details>
 
 -   ##### Logged Out
     <details><summary>Home - Logged Out</summary>
-    <img src="/workspace/beach_hut_society/beachhuts/static/docs/readme_images/screens/home-logged-out.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/home-logged-out.png">
     </details>
-    <br>
-
+    
 -   #### Sign Up
     <details><summary>Sign Up</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
     </details>
 
 -   #### Log In
     <details><summary>Log In</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
     </details>
 
 -   #### About
     <details><summary>About</summary>
-    <img src="/workspace/beach_hut_society/beachhuts/static/docs/readme_images/screens/about.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/about.png">
     </details>
 
 -   #### Contact
     <details><summary>Contact</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/contact.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/contact.png">
     </details>
-    <br>
 
 -   #### Edit Profile
     <details><summary>Edit profile</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
     </details>
 
 -   #### Edit Profile - Admin
     <details><summary>Edit profile, Administrator</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
     </details>
 
 -   #### View All Posts For User
     <details><summary>View All posts For A User</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
     </details>
 
 -   #### Posts
 -   ##### Create A New Post
     <details><summary>Create A New Post</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/create-post.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/create-post.png">
     </details>
 
 -   ##### Edit Post
     <details><summary>Edit post</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
     </details>
 
 -   ##### Delete Post
     <details><summary>Delete post</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
     </details>
 
 -   #### Comments
 -   ##### Add Comment
     <details><summary>Add Comment</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/add-comment.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/add-comment.png">
     </details>
 
 -   #### Edit Comment
     <details><summary>Edit Comment</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
     </details>
 
 -   #### Delete Comment
     <details><summary>Delete Comment</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
     </details>
 
 -   #### Tags
 -   ##### Add tag
     <details><summary>Add Tag</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/tags.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/tags.png">
     </details>
 
 -   ##### Delete Tag
     <details><summary>Delete Tag</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
     </details>
 
 -   #### Manage Users
     <details><summary>Manage Users</summary>
-    <img src="/workspace/beach_hut_societybeachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
     </details>
 
 -   #### Search Results 
     <details><summary>Search Results</summary>
-    <img src="docs/readme_images/404-desktop.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
     </details>
-
--   #### 404 
-    <details><summary>404 -Desktop</summary>
-    <img src="docs/readme_images/404-desktop.png">
-    </details>
-
  
 -   ### **Structure**
 
@@ -309,211 +341,142 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 ## Pages
 ### Landing Page
-* Landing page image
-    
-    
-    * This is an in
-    * This will help to immediately show the user what the website is about. 
-    <br>
-    <details><summary>Landing Page</summary>
-    <img src="docs/readme_images/landing_page.jpg">
+-   Landing page image   
+    *   The first page is the index or home page.
+    *   For visitors, this shows a list of forum posts sorted with most recent first.
+    *   For users, this shows the user profile summary plus the list of Forum posts.
+    *   This will help to immediately show the visitor/user what the website is about. 
+    <details><summary>Landing Page - Visitor</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/home-logged-out.png">
     </details>
-    <br>
+    <details><summary>Landing Page - User</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/home-logged-in.png">
+    </details>
 
--   ### Menu Bar
--   Inactive menu pages are 
--   
+-   #### Menu Bar
     <details><summary>Navigation Menu</summary>
-    <img src="docs/readme_images/navbar.jpg">
+    <img src="beachhuts/static/docs/readme_images/screens/.png">
     </details>
     
--   ### Floating Anchor
--   Each page also has a floating anchor link at the side to take the user back to the top of the page. Some pages also have links directly to myth or quiz pages or both.
+-   #### Floating Anchor
+    Each page also has a floating anchor link at the side to take the user back to the top of the page. 
     <details><summary>Bottom links</summary>
-    <img src="docs/readme_images/page_links.jpg">
+    <img src="beachhuts/static/docs/readme_images/screens/.png">
     </details>
     
     <details><summary>Anchor link to Top</summary>
-    <img src="docs/readme_images/anchor_top_link.jpg">
+    <img src="beachhuts/static/docs/readme_images/screens/.png">
     </details>
     
-### Sign Up Page
- 
-   * 
-    <br>  
-    <details><summary> Page</summary>
-    <img src="docs/readme_images/.jpg">
+-   #### Sign Up Page
+    Visitor can become a member by registering by email address and selecting a username and password.
+    <details><summary>Sign Up Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/signup.png">
     </details>
 
-
-###  Log In Page
-
-   *  
-    <br>
-    <details><summary>Quiz Page</summary>
-    <img src="docs/readme_images/.jpg">
+-   ####  Log In Page
+    <details><summary>Log In Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/login.png">
     </details>
 
-### About Page
- 
-   * 
-    <br>  
-    <details><summary> Page</summary>
-    <img src="docs/readme_images/.jpg">
+-   #### About Page
+    <details><summary>AboutPage</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/about.png">
     </details>
 
-
-###  Contact
-
-   *  
-    <br>
-    <details><summary>Quiz Page</summary>
-    <img src="docs/readme_images/.jpg">
+-   #### Edit profile Page  
+    <details><summary>Edit Profile Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/edit-user-profile.png">
     </details>
 
--  Scrolling text box with help text on comments page.
-    <details><summary>Comments Text Box</summary>
-    <img src="docs/readme_images/.jpg">
+-   ####  Edit profile - Admin Page
+    <details><summary>Edit Profile - Admin Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/edit-user-admin.png">
     </details>
 
-### Edit profile
- 
-   * 
-    <br>  
-    <details><summary> Page</summary>
-    <img src="docs/readme_images/.jpg">
+-   #### View All Posts Page  
+    <details><summary>View All Posts Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/view-all-threads.png">
     </details>
 
-
-###  Edit profile - Admin
-
-   *  
-    <br>
-    <details><summary>Quiz Page</summary>
-    <img src="docs/readme_images/.jpg">
+-   #### View Full Posts Page  
+    <details><summary>View Full Posts Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/view-full-threads.png">
     </details>
 
-### View All Posts
- 
-   * 
-    <br>  
-    <details><summary> Page</summary>
-    <img src="docs/readme_images/.jpg">
+### Posts Pages
+-   #### Create Post Page
+    <details><summary>Create Post Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/.png">
     </details>
 
-
-### Posts
-#### Create Post
-
-   *  
-    <br>
-    <details><summary>Quiz Page</summary>
-    <img src="docs/readme_images/.jpg">
+-   #### Edit Post Page
+    <details><summary>Edit Post Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/.png">
     </details>
 
-#### Edit Post
-
-   *  
-    <br>
-    <details><summary>Quiz Page</summary>
-    <img src="docs/readme_images/.jpg">
+-   #### Delete Post Page
+    <details><summary>Delete Post Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/delete-post-confirm.png">
     </details>
 
-#### Delete Post
-
-   *  
-    <br>
-    <details><summary>Quiz Page</summary>
-    <img src="docs/readme_images/.jpg">
+### Comments Pages
+-   #### Create Comment Page
+    <details><summary>Add Comment Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/add-comment.png">
     </details>
 
-### Comments
-#### Create Comment
-
-   *  
-    <br>
-    <details><summary>Quiz Page</summary>
-    <img src="docs/readme_images/.jpg">
+-   #### Edit Comment Page
+    <details><summary>Edit Comment Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/edit-comment.png">
     </details>
 
-#### Edit Comment
-
-   *  
-    <br>
-    <details><summary>Quiz Page</summary>
-    <img src="docs/readme_images/.jpg">
+-   #### Delete Comment Page
+    <details><summary>Delete Comment Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/.png">
     </details>
 
-#### Delete Comment
-
-   *  
-    <br>
-    <details><summary>Quiz Page</summary>
-    <img src="docs/readme_images/.jpg">
+### Tag Pages
+-   #### Create Tag Page
+    <details><summary>Add Tag Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/add-new-tag.png">
     </details>
 
-### Tags
-#### Create Tag
-
-   *  
-    <br>
-    <details><summary>Quiz Page</summary>
-    <img src="docs/readme_images/.jpg">
+-   #### Delete Tag Page
+    Admin only function. Button Hidden for normal users.
+    <details><summary>Delete Tag Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/.png">
     </details>
 
-#### Delete Tag
-
-   *  Admin only function. Button Hidden for normal users.
-    <br>
-    <details><summary>Quiz Page</summary>
-    <img src="docs/readme_images/.jpg">
+### Manage Users Page
+* Admin only function. Menu Button Hidden for normal users.
+    <details><summary>Manage Users Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/admin-manage-users.png">
     </details>
 
-### Manage Users
-
-   *  Admin only function. Menu Button Hidden for normal users.
-    <br>
-    <details><summary>Quiz Page</summary>
-    <img src="docs/readme_images/.jpg">
+-   #### Search Results Page
+    <details><summary>Search Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/.png">
     </details>
 
-
-### Search Results Page
- 
-   * 
-    <br>  
-    <details><summary> Page</summary>
-    <img src="docs/readme_images/myth_page.jpg">
-    </details>
-
-
-###  404
-
-   *  
-    <br>
-    <details><summary>Quiz Page</summary>
-    <img src="docs/readme_images/quiz_page.jpg">
-    </details>
-
-
-### Contact Page
-* Contact form
-    * A contact is offered to allow users to contact me. The form consists of the following fields and attributes: 
-        * First Name (required, type=text).
-        * Last Name (required, type=text).
-        * Email (required, type=email).
-        * Message (required, type=textarea), maximum 280 characters.
-    * Muted Text is used as hints or for assurance on certain fields. This has been adjusted for WCAG compliance.
-    * This allows a user to contact me if they have any queries about Autism or wish to give any feedback on the site.
-    * A popup modal confirms when a successful email has been sent using the emailJS service and gmail.
-    * If the message send fails then an alternative popup message is displayed.
-    <br>
+### Contact Page 
+* A contact is offered to allow users to contact me. The form consists of the following fields and attributes: 
+        - First Name (required, type=text).
+        - Last Name (required, type=text).
+        - Email (required, type=email).
+        - Message (required, type=textarea), maximum 280 characters.
+        - Muted Text is used as hints or for assurance on certain fields. This has been adjusted for WCAG compliance.
+    * This allows a user to contact admin with any queries.
+    * A flash message indicates success or failure of the message send.
     <details><summary>Contact Page</summary>
-    <img src="docs/readme_images/Screenshot_contact_info_page.jpg">
+    <img src="beachhuts/static/docs/readme_images/screens/contact.png">
     </details>
 
 ### Flash Messages
-* Flash messages are displayed below the secondary menu bar to notify errors or when a particular creation or edit action has been successful.
+* Flash messages are displayed below the secondary menu bar to notify errors or when a particular creation or edit action has been successful
+    <details><summary>Flash Message Example</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/.png">
+    </details>
 
 ### Site Features
 
@@ -785,7 +748,7 @@ This confirmed that:
 
 ### Functional Testing
 
-- ### Navigation Links
+- #### Navigation Links
 
 Testing was performed to ensure all navigation links on the respective pages, navigated to the correct pages as per design.
 
@@ -795,25 +758,25 @@ Additionally, Adminstrator and basic user accounts were created to check that co
 
 Links on all pages navigated to the correct pages as expeccted. External content opens in a new page.
 
--   ###  Testing
+-   ####  Testing Approach
 
--   #### Sign Up
-
-
--   #### Log In
+-   #### Sign Up Testing
 
 
--   #### Thread Post
+-   #### Log In Testing
 
--   #### Comments
 
--   #### Tags
+-   #### Thread Post Testing
 
--   #### Manage Users
+-   #### Comments Testing
 
--   #### Search Function
+-   #### Tags Testing
 
--   #### Contact 
+-   #### Manage Users Testing
+
+-   #### Search Function Testing
+
+-   #### Contact Testing
 
 Testing was performed to ensure that 
 
