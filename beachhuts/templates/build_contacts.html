@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid home-container">
+  <div class="row">
+    <div class="col xl-12 col-lg-8 col-md-10 mx-auto index-format">
+      <h1 class="text-uppercase text-center title-color">{{ page_title }}
+      </h1>  
+      <br>  
+      {% for contact in contacts %}
+      <div class="forum-post text-blue">
+        <br>
+        <p class="contact-layout"> Email: <span class="text-sand">{{ contact.email }}</span></p>
+        <p class="contact-layout"> U:  <span class="text-sand">{{ contact.username }}</span></p>
+        <p class="contact-layout"> F:   <span class="text-sand">{{ contact.fname }}</span></span><span>
+          L:   <span class="text-sand">{{ contact.lname }}</span></span></p>
+          <p class="contact-layout">D:  <span class="text-sand">{{ contact.created_td.strftime("%d %B, %Y, %H:%M") }}</span></p>
+          <p class="contact-layout">M:  <span class="text-sand">{{ contact.message }}</span></p>  
+          <div class="text-center">
+            {% include 'delete_contact_modal.html' %}
+          </div>             
+      </div>
+      <br>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}  
+

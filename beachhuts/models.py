@@ -113,11 +113,11 @@ class Contact(db.Model):
     A contact instance recoreded on the web form
     """
     id = db.Column(db.Integer, primary_key=True)
-    contact_username = db.Column(db.String(25))
-    contact_email = db.Column(db.String(50))
-    contact_fname = db.Column(db.String(20))
-    contact_lname = db.Column(db.String(30))
-    contact_message = db.Column(db.String(280))
+    username = db.Column(db.String(25))
+    email = db.Column(db.String(50))
+    fname = db.Column(db.String(20))
+    lname = db.Column(db.String(30))
+    message = db.Column(db.String(280))
     created_td = db.Column(db.DateTime(timezone=True), default=func.now())
 
     def __repr__(self):

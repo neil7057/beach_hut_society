@@ -1,6 +1,6 @@
 from flask import render_template, request, flash, redirect, url_for, jsonify
 from beachhuts import app, db
-from beachhuts.models import User, Thread, Comments, Tag
+from beachhuts.models import User, Thread, Comments, Tag, Contact
 
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user
@@ -252,7 +252,7 @@ def delete_comment(comments_id):
     """
     comment = Comments.query.get_or_404(comments_id)
     # check for author id, only author (or admin) can delete their own comment
-    if current_user.id != Comments.author_id and not User.site_admin:
+    if current_user.id != Comments.author_id and not current_user.site_admin:
         flash('You can only delete your own comments', category='error')
         return redirect(url_for('home'))
 
@@ -339,20 +339,36 @@ def search_results():
         user=current_user)
 
 
+@app.route("/build_contacts")
+def build_contacts():
+    first_contact = Contact.query.first()
+    if not first_contact:
+        flash('No Contact Records to Manage',category='error'
+            )
+        return redirect(url_for('home'))
+    contacts = list(Contact.query.order_by(asc(Contact.id)).all())
+
+    return render_template(
+        "build_contacts.html",
+        page_title="Contact Records",
+        user=current_user,
+        contacts=contacts        )
+
+
 @app.route("/create_contact", methods=["GET", "POST"])
 def create_contact():
     if request.method == 'POST':
         username = request.form.get('username')
+        email = request.form.get('email').lower()
         fname = request.form.get('fname')
         lname = request.form.get('lname')
-        email = request.form.get('email').lower()
         message = request.form.get('message')
         
         contact = Contact(
             username = username,
+            email = email,
             fname = fname,
             lname = lname,
-            email = email,
             message = message
             )
 
@@ -366,6 +382,26 @@ def create_contact():
         "contact.html",
         page_title="Contact Admin",
         user=current_user)
+
+
+# Delete user
+@app.route('/delete_contact/<int:id>')
+@login_required
+def delete_contact(id):
+    """
+    Allows admin user to delete user accounts
+    """
+    contact = Contact.query.get_or_404(id)
+    # Only admin can users. non-admins should never get here but just in case.
+    if not current_user.site_admin:
+        flash('You must be site admin ' +
+              'to delete a contact record.', category='error')
+        return redirect(url_for('home'))
+
+    db.session.delete(contact)
+    db.session.commit()
+    flash('The Contact record successfully deleted.')
+    return redirect(url_for('build_contacts'))
 
 
 @app.route("/sign_up", methods=['GET', 'POST'])
@@ -385,7 +421,7 @@ def sign_up():
         lname = request.form.get('lname')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
-        site_admin = False
+        site_admin = True
 
         # Validate user email and ensure it is unique
         user = User.query.filter_by(email_address=email_address).first()
@@ -453,10 +489,11 @@ def edit_user(id):
     """
     user = User.query.get_or_404(id)
 
+    # check site admin or corrcet user. this prevents hacking
+    # by directly typing URLs into the browser
     if current_user.id != User.id and not current_user.site_admin:
         flash('You can only Edit your own account', category='error')
         return redirect(url_for('home'))
-
 
     if request.method == 'POST':
         username = request.form.get('username')

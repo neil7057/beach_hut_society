@@ -21,12 +21,15 @@
           </div>
           <div class="col-10 col-md-8">
             <form method="POST" >
+              <!-- only display message if not site admin -->
+              {% if not current_user.site_admin %}
               <br>
               <h3 class="text-center text-sand">Email address cannot be changed;</h3>
               <h3 class="text-center text-sand">
-                You must <a href="{{ url_for('contact') }}" class="btn-lg border border-success btn-success hvr-grow text-blue"
+                You must <a href="{{ url_for('create_contact') }}" class="btn-lg border border-success btn-success hvr-grow text-blue"
                 aria-label="go to my comments page (opens in a new tab)"> Contact Admin </a> or create a new account</h3> 
-              <br>
+              {% endif %}
+                <br>
                 <div class="form-group">
                 <label class="text-sand" for="username">Username (max 25)</label>
                 <input type="text" maxlength="25" class="form-control" id="username" name="username" placeholder= "Username"
@@ -44,7 +47,6 @@
               </div>
               <div class="form-row text-center">
                 <div class="col">
-                  <!-- <p>If you cannot see the tag you want, <a href="{{url_for('add_tag')}}">click here</a> to add tag(s)</p> -->
                   <a href="{{ url_for('cancel') }}" class="btn btn-cancel hvr-grow text-cancel">
                     <span class="text-danger fa-solid fa-circle-xmark"></span> <strong>Cancel</strong></a>
                   <span> <button type="submit" class="btn-lg hvr-grow text-success"><span class="text-success fa-solid fa-file-pen">

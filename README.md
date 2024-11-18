@@ -78,6 +78,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
         *   [Browse Tags](#browse-all-tags-page)
         *   [Delete Tag](#delete-tag-page)
     *   [Manage Users](#manage-users-page)
+    *   [Manage Contacts](#manage-contacts-page)
     *   [Search Results](#search-results-page)
     *   [Contact Page](#contact-page)
     *   [Flash Messages](#flash-messages)
@@ -196,6 +197,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     *   A Comments Table - a comment or comments, attachhed to Thread and linked to the User who posted the comment, not necessarilly tehnsame user who posted the thread.
     *   A Tag Table - a category that can be attached to a post to assist with searches. 
     *   A Thread-Tag Table to resolve a Many-to-Many relationship between Tags and Threads.
+    *   A Contact Table to hold messages for admin review and processing.
 
 -   #### Diagram
     <details><summary>Data Structure</summary>
@@ -203,7 +205,9 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     </details>
 
 -   ### Wireframes
-
+    -   Many functions are repetitive so create, edit and delete are basically similar for different record types.
+    -   It wasn't necessary therefore to wireframe all proposed images and I chose to create a template for each distinct function.
+    -   Developemnt was then iterative and Agile.
 -   #### Base
     <details><summary>Base Template</summary>
     <img src="beachhuts/static/docs/readme_images/wireframes/base-html.png">
@@ -323,16 +327,19 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     -   An About Page
     -   Admin functions to manage Users and edit/delete all elements
     -   User profile editing
-    -   Email contact/feedback Form
+    -   Contact/feedback Form
+    -   Admin Mangement of contact communications
     -   Search facility
 
-    The site is templated and built around a Base Html file containing a consistent Header and Footer:
+    The site is templated and built around a Base HTML file containing a consistent Header and Footer:
 
     The site has a navbar which remains central to the screen on desktop, tablet and mobile.
 
-    A second menu bar is presented according to logged in/logged out status. Administrators are presented with an additional 'Manage Users' button.
+    A second menu bar is presented according to logged in/logged out status. Administrators are presented with additional 'Manage Users' and 'Manage Contacts' button.
     
     There is also a footer on every page with links to social media sites and the Contact page.
+
+    Messages on the Contact page create a database entry for review by Admin, who can delete the records after processing.
 
     The Hero image is consistent across all pages and there is a search bar. There is a small loogo on larger screens but hidden at smaller resolutions.
     
@@ -468,6 +475,16 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 * Admin only function. Menu Button Hidden for normal users.
     <details><summary>Manage Users Page</summary>
     <img src="beachhuts/static/docs/readme_images/screens/admin-manage-users.png">
+    </details>
+
+    ### Manage Contacts Page
+* Admin only function. Menu Button Hidden for normal users.
+    <details><summary>Manage Contacts Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/admin-manage-contacts.png">
+    </details>
+
+    <details><summary>Confirmation Dialog</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/delete-contact-confirm.png">
     </details>
 
 -   #### Search Results Page

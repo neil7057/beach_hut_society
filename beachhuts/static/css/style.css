@@ -332,6 +332,12 @@ li {
     text-indent: 0;
 }
 
+/*--------------------contact formatting---------------*/
+
+.contact-layout {
+    margin-left: 20px;
+}
+
 /*--------------------commentForm--------------------*/
 
 .commentForm {
@@ -646,6 +652,7 @@ button[type="submit"] {
 
 .btn-admin {
     background-color: #46dd80;
+    margin-bottom: 5px;
 }
 
 .btn-lg:hover {
@@ -792,7 +799,7 @@ a {
     }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 482px) {
     .btn-lg {
         font-size: .7rem;
     }

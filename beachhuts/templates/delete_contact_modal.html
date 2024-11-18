@@ -1,0 +1,28 @@
+<button type="button" class="btn-lg hvr-grow btn-delete" aria-label="deletes Contact Record"  data-toggle="modal"
+                data-target="#modal-{{ contact.id }}"><span class="text-danger fa-solid fa-trash-can"></span>
+                <strong> Delete Contact</strong></button>
+
+              <!-- DELETE MODAL -->
+
+              <div class="modal fade" id="modal-{{ contact.id }}" tabindex="-1" role="dialog"
+                aria-labelledby="modal-{{ contact.id }}Label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modal-{{ contact.id }}Label">Delete This Contact?</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure you want to permanently delete this Contact.
+                    </div>
+                    <div class="modal-footer">     
+                    <button type="button" class="btn btn-success btn-circle" data-dismiss="modal">Close</button>
+                      <a class="btn btn-danger btn-circle" href="{{ url_for('delete_contact', id=contact.id) }}">
+                        Confirm Delete
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
