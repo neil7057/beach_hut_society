@@ -6,7 +6,7 @@
 
 ## Beach Hut Appreciation Society
 
-This is my website   
+This is my website. It's a bit of fun to demonstrate capability in CRUD functionality. It's a website forum for beach hut aficianados and utilises Bootstrap and Flask and a Postgres Sql Dtabase. Written in HTML, CSS and Python following a common approach to data structures upporting similar applications. 
 
 [View the live project here.](https://beach-hut-appreciation-society-0c8700c133d2.herokuapp.com/)
 
@@ -24,7 +24,10 @@ This is my website
         *   [Imagery](#imagery)
         *  [Design Considerations](#design-considerations)
     *   [Wireframes](#wireframes)
-        *   [Index](#home)
+        *   [Base Template](#base)
+        *   [Home](#home)
+            *   [Logged In](#logged-in)
+            *   [Logged Out](#logged-out)
         *   [Sign Up](#sign-up)
         *   [Log In](#log-in)
         *   [About](#about)
@@ -162,10 +165,12 @@ This is my website
     </details>
 
 -   #### Home
+-   ##### Logged In
     <details><summary>Home - Logged In</summary>
     <img src="/workspace/beach_hut_society/beachhuts/static/docs/readme_images/screens/home-logged-in.png">
     </details>
-    <br>
+
+-   ##### Logged Out
     <details><summary>Home - Logged Out</summary>
     <img src="/workspace/beach_hut_society/beachhuts/static/docs/readme_images/screens/home-logged-out.png">
     </details>
@@ -270,53 +275,43 @@ This is my website
 
     The structure of the site is informed by the the target audience's expectations and the principles of IXD (interaction design) to make sure I was making everything as intuitive as I could. Each page has a clear function and is named to give a clear indication of content/function.
 
-    The site has a simple structure made up of 4 pages:
-    * Homepage - An introduction 
-    * 
-    *
-    * Comments - A form to allow the user to send comments or requests for further information.
+    Visitors can view some site content but to add or view full content, visitors are required to sign up and login.
 
-    * There is one additional sub page and a confirmation popup on sucessful/failed email sending:
-        -   A Confirmation thank you popup for when a user has successfully submitted a form and an email has been sent. Alternatively, a Confirmation thank you popup with a link to send a direct email if the form submission fails.
-        -   A 404 page for when a user lands on a non-existent page.
+    Functions serve:
+    -   Sign Up
+    -   Login and out
+    -   Thread(Post) full view, creation, edit, deletion
+    -   Comment creation, edit and deletion
+    -   Category tag creation and deletion
+    -   An About Page
+    -   Admin functions to manage Users and edit/delete all elements
+    -   User profile editing
+    -   Email contact/feedback Form
+    -   Search facility
 
-    The site has a navbar which remains central to the screen on desktop, tablet and mobile, this allows a user to access any page they need at any time and is suitable for a first time or returning visitor. The active button is a different shape to distinguish it. There is also a footer on every page with links to social media sites and the Comments page.
+    The site is templated and built around a Base Html file containing a consistent Header and Footer:
 
-    Each page logo, except the Home Page itself, has a link back to Home. Each page has a scrolling 'top of page' anchor link.
+    The site has a navbar which remains central to the screen on desktop, tablet and mobile.
 
-    Social media links all point to the
+    A second menu bar is presented according to logged in/logged out status. Administrators are presented with an additional 'Manage Users' button.
+    
+    There is also a footer on every page with links to social media sites and the Contact page.
+
+    The Hero image is consistent across all pages and there is a search bar. There is a small loogo on larger screens but hidden at smaller resolutions.
+    
+    Each page has a scrolling 'top of page' anchor link.
+
+    Social media links all point to beach hut specific sites if they exist and standard social channels if not. 
     
 ## Features
 
 -   Responsive on all device sizes down to 280px - the industry standard minimum screen width.
 
--   Home page 
-
--   
-
--   Inactive menu pages are 
--   
-    <details><summary>Navigation Menu</summary>
-    <img src="docs/readme_images/navbar.jpg">
-    </details>
-    <br>
--   Each page also has a floating anchor link at the side to take the user back to the top of the page. Some pages also have links directly to myth or quiz pages or both.
-    <details><summary>Bottom links</summary>
-    <img src="docs/readme_images/page_links.jpg">
-    </details>
-    <br>
-    <details><summary>Anchor link to Top</summary>
-    <img src="docs/readme_images/anchor_top_link.jpg">
-    </details>
-    <br>
--  Scrolling text box with help text on comments page.
-    <details><summary>Comments Text Box</summary>
-    <img src="docs/readme_images/comments.jpg">
-    </details>
-    <br>
-
+## Pages
 ### Landing Page
 * Landing page image
+    
+    
     * This is an in
     * This will help to immediately show the user what the website is about. 
     <br>
@@ -325,43 +320,181 @@ This is my website
     </details>
     <br>
 
-* Expanding buttons.
-    * Additional information is 
-    * This information lets the user know what the site is.
-    <br>
-     <details><summary>Homepage Details</summary>
-    <img src="docs/readme_images/landing_page_detail.jpg">
+-   ### Menu Bar
+-   Inactive menu pages are 
+-   
+    <details><summary>Navigation Menu</summary>
+    <img src="docs/readme_images/navbar.jpg">
     </details>
-    <br>
-
-### Page
-* 
-    * 
+    
+-   ### Floating Anchor
+-   Each page also has a floating anchor link at the side to take the user back to the top of the page. Some pages also have links directly to myth or quiz pages or both.
+    <details><summary>Bottom links</summary>
+    <img src="docs/readme_images/page_links.jpg">
+    </details>
+    
+    <details><summary>Anchor link to Top</summary>
+    <img src="docs/readme_images/anchor_top_link.jpg">
+    </details>
+    
+### Sign Up Page
+ 
+   * 
     <br>  
-    <details><summary>Myth Page</summary>
+    <details><summary> Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+
+###  Log In Page
+
+   *  
+    <br>
+    <details><summary>Quiz Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+### About Page
+ 
+   * 
+    <br>  
+    <details><summary> Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+
+###  Contact
+
+   *  
+    <br>
+    <details><summary>Quiz Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+-  Scrolling text box with help text on comments page.
+    <details><summary>Comments Text Box</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+### Edit profile
+ 
+   * 
+    <br>  
+    <details><summary> Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+
+###  Edit profile - Admin
+
+   *  
+    <br>
+    <details><summary>Quiz Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+### View All Posts
+ 
+   * 
+    <br>  
+    <details><summary> Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+
+### Posts
+#### Create Post
+
+   *  
+    <br>
+    <details><summary>Quiz Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+#### Edit Post
+
+   *  
+    <br>
+    <details><summary>Quiz Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+#### Delete Post
+
+   *  
+    <br>
+    <details><summary>Quiz Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+### Comments
+#### Create Comment
+
+   *  
+    <br>
+    <details><summary>Quiz Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+#### Edit Comment
+
+   *  
+    <br>
+    <details><summary>Quiz Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+#### Delete Comment
+
+   *  
+    <br>
+    <details><summary>Quiz Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+### Tags
+#### Create Tag
+
+   *  
+    <br>
+    <details><summary>Quiz Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+#### Delete Tag
+
+   *  Admin only function. Button Hidden for normal users.
+    <br>
+    <details><summary>Quiz Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+### Manage Users
+
+   *  Admin only function. Menu Button Hidden for normal users.
+    <br>
+    <details><summary>Quiz Page</summary>
+    <img src="docs/readme_images/.jpg">
+    </details>
+
+
+### Search Results Page
+ 
+   * 
+    <br>  
+    <details><summary> Page</summary>
     <img src="docs/readme_images/myth_page.jpg">
     </details>
-    <br>
-    <details><summary>Myths - front of card</summary>
-    <img src="docs/readme_images/myth_details_page.jpg">
-    </details>
-    <br>
-    <details><summary>Myths - rear of card</summary>
-    <img src="docs/readme_images/myth_details_page2.jpg">
-    </details>
 
 
-###  Page
-* 
-    *  
+###  404
+
+   *  
     <br>
     <details><summary>Quiz Page</summary>
     <img src="docs/readme_images/quiz_page.jpg">
     </details>
-    <br>    
-    <details><summary>Quiz Page Details</summary>
-    <img src="docs/readme_images/quiz_details_page.jpg">
-    </details>
+
 
 ### Contact Page
 * Contact form
@@ -379,43 +512,22 @@ This is my website
     <img src="docs/readme_images/Screenshot_contact_info_page.jpg">
     </details>
 
-### Confirmation Popup
-* On successful submission of the contact form, the user will be presented with a popup displaying a success message.
-
-* This can be dismissed by clicking on the "close" button, clicking outside of the message box or clicking on the Autism Awareness logo on the message.
-
-    <details><summary>Contact Confirmation Popup</summary>
-    <img src="docs/readme_images/Screenshot_Contact_confirmation.jpg">
-    </details>
-
-* If the form submission is unsuccessfuli, the user will be presented with a popup displaying a failure message.
-
-* This can be dismissed by clicking on the "close" button, clicking outside of the message box or clicking on the Broken Autism Rainbow Heart logo logo on the message.
-
-    <details><summary>Contact error/failed Popup</summary>
-    <img src="docs/readme_images/Screenshot_Contact_confirmation_fail.jpg">
-    </details>
-
-### Error 404 Page
-* Error 404 Page
-    * There is a bespoke 404 error page to trap any file not found errors. This enables the user to access the menu structure in the event of a missing page or file and avoids use of the 'back' button were a default 404 page displayed.
-    
-    * The usual menu navbar will be present on this screen. There is no requirement for a footer.
-
-    <details><summary>Error 404</summary>
-    <img src="docs/readme_images/Screenshot_error_404.jpg">
-    </details>
+### Flash Messages
+* Flash messages are displayed below the secondary menu bar to notify errors or when a particular creation or edit action has been successful.
 
 ### Site Features
 
 * Responsive design - content scales from 280px to Large Desktop. Some content is hidden at smaller resolutions to maintain user experience.
-* Menu navbar remains consistent with a 
+* Top Menu navbar remains consistent with a secondary Menu bar that responds to user status.
 * There is a Top of the Page scrolling button on each page. 
-* The main landing page contains information about 
-* Contact form and success/fail confirmation pages.
-* There are links to other social media and resources.
+* The main landing page contains a list of posts sorted with most recent first.
+* There is an about page to provide more information about the site and the topic 
+* Contact form.
+* Search facility.
+* Sign Up and login functionality.
+* Access to Create, Edit and Delete of site elements are controlled by user status and permissions.
+* There are links to social media.
 * The site is clean and uncluttered and follows a Beach theme.
-* Bespoke 404 page with navbar.
 
 ## Technologies Used
 
@@ -427,12 +539,12 @@ This is my website
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 -   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
--   pytho
+-   [Python](https://docs.python.org/3/)
 
 
 ### Frameworks, Libraries & Programs Used
 
-1. [Bootstrap 4.2.1:](https://getbootstrap.com/docs/4.2/getting-started/introduction/)
+1. [Bootstrap 4.2.1:](https://getbootstrap.com/docs/4.6.2/getting-started/introduction/)
     - Bootstrap was used to assist with the responsiveness and styling of the website.
 1. [Hover.css:](https://ianlunn.github.io/Hover/)
     - Hover.css was used on the Menu items in the navbar as well as the Social Media icons in the footer to add the 'grow' transition while being hovered over.
@@ -442,13 +554,24 @@ This is my website
     - Used for icons on social links and drop down menus.
 1. [jQuery:](https://jquery.com/)
     - jQuery is used to make the navbar responsive and provide additional coding flexibility. specifically used with the emailJS service, modal and other processing.
+1. [Select2:](https://select2.org/)
+   - Select2 was used for styling the dropdown to allow multiple selections without CMD/CTRL or Shift.
 1. [Gitpod](https://www.gitpod.io/)
-    - GitPod was used for version control by utilizing the GitPod terminal to commit to Git and Push to GitHub.
+   - GitPod was used for version control by utilizing the GitPod terminal to commit to Git and Push to GitHub.
 1. [GitHub:](https://github.com/)
-    - GitHub is used to store the project's code after being pushed from the development environment.
+   - GitHub is used to store the project's code after being pushed from the development environment.
 1. [Balsamiq:](https://balsamiq.com/)
-    - Balsamiq was used to create the [wireframes](#wireframes) during the design process.
-1. flask
+   - Balsamiq was used to create the [wireframes](#wireframes) during the design process.
+1. [Jest:](https://jestjs.io/)
+   - Jest was used to test the Javascript used.
+1. [SQLAlchemy:](https://docs.sqlalchemy.org/en/20/)
+   - SQLAlchemy was used to communicate between the database and the frontend
+1. [DBDiagram:](dbdiagram.io)
+   - Used to document database model.
+1. [FLASK:](https://flask.palletsprojects.com/)
+   - Flask Frameworking was used to structure the site including the use of Jinja2 templating. Allowed for the smooth display of data from the backend. 
+1. [StackOverflow:](https://stackoverflow.com/)
+    - Used for code snippets and tutorials. Invaluable.
 
 ## Testing
 
@@ -461,27 +584,21 @@ This was carried out periodically as each page was created and amended and then 
 -   [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
 
     <details><summary>Home Page</summary>
-    <img src="docs/testing/w3-index-check.jpg">
+    <img src="docs/testing/w3--check.jpg">
     </details>
     <br>
-    <details><summary>Myths Page</summary>
-    <img src="docs/testing/w3-myths-check.jpg">
+    <details><summary> Page</summary>
+    <img src="docs/testing/w3--check.jpg">
     </details>
     <br>
-    <details><summary>Quiz Page</summary>
-    <img src="docs/testing/w3-quiz-check.jpg">
+    <details><summary> Page</summary>
+    <img src="docs/testing/w3--check.jpg">
     </details>
     <br>
-    <details><summary>Contact Page</summary>
-    <img src="docs/testing/w3-contact-check.jpg">
+    <details><summary> Page</summary>
+    <img src="docs/testing/w3--.jpg">
     </details>
-    -   Confirmation/failure modal code is in contact.html so was checked by scanning contact page.
-    <br>
-    <br>
-    <details><summary>Error 404 Page</summary>
-    <img src="docs/testing/w3-404-check.jpg">
-    </details>
-
+    
 ### CSS
 
 This was checked periodically as each page was created and CSS code added and amended. A final check was carried out when all other testing had been satisfactorily completed.
@@ -502,15 +619,7 @@ This was checked periodically as each page was created and CSS code added and am
     <details><summary>Main JS - scripts.js</summary>
     <img src="docs/testing/jshint-scripts-js.jpg">
     </details>
-    <br> 
-    <details><summary>Email specifc js -cemail.js</summary>
-    <img src="docs/testing/jshint-email-js.jpg">
-    </details>
-    <br> 
-    <details><summary>Quiz qQuestion arrays - quiz.js</summary>
-    <img src="docs/testing/jshint-quiz-js.jpg">
-    </details>
-    <br>    
+    <br>   
 
 ### Testing User Stories from User Experience (UX) Section
 
@@ -630,28 +739,20 @@ Testing was focused to ensure the following criteria were met:
 Results:
 
 <details><summary>Home Page</summary>
-<img src="docs/testing/wave-index.jpg">
+<img src="docs/testing/.jpg">
 </details>
 <br>
--   Warnings on some pages report that "Adjacent links go to the same URL." This is because the link to home page(menu) is close to the link to home page(title icon).
+
 <br>
-<details><summary>Page</summary>
-<img src="docs/testing/wave-myth.jpg">
+<details><summary> Page</summary>
+<img src="docs/testing/.jpg">
 </details>
 <br>
 <details><summary> Page</summary>
-<img src="docs/testing/wave-quiz.jpg">
+<img src="docs/testing/.jpg">
 </details>
 <br>
--   contact success/fail screen content part of contact page.
-<details><summary>Contact Page</summary>
-<img src="docs/testing/wave-contact.jpg">
-</details>
-<br>
-<details><summary>Error 404 Page</summary>
-<img src="docs/testing/wave-404.jpg">
-</details>
-<br>
+
 
 Manual tests were also performed to ensure the website was as accessible as possible.
 
@@ -666,7 +767,7 @@ This confirmed that:
 ### Lighthouse Testing
 
 <details><summary>Home Page</summary>
-<img src="docs/testing/lighthouse_home_page.jpg">
+<img src="docs/testing/lighthouse__page.jpg">
 </details>
 <br> 
 <details><summary> Page</summary>
@@ -681,20 +782,39 @@ This confirmed that:
 <img src="docs/testing/lighthouse_contact_page.jpg">
 </details>
 <br>
-<details><summary>Error 404 Page</summary>
-<img src="docs/testing/lighthouse_404_page.jpg">
-</details>
 
 ### Functional Testing
 
 - ### Navigation Links
 
 Testing was performed to ensure all navigation links on the respective pages, navigated to the correct pages as per design.
+
 This was done by clicking on the navigation links on each page on a desktop, laptop, tablet and mobile device.
+
+Additionally, Adminstrator and basic user accounts were created to check that correct menu options were presented and enhanced functionality restricted to Administrator privileged accounts. 
 
 Links on all pages navigated to the correct pages as expeccted. External content opens in a new page.
 
 -   ###  Testing
+
+-   #### Sign Up
+
+
+-   #### Log In
+
+
+-   #### Thread Post
+
+-   #### Comments
+
+-   #### Tags
+
+-   #### Manage Users
+
+-   #### Search Function
+
+-   #### Contact 
+
 Testing was performed to ensure that 
 
 The form on the contact page was tested to ensure it functioned as expected when correct and incorrect data was input.
@@ -737,39 +857,26 @@ The 'go to' link reacts when hovered over.
 
 ### Further Testing
 
--   Testing was carried out as each function was developed. The menu structure, navigation and footer were tested until error free on index.html before propogating to other pages.
+-   Testing was carried out as each function was developed. The menu structure, navigation and footer were tested until error free on base.html before other page fucntionality was developed.
+-   Code for creation, edit and delete was tested with Models that didnt update the database to check processing functionality before data chnages were attempted.
+-   Admin and normal user accounts were created to support testing of restricted/enhanced permissions.
 -   As each page was completed, existing succesful tests were rerun to ensure that proven functionality hadn't been affected. 
 -   The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
 -   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7/8/X and iPad.
 -   A large amount of testing was done to ensure that all pages were linking correctly.
 -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
-### Contact email Testing
--  A series of contact forms were successfully completed and emails sent. Emails were received into the webdev1961 gmail account:
-
--   The confirmation message is presented and disappears when clicked.
--   A forced error on emailJS produces the 'failed to send' message. It's possible to either close this or send a direct email from the link.
-
-<details><summary>Webdev Email</summary>
-<img src="docs/testing/contact_email.jpg">
-</details>
- 
-###
-
-###
-
-###
-
-### 404 Error Testing
-
--   A bespoke 404 error page has been created to provide a better user experience.
--   This was tested by:
-    - Navigating to the contact page and changing the address to contact404.html in the browser.
-    - The dedicated 404-error was displayed and it was possible to navigate home via the home button.
 
 ### Bugs and Fixes
 
--   
+-   db_create would not work as advised on this version of python. I obtained the correct syntax from a web forum.
+-   Model changes would not propogate to Heroku despite Databse recreation. This was solved by creating a new Sql hosting instance and updating Heroku config.
+-   Permissions not being applie dto admin accounts caused by an errant 'div'.
+-   Search bar woudlnt line up with icon. Margins and padding on standard bootstrap settings overwritten by css changes. 
+-    Posts and commnets not consistently displaying. Moved formatting to earlier in loop processing.
+-   Comment processing causing Model error. Confusion over singular comment (db field) and comments (table name).
+-   Password Model length too small for hashed value. Increased to 255, db created and changes propogated to Heroku.
+-   Manage user passing current user value through (admin) rather than user to be edited. Return value in Manage-user Model changed from current_user.
 
 -   WCAG contrast issues.
     - Fixed - Minor colour scheme changes.
@@ -780,7 +887,8 @@ The 'go to' link reacts when hovered over.
 
 ### Future Releases
 -   Ideas for future development could include:
-    -   
+    -   Enabling pictures to be added to posts.
+    -   User password self reset.
 
 ## Deployment
 
@@ -796,24 +904,8 @@ The following git commands were used throughout development to push code to the 
 ```git commit -m “commit message”```
     - This command was used to commit changes to the local repository queue ready for the final step.
 
-```git push``` 
+```git push origin main``` 
     - This command was used to push all committed code to the remote repository on github.
-
-### GitHub Pages
-
-The project was deployed to GitHub Pages using the following steps:
-
-### Deployment to Github Pages
-
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
-    - In the GitHub repository, navigate to the Settings tab. 
-    - From the menu on left select 'Pages'.
-    - From the source section drop-down menu, select the Branch: main.
-    - Click 'Save'.
-    - A live link will be displayed in a green banner when published successfully. 
-
-    [The live link can be found here](https://beach-hut-appreciation-society-0c8700c133d2.herokuapp.com/)
-
 
 ### Clone the Repository Code Locally
 
@@ -827,6 +919,42 @@ The project was deployed to GitHub Pages using the following steps:
 
 The project will now have been cloned on your local machine for use.
 
+### Heroku
+
+The project was deployed to Heroku using the following steps:
+
+### App Deployment to Heroku
+
+- You will need to deploy the application using Heroku.
+
+1. Create a requirements.txt file:
+    -   Type ``` pip3 freeze --local > requirements.txt ``` in theGitpod CLI.
+    -   This shoudl be added to the .gitignore file.
+2. Create a Procfile:
+    -    Type ```echo web: python app.py > Procfile```.
+    -    Open it and remove any spurious lines. It should have a singular line and commence with a capital P.
+3. Add and commit these files to Github.
+4. Go to [Heroku](https://dashboard.heroku.com/apps). Log in or create an account
+5. Click the 'New' button and click 'Create new app'.
+6. Enter a unique name for your project with no capital letters or spaces and select your region. Click 'Create App'.
+7. Inside your project, go to the Resources tab and create a Heroku Postgres Database
+8. Inside your project, go to the 'Settings' tab. Scroll down and click 'Reveal Config Vars'.
+9. Add in the following variables
+  - IP : 0.0.0.0
+  - PORT : 5000
+  - DATABASE_URL : This is the location of your production database.
+  - SECRET_KEY : Your secret key
+10. Deploy your project by going to the Deploy tab and choose 'Connect to Github'
+11. Find your repository name and select Connect.
+12. To connect your Heroku database, go to 'More' in the top right:
+  - Select run console.
+  - Enter ```python3``` to access the python intepreter.
+  - Enter:
+    - ```From beachhut import app, db```
+    - ```app.app-context().push()```
+    - ```db.create_all()```
+    - You can then exit the console with ```exit()```
+
 ## Credits
 
 ### Code
@@ -838,19 +966,24 @@ The project will now have been cloned on your local machine for use.
 
 ### Content
 
--   All content was written by the developer with some assistance from youtube tutorials and stack overflow.
+-   All content was written by the developer with a great deal of assistance from youtube tutorials and stack overflow.
+
+-   Mostly trial and errorand getting one function working an dthen replicating it.
+
+-   Inspiration was taken from existing blog sites and sample projects suggested by my tutor:
+    -   https://github.com/EmmaJane22/HappyCamper
+    -   https://github.com/sdthomas91/chat-down-under-new
+    -   https://github.com/szilvia-csernus/community-transport
 
 ### Media
 
 -   Free background removal on various images using [photoroom](https://www.photoroom.com/tools/background-remover). 
 
--   Images were resized using [imageresizer](https://imageresizer.com/).
+-   The main background image is a standard Microsoft image. Other images are copyright free.
 
 ### Acknowledgements
 
--   
-
--   My Mentor for continuous helpful feedback and support.
+-   My Mentor for his continuous helpful feedback and support.
 
 -   Stackoverflow resources at their website and on Youtube.
 
