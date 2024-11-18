@@ -626,6 +626,10 @@ This was checked each time substantial changes were made to PY files. A final ch
     <details><summary>init.py</summary>
     <img src="beachhuts/static/docs/testing/pep8-init.png">
     </details>
+
+    <details><summary>env.py</summary>
+    <img src="beachhuts/static/docs/testing/pep8-env.png">
+    </details>
     
     <details><summary>models.py</summary>
     <img src="dbeachhuts/static/docs/testing/pep8-models.png">

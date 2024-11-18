@@ -124,4 +124,3 @@ class Contact(db.Model):
         return (
             f'contact #{self.id} for email {self.email} '
         )
-        

@@ -343,8 +343,8 @@ def search_results():
 def build_contacts():
     first_contact = Contact.query.first()
     if not first_contact:
-        flash('No Contact Records to Manage',category='error'
-            )
+        flash('No Contact Records to Manage', category='error'
+              )
         return redirect(url_for('home'))
     contacts = list(Contact.query.order_by(asc(Contact.id)).all())
 
@@ -352,7 +352,7 @@ def build_contacts():
         "build_contacts.html",
         page_title="Contact Records",
         user=current_user,
-        contacts=contacts        )
+        contacts=contacts)
 
 
 @app.route("/create_contact", methods=["GET", "POST"])
@@ -363,13 +363,13 @@ def create_contact():
         fname = request.form.get('fname')
         lname = request.form.get('lname')
         message = request.form.get('message')
-        
+
         contact = Contact(
-            username = username,
-            email = email,
-            fname = fname,
-            lname = lname,
-            message = message
+            username=username,
+            email=email,
+            fname=fname,
+            lname=lname,
+            message=message
             )
 
         db.session.add(contact)
