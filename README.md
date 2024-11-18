@@ -55,7 +55,9 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 3. [Features](#features)
 4. [Pages](#pages)
     *   [Landing Page](#landing-page)
-        *   [Menu Bar](#menu-bar)
+        *   [Menu Bar Logged Out](#menu-bar---logged-out)
+        *   [Menu Bar Logged User](#menu-bar---logged-in)
+        *   [Menu Bar Logged Admin](#menu-bar---admin)
         *   [Floating Anchor](#floating-anchor)
     *   [Sign Up Page](#sign-up-page)
     *   [Log in Page](#log-in-page)
@@ -73,6 +75,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
         *   [Delete Post](#delete-comment-page)
     *   [Tag Pages](#tag-pages)
         *   [Create Tag](#create-tag-page)
+        *   [Browse Tags](#browse-all-tags-page)
         *   [Delete Tag](#delete-tag-page)
     *   [Manage Users](#manage-users-page)
     *   [Search Results](#search-results-page)
@@ -175,13 +178,11 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
         -   Menu button text is Sand witha  yellow background. The admin only function is highlighted in Green.
 
-        -   There is a customised error-404 page 'just in case'.
-
-        -   There are popup confirmations on all Delete functions and each update page also offers a 'cancel' function rather than expecting teh user to use tha back button or actively click elsewhere.
+        -   There are popup confirmations on all Delete functions and each update page also offers a 'cancel' function rather than expecting the user to use tha back button or actively click elsewhere.
 
         -   Administrators have additional functions which are presented when they access different ares of the site.
 
-        -   Error and confirmation messages are displayed at the top of the main site area, below the secondary menus. I chose not to make these disappear automatically or after a stated time as I personally find that inconvenient and prefer to have messages displayed until i have read that at my pace and taken action to dismiss them.
+        -   Error and confirmation messages are displayed at the top of the main site area, below the secondary menus. I chose not to make these disappear automatically or after a stated time as I personally find that inconvenient and prefer to have messages displayed until I have read that at my pace and taken action to dismiss them.
         
         -   Threads(posts) and the first comment are visible to all visitors but user have to register and login to see full posts or comment.
 
@@ -189,11 +190,14 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 -   ### Database Design
 -   #### Table Structure
-
-
+    *   A User Table with unique ID.
+    *   A Thread Table - essentially a forum post, linked to a User.
+    *   A Comments Table - a comment or comments, attachhed to Thread and linked to the User who posted the comment, not necessarilly tehnsame user who posted the thread.
+    *   A Tag Table - a category that can be attached to a post to assist with searches. 
+    *   A Thread-Tag Table to resolve a Many-to-Many relationship between Tags and Threads.
 
 -   #### Diagram
-    <details><summary>Base Template</summary>
+    <details><summary>Data Structure</summary>
     <img src="beachhuts/static/docs/.png">
     </details>
 
@@ -353,19 +357,25 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     <img src="beachhuts/static/docs/readme_images/screens/home-logged-in.png">
     </details>
 
--   #### Menu Bar
-    <details><summary>Navigation Menu</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/.png">
+-   #### Menu Bar - Logged Out
+    <details><summary>Navigation Menu - Logged Out</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/menu-logged-out.png">
+    </details>
+
+-   #### Menu Bar - Logged In
+    <details><summary>Navigation Menu - Logged In User</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/menu-logged-in-normal-user.png">
+    </details>
+
+-   #### Menu Bar - Admin
+    <details><summary>Navigation Menu - Admin</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/menu-logged-in-admin.png">
     </details>
     
 -   #### Floating Anchor
     Each page also has a floating anchor link at the side to take the user back to the top of the page. 
     <details><summary>Bottom links</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/.png">
-    </details>
-    
-    <details><summary>Anchor link to Top</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/screens/floating.png">
     </details>
     
 -   #### Sign Up Page
@@ -401,7 +411,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 -   #### View Full Posts Page  
     <details><summary>View Full Posts Page</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/view-full-threads.png">
+    <img src="beachhuts/static/docs/readme_images/screens/view-full-thread.png">
     </details>
 
 ### Posts Pages
@@ -412,7 +422,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 -   #### Edit Post Page
     <details><summary>Edit Post Page</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/screens/edit_thread.png">
     </details>
 
 -   #### Delete Post Page
@@ -433,7 +443,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 -   #### Delete Comment Page
     <details><summary>Delete Comment Page</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/screens/delete_comment_modal.png">
     </details>
 
 ### Tag Pages
@@ -442,10 +452,15 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     <img src="beachhuts/static/docs/readme_images/screens/add-new-tag.png">
     </details>
 
+-   #### Browse All Tags Page
+    <details><summary>Browse All Tags (Admin) Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/browse-tags-admin.png">
+    </details>
+
 -   #### Delete Tag Page
     Admin only function. Button Hidden for normal users.
     <details><summary>Delete Tag Page</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/screens/delete-tag.png">
     </details>
 
 ### Manage Users Page
@@ -456,7 +471,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 -   #### Search Results Page
     <details><summary>Search Page</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/screens/search-results.png">
     </details>
 
 ### Contact Page 
@@ -529,7 +544,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
    - Jest was used to test the Javascript used.
 1. [SQLAlchemy:](https://docs.sqlalchemy.org/en/20/)
    - SQLAlchemy was used to communicate between the database and the frontend
-1. [DBDiagram:](dbdiagram.io)
+1. [DBDiagram:](https://dbdiagram.io/home)
    - Used to document database model.
 1. [FLASK:](https://flask.palletsprojects.com/)
    - Flask Frameworking was used to structure the site including the use of Jinja2 templating. Allowed for the smooth display of data from the backend. 
@@ -650,8 +665,8 @@ All pages were tested to ensure responsiveness on screen sizes from 280px and up
 
 Steps to test:
 
-1. Open browser and navigate to
-[vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv).
+1. Open browser and navigate to:
+    - https://beach-hut-appreciation-society-0c8700c133d2.herokuapp.com/
 2. Open the developer tools (right click and inspect).
 3. Set to responsive and decrease width in stages to 280px.
 4. Set the zoom to 50%.
@@ -762,9 +777,7 @@ Links on all pages navigated to the correct pages as expeccted. External content
 
 -   #### Sign Up Testing
 
-
 -   #### Log In Testing
-
 
 -   #### Thread Post Testing
 
