@@ -437,7 +437,7 @@ def edit_user(id):
     """
     user = User.query.get_or_404(id)
 
-    if current_user.id != User.id and not User.site_admin:
+    if current_user.id != User.id and not current_user.site_admin:
         flash('You can only Edit your own account', category='error')
         return redirect(url_for('home'))
 
@@ -494,12 +494,12 @@ def admin_edit_user(id):
     Admin can amend any profile.
     additional route required to set correct user.
     """
-    user = User.query.get_or_404(id)
-
-    if not User.site_admin:
+    if not current_user.site_admin:
         flash('You must be an Administrator to ' +
               'Manage Users', category='error')
         return redirect(url_for('home'))
+
+    user = User.query.get_or_404(id)
 
     if request.method == 'POST':
         username = request.form.get('username')
@@ -558,7 +558,7 @@ def delete_user(user_id):
     """
     user = User.query.get_or_404(user_id)
     # Only admin can users. non-admins should never get here but just in case.
-    if not User.site_admin:
+    if not current_user.site_admin:
         flash('You must be site admin ' +
               'to delete a user account.', category='error')
         return redirect(url_for('manage_users'))
@@ -628,7 +628,7 @@ def manage_users():
     """
     present current users to admin for actions
     """
-    if not User.site_admin:
+    if not current_user.site_admin:
         flash('You must be a Administrator to ' +
               'Manage Users', category='error')
         return redirect(url_for('home'))
