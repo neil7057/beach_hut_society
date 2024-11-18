@@ -336,14 +336,15 @@ def search_results():
 def contact():
     if request.method == "POST":
         flash("Thanks {}, we have received your message!".format(
-            request.form.get("name")))
+            request.form.get("fname")))
+        return redirect(url_for('home'))
+   
     return render_template(
         "contact.html",
         page_title="Contact Admin",
         user=current_user)
 
-
-
+   
 @app.route("/sign_up", methods=['GET', 'POST'])
 def sign_up():
     """

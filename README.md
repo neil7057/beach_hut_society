@@ -198,7 +198,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 -   #### Diagram
     <details><summary>Data Structure</summary>
-    <img src="beachhuts/static/docs/.png">
+    <img src="beachhuts/static/docs/table_layout.png">
     </details>
 
 -   ### Wireframes

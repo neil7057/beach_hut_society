@@ -18,14 +18,19 @@
                         <br>
                         <form method="POST" name="sentmessage" id="contactForm">
                             <div class="form-group">
-                                <label for="fullname">Full Name:</label>
-                                <input type="text" name="name" id="fullname" class="form-control"
-                                    placeholder="Full Name" required autocomplete="on">
+                                <label for="fname">First Name:</label>
+                                <input type="text" name="fname" id="fname" class="form-control"
+                                    placeholder="First Name" required autocomplete="on" value ="{{ user.fname }}">
+                            </div>
+                            <div class="form-group"></div>
+                                <label for="lname">Last Name:</label>
+                                <input type="text" name="lame" id="lname" class="form-control"
+                                    placeholder="Last Name" required autocomplete="on" value ="{{ user.lname }}">
                             </div>
                             <div class="form-group">
                                 <label for="emailaddress">Email Address:</label>
                                 <input type="email" name="email" id="emailaddress" class="form-control"
-                                    placeholder="Email" required autocomplete="on">
+                                    placeholder="Email" required autocomplete="on" value ="{{ user.email_address }}">
                                 <small id="emailhelp" class="form-text text-sand">We'll never share your email
                                     with anyone else</small>
                             </div>
