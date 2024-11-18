@@ -6,14 +6,15 @@ from sqlalchemy.sql import func
 class User(db.Model, UserMixin):
     # schema for the User Model
     """
-    UserMixin supporst Flask_login for authentication checkimg.
+    UserMixin supports Flask_login for authentication checkimg.
     """
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(25))
     email_address = db.Column(db.String(50))
     fname = db.Column(db.String(20))
     lname = db.Column(db.String(30))
-    password = db.Column(db.String(255))    # password has to be 255 to cater for hashed length
+    password = db.Column(db.String(255))
+    # password has to be 255 to cater for hashed length
     site_admin = db.Column(db.Boolean, default=False, nullable=False)
     created_td = db.Column(db.DateTime(timezone=True), default=func.now())
 
@@ -25,7 +26,7 @@ class Tag(db.Model):
 
     def __repr__(self):
         # __repr___ to represent itself in the form of a string
-        return self.tag_name  
+        return self.tag_name
 
 
 # Intermediate table to implement M:M relationship
@@ -71,6 +72,7 @@ class Thread(db.Model):
             self.id, self.thread_title, self.author_id
         )
 
+
 # Add comments model
 class Comments(db.Model):
     """
@@ -97,6 +99,26 @@ class Comments(db.Model):
         lazy=True,
         cascade="all, delete-orphan"
         ))
+
+    def __repr__(self):
+        return (
+            f'Comment #{self.id} by User ID {self.author_id} '
+            f'on Thread ID {self.thread_id}'
+        )
+
+
+# Add contact model
+class Contact(db.Model):
+    """
+    A contact instnace recoreded on the web form
+    """
+    id = db.Column(db.Integer, primary_key=True)
+    contact_username = db.Column(db.String(20))
+    contact_email = db.Column(db.String(20))
+    contact_fname = db.Column(db.String(20))
+    contact_lname = db.Column(db.String(20))
+    contact_message = db.Column(db.String(20))
+    created_td = db.Column(db.DateTime(timezone=True), default=func.now())
 
     def __repr__(self):
         return (

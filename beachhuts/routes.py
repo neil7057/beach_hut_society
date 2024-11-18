@@ -41,13 +41,15 @@ def home():
 
 @app.route("/about")
 def about():
-    return render_template("about.html",
-    page_title="About B.H.A.S",
-    user=current_user)
+    return render_template(
+        "about.html",
+        page_title="About B.H.A.S",
+        user=current_user)
 
 
 # Tag Routes
 @app.route("/tags")
+@login_required
 def tags():
     """
     Displaying a grid of current tags
@@ -72,9 +74,9 @@ def add_tag():
         selected_tag_ids = request.form.getlist('thread_tags[]')
         new_tag = Tag(
                     tag_name=tag_name,)
-        
+
         existing_tag = Tag.query.filter_by(
-        tag_name=tag_name
+            tag_name=tag_name
         ).first()
         if existing_tag is None:
             tag = Tag(
@@ -85,7 +87,6 @@ def add_tag():
             return redirect(url_for('tags'))
         else:
             flash('Tag already exists.', category='error')
-
 
     return render_template(
         "add_tag.html",
@@ -101,7 +102,11 @@ def delete_tag(tag_id):
     """
     restricted to Admin only by button visibility
     """
-     
+    if not User.site_admin:
+        flash('You Must be an Adminsitrator to ' +
+              'Delete a Tag', category='error')
+        return redirect(url_for('home'))
+
     tag = Tag.query.get_or_404(tag_id)
     db.session.delete(tag)
     db.session.commit()
@@ -198,6 +203,7 @@ def delete_thread(thread_id):
     if current_user.id != thread.author_id and not User.site_admin:
         flash('You can only delete your own posts.', category='error')
         return redirect(url_for('home'))
+
     db.session.delete(thread)
     db.session.commit()
     flash('Your Post has been successfully removed.')
@@ -259,6 +265,7 @@ def delete_comment(comments_id):
 
 # My Threads
 @app.route('/my_threads')
+@login_required
 def my_threads():
     """
     present current users thread posts
@@ -312,7 +319,7 @@ def view_full_thread(thread_id):
 @app.route('/search_results', methods=['GET', 'POST'])
 def search_results():
     """
-    https://stackoverflow.com/questions/7942547/using-or-in-sqlalchemy 
+    Will return results for hits from threads and tags.
     """
     search_term = request.args.get('search_term')
     if search_term:
@@ -338,13 +345,13 @@ def contact():
         flash("Thanks {}, we have received your message!".format(
             request.form.get("fname")))
         return redirect(url_for('home'))
-   
+
     return render_template(
         "contact.html",
         page_title="Contact Admin",
         user=current_user)
 
-   
+
 @app.route("/sign_up", methods=['GET', 'POST'])
 def sign_up():
     """
@@ -368,7 +375,8 @@ def sign_up():
         user = User.query.filter_by(email_address=email_address).first()
         if user:
             flash(
-                'This Email is already registered. Login or use another to Sign up.',
+                'This Email is already registered. ' +
+                'Login or use another to Sign up.',
                 category='error'
             )
 
@@ -413,7 +421,7 @@ def sign_up():
                 category='success'
             )
             return redirect(url_for('login'))
-    
+
     return render_template(
             "sign_up.html",
             page_title="Sign Up",
@@ -422,11 +430,17 @@ def sign_up():
 
 
 @app.route('/edit_user/<int:id>', methods=['GET', 'POST'])
+@login_required
 def edit_user(id):
     """
     User can amend their profile.
     """
     user = User.query.get_or_404(id)
+
+    if current_user.id != User.id and not User.site_admin:
+        flash('You can only Edit your own account', category='error')
+        return redirect(url_for('home'))
+
 
     if request.method == 'POST':
         username = request.form.get('username')
@@ -449,9 +463,9 @@ def edit_user(id):
             flash('Last Name is required', category='error')
         else:
             # update database fields
-            user.username=username
-            user.fname=fname,
-            user.lname=lname,
+            user.username = username
+            user.fname = fname,
+            user.lname = lname,
 
             # update user on system
             db.session.commit()
@@ -461,7 +475,7 @@ def edit_user(id):
                 category='success'
             )
             return redirect(url_for('home'))
-    
+
     return render_template(
             "edit_user.html",
             user_id=user.id,
@@ -474,12 +488,18 @@ def edit_user(id):
 
 
 @app.route('/admin_edit_user/<int:id>', methods=['GET', 'POST'])
+@login_required
 def admin_edit_user(id):
     """
     Admin can amend any profile.
     additional route required to set correct user.
     """
     user = User.query.get_or_404(id)
+
+    if not User.site_admin:
+        flash('You must be an Administrator to ' +
+              'Manage Users', category='error')
+        return redirect(url_for('home'))
 
     if request.method == 'POST':
         username = request.form.get('username')
@@ -504,10 +524,10 @@ def admin_edit_user(id):
             flash('Last Name is required', category='error')
         else:
             # update database fields
-            user.username=username
-            user.fname=fname,
-            user.lname=lname,
-            
+            user.username = username
+            user.fname = fname,
+            user.lname = lname,
+
             # update user on system
             db.session.commit()
             # Success message flash
@@ -516,7 +536,7 @@ def admin_edit_user(id):
                 category='success'
             )
             return redirect(url_for('manage_users'))
-    
+
     return render_template(
         "admin_edit_user.html",
         user_id=user.id,
@@ -539,7 +559,8 @@ def delete_user(user_id):
     user = User.query.get_or_404(user_id)
     # Only admin can users. non-admins should never get here but just in case.
     if not User.site_admin:
-        flash('You must be site admin to delete a user account.', category='error')
+        flash('You must be site admin ' +
+              'to delete a user account.', category='error')
         return redirect(url_for('manage_users'))
 
     db.session.delete(user)
@@ -551,7 +572,7 @@ def delete_user(user_id):
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     """
-    Present login page 
+    Present login page
     """
     if request.method == 'POST':
         email_address = request.form.get('loginEmail').lower()
@@ -591,6 +612,7 @@ def logout():
     flash('You have successfully logged out', category='success')
     return redirect(url_for('home'))
 
+
 @app.route('/cancel')
 # edit/create cancelled by user
 @login_required
@@ -598,12 +620,19 @@ def cancel():
     flash('Action Cancelled by User', category='success')
     return redirect(url_for('home'))
 
+
 # ADMIN ONLY Function
 @app.route('/manage_users')
+@login_required
 def manage_users():
     """
     present current users to admin for actions
     """
+    if not User.site_admin:
+        flash('You must be a Administrator to ' +
+              'Manage Users', category='error')
+        return redirect(url_for('home'))
+
     users = list(User.query.order_by(asc(User.id)).all())
     return render_template(
         "manage_users.html",
