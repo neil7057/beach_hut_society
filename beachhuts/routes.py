@@ -102,7 +102,7 @@ def delete_tag(tag_id):
     """
     restricted to Admin only by button visibility
     """
-    if not User.site_admin:
+    if not current_user.site_admin:
         flash('You Must be an Adminsitrator to ' +
               'Delete a Tag', category='error')
         return redirect(url_for('home'))
@@ -161,7 +161,7 @@ def edit_thread(thread_id):
     """
     thread = Thread.query.get_or_404(thread_id)
     # check for author id, only author (or admin) can edit their own thread
-    if current_user.id != thread.author_id and not User.site_admin:
+    if current_user.id != thread.author_id and not current_user.site_admin:
         flash('You can only edit your own Posts.', category='error')
         return redirect(url_for('home'))
 
@@ -200,7 +200,7 @@ def delete_thread(thread_id):
     """
     thread = Thread.query.get_or_404(thread_id)
     # check for author id, only author (or admin) can delete their own thread
-    if current_user.id != thread.author_id and not User.site_admin:
+    if current_user.id != thread.author_id and not current_user.site_admin:
         flash('You can only delete your own posts.', category='error')
         return redirect(url_for('home'))
 
@@ -219,7 +219,7 @@ def edit_comment(comments_id):
     """
     comments = Comments.query.get_or_404(comments_id)
     # check for author id, only author (or admin) can edit their own comments
-    if current_user.id != comments.author_id and not User.site_admin:
+    if current_user.id != comments.author_id and not current_user.site_admin:
         flash('You can only edit your own comments.', category='error')
         return redirect(url_for('home'))
 
@@ -339,9 +339,25 @@ def search_results():
         user=current_user)
 
 
-@app.route("/contact", methods=["GET", "POST"])
-def contact():
-    if request.method == "POST":
+@app.route("/create_contact", methods=["GET", "POST"])
+def create_contact():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        fname = request.form.get('fname')
+        lname = request.form.get('lname')
+        email = request.form.get('email').lower()
+        message = request.form.get('message')
+        
+        contact = Contact(
+            username = username,
+            fname = fname,
+            lname = lname,
+            email = email,
+            message = message
+            )
+
+        db.session.add(contact)
+        db.session.commit()
         flash("Thanks {}, we have received your message!".format(
             request.form.get("fname")))
         return redirect(url_for('home'))

@@ -110,18 +110,18 @@ class Comments(db.Model):
 # Add contact model
 class Contact(db.Model):
     """
-    A contact instnace recoreded on the web form
+    A contact instance recoreded on the web form
     """
     id = db.Column(db.Integer, primary_key=True)
-    contact_username = db.Column(db.String(20))
-    contact_email = db.Column(db.String(20))
+    contact_username = db.Column(db.String(25))
+    contact_email = db.Column(db.String(50))
     contact_fname = db.Column(db.String(20))
-    contact_lname = db.Column(db.String(20))
-    contact_message = db.Column(db.String(20))
+    contact_lname = db.Column(db.String(30))
+    contact_message = db.Column(db.String(280))
     created_td = db.Column(db.DateTime(timezone=True), default=func.now())
 
     def __repr__(self):
         return (
-            f'Comment #{self.id} by User ID {self.author_id} '
-            f'on Thread ID {self.thread_id}'
+            f'contact #{self.id} for email {self.email} '
         )
+        
