@@ -2,13 +2,13 @@
 {% block content %}
 
 <!-- <div class="container home-container"> -->
-<div class="container-fluid width-90 text-center">
+<div class="container-fluid width-90">
   <br>
   <h1 class="text-uppercase title-color">
     {{ page_title }}
   </h1>
   <br>
-  <form method="POST" class="account-form submit-thread-form">
+  <form method="POST" class="submit-thread-form">
   <div class="form-group">
     <label for="thread_title" class="text-sand">Title - Maximum of 50 Characters</label>
     <input type="text" maxlength="50" class="form-control" id="thread_title" name="thread_title"
@@ -21,17 +21,18 @@
   </div>
     
   <div class="form-group">
-  <label for="thread_tags">Select Catgeory tags (Max. 3)</label>
+  <label for="thread_tags" class="text-sand">Select Category Tag(s)</label>
     <!-- max 3 tags per post(thread), if not exist, user can create a new one -->
-    <select class="custom-select select2-hidden-accessible text-sand" id="thread_tags" name="thread_tags[]" multiple="multiple">
-      <option value="" disabled>Select up to 3 topics</option>
-      {% for tag in tags %}
+    <select class="custom-select text-sand" id="thread_tags" name="thread_tags[]" 
+      multiple="multiple" required>
+      <option value="" disabled></option>
+      {% for tag in tag_list %}
       <option value="{{ tag.id }}">{{ tag.tag_name }}</option>
       {% endfor %}
     </select>  
     </div>
-    <div class="add-tag-link text-sand">
-      <p>If you cannot see the tag you want, <a href="{{url_for('add_tag')}}">click here</a> to add tag(s)</p>
+    <div class="text-center text-sand">
+      <p>If you cannot see the tag you want, <a href="{{url_for('add_tag')}}">click here</a> to add a tag(s)</p>
     </div>
     <br>
     <div class="form-group form-check">
@@ -39,9 +40,11 @@
       <label class="form-check-label text-blue" for="thread_confirm">Remember: Be nice, Be Polite, Be courteous. Keep the language
         clean</label>
     </div>
+    <div class="text-center">
     <a href="{{ url_for('cancel') }}" class="btn btn-cancel hvr-grow text-cancel">
       <span class="text-danger fa-solid fa-circle-xmark"></span> <strong>Cancel</strong></a>
     <button type="submit" class="btn-lg btn-circle text-success"><span class="fa-solid fa-thumbs-up text-success"></span><strong> Submit</strong></button>
+      </div>
   </form>
 </div>
 {% endblock %}

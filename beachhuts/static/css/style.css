@@ -288,9 +288,9 @@ li {
 
 .custom-select[multiple] {
     height: auto;
-    max-height: 100px;
+    max-height: 60px;
     overflow-y: auto;
-    width: 40%;
+    /* width: 40%; */
 }
   
 .custom-select {
@@ -474,11 +474,11 @@ footer {
     font-size: 16px!important;
 }
 
-.thread-tag-title {
+.thread-tags-title {
     font-size: 0.9rem;
 }
   
-.thread-tag-title p{
+.thread-tags-title p{
      margin-bottom: 0.3rem;
 }
   
@@ -507,7 +507,7 @@ footer {
     color: #af9442;
     background-color: #efe6a4;
     border: 2px solid #da5619; 
-    border-right: 0;  
+    /* border-right: 0;   */
     border-radius: 2rem;
 }
 
@@ -546,22 +546,53 @@ input[type=radio] {
 
 /* **SELECT2** */
 
-.select2-selection__choice {
+.select2-container--default .select2-selection--multiple {
+    background-color: #efe6a4!important;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #af9442;
+    border: 2px solid #da5619; 
+}
+
+.select2-results__option {
+    background-color: #efe6a4;
+    width: 100%;
+}
+
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+    background-color: #007bff;
+    color: #da5610;
+    border-radius: solid 2 rem #da5619;
+}
+
+.select2-container .select2-selection--multiple .select2-selection__rendered {
     background-color: #007bff !important;
-    border: 1px solid #006fe6 !important;
+    border-radius: 15px;
+    display: inline;
+    list-style: none;
+    padding: 0;
+}
+
+.select2-selection__choice {
+    /* background-color: #007bff !important;
+    border: 1px solid #006fe6 !important; */
     border-radius: 20px !important;
     padding: 0 10px !important;
-    color: white !important;
+    /* color: white !important; */
   }
   
   .select2-selection__choice__remove {
-    color: white !important;
+    color: red !important;
     cursor: pointer;
     margin-right: 5px;
   }
+   
 /* ----------------------------------------fixed size on page with scrollbar */
 
-textarea {
+/* override textarea settings for contact page */
+#message {
     min-height: 200px;
     max-height: 300px;
     resize: none;
@@ -714,7 +745,7 @@ a {
     font-weight: 500;
 }
 
-/* ----------------------------------------The Modal (background) */
+/* ----------------------------------------Modal---------*/
 
 .modal {
     display: none; 
@@ -763,8 +794,6 @@ a {
   }
   
 /* ----------------------------------------Media Queries */
-
-/* ----------------------------------------Amend modal width and height on larger screen sizes. */
 
 @media (min-width: 1400px) {
     .contact-modal-content {

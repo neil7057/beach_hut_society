@@ -120,7 +120,7 @@ def delete_tag(tag_id):
 def submit_thread():
     """
     Logged in Users can submit a new thread
-    Users can ad existing tag caegories
+    Users can add existing tag caegories
     """
     if request.method == 'POST':
         thread_title = request.form.get('thread_title')
@@ -135,7 +135,6 @@ def submit_thread():
         # Add/append each tag to the thread
         for tid in selected_tag_ids:
             tag = Tag.query.get(int(tid))
-            # print(tag)
             if tag:
                 new_thread.tags.append(tag)
 
@@ -144,11 +143,11 @@ def submit_thread():
         flash('Your thread is now Live', category='success')
         return redirect(url_for('home'))
 
-    tags = Tag.query.all()
+    tag_list = Tag.query.all()
     return render_template(
         "submit_thread.html",
         page_title="Create a Forum Post",
-        tags=tags,
+        tag_list=tag_list,
         user=current_user)
 
 
