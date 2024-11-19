@@ -370,7 +370,7 @@ def create_contact():
             email=email,
             fname=fname,
             lname=lname,
-            message=message
+            message=message,
             )
 
         db.session.add(contact)
