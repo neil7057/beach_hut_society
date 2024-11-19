@@ -345,7 +345,9 @@ def build_contacts():
         flash('No Contact Records to Manage', category='error'
               )
         return redirect(url_for('home'))
-    contacts = list(Contact.query.order_by(asc(Contact.id)).all())
+        
+    # get all contact - oldest first
+    contacts = list(Contact.query.order_by(asc(Contact.created_td)).all())
 
     return render_template(
         "build_contacts.html",
@@ -489,8 +491,8 @@ def edit_user(id):
     user = User.query.get_or_404(id)
 
     # check site admin or corrcet user. this prevents hacking
-    # by directly typing URLs into the browser
-    if current_user.id != User.id and not current_user.site_admin:
+    # by directly typing URLs into the browseruser_id
+    if current_user.id != user.id:
         flash('You can only Edit your own account', category='error')
         return redirect(url_for('home'))
 
