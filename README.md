@@ -419,13 +419,13 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 -   #### View Full Posts Page  
     <details><summary>View Full Posts Page</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/view-full-thread.png">
+    <img src="beachhuts/static/docs/readme_images/screens/view-thread-full.png">
     </details>
 
 ### Posts Pages
 -   #### Create Post Page
     <details><summary>Create Post Page</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/screens/create-a-post.png">
     </details>
 
 -   #### Edit Post Page
@@ -451,7 +451,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 -   #### Delete Comment Page
     <details><summary>Delete Comment Page</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/delete_comment_modal.png">
+    <img src="beachhuts/static/docs/readme_images/screens/delete-comment-modal.png">
     </details>
 
 ### Tag Pages
@@ -468,13 +468,18 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 -   #### Delete Tag Page
     Admin only function. Button Hidden for normal users.
     <details><summary>Delete Tag Page</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/delete-tag.png">
+    <img src="beachhuts/static/docs/readme_images/screens/delete_tag.png">
     </details>
 
 ### Manage Users Page
 * Admin only function. Menu Button Hidden for normal users.
-    <details><summary>Manage Users Page</summary>
+    <details><summary>Manage Users Menu</summary>
     <img src="beachhuts/static/docs/readme_images/screens/admin-manage-users.png">
+    </details>
+
+* Admin only function. Menu Button Hidden for normal users.
+    <details><summary>Manage Users Page</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/admin-manage-users2.png">
     </details>
 
     ### Manage Contacts Page
@@ -494,6 +499,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 ### Contact Page 
 * A contact is offered to allow users to contact me. The form consists of the following fields and attributes: 
+        - Username (required, type=text).
         - First Name (required, type=text).
         - Last Name (required, type=text).
         - Email (required, type=email).
@@ -501,6 +507,8 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
         - Muted Text is used as hints or for assurance on certain fields. This has been adjusted for WCAG compliance.
     * This allows a user to contact admin with any queries.
     * A flash message indicates success or failure of the message send.
+    * The contact message is stored in a database table for interrogation by admininstrators.
+
     <details><summary>Contact Page</summary>
     <img src="beachhuts/static/docs/readme_images/screens/contact.png">
     </details>
@@ -579,20 +587,59 @@ This was carried out periodically as each page was created and amended and then 
 
 -   [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
 
-    <details><summary>Home Page</summary>
-    <img src="docs/testing/w3--check.jpg">
+    <details><summary>Index Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--check.jpg">
     </details>
-    <br>
-    <details><summary> Page</summary>
-    <img src="docs/testing/w3--check.jpg">
+    <details><summary>About Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--check.jpg">
     </details>
-    <br>
-    <details><summary> Page</summary>
-    <img src="docs/testing/w3--check.jpg">
+    <details><summary>Add Tag Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--check.jpg">
     </details>
-    <br>
-    <details><summary> Page</summary>
-    <img src="docs/testing/w3--.jpg">
+    <details><summary>Admin Edit User Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--.jpg">
+    </details>
+    <details><summary>Build Contacts Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    </details>
+    <details><summary>Build Threads Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    </details>
+    <details><summary>Contact Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    </details>
+    <details><summary>Edit Comment Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--.jpg">
+    </details>
+    <details><summary>Edit Thread Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    </details>
+    <details><summary>Edit User Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    </details>
+    <details><summary>Login Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    </details>
+    <details><summary>Manage Users Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    </details>
+    <details><summary>My Threads User Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--.jpg">
+    </details>
+    <details><summary>Search Results Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    </details>
+    <details><summary>Sign Up Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    </details>
+    <details><summary>Submit Thread Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    </details>
+    <details><summary>Tags Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--.jpg">
+    </details>
+    <details><summary>View Full Thread Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--.jpg">
     </details>
     
 ### CSS
@@ -602,9 +649,8 @@ This was checked periodically as each page was created and CSS code added and am
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
     <details><summary>style.css</summary>
-    <img src="docs/testing/ws-style-css-check.jpg">
+    <img src="beachhuts/static/docs/testing/ws-style-css-check.png">
     </details>
-    <br>
 
 ### JavaScript
 
@@ -613,10 +659,8 @@ This was checked periodically as each page was created and CSS code added and am
 -   [jshint JavaScript Validator](https://jshint.com/)
 
     <details><summary>Main JS - scripts.js</summary>
-    <img src="docs/testing/jshint-scripts-js.jpg">
+    <img src="beachhuts/static/docs/testing/jshint-scripts-js.jpg">
     </details>
-    <br>   
-
 ### PeP8
 
 This was checked each time substantial changes were made to PY files. A final check was carried out when all other testing had been satisfactorily completed.

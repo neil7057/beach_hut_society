@@ -21,20 +21,27 @@
             </div>
             {% else %}
         <!-- check if site admin and if so, allow comment deletion -->
-                {% if user.site_admin %}
+                {% if current_user.site_admin %}
                 <br>
                 <div class="text-center card-action">    
-                <!-- <a href="{{url_for('edit_comment', comments_id=comments.id)}}"
-                    class="btn btn-info btn-circle">Edit</a> -->
+                <a href="{{url_for('edit_comment', comments_id=comments.id)}}"
+                    class="btn btn-info btn-circle">Edit</a>
                 {% include 'delete_comment_modal.html' %}         
                 </div>
-            {% endif %}
-        {% endif %}       
-    {% endif %}
+                {% endif %}
+            {% endif %}       
+        {% endif %}
         </div>
     </div>
     <br>
     {% endif %}
     {% endfor %}
 </div>
-<!-- If more than one comment, link to view full thread -->
+<!-- If more than one reply, link to view full thread -->
+{% if thread.comments|length > 1 %}
+<div class="text-center">
+<a  class="btn btn-lg font-weight-bold btn-font text-success" href="{{url_for('view_full_thread', thread_id=thread.id)}}"> 
+    <span class="text-info fa-solid fa-eye"></span> View Full Post</a>
+</div>
+<br>
+{% endif %}

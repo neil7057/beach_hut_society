@@ -247,7 +247,12 @@ li {
     text-transform: capitalize;
 }
 
+.first-capital {
+    text-transform: capitalize;
+}
+
 /* can change title color quickly for all titles */
+
 .title-color {
     color: #4203bf;
     text-align: center;
@@ -290,7 +295,6 @@ li {
     height: auto;
     max-height: 60px;
     overflow-y: auto;
-    /* width: 40%; */
 }
   
 .custom-select {
@@ -342,33 +346,32 @@ li {
 
 .commentForm {
     margin-bottom: 10px;
-  }
+}
     
-  .comment-body {
+.comment-body {
     background-color: #8fedcb;
     margin: 5px 15px;
     width: auto;
     padding: 10px 15px;
     border-radius: 15px;
-    /* box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); */
-  }
+    border: 2px solid #da5619;
+}
   
-  .comment-date {
+.comment-date {
     font-size: 0.7rem;
     margin-top: -10px;
     margin-bottom: 0;
     font-weight: bold;
-  }
+}
   
-  .comments {
+.comments {
     margin-top: 15px;
-  }
+}
   
-  .comment-header {
+.comment-header {
     text-transform: lowercase;
     font-size: 0.9rem;
-  }
-
+}
 
 /*--------------------------------------------Tags*/
 
@@ -642,6 +645,11 @@ input[type=radio] {
     resize: none;
 }
 
+/* ensure comment box is reasonable size on all forms */
+textarea.form-control {
+    min-height: 200px;
+}
+
 .btn-block {
     background-color: #4203bf;
     color: #e8edf3;
@@ -704,6 +712,8 @@ button[type="submit"] {
     background-color: #e5f1a4;
     border-radius: 2rem;
     padding: 6px 12px;
+    margin: 15px 0 20px;
+    font-size: 22px;
     border: .2rem solid #da5619;
 }
 
@@ -732,6 +742,12 @@ button[type="submit"] {
 
 .btn-lg:hover {
     text-decoration: none;
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
 }
 
 /* ----------------------------------------hovering home button */

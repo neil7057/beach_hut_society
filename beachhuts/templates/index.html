@@ -8,7 +8,8 @@
     <div class="col-xl-6 col-lg-8 col-md-8">
       <div class="user-display home-container text-blue">
         <div>
-          <h4>Hi, {{ current_user.fname }}</h4>
+          <!-- capitalise first letter of first name -->
+          <h4>Hi, <span class="first-capital">{{ current_user.fname }}</span></h4>
           <div class ="center-content">
           <p class="text-center">Here's your profile information:</p>
           <br>
@@ -22,7 +23,7 @@
             <br>
             <p>
               <a class="btn-lg text-success" aria-label="Go to the view all posts page (opens in a new tab)" href="{{url_for('my_threads')}}">
-                <span class="text-info fa-solid fa-binoculars"></span> View All Posts</a> 
+                <span class="text-info fa-solid fa-binoculars"></span> View My Posts</a> 
             </p>
             <br>
              <p>Member Since:  <span class="text-sand">{{ current_user.created_td.strftime('%B %d, %Y') }}</span></p>
