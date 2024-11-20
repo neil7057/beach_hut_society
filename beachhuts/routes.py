@@ -560,7 +560,7 @@ def admin_edit_user(id):
         fname = request.form.get('fname')
         lname = request.form.get('lname')
         password = request.form.get('password')
-        siteadmin = request.form.get('siteadmin')
+        option = request.form.get('inlineRadioOptions')
 
         # Validate username (if it has been updated) and ensure it is unique
         user_name = User.query.filter_by(username=username).first()
@@ -569,7 +569,6 @@ def admin_edit_user(id):
                 'Username already in use. Please choose another',
                 category='error'
             )
-
         elif len(username) < 1:
             flash('Username required', category='error')
         elif len(fname) < 1:
@@ -578,9 +577,13 @@ def admin_edit_user(id):
             flash('Last Name is required', category='error')
         else:
             # update database fields
-            user.username = username
+            user.username = username,
             user.fname = fname,
             user.lname = lname,
+            if  option == 'False':
+                user.site_admin = False
+            else:
+                user.site_admin = True
 
             # update user on system
             db.session.commit()

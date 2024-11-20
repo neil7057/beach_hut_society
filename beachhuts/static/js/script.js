@@ -46,12 +46,10 @@
 
   $(document).ready(function () {
     $('#thread_tags').select2({
+      placeholder: "Select Tags",
       tags: true,
       tokenSeparators: [',', ' '],
       // apply selection limit with Select2 (https://select2.org/selections)
       maximumSelectionLength: 4,
     });
   });
-
-  // check radio button status on admin manage users function
-  $("input[type='radio'][name=inlineRadioOptions]:checked", '#adminUpatedUser').val();
