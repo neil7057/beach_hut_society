@@ -470,6 +470,11 @@ footer {
     margin: 20px;
 }
 
+/* wraps posts and threads within display containers */
+.thread-comment-wrap {
+    overflow-wrap: break-word;
+}
+
 .btn-font {
     font-size: 16px!important;
 }
@@ -538,8 +543,8 @@ footer {
 }
 
 input[type=radio] {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     color: red;
 
 }
@@ -547,28 +552,50 @@ input[type=radio] {
 /* **SELECT2** */
 
 /* ::placeholder #thread-tags{
-    font-size: 12px;
+    font-size: 2rem;
 } */
 
 .select2-container--default .select2-selection--multiple {
     background-color: #efe6a4!important;
     border-radius: 2rem;
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 700;
     color: #af9442;
     border: 2px solid #da5619;
-    min-height: 60px; 
+    /* min-height: 80px;  */
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    border-right: none;
 }
 
 .select2-results__option {
     background-color: #efe6a4;
+    font-size: 1rem;
     width: 100%;
 }
 
+.select2-container--default .select2-results>.select2-results__options {
+    border-top: none;
+    border-right: 2px solid #da5619;
+    border-left: 2px solid #da5619;
+    border-bottom: 2px solid #da5619;
+}
+
+.select2-container--default .select2-results__option--selected {
+    background-color: #2b96c9;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: 2px solid #da5619;
+}
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
-    background-color: #007bff;
-    color: #10da91;
+    background-color: #2b96c9;
+    /* font-size: 1rem; */
+    padding-left: 25px;
+    vertical-align: middle;
+    color: #1e10da;
 }
 
 .select2-container .select2-selection--multiple .select2-selection__rendered {
@@ -581,30 +608,38 @@ input[type=radio] {
 .select2-container .select2-search--inline .select2-search__field {
     box-sizing: border-box;
     border: none;
-    font-size: 59%;
-    margin-top: 5px;
+    font-size: 80%;
+    font-weight: 700;
+    margin-top: 10px;
     margin-left: 5px;
     padding: 0;
     max-width: 100%;
-    /* resize: none;
-    height: 18px; */
-    vertical-align: bottom;
+    resize: none;
+    height: 18px;
+    vertical-align: middle;
     font-family: sans-serif;
     overflow: hidden;
     word-break: keep-all;
 }
 
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #2b96c9;
+    border: 1px solid #aaa;
+    border-radius: 15px;
+}
+
 .select2-selection__choice {
     background-color: #007bff;
-    border: 1px solid #006fe6 !important; 
+    border: 1px solid #da5619 !important; 
     padding: 0 10px !important;
     border-radius: 2rem;
     /* color: white !important; */
   }
   
   .select2-selection__choice__remove {
-    color: red;
+    color: red!important;
     cursor: pointer;
+    padding: 0;
   }
    
 /* ----------------------------------------fixed size on page with scrollbar */

@@ -8,7 +8,7 @@
 
   <form method="POST" class="account-form submit-thread-form">
     <div class="form-group">
-      <label class="text-sand " for="thread_title">Title - Maximum of 50 Characters</label>
+      <label class="text-sand" for="thread_title">Title - Maximum of 50 Characters</label>
       <input type="text" maxlength="50" class="form-control" id="thread_title" name="thread_title"
         placeholder="Post title" value="{{ thread.thread_title }}" required>
     </div>
@@ -19,13 +19,13 @@
     </div>
 
     <div class="form-group">
-      <label for="thread_tags">Select Catgeory tags (Max. 3)</label>
+      <label for="thread_tags" class="text-sand">Select Catgeory tags (Max. 4)</label>
       <select class="custom-select" id="thread_tags" name="thread_tags[]" multiple="multiple">
-      <option value="" disabled>Select up to 3 topics</option>
+      <option value="" disabled></option>
       {% for tag in tags %}
       <option value="{{ tag.id }}" {% if tag in thread.tags %}selected{% endif %}>{{ tag.tag_name }}</option>
       {% endfor %}
-    </select>
+      </select>
     </div>
     <div class="add-tag-link text-sand">
       <p>If you cannot see the tag you want, <a href="{{url_for('add_tag')}}">click here</a> to add tag(s)</p>
