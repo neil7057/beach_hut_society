@@ -37,11 +37,4 @@
     {% endif %}
     {% endfor %}
 </div>
-<!-- If more than one reply, link to view full thread -->
-{% if thread.comments|length > 1 %}
-<div class="text-center">
-<a  class="btn btn-lg font-weight-bold btn-font text-success" href="{{url_for('view_full_thread', thread_id=thread.id)}}"> 
-    <span class="text-info fa-solid fa-eye"></span> View Full Post</a>
-</div>
-<br>
-{% endif %}
+<!-- If more than one comment, link to view full thread -->

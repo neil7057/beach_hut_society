@@ -39,7 +39,7 @@
                 <textarea class="form-control" id="commentBody" name="comment_body" rows="6" required></textarea>
               </div>
               <button class="btn btn-secondary" onclick="hideCommentForm('{{ thread.id }}')">Cancel</button>
-              <button type="submit" class="btn btn-primary acc-btn">Submit Reply</button>
+              <button type="submit" class="btn btn-primary acc-btn">Submit Comments</button>
       
             </form>
           </div>
@@ -52,17 +52,11 @@
           </div>
           <div class="comments">
             {% for comments in thread.comments %}
-            <div class="comments-header text-blue">
-                <!-- Display the comment author and details/posting date -->
-                <h4 class="indent-post"><strong><span class ="text-sand">{{ comments.author.username }}</span> commented :</strong></h4>
-            </div>
-            <div class="comment-body">
-                <p class="text-sand">{{ comments.comment_body }}</p>
-                <br>
-                <p class="text-info"><span class="text-blue">posted on:</span> {{ comments.created_td.strftime('%d-%m-%Y') }} <span class="text-blue">
-                   at </span> {{ comments.created_td.strftime('%H:%M') }}</p>
-            </div>
+             {% include 'comments_modal.html' %}
             {% endfor %}
+
+
+
             <br>
         </div>
           {% endif %}

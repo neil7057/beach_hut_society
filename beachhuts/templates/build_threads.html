@@ -46,7 +46,7 @@
         {% if current_user.is_authenticated %}
         <!-- if user logged in, show comments button -->
         <div class="text-center card-action">
-          <a class="btn btn-success btn-circle " onclick="showCommentForm('{{ thread.id }}')">Comment</a>
+          <a class="btn btn-success btn-circle " id="comment_button" onclick="showCommentForm('{{ thread.id }}')">Comment</a>
         <!-- if user create post show edit and delete buttons -->
           {% if current_user.id == thread.author_id %} 
           <a href="{{url_for('edit_thread', thread_id=thread.id)}}"
@@ -64,6 +64,19 @@
         {% endif %}
         <!-- show comments whether logged in or not -->
       {% include 'comments_modal.html' %}
+
+      {% if thread.comments|length > 1 %}
+<div class="text-center">
+<a  class="btn btn-lg font-weight-bold btn-font text-success" href="{{url_for('view_full_thread', thread_id=thread.id)}}"> 
+    <span class="text-info fa-solid fa-eye"></span> View Full Post</a>
+</div>
+<br>
+{% endif %}
+
+
+
+
+
       </div>
     </div>
   <br>
