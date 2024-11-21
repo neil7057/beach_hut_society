@@ -33,14 +33,18 @@
       </div>
       {% if current_user.is_authenticated %}
       <div id="commentForm" class="d-none commentForm" data-thread-id="{{ thread.id }}">
-            <form action="{{ url_for('submit_comments', thread_id=thread.id) }}" method="POST">
-              <div class="form-group">
-                <label for="commentBody">Comment:</label>
-                <textarea class="form-control" id="commentBody" name="comment_body" rows="6" required></textarea>
-              </div>
-              <button class="btn btn-secondary" onclick="hideCommentForm('{{ thread.id }}')">Cancel</button>
-              <button type="submit" class="btn btn-primary acc-btn">Submit Reply</button>
-            </form>
+        <form action="{{ url_for('submit_comments', thread_id=thread.id) }}" method="POST">
+        <div class="form-group indent-post">
+          <label for="commentBody" class="text-sand indent-post">Add a Comment:</label>
+            <textarea class="form-control" id="commentBody" name="comment_body" rows="6" required></textarea>
+        </div>
+        <div class="text-center">
+          <button class="btn-lg btn-cancel hvr-grow text-cancel" onclick="hideCommentForm('{{ thread.id }}')">
+              <span class="text-danger fa-solid fa-circle-xmark"></span> <strong>Cancel</strong></button>
+            <button type="submit" class="btn-lg hvr-grow text-sand">
+              <span class="fa-solid fa-thumbs-up text-success"></span> Add Comment</button>
+          </div>
+        </form>
       </div>
       <div class="text-center">
             <a class="btn btn-success btn-circle" onclick="showCommentForm('{{ thread.id }}')">Comment</a>
