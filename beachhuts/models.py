@@ -50,7 +50,7 @@ thread_tag_link = db.Table(
 class Thread(db.Model):
     # schema for the Thread model
     id = db.Column(db.Integer, primary_key=True)
-    thread_title = db.Column(db.String(50), unique=True, nullable=False)
+    thread_title = db.Column(db.String(50), unique=False, nullable=False)
     thread_body = db.Column(db.Text, nullable=False)
     tags = db.relationship(
                             'Tag',
