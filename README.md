@@ -46,10 +46,9 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
             *   [Add Comment](#add-comment)
             *   [Edit Comment](#edit-comment)
             *   [Delete Comment](#delete-comment)
-        *   [Tags](#tags)
-            *   [Add Tag](#add-tag)
-            *   [Delete Tag](#delete-tag)
+        *   [Add Tag](#add-tag)
         *   [Manage Users](#manage-users)
+        *   [Manage Contacts](#manage-contacts)
         *   [Search Results](#search-results)
     *   [Structure](#structure)
 3. [Features](#features)
@@ -226,12 +225,12 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     
 -   #### Sign Up
     <details><summary>Sign Up</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/signup.png">
     </details>
 
 -   #### Log In
     <details><summary>Log In</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/login.png">
     </details>
 
 -   #### About
@@ -246,12 +245,12 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 -   #### Edit Profile
     <details><summary>Edit profile</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/edit-profile.png">
     </details>
 
 -   #### Edit Profile - Admin
     <details><summary>Edit profile, Administrator</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/edit-profile-admin.png">
     </details>
 
 -   #### View All Posts For User
@@ -262,17 +261,17 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 -   #### Posts
 -   ##### Create A New Post
     <details><summary>Create A New Post</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/create-post.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/Create-post.png">
     </details>
 
 -   ##### Edit Post
     <details><summary>Edit post</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/Edit-post.png">
     </details>
 
 -   ##### Delete Post
     <details><summary>Delete post</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/delete-post.png">
     </details>
 
 -   #### Comments
@@ -283,33 +282,32 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 -   #### Edit Comment
     <details><summary>Edit Comment</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/edit-comment.png">
     </details>
 
 -   #### Delete Comment
     <details><summary>Delete Comment</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/delete-comment.png">
     </details>
 
--   #### Tags
--   ##### Add tag
+-   #### Add tag
     <details><summary>Add Tag</summary>
     <img src="beachhuts/static/docs/readme_images/wireframes/tags.png">
     </details>
 
--   ##### Delete Tag
-    <details><summary>Delete Tag</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
-    </details>
-
 -   #### Manage Users
     <details><summary>Manage Users</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/manage-users.png">
+    </details>
+
+-   #### Manage Contacts
+    <details><summary>Manage Contacts</summary>
+    <img src="beachhuts/static/docs/readme_images/wireframes/search-resultsmanage-contacts.png">
     </details>
 
 -   #### Search Results 
     <details><summary>Search Results</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/search-results.png">
     </details>
  
 -   ### **Structure**

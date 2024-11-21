@@ -8,7 +8,15 @@
     <p>Sorry, you need to be logged in to see your posts <a href="{{url_for('login')}}">Log In</a> or <a
             href="{{url_for('sign_up')}}">Sign Up</a> to view or post</p>
     {% endif %}
-    {% if threads %}
+    <!-- {% if threads %} -->
+    <div class="row search-results">
+        <p>Oh! It looks like you haven't posted anything yet</p>
+        <a href="{{url_for('submit_thread')}}">
+            <p>Why not post something now.... <i class="fa-solid fa-comments"></i></p>
+        </a>
+
+    </div>
+
     <div class="col xl-12 col-lg-8 col-md-10 mx-auto index-format">
         <br>
         {% for thread in threads %}
@@ -18,7 +26,7 @@
         {% endfor %}
 
     </div>
-    {% else %}
+    <!-- {% else %} -->
     <div class="row search-results">
         <p>Oh! It looks like you haven't posted anything yet</p>
         <a href="{{url_for('submit_thread')}}">
@@ -26,7 +34,7 @@
         </a>
 
     </div>
-    {% endif %}
+    <!-- {% endif %} -->
 </div>
 
 

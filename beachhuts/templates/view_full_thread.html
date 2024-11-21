@@ -51,9 +51,9 @@
       </div>
       <div class="text-center">
             <a class="btn btn-success btn-circle" onclick="showCommentForm('{{ thread.id }}')">Comment</a>
-            {% if current_user.id == thread.author_id %}
-            <a href="{{url_for('edit_thread', thread_id=thread.id)}}" class="btn btn-info btn-circle">Edit</a>
-            {% include 'delete_thread_modal.html' %}
+            {% if current_user.id == thread.author_id  or current_user.site_admin %}
+              <a href="{{url_for('edit_thread', thread_id=thread.id)}}" class="btn btn-info btn-circle">Edit</a>
+              {% include 'delete_thread_modal.html' %}
             {% endif %}
       </div>
       <div class="comments">
