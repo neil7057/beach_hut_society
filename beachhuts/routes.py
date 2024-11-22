@@ -247,15 +247,15 @@ def edit_comment(comments_id):
 @login_required
 def delete_comment(comments_id):
     """
-    Allo user to delete their own comments
+    Allow user to delete their own comments
     """
-    comment = Comments.query.get_or_404(comments_id)
-    # check for author id, only author (or admin) can delete their own comment
-    if current_user.id != Comments.author_id and not current_user.site_admin:
-        flash('You can only delete your own comments', category='error')
+    comments = Comments.query.get_or_404(comments_id)
+    # check for author id, only author (or admin) can delete their own comment  
+    if current_user.id != comments.author_id and not current_user.site_admin:
+        flash('You can only delete your own comments' , category='error')
         return redirect(url_for('home'))
-
-    db.session.delete(comment)
+        
+    db.session.delete(comments)
     db.session.commit()
 
     flash('The comment has been successfully removed.')
@@ -271,23 +271,24 @@ def my_threads():
     """
     threads = list(Thread.query.filter_by(author_id = current_user.id).
         order_by(desc(Thread.created_td)).all())
+
     if not threads:
         comments = list(Comments.query.filter_by(author_id = current_user.id).
             order_by(desc(Comments.created_td)).all())
-    
-    return render_template(
-        "my_threads.html",
-        page_title="My Forum Posts",
-        user=current_user,
-        threads=threads,
-        comments=comments)
+        return render_template(
+            "my_threads.html",
+            page_title="My Forum Posts",
+            user=current_user,
+            threads=threads,
+            comments=comments)
+    else:
+        return render_template(
+            "my_threads.html",
+            page_title="My Forum Posts",
+            user=current_user,
+            threads=threads)
 
 
-
-
-
-
-# comment Route code
 # add comment to a thread
 @app.route('/submit_comments/<int:thread_id>', methods=['POST'])
 # Only logged in users can comment on threads
