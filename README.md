@@ -1027,11 +1027,15 @@ The project was deployed to Heroku using the following steps:
 
 -   All content was written by the developer with a great deal of assistance from youtube tutorials and stack overflow.
 
--   Mostly trial and errorand getting one function working an dthen replicating it.
+-   Mostly trial and error and getting one function working and then replicating it.
 
--   Inspiration was taken from existing blog sites and sample projects suggested by my tutor:
+-   Inspiration was taken from existing blog sites and sample projects:
+    -   https://www.digitalocean.com/community/tutorials/how-to-use-one-to-many-database-relationships-with-flask-sqlalchemy
+
     -   https://github.com/EmmaJane22/HappyCamper
+
     -   https://github.com/sdthomas91/chat-down-under-new
+
     -   https://github.com/szilvia-csernus/community-transport
 
 ### Media
@@ -1042,10 +1046,12 @@ The project was deployed to Heroku using the following steps:
 
 ### Acknowledgements
 
--   My Mentor for his continuous helpful feedback and support.
+-   My Mentor for his continuous helpful feedback and support. His industry experience is noticeable in his insighteful guidance. 
 
--   Stackoverflow resources at their website and on Youtube.
+-   I can't overestimate the value of Stackoverflow resources at their website and on Youtube.
 
 -   The whole community of developers who freely advise and share their knowledge via blogs, videos and web comments.
 
--   Tutor support at Code Institute for his support.
+-   Tutor support at Code Institute for their support.
+
+-   Tutor support at City of Bristol College for continued support and motivation.

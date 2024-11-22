@@ -267,33 +267,27 @@ def delete_comment(comments_id):
 @login_required
 def my_threads():
     """
-    present current users thread posts
+    present current users thread posts and comments.
+    build a lits of all threads and associated comments.
+    build a lits of comments on other threads.
     """
+    # build a list of threads if they exist
     threads = list(Thread.query.filter_by(author_id=current_user.id).
                    order_by(desc(Thread.created_td)).all())
 
-    # build a list of threads if they exist, otherwise just build comments
-    if not threads:
-        comments = list(Comments.query.filter_by(author_id=current_user.id).
-                        order_by(desc(Comments.created_td)).all())
-        return render_template(
-            "my_threads.html",
-            page_title="My Forum Posts",
-            user=current_user,
-            threads=threads,
-            comments=comments)
-    else:
-        # dont return comments list if threads exist
-        return render_template(
-            "my_threads.html",
-            page_title="My Forum Posts",
-            user=current_user,
-            threads=threads)
-
+    # build comments on other threads.
+    comments = list(Comments.query.filter_by(author_id=current_user.id).
+                    order_by(desc(Comments.created_td)).all())
+    return render_template(
+        "my_threads.html",
+        page_title="My Forum Posts",
+        user=current_user,
+        threads=threads,
+        comments=comments)
 
 
 # Get Thread Title
-@app.route('/get_thread_title/<int:thread_id>', methods=('GET', 'POST') )
+@app.route('/get_thread_title/<int:thread_id>', methods=('GET', 'POST'))
 @login_required
 def get_thread_title(thread_id):
     """
@@ -301,7 +295,7 @@ def get_thread_title(thread_id):
     """
     thread = Thread.query.get_or_404(thread_id)
     # Get the thread specific to the content post
-    
+
     return render_template('build_comments.html', thread=thread)
 
 
