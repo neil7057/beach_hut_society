@@ -1,0 +1,27 @@
+
+<div class="comments">
+  <div class="comments-header text-blue">
+      <h4 class="indent-post"><strong><span class ="text-sand">{{ comments.author.username }}</span> commented :</strong>
+        <span> on post </span><span> {{ comments.thread_id }}</span></h4>
+  </div>
+  <div class="comment-body">
+      <p class="text-sand">{{ comments.comment_body }}</p>
+      <br>
+      <p class="text-info"><span class="text-blue">posted on:</span> {{ comments.created_td.strftime('%d-%m-%Y') }} <span class="text-blue">
+          at </span> {{ comments.created_td.strftime('%H:%M') }}</p>
+      <div>
+      {% if current_user.is_authenticated %}
+          {% if current_user.id == comments.author_id %}
+          <br>
+          <div class="text-center card-action">
+              <a href="{{url_for('edit_comment', comments_id=comments.id)}}"
+              class="btn btn-info btn-circle">Edit</a>
+              {% include 'delete_comment_modal.html' %}
+          </div>
+            {% endif %}
+          {% endif %}       
+      </div>
+  </div>
+  <br>
+
+</div>
