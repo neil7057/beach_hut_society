@@ -269,7 +269,8 @@ def my_threads():
     """
     present current users thread posts
     """
-    threads = list(Thread.query.order_by(desc(Thread.created_td)).all())
+    threads = list(Thread.query.filter_by(author_id = current_user.id).
+        order_by(desc(Thread.created_td)).all())
     return render_template(
         "my_threads.html",
         page_title="My Forum Posts",
@@ -559,8 +560,24 @@ def admin_edit_user(id):
         username = request.form.get('username')
         fname = request.form.get('fname')
         lname = request.form.get('lname')
-        password = request.form.get('password')
         option = request.form.get('inlineRadioOptions')
+        password = request.form.get('password')
+
+        # check if password changhed and if so, minimum length
+        # otherwise just re-store user password.
+
+        if len(password) < 1:
+            password = user.password
+        elif len(password) < 8: 
+            flash('Password must be at least 8 characters' , category='error')
+            return render_template(
+                    "admin_edit_user.html",
+                    page_title="Rookie Error !",
+                    user=user
+                )
+        else:
+            password = generate_password_hash(
+                request.form.get('password')) 
 
         # Validate username (if it has been updated) and ensure it is unique
         user_name = User.query.filter_by(username=username).first()
@@ -576,10 +593,12 @@ def admin_edit_user(id):
         elif len(lname) < 1:
             flash('Last Name is required', category='error')
         else:
+
             # update database fields
             user.username = username,
             user.fname = fname,
             user.lname = lname,
+            user.password = password,
             if  option == 'False':
                 user.site_admin = False
             else:

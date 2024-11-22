@@ -255,7 +255,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 -   #### View All Posts For User
     <details><summary>View All posts For A User</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/my-threads.png">
     </details>
 
 -   #### Posts
@@ -385,7 +385,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     </details>
     
 -   #### Sign Up Page
-    Visitor can become a member by registering by email address and selecting a username and password.
+    Visitors can become a member by registering with their email address and selecting a username and password.
     <details><summary>Sign Up Page</summary>
     <img src="beachhuts/static/docs/readme_images/screens/signup.png">
     </details>
@@ -496,16 +496,17 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     </details>
 
 ### Contact Page 
-* A contact is offered to allow users to contact me. The form consists of the following fields and attributes: 
+* A contact page is offered to allow registered users and non-users to contact me. The form consists of the following fields and attributes: 
         - Username (required, type=text).
         - First Name (required, type=text).
         - Last Name (required, type=text).
         - Email (required, type=email).
         - Message (required, type=textarea), maximum 280 characters.
         - Muted Text is used as hints or for assurance on certain fields. This has been adjusted for WCAG compliance.
-    * This allows a user to contact admin with any queries.
-    * A flash message indicates success or failure of the message send.
-    * The contact message is stored in a database table for interrogation by admininstrators.
+* For logged in users, form content is pre-populated with user details from the User table.
+* This allows a users and potential users to contact admin with any queries.
+* A flash message indicates success or failure of the message send.
+* The contact message is stored in a database table for interrogation by admininstrators.
 
     <details><summary>Contact Page</summary>
     <img src="beachhuts/static/docs/readme_images/screens/contact.png">
@@ -514,7 +515,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 ### Flash Messages
 * Flash messages are displayed below the secondary menu bar to notify errors or when a particular creation or edit action has been successful
     <details><summary>Flash Message Example</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/.png">
+    <img src="beachhuts/static/docs/readme_images/screens/flash-message.png">
     </details>
 
 ### Site Features
