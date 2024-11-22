@@ -423,7 +423,7 @@ def sign_up():
         lname = request.form.get('lname')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
-        site_admin = True
+        site_admin = False
 
         # Validate user email and ensure it is unique
         user = User.query.filter_by(email_address=email_address).first()
