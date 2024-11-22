@@ -794,9 +794,9 @@ button[type="submit"] {
     color: #da5619;
 }
 
-a {
+/* a {
     color: #002a57;
-}
+} */
 
 .btn-lg:hover {
     background-color: #4203bf;

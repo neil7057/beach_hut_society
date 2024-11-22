@@ -1,8 +1,10 @@
 
 <div class="comments">
   <div class="comments-header text-blue">
-      <h4 class="indent-post"><strong><span class ="text-sand">{{ comments.author.username }}</span> commented :</strong>
-        <span> on post </span><span> {{ comments.thread_id }}</span></h4>
+      <h4 class="indent-post"><strong><span class ="text-sand">{{ comments.author.username }}</span>
+         commented :</strong><span class="text-sand"> on post </span>
+        <span ><a href="{{url_for('get_thread_title', thread_id=comments.thread_id) }}"><strong>
+          {{ comments.thread.thread_title }}</strong></a></span></h4>
   </div>
   <div class="comment-body">
       <p class="text-sand">{{ comments.comment_body }}</p>

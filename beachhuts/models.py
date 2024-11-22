@@ -94,7 +94,7 @@ class Comments(db.Model):
 
     # Relationships
     author = db.relationship('User', backref='comments')
-    question = db.relationship('Thread', backref=db.backref(
+    thread = db.relationship('Thread', backref=db.backref(
         'comments',
         lazy=True,
         cascade="all, delete-orphan"

@@ -250,11 +250,11 @@ def delete_comment(comments_id):
     Allow user to delete their own comments
     """
     comments = Comments.query.get_or_404(comments_id)
-    # check for author id, only author (or admin) can delete their own comment  
+    # check for author id, only author (or admin) can delete their own comment
     if current_user.id != comments.author_id and not current_user.site_admin:
-        flash('You can only delete your own comments' , category='error')
+        flash('You can only delete your own comments', category='error')
         return redirect(url_for('home'))
-        
+
     db.session.delete(comments)
     db.session.commit()
 
@@ -269,12 +269,13 @@ def my_threads():
     """
     present current users thread posts
     """
-    threads = list(Thread.query.filter_by(author_id = current_user.id).
-        order_by(desc(Thread.created_td)).all())
+    threads = list(Thread.query.filter_by(author_id=current_user.id).
+                   order_by(desc(Thread.created_td)).all())
 
+    # build a list of threads if they exist, otherwise just build comments
     if not threads:
-        comments = list(Comments.query.filter_by(author_id = current_user.id).
-            order_by(desc(Comments.created_td)).all())
+        comments = list(Comments.query.filter_by(author_id=current_user.id).
+                        order_by(desc(Comments.created_td)).all())
         return render_template(
             "my_threads.html",
             page_title="My Forum Posts",
@@ -282,11 +283,26 @@ def my_threads():
             threads=threads,
             comments=comments)
     else:
+        # dont return comments list if threads exist
         return render_template(
             "my_threads.html",
             page_title="My Forum Posts",
             user=current_user,
             threads=threads)
+
+
+
+# Get Thread Title
+@app.route('/get_thread_title/<int:thread_id>', methods=('GET', 'POST') )
+@login_required
+def get_thread_title(thread_id):
+    """
+    Get thread title where user has comments but no posts
+    """
+    thread = Thread.query.get_or_404(thread_id)
+    # Get the thread specific to the content post
+    
+    return render_template('build_comments.html', thread=thread)
 
 
 # add comment to a thread
@@ -356,7 +372,7 @@ def build_contacts():
         flash('No Contact Records to Manage', category='error'
               )
         return redirect(url_for('home'))
-        
+
     # get all contact - oldest first
     contacts = list(Contact.query.order_by(asc(Contact.created_td)).all())
 
@@ -578,8 +594,8 @@ def admin_edit_user(id):
 
         if len(password) < 1:
             password = user.password
-        elif len(password) < 8: 
-            flash('Password must be at least 8 characters' , category='error')
+        elif len(password) < 8:
+            flash('Password must be at least 8 characters', category='error')
             return render_template(
                     "admin_edit_user.html",
                     page_title="Rookie Error !",
@@ -587,7 +603,7 @@ def admin_edit_user(id):
                 )
         else:
             password = generate_password_hash(
-                request.form.get('password')) 
+                request.form.get('password'))
 
         # Validate username (if it has been updated) and ensure it is unique
         user_name = User.query.filter_by(username=username).first()
@@ -609,7 +625,7 @@ def admin_edit_user(id):
             user.fname = fname,
             user.lname = lname,
             user.password = password,
-            if  option == 'False':
+            if option == 'False':
                 user.site_admin = False
             else:
                 user.site_admin = True

@@ -25,7 +25,7 @@
         <div class="col-10 col-lg-6 col-md-8 mx-auto index-format forum-post">
         <p class ="text-sand text-center">You Have no posts but have commented on other posts</p>
         {% for comments in comments %}
-        {% if current_user.id == comments.author_id %}
+        {% if current_user.id == comments.author_id %}     
         {% include 'build_comments.html' %}
         {% endif %}
         {% endfor %}
