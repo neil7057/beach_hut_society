@@ -21,14 +21,14 @@
     <div class="form-group">
       <label for="thread_tags" class="text-sand">Select Catgeory tags (Max. 4)</label>
       <select class="custom-select" id="thread_tags" name="thread_tags[]" multiple="multiple">
-      <option value="" disabled></option>
+      <option role="option" aria-labelledby="thread-tags" aria-selected="false" value="" disabled></option>
       {% for tag in tags %}
-      <option value="{{ tag.id }}" {% if tag in thread.tags %}selected{% endif %}>{{ tag.tag_name }}</option>
+      <option role="option" aria-selected="false" aria-labelledby="thread-tags" value="{{ tag.id }}" {% if tag in thread.tags %}selected{% endif %}>{{ tag.tag_name }}</option>
       {% endfor %}
       </select>
     </div>
     <div class="add-tag-link text-sand">
-      <p>If you cannot see the tag you want, <a href="{{url_for('add_tag')}}">click here</a> to add tag(s)</p>
+      <p>If you cannot see the tag you want, <a href="{{url_for('add_tag')}}"><span class="text-blue">click here</span></a> to add tag(s)</p>
     </div>
     <br>
     <div class="form-group form-check">
