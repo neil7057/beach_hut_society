@@ -6,14 +6,15 @@
 
 ## Beach Hut Appreciation Society
 
-This is my website. It's a bit of fun to demonstrate capability in CRUD functionality. It's a website forum for beach hut aficianados and utilises Bootstrap and Flask and a Postgres Sql Dtabase. Written in HTML, CSS and Python following a common approach to data structures upporting similar applications. 
+This is my website. It's a bit of fun to demonstrate capability in CRUD functionality. It's a website forum for beach hut aficianados and utilises Bootstrap and Flask and a Postgres Sql Dtabase. Written in HTML, CSS and Python following a common approach to data structures supporting similar applications. 
 
 [View the live project here.](https://beach-hut-appreciation-society-0c8700c133d2.herokuapp.com/)
 
 # Table of Contents
 
 1. [Project Inception and Planning](#project-inception-and-planning)
-2. [User Experience (UX)](#user-experience-ux)
+2. [Overview](#overview)
+3. [User Experience (UX)](#user-experience-ux)
     *   [User stories](#user-stories)
         *   [First Time Visitor Goals](#first-time-visitor-goals)
         *   [Returning Visitor Goals](#returning-visitor-goals)
@@ -37,7 +38,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
         *   [Contact](#contact)
         *   [Edit Profile](#edit-profile)
         *   [Edit Profile - Admin](#edit-profile---admin)
-        *   [View All posts](#view-all-posts-for-user)
+        *   [View Full Post Page](#view-full-posts-page)
         *   [Posts](#posts)
             *   [Create Post](#create-a-new-post)
             *   [Edit Post](#edit-post)
@@ -51,8 +52,8 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
         *   [Manage Contacts](#manage-contacts)
         *   [Search Results](#search-results)
     *   [Structure](#structure)
-3. [Features](#features)
-4. [Pages](#pages)
+4. [Features](#features)
+5. [Pages](#pages)
     *   [Landing Page](#landing-page)
         *   [Menu Bar Logged Out](#menu-bar---logged-out)
         *   [Menu Bar Logged User](#menu-bar---logged-in)
@@ -61,6 +62,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     *   [Sign Up Page](#sign-up-page)
     *   [Log in Page](#log-in-page)
     *   [About Page](#about-page)
+    *   [My Posts Page](#my-posts-page)
     *   [Edit Profile Page](#edit-profile-page)
     *   [Edit Profile - Admin Page](#edit-profile---admin-page)
     *   [View All Posts Page](#view-all-posts-page)
@@ -82,11 +84,11 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     *   [Contact Page](#contact-page)
     *   [Flash Messages](#flash-messages)
     *   [Site Features](#site-features)
-5. [Technologies Used](#technologies-used)
+6. [Technologies Used](#technologies-used)
     *   [Development Environment](#development-environment)
     *   [Languages Used](#languages-used)
     *   [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
-6. [Testing](#testing)
+7. [Testing](#testing)
     *   [HTML](#html)
     *   [CSS](#css)
     *   [JavaSceipt](#javascript)
@@ -116,20 +118,38 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     *   [Bugs and Fixes](#bugs-and-fixes)
     *   [Known Bugs](#known-bugs)
     *   [Future Releases](#future-releases)
-7. [Deployment](#deployment)
+8. [Deployment](#deployment)
     *   [Version control](#version-control)
     *   [Github Pages](#github-pages)
     *   [Deployments to Github Pages](#deployment-to-github-pages)
     *   [Clone the repository locally](#clone-the-repository-code-locally)
     *   [Heroku](#heroku)
     *   [App Deployment](#app-deployment-to-heroku)
-8. [Credits](#credits)
+9. [Credits](#credits)
     *   [Code](#code)
     *   [Content](#content)
     *   [Media](#media)
     *   [Acknowledgements](#acknowledgements)
 
 ## Project Inception and Planning
+
+## Overview
+
+The website is a Blog site for lovers of Beach Huts. anonymous visitors can read the About page, search by keyword, send a Contact message and view the latest posts and latest comment. To access the full posts and additional comments or to post or comment on a post, Visitors must sign-up using their email address and then Login.
+
+Logged in users can view all posts and comments and create new posts and comments and category Tags. Logged in users can edit and delete their own posts and can edit and delete their own comments whether on their own post or someone elses.
+
+Logged in users can list their own posts and comments and can edit basic user details. They cannot delet thier account as that would remove posts and comments and i decided that contnet should remain - unless its offensive.
+
+Administrators can post, edit and delete their own threads and comments as per normal users but additionally can:
+-   Delete Tags
+-   Delete Contact records
+-   Edit user accounts to change the main entries
+-   Reseet a user's password
+-   Toggle User status between normal/admin
+-   Delete the User account should it be deemed necessary
+
+Administrators can also review and delete contact messages.
 
 ## User Experience (UX)
 
@@ -155,15 +175,15 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 -   ### Design
     -   #### Colour Scheme
         -   I've used the pastel beach themed colours to reflect the subject matter of the site. A pale blue (#C8E4FD) background for the body.
-        Titles alternatively in Dark Blue (#4203BF) and Sand (#DA5619) with text in Light Blue and Sand. Buttons are consistent according to function.
+        Titles alternatively in Dark Blue (#4203BF) and Sand (#AA4313) with text in Light Blue and Sand. Buttons are consistent according to function.
         -   General navigation buttons are similarly styled and edit, comment and delete buttons are styled differently to differentiate but remain consistnet amongst the forum post and tag elements.
         -   Some colours were muted or changed to meet WAVE guidelines during final stage testing. 
         
     -   #### Typography
-        -   The fonts chosen are Original Surfer and Seaweed Script to adhere to teh beach theme. Seaweed Script is novel but unsuitable for use in large text blocks as it can make it difficult to read. Sans-serif is the fallback font.
+        -   The fonts chosen are Original Surfer and Seaweed Script to adhere to the beach theme. Seaweed Script is novel and suitable for titles  but unsuitable for use in large text blocks as it can make it difficult to read. Sans-serif is the fallback font.
  
     -   #### Imagery
-        -   There is a Hero image in teh base template which propogates to each page and gives the site a consistenmt look and feel.
+        -   There is a Hero image in the base template which propogates to each page and gives the site a consistenmt look and feel.
         -   There is a beach logo on larger screens but is hidden below 1000px.
         -   The site has a couple of additional images on the About page but as a blog site is mostly text based, for now..
 
@@ -172,32 +192,32 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
      
         -   Colours are Bold yet soft and are selected to communicate a fun, beach theme and reflect the varied colours that are common to beach hut installations.
 
-        -   The header and footer occupy the whole width of teh screen but contnet has wide margins on larger screen sizes with thin margins for tablet and mobile views.
+        -   The header and footer occupy the whole width of the screen but content has wide margins on larger screen sizes with thin margins for tablet and mobile views.
 
         -   The site is responsive with menus and text resized for smaller screens. 
 
         -   Menu navigation is consistent across all pages and screen sizes and is central to each page. Menus change according to login and admin status.
 
-        -   Menu button text is Sand witha  yellow background. The admin only function is highlighted in Green.
+        -   Menu button text is Sand with a yellow background. The admin only function is highlighted in Green.
 
         -   There are popup confirmations on all Delete functions and each update page also offers a 'cancel' function rather than expecting the user to use tha back button or actively click elsewhere.
 
-        -   Administrators have additional functions which are presented when they access different ares of the site.
+        -   Administrators have additional functions which are presented when they access different areas of the site.
 
         -   Error and confirmation messages are displayed at the top of the main site area, below the secondary menus. I chose not to make these disappear automatically or after a stated time as I personally find that inconvenient and prefer to have messages displayed until I have read that at my pace and taken action to dismiss them.
         
-        -   Threads(posts) and the first comment are visible to all visitors but user have to register and login to see full posts or comment.
+        -   Threads(posts) and the first comment are visible to all visitors but users have to register and login to see full posts, full comments or be able to post or comment.
 
-        -   Logged in users get to see their user profile, can edit it and can see all their own posts on a 'view all posts' page. I chose not to allow users to delete their own accounts as that would remove contnet from the site, incluidng any responses from other users. 
+        -   Logged in users get to see their user profile, can edit it and can see all their own posts on a 'view all posts' page. I chose not to allow users to delete their own accounts as that would remove content from the site, incluidng any responses from other users. 
 
 -   ### Database Design
 -   #### Table Structure
-    *   A User Table with unique ID.
-    *   A Thread Table - essentially a forum post, linked to a User.
-    *   A Comments Table - a comment or comments, attachhed to Thread and linked to the User who posted the comment, not necessarilly tehnsame user who posted the thread.
-    *   A Tag Table - a category that can be attached to a post to assist with searches. 
-    *   A Thread-Tag Table to resolve a Many-to-Many relationship between Tags and Threads.
-    *   A Contact Table to hold messages for admin review and processing.
+    *   A User Table with unique ID. User information. 
+    *   A Thread Table with unique ID. Essentially a forum post, linked to a User.
+    *   A Comments Table with unique ID. A comment or comments, attached to Thread and linked to the User who posted the comment, not necessarilly the same user who posted the thread.
+    *   A Tag Table with unique ID. A category that can be attached to a post to assist with searches. 
+    *   A Thread-Tag Table to resolve the Many-to-Many relationship between Tags and Threads.
+    *   A Contact Table with unique ID. Holds messages for admin review and processing.
 
 -   #### Diagram
     <details><summary>Data Structure</summary>
@@ -345,6 +365,8 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     Each page has a scrolling 'top of page' anchor link.
 
     Social media links all point to beach hut specific sites if they exist and standard social channels if not. 
+
+    Permissions to create, update and delete content are determined by user ID, ststus and content craetor ID. 
     
 ## Features
 
@@ -376,7 +398,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 -   #### Menu Bar - Admin
     <details><summary>Navigation Menu - Admin</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/menu-logged-in-admin.png">
+    <img src="beachhuts/static/docs/readme_images/screens/admin-login.png">
     </details>
     
 -   #### Floating Anchor
@@ -397,8 +419,24 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     </details>
 
 -   #### About Page
-    <details><summary>AboutPage</summary>
+    <details><summary>About Page</summary>
     <img src="beachhuts/static/docs/readme_images/screens/about.png">
+    </details>
+
+-   #### My Posts Page
+-   User has no posts and has not commented on any posts.
+    <details><summary>My Posts - No Posts</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/my-threads-nothing.png">
+    </details>
+    <br>
+-   User has posted and may have commented on posts.
+        <details><summary>My Posts - Posts</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/my-threads-posts.png">
+    </details>
+    <br>
+-   User has no posts but has commented on other users' posts.
+        <details><summary>My Posts - Comments Only</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/my-threads-comments-only.png">
     </details>
 
 -   #### Edit profile Page  
@@ -409,11 +447,6 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 -   ####  Edit profile - Admin Page
     <details><summary>Edit Profile - Admin Page</summary>
     <img src="beachhuts/static/docs/readme_images/screens/edit-user-admin.png">
-    </details>
-
--   #### View All Posts Page  
-    <details><summary>View All Posts Page</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/view-all-threads.png">
     </details>
 
 -   #### View Full Posts Page  
@@ -498,12 +531,12 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 ### Contact Page 
 * A contact page is offered to allow registered users and non-users to contact me. The form consists of the following fields and attributes: 
-        - Username (required, type=text).
-        - First Name (required, type=text).
-        - Last Name (required, type=text).
-        - Email (required, type=email).
-        - Message (required, type=textarea), maximum 280 characters.
-        - Muted Text is used as hints or for assurance on certain fields. This has been adjusted for WCAG compliance.
+    - Username (required, type=text).
+    - First Name (required, type=text).
+    - Last Name (required, type=text).
+    - Email (required, type=email).
+    - Message (required, type=textarea), maximum 280 characters.
+    - Muted Text is used as hints or for assurance on certain fields. This has been adjusted for WCAG compliance.
 * For logged in users, form content is pre-populated with user details from the User table.
 * This allows a users and potential users to contact admin with any queries.
 * A flash message indicates success or failure of the message send.
@@ -596,7 +629,16 @@ This was carried out periodically as each page was created and amended and then 
     <details><summary>Add Tag Page</summary>
     <img src="beachhuts/static/docs/testing/w3--check.jpg">
     </details>
-    <details><summary>Admin Edit User Page</summary>
+    <details><summary>Edit Profile Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--.jpg">
+    </details>
+    <details><summary>Manage Users Page</summary>
+    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    </details>
+     <details><summary>Edit User Page - Admin</summary>
+    <img src="beachhuts/static/docs/testing/w3--.jpg">
+    </details>
+     <details><summary>Manage Contacts - Admin</summary>
     <img src="beachhuts/static/docs/testing/w3--.jpg">
     </details>
     <details><summary>Build Contacts Page</summary>
@@ -614,13 +656,7 @@ This was carried out periodically as each page was created and amended and then 
     <details><summary>Edit Thread Page</summary>
     <img src="beachhuts/static/docs/testing/w3--check.jpg">
     </details>
-    <details><summary>Edit User Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--check.jpg">
-    </details>
     <details><summary>Login Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--check.jpg">
-    </details>
-    <details><summary>Manage Users Page</summary>
     <img src="beachhuts/static/docs/testing/w3--check.jpg">
     </details>
     <details><summary>My Threads User Page</summary>
@@ -693,14 +729,14 @@ This was checked each time substantial changes were made to PY files. A final ch
 
         2. There is an About page with further information about the site.
 
-        3.  There is a Contact messaging page to ask questions before signup.
+        3. There is a Contact messaging page to ask questions before signup.
 
 
     2. As a First Time Visitor, I want to get an indictaion of the types of content. 
 
         1. The Home page lists the forum threads with most recent first.
         2. The first comment on each post is also displayed.
-        3.  There is a search facility on the header of each page.
+        3. There is a search facility on the header of each page.
 
     3. As a First Time Visitor, I want to be able to sign up and post.
        
@@ -713,40 +749,40 @@ This was checked each time substantial changes were made to PY files. A final ch
 
     1. As a Returning Visitor, I want to be able to log in and view posts.
        
-        1.  The login button is prominently displayed on all pages. 
-        2.  The post button is prominently displayed and there is an option to comment on all other users' posts.
-        3.  There is a search facility to find posts by title or category.
+        1. The login button is prominently displayed on all pages. 
+        2. The post button is prominently displayed and there is an option to comment on all other users' posts.
+        3. There is a search facility to find posts by title or category.
 
     2. As a Returning Visitor, I wannt to see a list of the latest forum posts.
 
-        1.  The latest posts are listed on the home page, most recent first.
-        2.  Each page menu bar has a link to the comments and feedback page where a user can submit a request for more information.
+        1. The latest posts are listed on the home page, most recent first.
+        2. Each page menu bar has a link to the comments and feedback page where a user can submit a request for more information.
 
     3. As a Returning Visitor, I want to be able to view all my posts.
        
-        1.  Once logged in, the Home page shows a summary of the User's account with a button to view all their 
+        1. Once logged in, the Home page shows a summary of the User's account with a button to view all their 
         posts and comments.
-        2.  There is a search facility to find posts with specific keywords or categories.
+        2. There is a search facility to find posts with specific keywords or categories.
 
 -   #### Frequent User Goals
 
     1. As a Frequent User, I want to be able to search for on topic content by keyword.        
-        1.  There is a search facility on all pages, located central to the header.
-        2.  The Search facility will return matches based on post title and content and user name. 
+        1. There is a search facility on all pages, located central to the header.
+        2. The Search facility will return matches based on post title and content and user name. 
 
     2. As a Frequent User, I want to be abe to manage my account settings.        
-        1.  Once logged in, the edit profile button is presented in the account summary as the first
+        1. Once logged in, the edit profile button is presented in the account summary as the first
          item on the home page.
-        2.  The User can amend username, first and last name.
-        3.  The User can send a message to request password reset or notify a change of email address.
-        4.  Users can Edit and Delete their own posts and comments via conveniently placed buttons
+        2. The User can amend username, first and last name.
+        3. The User can send a message to request password reset or notify a change of email address.
+        4. Users can Edit and Delete their own posts and comments via conveniently placed buttons
         on the respective post/comment.
 
     3. As a Frequent User, I want to be able to post and comment on my and other threads.
 
-        1.  Users can create category Tags to attach to posts for ease of searching.
-        2.  Users can post from the main menu on any page.
-        3.  Users can comment on their own or other users posts.
+        1. Users can create category Tags to attach to posts for ease of searching.
+        2. Users can post from the main menu on any page.
+        3. Users can comment on their own or other users posts.
         
 ### Responsiveness
 
@@ -815,6 +851,7 @@ Results:
 </details>
 <br>
 
+Pages that display lists of Posts and comments use the same formatting and colour schemes so it isn't strictly necessary to check all pages with identical contrst and colour components.
 <br>
 <details><summary> Page</summary>
 <img src="docs/testing/.jpg">
