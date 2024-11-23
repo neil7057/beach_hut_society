@@ -69,7 +69,7 @@
                 <div class="row pb-3"></div>
                 <div class="center-content">
                 {% if user.is_authenticated %}
-                    <p class="text-sand">{{ current_user.username }} <span class="text-blue">Is Logged In</span></p>
+                    <h2 class="text-sand">{{ current_user.username }} <span class="text-blue">Is Logged In</span></h2>
                     <br>
                     <a class="btn-lg hvr-grow text-sand" aria-label="logout button" href="{{ url_for('logout') }}">
                         <span class="text-info fa-solid fa-user-plus"></span> Log Out</a>

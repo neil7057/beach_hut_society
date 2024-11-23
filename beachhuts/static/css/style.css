@@ -815,6 +815,16 @@ button[type="submit"] {
     font-weight: 500;
 }
 
+.btn-success {
+    color: #fff;
+    background-color: #145222;
+}
+
+.btn-info {
+    color:#4203bf;
+    background-color: #86e2e9;
+}
+
 /* ----------------------------------------Modal---------*/
 
 .modal {

@@ -11,7 +11,7 @@
   <form method="POST" class="account-form submit-thread-form">
   <div class="form-group">
     <label for="thread_title" class="text-sand">Title - Maximum of 50 Characters</label>
-    <input type="text" maxlength="50" class="form-control" id="thread_title" name="thread_title"
+    <input type="text" autofocus="autofocus" maxlength="50" class="form-control" id="thread_title" name="thread_title"
       placeholder="Give your post a helpful title" required>
   </div>
   <div class="form-group">
@@ -32,9 +32,9 @@
     </select>  
     </div>
     <div class="text-center text-sand">  
-      <p>If you cannot see the tag you want, <a href="{{url_for('add_tag')}}">
-        <button type="submit" class="btn-lg hvr-grow text-blue"><span class="fas fa-plus-square right">
-        </span><strong> Add Tag</strong></button></a> to add a tag(s)</p>
+      <p>If you cannot see the tag you want, <a href="{{url_for('add_tag')}}"
+        class="btn-lg hvr-grow text-blue" aris-label="go to add tag page"><span class="fas fa-plus-square right">
+        </span><strong> Add Tag</strong></a> to add a tag(s)</p>
     </div>
     <br>
     <div class="form-group form-check text-center">

@@ -20,13 +20,17 @@
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   });
 
-// Toggle the comments reply form 
+// Toggle the comments reply form and sets cursor at start of text area
   function showCommentForm(threadId) {
     let commentForms = document.querySelectorAll('.commentForm');
     commentForms.forEach(function(form) {
       if (form.getAttribute('data-thread-id') === threadId) {
           form.classList.remove('d-none');
           form.classList.add('d-block');
+        }{
+          $('#commentBody').focus();
+          // https://www.sitepoint.com/jqueryhtml5-input-focus-cursor-positions/#:~:
+          // text=To%20set%20the%20cursor%20position%20at%20the%20end%20of%20an,to%20set%20the%20cursor%20position.
         }
     });
   }

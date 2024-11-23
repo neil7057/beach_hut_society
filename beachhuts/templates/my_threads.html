@@ -12,11 +12,11 @@
 </div>
 
 <!-- A series of duplicated if else statements to avoid over complicated nested ifs which
-     may be more efficient but woudl be much less readable -->
+     may be more efficient but would be much less readable -->
 
     {% if threads %}
     <!-- If there are threads (Posts) for this user -->
-    <div class="col xl-12 col-lg-8 col-md-10 mx-auto index-format">
+    <div class="col-lg-8 col-md-10 mx-auto index-format">
         <br>
         {% for thread in threads %}
         {% if current_user.id == thread.author_id %}
@@ -27,7 +27,7 @@
     {% elif comments %}
     <!-- if there are no posts for this user, check for comments -->
     <div class="row">
-        <div class="col xl-12 col-lg-8 col-md-10 mx-auto index-format">
+        <div class="col-lg-8 col-md-10 mx-auto index-format">
         <p class ="text-sand text-center">You Have no posts but have commented on these other posts</p>
         {% for comments in comments %}
         {% if current_user.id == comments.author_id %}     
@@ -45,14 +45,20 @@
     <!-- there are posts, check for comments where the author is user-->
     <!-- This could display comments against post(thread) and also again in comments section -->
     <!-- its not really a bug and doesnt justify the complexity of coding for it  -->
-    <div class="row">
-        <div class="col xl-12 col-lg-8 col-md-10 mx-auto index-format">
-            <p class ="text-blue text-center">Here are your comments on posts</p>
-            {% for comments in comments %}
-            {% if current_user.id == comments.author_id%}     
-            {% include 'build_comments.html' %}
-            {% endif %}
-            {% endfor %}
+    <div class="col-lg-8 col-md-10 mx-auto">
+        <br>
+    </div>
+    <div class="container-fluid">
+    <!-- correct minor alignment issue when displayed after a list of threads  -->
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto index-format">
+                <p class ="text-blue text-center">Here are your comments on posts</p>
+                {% for comments in comments %}
+                {% if current_user.id == comments.author_id%}     
+                {% include 'build_comments.html' %}
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
     {% endif %}
@@ -65,7 +71,7 @@
         {% else %}
         <!-- no posdts or comments - display message -->
         <div class="row">
-            <div class="col xl-12 col-lg-8 col-md-10 mx-auto forum-post">
+            <div class="col-lg-8 col-md-10 mx-auto forum-post">
             <br>
             <p class ="text-sand text-center">You Have no posts or comments to view</p>
             <p class ="text-blue text-center">Why not create your first post and say Hello</p>
