@@ -69,11 +69,6 @@ p {
     font-weight: 700;
 }
 
-.text-success {
-    color: #155624!important; 
-}
-
-
 .text-blue {
     font-family: 'Original Surfer', sans-serif;
     color: #4203bf; 
@@ -479,7 +474,8 @@ footer {
     margin: 20px;
 }
 
-/* wraps posts and threads within display containers */
+/*------------------------------wraps posts and threads within display containers */
+
 .thread-comment-wrap {
     overflow-wrap: break-word;
 }
@@ -508,11 +504,6 @@ footer {
     font-weight: 600;
 }
 
-.text-muted-wcag {
-    /* to provide sufficient WCAG contrast */
-    color: #4203bf !important; 
-} 
-
 /* ----------------------------------------form-control settings*/
 
 .form-control {
@@ -540,7 +531,7 @@ footer {
     padding: 40px 0;
     margin-top: 25px;
     border-radius: 15px;
-    background-color: #2cceff;
+    background-color: #8ae4ff;
 }
 
 .form-upd-back {
@@ -790,6 +781,19 @@ button[type="submit"] {
 
 /* ----------------------------------------contrasts to comply with WCAG */
 
+.text-success {
+    color: #155624!important; 
+}
+
+.text-info {
+    color: #0c5864!important; 
+}
+
+.text-muted-wcag {
+    /* to provide sufficient WCAG contrast */
+    color: #4203bf !important; 
+} 
+
 .btn-home {
     background-color: #0f5661;
     color: white;
@@ -799,10 +803,6 @@ button[type="submit"] {
     background-color: #003b7a;
     color: #da5619;
 }
-
-/* a {
-    color: #002a57;
-} */
 
 .btn-lg:hover {
     background-color: #4203bf;
