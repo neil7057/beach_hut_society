@@ -32,8 +32,8 @@
       {% if current_user.is_authenticated %}
         <div id="commentForm" class="d-none commentForm" data-thread-id="{{ thread.id }}">
           <form action="{{ url_for('submit_comments', thread_id=thread.id) }}" method="POST">
-            <div class="form-group indent-post">
-              <label class="text-sand" for="commentBody">Add a Comment:</label>
+            <div class="form-group indent-comment">
+              <label class="text-sand" for="commentBody"><strong>Add a Comment:</strong></label>
               <div class="text-center">
                 <textarea class="form-control" id="commentBody" name="comment_body" rows="6" required></textarea>
                 <a href="{{ url_for('cancel') }}" class="btn btn-cancel hvr-grow text-cancel">

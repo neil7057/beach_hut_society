@@ -475,6 +475,10 @@ footer {
     margin: 5px 0 15px 20px;
 }
 
+.indent-comment {
+    margin: 20px;
+}
+
 /*------------------------------wraps posts and threads within display containers */
 
 .thread-comment-wrap {
