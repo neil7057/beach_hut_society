@@ -53,7 +53,7 @@ p {
 
 .text-sand {
     font-family: 'Original Surfer', sans-serif;
-    color: #da5619; 
+    color: #aa4313; 
     font-weight: 700;
 }
 
@@ -68,6 +68,11 @@ p {
     color: #46e514; 
     font-weight: 700;
 }
+
+.text-success {
+    color: #155624!important; 
+}
+
 
 .text-blue {
     font-family: 'Original Surfer', sans-serif;
@@ -233,7 +238,8 @@ li {
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: center;
-    color: #03bf82;
+    color: #026f4c;
+    /* color: #03bf82; */
 }
 
 .thread-title {
@@ -454,7 +460,7 @@ footer {
 .copyright {
     font-family: 'Original Surfer', sans-serif;
     text-align: center;
-    color: #da5619; 
+    color: #743011; 
     font-weight: 500;
     font-size: 1.15rem;
 }

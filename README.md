@@ -137,19 +137,20 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
     -   #### First Time Visitor Goals
 
-        1. As a First Time Visitor, .
-        2. As a First Time Visitor, 
-        3. As a First Time Visitor, 
+        1. As a First Time Visitor, I want to see what the site is about.
+        2. As a First Time Visitor, I want to get an indictaion of the types of content. 
+        3. As a First Time Visitor, I want to be able to sign up and post.
 
     -   #### Returning Visitor Goals
 
-        1. As a Returning Visitor,
-        2. As a Returning Visitor, 
-        3. As a Returning Visitor, 
+        1. As a Returning Visitor, I want to be able to log in and view posts.
+        2. As a Returning Visitor, I wannt to see a list of the latest forum posts.
+        3. As a Returning Visitor, I want to be able to view all my posts.
+
     -   #### Frequent User Goals
-        1. As a Frequent User, 
-        2. As a Frequent User, 
-        3. As a Frequent User, 
+        1. As a Frequent User, I want to be able to search for on topic content by keyword.
+        2. As a Frequent User, I want to be abe to manage my account settings.
+        3. As a Frequent User, I want to be able to post and comment on my and other threads.
 
 -   ### Design
     -   #### Colour Scheme
@@ -685,57 +686,67 @@ This was checked each time substantial changes were made to PY files. A final ch
 ### Testing User Stories from User Experience (UX) Section
 
 -   #### First Time Visitor Goals
-
-    
-    1. As a First Time Visitor,
+  
+    1. As a First Time Visitor, I want to see what the site is about.
         
-        1. 
-        2. 
+        1. The Hero image on the header gives a clear indication of the site's purpose.
 
-    2. As a First Time Visitor, 
+        2. There is an About page with further information about the site.
 
-        1. 
-        2. 
-        3.
+        3.  There is a Contact messaging page to ask questions before signup.
 
-    3. As a First Time Visitor,
+
+    2. As a First Time Visitor, I want to get an indictaion of the types of content. 
+
+        1. The Home page lists the forum threads with most recent first.
+        2. The first comment on each post is also displayed.
+        3.  There is a search facility on the header of each page.
+
+    3. As a First Time Visitor, I want to be able to sign up and post.
        
-        1. 
-        2. 
-        3. 
+        1. A link to signup is clearly displayed in the header menu and also in the comments
+         on the list of posts. 
+        2. Once signed up, buttons are presented for post and comment option 
+        3. Once logged in, Post and tag buttons are displayed
+
 -   #### Returning Visitor Goals
 
-    1. As a Returning Visitor,
+    1. As a Returning Visitor, I want to be able to log in and view posts.
        
-        1. . 
-        2. 
-        3. 
+        1.  The login button is prominently displayed on all pages. 
+        2.  The post button is prominently displayed and there is an option to comment on all other users' posts.
+        3.  There is a search facility to find posts by title or category.
 
-    3. As a Returning Visitor, 
+    2. As a Returning Visitor, I wannt to see a list of the latest forum posts.
 
-        1. Each page footer has a clear link to the comments and feedback page to send a message.
-        2. Each page menu bar has a link to the comments and feedback page where a user can submit a request for more information.
+        1.  The latest posts are listed on the home page, most recent first.
+        2.  Each page menu bar has a link to the comments and feedback page where a user can submit a request for more information.
 
-    4. As a Returning Visitor,
+    3. As a Returning Visitor, I want to be able to view all my posts.
        
-        1. 
+        1.  Once logged in, the Home page shows a summary of the User's account with a button to view all their 
+        posts and comments.
+        2.  There is a search facility to find posts with specific keywords or categories.
 
 -   #### Frequent User Goals
 
-    1. As a Frequent User,
-        
-        1. 
-        2. 
+    1. As a Frequent User, I want to be able to search for on topic content by keyword.        
+        1.  There is a search facility on all pages, located central to the header.
+        2.  The Search facility will return matches based on post title and content and user name. 
 
-    3. As a Frequent User,
-        
-        1. 
-        2. 
+    2. As a Frequent User, I want to be abe to manage my account settings.        
+        1.  Once logged in, the edit profile button is presented in the account summary as the first
+         item on the home page.
+        2.  The User can amend username, first and last name.
+        3.  The User can send a message to request password reset or notify a change of email address.
+        4.  Users can Edit and Delete their own posts and comments via conveniently placed buttons
+        on the respective post/comment.
 
-    5. As a Frequent User, 
+    3. As a Frequent User, I want to be able to post and comment on my and other threads.
 
-        1. 
-        2. 
+        1.  Users can create category Tags to attach to posts for ease of searching.
+        2.  Users can post from the main menu on any page.
+        3.  Users can comment on their own or other users posts.
         
 ### Responsiveness
 

@@ -14,7 +14,9 @@
         <div class="row indent-post">
         
           {% for tag in thread.tags %}
-          <div><span class="tag-format text-center">{{ tag.tag_name }}</span></div>  
+          <div>
+            <h2><span class="tag-format text-center">{{ tag.tag_name }}</span></h2>
+          </div>  
           {% endfor %}
         </div>
       </div>
