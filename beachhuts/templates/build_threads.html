@@ -8,11 +8,9 @@
     </div>
     <br>
     <div>
-      <p class="indent-post text-blue"><strong>Category Tags:</strong></p>
-
+      <h2 class="indent-post text-blue"><strong>Category Tags:</strong></h2>
       <div class="container-fluid">
         <div class="row indent-post">
-        
           {% for tag in thread.tags %}
           <div>
             <h2><span class="tag-format text-center">{{ tag.tag_name }}</span></h2>
@@ -51,7 +49,7 @@
         <!-- <div class="card-action"> -->
         {% if current_user.is_authenticated %}
         <!-- if user logged in, show comments button -->
-
+        <br>
         <div class="text-center card-action">
           <a class="btn btn-success btn-circle " onclick="showCommentForm('{{ thread.id }}')">Comment</a>
         

@@ -2,14 +2,15 @@
 <div class="comments">
     {% for comments in thread.comments %}
     {% if loop.index == 1 %}
+    <br>
     <div class="comments-header text-blue">
-        <h4 class="indent-post"><strong><span class ="text-sand">{{ comments.author.username }}</span> commented :</strong></h4>
+        <h3 class="indent-post"><strong><span class ="text-sand">{{ comments.author.username }}</span> commented :</strong></h3>
     </div>
     <div class="comment-body">
         <p class="text-sand">{{ comments.comment_body }}</p>
         <br>
-        <p class="text-info"><span class="text-blue">posted on:</span> {{ comments.created_td.strftime('%d-%m-%Y') }} <span class="text-blue">
-            at </span> {{ comments.created_td.strftime('%H:%M') }}</p>
+        <h2 class="text-info"><span class="text-blue">posted on:</span> {{ comments.created_td.strftime('%d-%m-%Y') }} <span class="text-blue">
+            at </span> {{ comments.created_td.strftime('%H:%M') }}</h2>
         <div>
         {% if current_user.is_authenticated %}
             {% if current_user.id == comments.author_id %}
@@ -43,5 +44,4 @@
 <a  class="btn btn-lg font-weight-bold btn-font text-success" href="{{url_for('view_full_thread', thread_id=thread.id)}}"> 
     <span class="text-info fa-solid fa-eye"></span> View Full Post</a>
 </div>
-<br>
 {% endif %}

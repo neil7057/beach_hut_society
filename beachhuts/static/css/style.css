@@ -104,6 +104,7 @@ li {
 .hero-image {
     position: relative;
     background: url("../images/hero.jpg") no-repeat left center;
+    background-color: #c8e4fd;
     background-size: cover;
     opacity: 0.6;
     height: 380px;
@@ -471,7 +472,7 @@ footer {
 }
 
 .indent-post {
-    margin: 20px;
+    margin: 5px 0 15px 20px;
 }
 
 /*------------------------------wraps posts and threads within display containers */
