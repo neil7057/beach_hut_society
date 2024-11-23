@@ -103,7 +103,8 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     *   [Lighthouse Testing](#lighthouse-testing)
     *   [Functional Testing](#functional-testing)
         *   [Navigation Links](#navigation-links)
-        *   [Testing](#testing-approach)
+        *   [Testing Approach](#testing-approach)
+        *   [Test Accounts](#test-accounts)
         *   [Sign Up](#sign-up-testing)
         *   [Log In](#log-in-testing)
         *   [Thread Post](#thread-post-testing)
@@ -874,21 +875,78 @@ This confirmed that:
 -   All images have accurate, useful text descriptions.
 
 ### Lighthouse Testing
+-   The create comment page is a modal and part of submit thread, so testing of that page covers both scenarios.   
 
 <details><summary>Home Page</summary>
-<img src="docs/testing/lighthouse__page.jpg">
+<img src="beachhuts/static/docs/testing/ws-light-home.png">
 </details>
 <br> 
-<details><summary> Page</summary>
-<img src="docs/testing/lighthouse__page.jpg">
-</details>
-<br>
-<details><summary> Page</summary>
-<img src="docs/testing/lighthouse__page.jpg">
+<details><summary>About Page</summary>
+<img src="beachhuts/static/docs/testing/ws-light-about.png">
 </details>
 <br>
 <details><summary>Contact Page</summary>
-<img src="docs/testing/lighthouse_contact_page.jpg">
+<img src="beachhuts/static/docs/testing/ws-light-contact.png">
+</details>
+<br>
+<details><summary>Sign Up Page</summary>
+<img src="beachhuts/static/docs/testing/ws-light-signup.png">
+</details>
+<br>
+<details><summary>Log In Page</summary>
+<img src="beachhuts/static/docs/testing/ws-light-login.png">
+</details>
+<br> 
+<details><summary>Create Post Page</summary>
+<img src="beachhuts/static/docs/testing/ws-light-create-post.png">
+</details>
+<br>
+<details><summary>Edit Post Page</summary>
+<img src="beachhuts/static/docs/testing/ws-light-edit-post.png">
+</details>
+<br>
+<details><summary>Edit CommentPage</summary>
+<img src="beachhuts/static/docs/testing/ws-light-edit-comment.png">
+</details>
+<br> 
+<details><summary>Browse Tags Page</summary>
+<img src="beachhuts/static/docs/testing/ws-light-browse-tags.png">
+</details>
+<br>
+<details><summary>Add Tag Page</summary>
+<img src="beachhuts/static/docs/testing/ws-light-add-tag.png">
+</details>
+<br>
+<details><summary>View My Posts Page</summary>
+<img src="beachhuts/static/docs/testing/ws-light-my-threads.png">
+</details>
+<br>
+<details><summary>View Full Thread Page</summary>
+<img src="beachhuts/static/docs/testing/ws-light-view-full-thread.png">
+</details>
+<br>
+<details><summary>Search Results Page</summary>
+<img src="beachhuts/static/docs/testing/ws-light-search-results.png">
+</details>
+<br>
+<details><summary>Manage Users Page</summary>
+<img src="beachhuts/static/docs/testing/ws-light-manage-users.png">
+</details>
+<br>
+<details><summary>Manage Contacts Page</summary>
+<img src="beachhuts/static/docs/testing/ws-light-manage-contacts.png">
+</details>
+<br>
+<details><summary>Edit User Profile Page</summary>
+<img src="beachhuts/static/docs/testing/ws-light-edit-user.png">
+</details>
+<br>
+<details><summary>Edit User - Admin Page</summary>
+<img src="beachhuts/static/docs/testing/ws-light-edit-user-admin.png">
+</details>
+<br>
+<details><summary>Generic Delete Modal</summary>
+<img src="beachhuts/static/docs/testing/ws-light-Delete-modal.png">
 </details>
 <br>
 
@@ -902,9 +960,20 @@ This was done by clicking on the navigation links on each page on a desktop, lap
 
 Additionally, Adminstrator and basic user accounts were created to check that correct menu options were presented and enhanced functionality restricted to Administrator privileged accounts. 
 
+Modals and forms display as expected. Edit/Delete functions are correctly restricted to the appropritae owner and user account class. 'Cancel' buttons work as expected.
+
 Links on all pages navigated to the correct pages as expeccted. External content opens in a new page.
 
--   ####  Testing Approach
+-   #### Testing Approach
+
+
+
+-   #### Test Accounts:
+    -   Admin:
+
+    -   Normal Users:
+
+
 
 -   #### Sign Up Testing
 
@@ -917,6 +986,8 @@ Links on all pages navigated to the correct pages as expeccted. External content
 -   #### Tags Testing
 
 -   #### Manage Users Testing
+
+-   #### Manage Contacts Testing
 
 -   #### Search Function Testing
 
@@ -976,14 +1047,21 @@ The 'go to' link reacts when hovered over.
 
 ### Bugs and Fixes
 
--   db_create would not work as advised on this version of python. I obtained the correct syntax from a web forum.
--   Model changes would not propogate to Heroku despite Databse recreation. This was solved by creating a new Sql hosting instance and updating Heroku config.
--   Permissions not being applie dto admin accounts caused by an errant 'div'.
--   Search bar woudlnt line up with icon. Margins and padding on standard bootstrap settings overwritten by css changes. 
--    Posts and commnets not consistently displaying. Moved formatting to earlier in loop processing.
--   Comment processing causing Model error. Confusion over singular comment (db field) and comments (table name).
--   Password Model length too small for hashed value. Increased to 255, db created and changes propogated to Heroku.
--   Manage user passing current user value through (admin) rather than user to be edited. Return value in Manage-user Model changed from current_user.
+*   db_create would not work as advised on this version of python. I obtained the correct syntax from a web forum.
+
+*   Model changes would not propogate to Heroku despite Databse recreation. This was solved by creating a new Sql hosting instance and updating Heroku config.
+
+*   Permissions not being applie dto admin accounts caused by an errant 'div'.
+
+*   Search bar woudlnt line up with icon. Margins and padding on standard bootstrap settings overwritten by css changes. 
+
+*    Posts and commnets not consistently displaying. Moved formatting to earlier in loop processing.
+
+*   Comment processing causing Model error. Confusion over singular comment (db field) and comments (table name).
+
+*   Password Model length too small for hashed value. Increased to 255, db created and changes propogated to Heroku.
+
+*   Manage user passing current user value through (admin) rather than user to be edited. Return value in Manage-user Model changed from current_user.
 
 -   WCAG contrast issues.
     - Fixed - Minor colour scheme changes.
@@ -1066,10 +1144,11 @@ The project was deployed to Heroku using the following steps:
 
 ### Code
 
--   [Bootstrap4](https://getbootstrap.com/docs/4.4/getting-started/introduction/): Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System.
+-   [Bootstrap4](https://getbootstrap.com/docs/4.4/getting-started/introduction):
+    -   Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System.
 
-. [jQuery:](https://jquery.com/):
-    - jQuery is used to make the JavaScript code more succinct and simplify some processing.
+-   [jQuery:](https://jquery.com/): 
+    -   jQuery is used to make the JavaScript code more succinct and simplify some processing.
 
 ### Content
 
@@ -1079,12 +1158,6 @@ The project was deployed to Heroku using the following steps:
 
 -   Inspiration was taken from existing blog sites and sample projects:
     -   https://www.digitalocean.com/community/tutorials/how-to-use-one-to-many-database-relationships-with-flask-sqlalchemy
-
-    -   https://github.com/EmmaJane22/HappyCamper
-
-    -   https://github.com/sdthomas91/chat-down-under-new
-
-    -   https://github.com/szilvia-csernus/community-transport
 
 ### Media
 
