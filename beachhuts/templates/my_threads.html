@@ -11,10 +11,11 @@
 
 </div>
 
-<!-- A series of duplicated if else statements to avoid over complicated nested ifs whci
+<!-- A series of duplicated if else statements to avoid over complicated nested ifs which
      may be more efficient but woudl be much less readable -->
+
     {% if threads %}
-<!-- If there are threads (Posts) for this user -->
+    <!-- If there are threads (Posts) for this user -->
     <div class="col xl-12 col-lg-8 col-md-10 mx-auto index-format">
         <br>
         {% for thread in threads %}
@@ -24,7 +25,7 @@
         {% endfor %}
     </div>
     {% elif comments %}
-<!-- if there are no posts no posts, check for comments -->
+    <!-- if there are no posts for this user, check for comments -->
     <div class="row">
         <div class="col xl-12 col-lg-8 col-md-10 mx-auto index-format">
         <p class ="text-sand text-center">You Have no posts but have commented on these other posts</p>
@@ -38,15 +39,17 @@
     {% endif %}
 
     {% if not threads %}
-<!-- If there are threads - already built in earl;ier if statement -->
-
+    <!-- If there are threads - already built in earlier if statement -->
+    <!-- do nothing -->
     {% elif comments %}
-<!-- posts, check for comments -->
+    <!-- there are posts, check for comments where the author is user-->
+    <!-- This could display comments against post(thread) and also again in comments section -->
+    <!-- its not really a bug and doesnt justify the complexity of coding for it  -->
     <div class="row">
         <div class="col xl-12 col-lg-8 col-md-10 mx-auto index-format">
-            <p class ="text-blue text-center">Here are your comments on other posts</p>
+            <p class ="text-blue text-center">Here are your comments on posts</p>
             {% for comments in comments %}
-            {% if current_user.id == comments.author_id %}     
+            {% if current_user.id == comments.author_id%}     
             {% include 'build_comments.html' %}
             {% endif %}
             {% endfor %}
@@ -55,12 +58,12 @@
     {% endif %}
 
     {% if threads %}
-<!-- If there are threads (Posts) for this user -->
-
+    <!-- If there are threads (Posts) for this user -->
+    <!-- do nothing - already processed -->
     {% elif comments %}
-<!-- no posts, check for comments -->
-
+    <!-- no posts, check for comments -->
         {% else %}
+        <!-- no posdts or comments - display message -->
         <div class="row">
             <div class="col xl-12 col-lg-8 col-md-10 mx-auto forum-post">
             <br>
