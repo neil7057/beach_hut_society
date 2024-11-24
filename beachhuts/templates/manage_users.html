@@ -12,29 +12,27 @@
 <div class="container-fluid home-container">
   <div class="row">
     <div class="col xl-12 col-lg-8 col-md-10 col-xs-10 mx-auto index-format users-format">
-{% for user in users %}
-  <div class="forum-post">
-  <div class="thread-title text-left indent-post">
-    <h3 class="center-content">User ID: <span class="text-sand">{{ user.id }}</span></h3>
-
-      <h3 class="pad-input">Username: <span class="text-sand">{{ user.username }}</span></h3>
-      <h3 class="pad-input">Email Address: <span class="text-sand">{{ user.email_address }}</span></h3>
-      <h3 class="pad-input">Name: <span class="text-sand">{{ user.fname }} {{ user.lname }}</span></h3>
-      {% if user.site_admin %}
-      <h3 class="pad-input">Admin Status: <span class="text-success"><strong>{{ user.site_admin }}</strong></span></h3>
-      {% else %}
-      <h3 class="pad-input">Admin Status: <span class="text-danger"><strong>{{ user.site_admin }}</strong></span></h3>
-      {% endif %}
-      <p class="text-right">
-        <a class="btn-lg text-success" aria-label="Go to the edit post page (opens in a new tab)" href="{{url_for('admin_edit_user', id=user.id)}}">
-          <span class="text-info fa-solid fa-person-walking-arrow-right"></span> Edit User</a>
+    {% for user in users %}
+      <div class="forum-post">
+        <div class="thread-title text-left indent-post">
+          <h3 class="center-content">User ID: <span class="text-sand">{{ user.id }}</span></h3>
+          <h3 class="pad-input">Username: <span class="text-sand">{{ user.username }}</span></h3>
+          <h3 class="pad-input">Email Address: <span class="text-sand">{{ user.email_address }}</span></h3>
+          <h3 class="pad-input">Name: <span class="text-sand">{{ user.fname }} {{ user.lname }}</span></h3>
+          {% if user.site_admin %}
+            <h3 class="pad-input">Admin Status: <span class="text-success"><strong>{{ user.site_admin }}</strong></span></h3>
+          {% else %}
+            <h3 class="pad-input">Admin Status: <span class="text-danger"><strong>{{ user.site_admin }}</strong></span></h3>
+          {% endif %}
+            <p class="text-right">
+              <a class="btn-lg text-success" aria-label="Go to the edit post page (opens in a new tab)" href="{{url_for('admin_edit_user', id=user.id)}}">
+            <span class="text-info fa-solid fa-person-walking-arrow-right"></span> Edit User</a>
+        </div>
+      </div>
+      <br>
+    {% endfor %}
     </div>
   </div>
-  <br>
-{% endfor %}
 </div>
-</div>
-</div>
-
 
 {% endblock %}

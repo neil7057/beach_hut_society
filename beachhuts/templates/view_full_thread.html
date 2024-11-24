@@ -17,21 +17,19 @@
           <p class="indent-post text-blue"><strong>Category Tags</strong></p>
       </div>
       <div class="container-fluid">
-            <div class="row indent-post">
-              
-            {% for tag in thread.tags %}
-              <div><span class="tag-format text-center">{{ tag.tag_name }}</span></div>
-              
-            {% endfor %}
-            </div>
+        <div class="row indent-post">        
+        {% for tag in thread.tags %}
+        <div><span class="tag-format text-center">{{ tag.tag_name }}</span></div>      
+        {% endfor %}
+        </div>
       </div>
       <div class="thread-author">
-            <p class="indent-post text-info">
-              Created By:: <span class="font-weight-bold text-sand">{{ thread.author.username }}</span> on
-              <span class="font-weight-bold text-sand">{{ thread.created_td.strftime("%d-%m-%Y") }}</span>
-              <span class="text-blue">
-                at </span> {{ thread.created_td.strftime('%H:%M') }}
-            </p>
+        <p class="indent-post text-info">
+          Created By:: <span class="font-weight-bold text-sand">{{ thread.author.username }}</span> on
+          <span class="font-weight-bold text-sand">{{ thread.created_td.strftime("%d-%m-%Y") }}</span>
+          <span class="text-blue">
+          at </span> {{ thread.created_td.strftime('%H:%M') }}
+        </p>
       </div>
       {% if current_user.is_authenticated %}
       <div id="commentForm" class="d-none commentForm indent-comment" data-thread-id="{{ thread.id }}">
@@ -50,44 +48,44 @@
         </form>
       </div>
       <div class="text-center">
-            <a class="btn btn-success btn-circle" onclick="showCommentForm('{{ thread.id }}')">Comment</a>
-            {% if current_user.id == thread.author_id  or current_user.site_admin %}
-              <a href="{{url_for('edit_thread', thread_id=thread.id)}}" class="btn btn-info btn-circle">Edit</a>
-              {% include 'delete_thread_modal.html' %}
-            {% endif %}
+        <a class="btn btn-success btn-circle" onclick="showCommentForm('{{ thread.id }}')">Comment</a>
+        {% if current_user.id == thread.author_id  or current_user.site_admin %}
+        <a href="{{url_for('edit_thread', thread_id=thread.id)}}" class="btn btn-info btn-circle">Edit</a>
+        {% include 'delete_thread_modal.html' %}
+        {% endif %}
       </div>
       <div class="comments">
-          {% for comments in thread.comments %}
+        {% for comments in thread.comments %}
           <div class="comments-header text-blue">
           <!-- Display the comment author and details/posting date -->
-              <h4 class="indent-post"><strong><span class ="text-sand">{{ comments.author.username }}</span> commented :</strong></h4>
+            <h4 class="indent-post"><strong><span class ="text-sand">{{ comments.author.username }}</span> commented :</strong></h4>
           </div>
           <div class="comment-body">
-              <p class="text-sand">{{ comments.comment_body }}</p>
-              <br>
-              <p class="text-info"><span class="text-blue">posted on:</span> {{ comments.created_td.strftime('%d-%m-%Y') }} <span class="text-blue">
-                 at </span> {{ comments.created_td.strftime('%H:%M') }}</p>
+            <p class="text-sand">{{ comments.comment_body }}</p>
+            <br>
+            <p class="text-info"><span class="text-blue">posted on:</span> {{ comments.created_td.strftime('%d-%m-%Y') }} <span class="text-blue">
+              at </span> {{ comments.created_td.strftime('%H:%M') }}</p>
   
-              {% if current_user.is_authenticated %}
-                {% if current_user.id == comments.author_id %}
-                <br>
-                <div class="text-center card-action">
+            {% if current_user.is_authenticated %}
+              {% if current_user.id == comments.author_id %}
+              <br>
+              <div class="text-center card-action">
+                <a href="{{url_for('edit_comment', comments_id=comments.id)}}"
+                  class="btn btn-info btn-circle">Edit</a>
+              {% include 'delete_comment_modal.html' %}
+              </div>
+              {% else %}
+        <!-- check if site admin and if so, allow comment deletion -->
+                {% if current_user.site_admin %}
+                  <br>
+                  <div class="text-center card-action">    
                     <a href="{{url_for('edit_comment', comments_id=comments.id)}}"
                       class="btn btn-info btn-circle">Edit</a>
-                    {% include 'delete_comment_modal.html' %}
-                </div>
-                  {% else %}
-        <!-- check if site admin and if so, allow comment deletion -->
-                  {% if current_user.site_admin %}
-                    <br>
-                    <div class="text-center card-action">    
-                      <a href="{{url_for('edit_comment', comments_id=comments.id)}}"
-                        class="btn btn-info btn-circle">Edit</a>
-                      {% include 'delete_comment_modal.html' %}         
-                    </div>
-                  {% endif %}
-                {% endif %}       
-              {% endif %}
+                  {% include 'delete_comment_modal.html' %}         
+                  </div>
+                {% endif %}
+              {% endif %}       
+            {% endif %}
           </div>
           {% endfor %} 
       </div>

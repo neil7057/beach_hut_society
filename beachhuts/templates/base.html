@@ -69,7 +69,7 @@
                     </form>
                 {% if user.is_authenticated %}
                     <h2 class="text-sand">{{ current_user.username }} <span class="text-blue">Is Logged In</span></h2>
-                    <!-- <br> -->
+                    <br>
                     <a class="btn-lg hvr-grow text-sand" aria-label="logout button" href="{{ url_for('logout') }}">
                         <span class="text-info fa-solid fa-user-plus"></span> Log Out</a>
                         <div class="divider"></div>
@@ -86,17 +86,17 @@
                 <!-- admin only - by default will be logged in.. -->
                 {% if current_user.site_admin %}
                     <div class="col-12">    
-                        <!-- <div class="row pb-3"></div> -->
                         <div class="center-content">
-                <a class="btn-lg btn-admin hvr-grow text-sand" aria-label="manage users button" href="{{ url_for('manage_users') }}">
-                    <span class="text-danger fa-solid fa-wrench"></span> Users</a>
-                    <div class="divider"></div>
-                    <span>
-                        <a class="btn-lg btn-admin hvr-grow text-sand" aria-label="manage contacts button" href="{{ url_for('build_contacts') }}">
-                            <span class="text-danger fa-solid fa-wrench"></span> Contacts</a>
-                    </span>
+                            <a class="btn-lg btn-admin hvr-grow text-sand" aria-label="manage users button" href="{{ url_for('manage_users') }}">
+                                <span class="text-danger fa-solid fa-wrench"></span> Users</a>
+                                <div class="divider"></div>
+                                <span>
+                            <a class="btn-lg btn-admin hvr-grow text-sand" aria-label="manage contacts button" href="{{ url_for('build_contacts') }}">
+                                <span class="text-danger fa-solid fa-wrench"></span> Contacts</a>
+                                </span>
                         </div>
-                    </div>    
+                    </div>
+                   <div class="row pb-3"></div>    
             {% endif %}
                 </div>
                 {% with messages = get_flashed_messages() %}
@@ -115,15 +115,12 @@
     <!-- start of main content -->
     <button class="btn-sm btn-shadow" id="myHomeBtn" title="Go to top of page">Top</button>
     <div class="container-fluid solid-border">
-
-            
+           
     {% block content %}
     {% endblock %}
                 
-
     </div>
 
-        
     <footer>
         <!-- direct email or link to comments page -->
         <div class="pt-4"></div>

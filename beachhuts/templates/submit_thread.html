@@ -30,24 +30,24 @@
       <option value="{{ tag.id }}">{{ tag.tag_name }}</option>
       {% endfor %}
     </select>  
-    </div>
+  </div>
     <div class="text-center text-sand">  
       <p>If you cannot see the tag you want, <a href="{{url_for('add_tag')}}"
         class="btn-lg hvr-grow text-blue" aris-label="go to add tag page"><span class="fas fa-plus-square right">
         </span><strong> Add Tag</strong></a> to add a tag(s)</p>
-    </div>
-    <br>
-    <div class="form-group form-check text-center">
-      <input type="checkbox" class="form-check-input" id="thread_confirm" name="thread_confirm" required>
-      <label class="form-check-label text-blue" for="thread_confirm">Remember: Be nice, Be Polite, Be courteous. Keep the language
-        clean</label>
-    </div>
-    <div class="text-center">
+  </div>
+  <br>
+  <div class="form-group form-check text-center">
+    <input type="checkbox" class="form-check-input" id="thread_confirm" name="thread_confirm" required>
+    <label class="form-check-label text-blue" for="thread_confirm">Remember: Be nice, Be Polite, Be courteous. Keep the language
+      clean</label>
+  </div>
+  <div class="text-center">
     <a href="{{ url_for('cancel') }}" class="btn-lg btn-cancel hvr-grow text-cancel">
       <span class="text-danger fa-solid fa-circle-xmark"></span> <strong>Cancel</strong></a>
       <div class="divider"></div>
     <button type="submit" class="btn-lg hvr-grow text-success"><span class="fa-solid fa-thumbs-up text-success"></span><strong> Submit</strong></button>
-      </div>
+  </div>
   </form>
 </div>
 {% endblock %}

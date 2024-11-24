@@ -6,60 +6,58 @@
           <div class="col-12 center-content">
             <br>
             <h1 class="text-uppercase text-center title-color">
-                {{ page_title }}
-                </h1>
-                <br>
-                <div class="text-blue">
-                <h2>For User: <span class="text-sand">{{ user.email_address }}</span> </h2>
-                </div>    
-            </div>
+            {{ page_title }}
+            </h1>
+            <br>
+            <div class="text-blue">
+            <h2>For User: <span class="text-sand">{{ user.email_address }}</span> </h2>
+          </div>    
         </div>
       </div>
-      <div class="container-fluid form-container form-upd-back">
-        <div class="row">
-          <div class="col-1 col-md-2">
-          </div>
-          <div class="col-10 col-md-8">
-            <form method="POST" >
-              <!-- only display message if not site admin -->
-              {% if not current_user.site_admin %}
-              <br>
-              <h3 class="text-center text-sand">Email address cannot be changed;</h3>
-              <h3 class="text-center text-sand">
-                You must <a href="{{ url_for('create_contact') }}" class="btn-lg border border-success btn-success hvr-grow text-blue"
-                aria-label="go to my comments page (opens in a new tab)"> Contact Admin </a> or create a new account</h3> 
-              {% endif %}
-                <br>
-                <div class="form-group">
-                <label class="text-blue" for="username">Username (max 25)</label>
-                <input type="text" autofocus="autofocus" maxlength="25" class="form-control" id="username" name="username" placeholder= "Username"
-                  value = "{{ user.username }}" required >
-              </div>
-              <div class="form-group">
+    </div>
+    <div class="container-fluid form-container form-upd-back">
+      <div class="row">
+        <div class="col-1 col-md-2"></div>
+        <div class="col-10 col-md-8">
+          <form method="POST" >
+          <!-- only display message if not site admin -->
+          {% if not current_user.site_admin %}
+          <br>
+          <h3 class="text-center text-sand">Email address cannot be changed;</h3>
+          <h3 class="text-center text-sand">
+            You must <a href="{{ url_for('create_contact') }}" class="btn-lg border border-success btn-success hvr-grow text-blue"
+            aria-label="go to my comments page (opens in a new tab)"> Contact Admin </a> or create a new account</h3> 
+          {% endif %}
+            <br>
+            <div class="form-group">
+            <label class="text-blue" for="username">Username (max 25)</label>
+            <input type="text" autofocus="autofocus" maxlength="25" class="form-control" id="username" name="username" placeholder= "Username"
+              value = "{{ user.username }}" required >
+            </div>
+            <div class="form-group">
                 <label class="text-blue" for="fname">First Name (max 20)</label>
                 <input type="text" maxlength="20" class="form-control" id="fname" name="fname" placeholder="First Name"
                   value ="{{ user.fname }}" required>
-              </div>
-              <div class="form-group">
+            </div>
+            <div class="form-group">
                 <label class="text-blue" for="lname">Last Name (max 30)</label>
                 <input type="text" maxlength="30" class="form-control" id="lname" name="lname" placeholder="Last Name"
                   value ="{{ user.lname }}" required>
-              </div>
-              <div class="form-row text-center">
+            </div>
+            <div class="form-row text-center">
                 <div class="col">
                   <a href="{{ url_for('cancel') }}" class="btn btn-cancel hvr-grow text-cancel">
                     <span class="text-danger fa-solid fa-circle-xmark"></span> <strong>Cancel</strong></a>
                   <div class="divider"></div> 
                     <span> <button type="submit" class="btn-lg hvr-grow text-success"><span class="text-success fa-solid fa-file-pen">
                     </span><strong> Update</strong></button></span>         
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="col-1 col-md-2">
-          </div>
+               </div>
+            </div>
+          </form>
         </div>
+        <div class="col-1 col-md-2"></div>
       </div>
+    </div>
   
 
 {% endblock %}

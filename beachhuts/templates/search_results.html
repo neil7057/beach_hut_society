@@ -24,21 +24,21 @@
         <div>
         {% for thread in threads %}
           <div class="forum-post">
-          <div class="thread-title">
-            <h3 class="thread-title">{{ thread.thread_title }}</h3>
-          </div>
-          <div>
-          <p class="indent-post text-sand">{{ thread.thread_body }}</p>
-          </div>
-          <div>
-          <p class="indent-post text-blue"><strong>Category Tags:</strong></p>
-          <div class="container-fluid">
-            <div class="row indent-post">
-              {% for tag in thread.tags %}
-              <div><span class="tag-format text-center">{{ tag.tag_name }}</span></div>  
-              {% endfor %}
+            <div class="thread-title">
+              <h3 class="thread-title">{{ thread.thread_title }}</h3>
             </div>
-          </div>
+            <div>
+            <p class="indent-post text-sand">{{ thread.thread_body }}</p>
+            </div>
+            <div>
+            <p class="indent-post text-blue"><strong>Category Tags:</strong></p>
+            <div class="container-fluid">
+              <div class="row indent-post">
+                {% for tag in thread.tags %}
+                <div><span class="tag-format text-center">{{ tag.tag_name }}</span></div>  
+                {% endfor %}
+              </div>
+            </div>
           </div>   
           <div>
             <p class="indent-post text-info">
@@ -68,13 +68,13 @@
             <!-- if user logged in, show comments button -->
             <div class="text-center card-action">
               <a class="btn btn-success btn-circle " onclick="showCommentForm('{{ thread.id }}')">Comment</a>
-            <!-- if user create post show edit and delete buttons -->
+              <!-- if user create post show edit and delete buttons -->
               {% if current_user.id == thread.author_id %} 
               <a href="{{url_for('edit_thread', thread_id=thread.id)}}"
                 class="btn btn-info btn-circle">Edit</a>
               {% include 'delete_thread_modal.html' %}
               {% else %}
-            <!-- check if site admin and if so, show edit and delete for all posts -->
+              <!-- check if site admin and if so, show edit and delete for all posts -->
               {% if user.site_admin %}
               <a href="{{url_for('edit_thread', thread_id=thread.id)}}"
                 class="btn btn-info btn-circle">Edit</a>
@@ -87,8 +87,8 @@
             {% include 'comments_modal.html' %}
         </div>
         <br> 
-          </div> 
-        <br>
+      </div> 
+      <br>
         {% endfor %}
         </div>
       {% endif %}

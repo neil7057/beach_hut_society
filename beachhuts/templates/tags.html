@@ -27,9 +27,8 @@
       <a class="btn-lg hvr-grow text-blue" aria-label="Add tag button" href="{{ url_for('add_tag') }}">
         Add Tag <i class="fas fa-plus-square right"></i>
       </a>
-      </div>
-      <div class="row pb-3"></div>
     </div>
+    <div class="row pb-3"></div>
   </div>
 </div>
 
@@ -56,26 +55,26 @@
             data-target="#modal-{{ tag.id }}">Delete</button>
           <!-- Modal Structure -->
           <div class="modal fade" id="modal-{{ tag.id }}" tabindex="-1" role="dialog"
-              aria-labelledby="modal-{{ tag.id }}Label" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="modal-{{ tag.id }}Label">Tag Deletion</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    This will permanently delete this tag, This action cannot be undone.
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-success btn-circle" data-dismiss="modal">Close</button>
-                    <a class="btn btn-danger btn-circle" href="{{url_for('delete_tag', tag_id=tag.id) }}">
-                      Confirm Deletion
-                    </a>
-                  </div>
+            aria-labelledby="modal-{{ tag.id }}Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal-{{ tag.id }}Label">Tag Deletion</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  This will permanently delete this tag, This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success btn-circle" data-dismiss="modal">Close</button>
+                  <a class="btn btn-danger btn-circle" href="{{url_for('delete_tag', tag_id=tag.id) }}">
+                    Confirm Deletion
+                  </a>
                 </div>
               </div>
+            </div>
           </div>
         </div>
         {% endif %}
