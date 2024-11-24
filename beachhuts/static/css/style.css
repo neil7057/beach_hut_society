@@ -75,6 +75,12 @@ p {
     font-weight: 700;
 }
 
+.text-red {
+    font-family: 'Original Surfer', sans-serif;
+    color: #610000; 
+    font-weight: 700;
+}
+
 li {
     margin-right: 20px;
     font-size: 1.6rem;
@@ -93,6 +99,42 @@ li {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+  }
+
+  input::placeholder {
+    style: #f00;
+  }
+
+  input::value {
+    color: #f00;
+  }
+
+  #username {
+    color:#610000;
+  }
+
+  #fname {
+    color:#610000;
+  }
+
+  #lname {
+    color:#610000;
+  }
+
+  #email {
+    color: #610000;
+  }
+
+  #comment_body {
+    color: #610000;
+  }
+
+  #thread_title {
+    color: #610000;
+  }
+
+  #thread_body {
+    color: #610000;
   }
 
 /*--------------------------------------------Heading*/
@@ -137,9 +179,9 @@ li {
 }
 
 .search-bar {
-    max-width: 50%;
     margin: auto;
     border-right: 0;
+    max-width: 80%;
 }
   
 .search-button {
@@ -156,7 +198,7 @@ li {
 
 .input-group>.form-control:not(:first-child) {
     padding: 25px;
-    border-radius: 25px;
+    border-radius: 25px!important;
 }
   
 .input-group>.input-group-append>.btn {
@@ -168,8 +210,8 @@ li {
 }
 
 .input-search {
-    margin: 15px 0 20px;
-    padding: 25px;
+    margin: 0 20px 0;
+    /* padding: 25px; */
 }
 
 /*--------------------------------------------Images*/
@@ -514,12 +556,9 @@ footer {
 .form-control {
     font-size: 1.5rem;
     font-weight: 700;
-    /* color: #af9442; */
-    color: black;
-    background-color: #fff;
-    /* background-color: #efe6a4; */
+    color: #af9442;
+    background-color: #efe6a4;
     border: 2px solid #da5619; 
-    /* border-right: 0;   */
     border-radius: 2rem;
 }
 
@@ -591,7 +630,7 @@ input[type=radio] {
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
-    background-color: #2b96c9;
+    background-color: #7dc3e3;
     padding-left: 25px;
     vertical-align: middle;
     color: #1e10da;
@@ -622,7 +661,7 @@ input[type=radio] {
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
-    background-color: #2b96c9;
+    background-color: #7dc3e3;
     border: 1px solid #aaa;
     border-radius: 15px;
 }
@@ -635,7 +674,7 @@ input[type=radio] {
   }
   
   .select2-selection__choice__remove {
-    color: red!important;
+    color: #4a0d13!important;
     cursor: pointer;
     padding: 0;
   }
@@ -650,9 +689,18 @@ input[type=radio] {
 }
 
 /* ensure comment box is reasonable size on all forms */
+
 textarea.form-control {
     min-height: 200px;
 }
+
+input[type=text]:focus {
+    background-color: #efe6a4;
+  }
+
+  textarea.form-control:focus {
+    background-color: #efe6a4;
+  }
 
 .btn-block {
     background-color: #4203bf;
@@ -684,8 +732,7 @@ textarea.form-control {
 }
 
 .btn-search {
-    /* background-color: #efe6a4; */
-    background-color: #fff;
+    background-color: #efe6a4;
     color: #4203bf;
     border: 2px solid #da5619;   
     border-radius: 2rem;
@@ -697,7 +744,7 @@ textarea.form-control {
 }
 
 button[type="submit"] {
-    margin-top: 15px;
+    /* margin-top: 15px; */
     margin-bottom: 20px;
     font-size: 22px;
 }
@@ -795,6 +842,10 @@ button[type="submit"] {
 
 .text-info {
     color: #0c5864!important; 
+}
+
+.text-danger {
+    color: #931a26!important;
 }
 
 .text-muted-wcag {

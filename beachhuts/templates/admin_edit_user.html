@@ -10,7 +10,7 @@
                 </h1>
                 <br>
                 <div class="text-blue">
-                <p>For User: <span class="text-sand">{{ user.email_address }}</span> </p>
+                <h2>For User: <span class="text-sand">{{ user.email_address }}</span> </h2>
                 </div>    
             </div>
         </div>
@@ -27,59 +27,62 @@
               <h3 class="text-center text-blue">Use with Care</h3> 
               <br>
               <div class="form-group">
-                <label class="text-sand" for="username">Username (max 25)</label>
-                <input type="text" autofocus="autofocus" maxlength="25" class="form-control" id="username" name="username"
+                <label class="text-blue" for="username">Username (max 25)</label>
+                <input type="text"  autofocus="autofocus" maxlength="25" class="form-control" id="username" name="username"
                   value = "{{ user.username }}" required >
               </div>
               <div class="form-group">
-                <label class="text-sand" for="fname">First Name (max 20)</label>
+                <label class="text-blue" for="fname">First Name (max 20)</label>
                 <input type="text" maxlength="20" class="form-control" id="fname" name="fname"
                   value ="{{ user.fname }}" required>
               </div>
               <div class="form-group">
-                <label class="text-sand" for="lname">Last Name (max 30)</label>
+                <label class="text-blue" for="lname">Last Name (max 30)</label>
                 <input type="text" maxlength="30" class="form-control" id="lname" name="lname"
                   value ="{{ user.lname }}" required>
               </div>
               <div class="form-group">
-                <label class="text-sand" for="password">Password (max 25) - Only enter to change</label>
+                <label class="text-blue" for="password">Password (max 25) - Only enter to change</label>
                 <!-- field is visible as type=text not password but it is an admin page! -->
                 <input type="text" maxlength="25" class="form-control" id="password" name="password">
               </div>
               
               <!-- set radio buttons according to site admin status -->
               {% if not user.site_admin %}
-              <div class="form-row">
-                <div class="col-4"></div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                   value="False" checked>
-                  <label class="form-check-label text-sand" for="inlineRadio1">Ordinary User</label>
+              <fieldset>
+                <div class="form-row">
+                  <div class="col-4"></div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                    value="False" checked>
+                    <label class="form-check-label text-blue" for="inlineRadio1">Ordinary User</label>
+                  </div>
                 </div>
-              </div>
-              <div class="form-row">
-                <div class="col-4"></div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="True">
-                  <label class="form-check-label text-sand" for="inlineRadio2">Site Admin</label>
+                <div class="form-row">
+                  <div class="col-4"></div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="True">
+                    <label class="form-check-label text-red" for="inlineRadio2">Site Admin</label>
+                  </div>
                 </div>
-              </div>
+                </div>
               {% else %}
-              <div class="form-row">
-                <div class="col-4"></div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="False">
-                  <label class="form-check-label text-sand" for="inlineRadio1">Ordinary User</label>
+                <div class="form-row">
+                  <div class="col-4"></div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="False">
+                    <label class="form-check-label text-blue" for="inlineRadio1">Ordinary User</label>
+                  </div>
                 </div>
-              </div>
-              <div class="form-row">
-                <div class="col-4"></div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                   value="True" checked>
-                  <label class="form-check-label text-sand" for="inlineRadio2">Site Admin</label>
+                <div class="form-row">
+                  <div class="col-4"></div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="True" checked>
+                    <label class="form-check-label text-red" for="inlineRadio2">Site Admin</label>
+                  </div>
                 </div>
-              </div>
+              </fieldset>
               {% endif %}
             <br>
             <div class="form-row text-center">

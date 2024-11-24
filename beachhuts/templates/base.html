@@ -48,15 +48,15 @@
                     <h1 class="text-blue mb-5">Beach Hut Appreciation Society</h1>
                     <img class="logo-img center d-none d-lg-block" src="{{ url_for('static', filename='images/bh-tower.png') }}" alt="Beach Hut Logo"
                         aria-label="beach hut image blue and white.">    
-                    <form action="{{ url_for('search_results') }}" method="GET" aria-label="search" class="input-group search-bar">
+                    <!-- <form action="{{ url_for('search_results') }}" method="GET" role="search" class="input-group search-bar">
                     <label for="search_term" class="hide-labels">Search</label>
                     <input type="text" name="search_term" id="search_term" aria-label="search" class="form-control input-search">
-                    <div class="input-group-append">
+                    <div >
                         <button class="btn text-sand btn-search" aria-label="search" type="submit">
                         <i class="fa fa-search"></i>
                         </button>
                     </div>
-                    </form>
+                    </form> -->
                 </div>
   <!-- **** /search bar **** -->
             </div>
@@ -68,6 +68,15 @@
             <div class="col-12">    
                 <div class="row pb-3"></div>
                 <div class="center-content">
+                    <form action="{{ url_for('search_results') }}" method="GET" role="search" class="input-group search-bar">
+                        <label for="search_term" class="hide-labels">Search</label>
+                        <input type="text" name="search_term" id="search_term" aria-label="search" class="form-control input-search" placeholder="Search">
+                        <div >
+                            <button class="btn text-sand btn-search" aria-label="search" type="submit">
+                            <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
                 {% if user.is_authenticated %}
                     <h2 class="text-sand">{{ current_user.username }} <span class="text-blue">Is Logged In</span></h2>
                     <br>
