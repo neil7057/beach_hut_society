@@ -197,7 +197,7 @@ li {
 }
 
 .input-group>.form-control:not(:first-child) {
-    padding: 25px;
+    /* padding: 25px; */
     border-radius: 25px!important;
 }
   
@@ -210,8 +210,7 @@ li {
 }
 
 .input-search {
-    margin: 0 20px 0;
-    /* padding: 25px; */
+    margin-right: 20px;
 }
 
 /*--------------------------------------------Images*/
@@ -514,7 +513,7 @@ footer {
 }
 
 .indent-post {
-    margin: 5px 0 15px 20px;
+    margin: 5px 20px 15px;
 }
 
 .indent-comment {
@@ -688,7 +687,7 @@ input[type=radio] {
     resize: none;
 }
 
-/* ensure comment box is reasonable size on all forms */
+/* maintain accent colour when text input and area are selected */
 
 textarea.form-control {
     min-height: 200px;
@@ -698,7 +697,7 @@ input[type=text]:focus {
     background-color: #efe6a4;
   }
 
-  textarea.form-control:focus {
+textarea.form-control:focus {
     background-color: #efe6a4;
   }
 
@@ -964,22 +963,46 @@ button[type="submit"] {
 
 @media (max-width: 605px) {
     .btn-cancel {
-        font-size: .7rem;
+        font-size: 1rem;
     }
     .btn-lg {
-        font-size: .7rem
+        font-size: 1rem
     }
-    button[type="submit"] {
-        font-size: .7rem
+    .hero-image {
+        height: 200px;
     }
     .hero-image-content h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
     h2 {
             font-size: 1.4rem;
     }
     .tag-form {
         font-size: .5rem!important;
+    }
+    .form-control {
+        font-size: 1rem;
+    }
+    button[type="submit"] {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 372px) {
+    .btn-cancel {
+        font-size: .55rem;
+    }
+    .btn-lg {
+        font-size: .55rem
+    }
+    .form-control {
+        font-size: .55rem;
+    }
+    button[type="submit"] {
+        font-size: .55rem
+    }
+    .small-font {
+        font-size: 0.55rem!important;
     }
 }
 
