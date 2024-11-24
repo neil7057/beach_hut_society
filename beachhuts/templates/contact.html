@@ -1,61 +1,61 @@
 {% extends "base.html" %}
 {% block content %}
-            <!-- Contact Form -->
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">            
-                    <a id="start-of-form"></a>
-                    <!-- <div class="col-md-2 col-lg-3 col-xl-4 ">
-                    </div> -->
-                    <div class=" text-sand">
-                        <div class="col-12 text-center mt-4 text-uppercase title-color"><h1>{{page_title}}</h1></div>
-                        <br>
-                        <h2 class="text-center">
-                            Please complete the form below to send Admin an email.
-                        </h2>
-                        <h2 class="text-center">
-                            I aim to respond to messages within 48 hours.
-                        </h2>
-                        <br>
-                        <form method="POST" name="sentmessage" id="contactForm">
-                            <div class="form-group">
-                                <label for="username">Username:</label>
-                                <input type="text" autofocus="autofocus" maxlength="25" name="username" id="username" class="form-control"
-                                    placeholder="Not Registered" required autocomplete="on" value ="{{ user.username }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="fname">First Name:</label>
-                                <input type="text" maxlength="20" name="fname" id="fname" class="form-control"
-                                    placeholder="First Name" required autocomplete="on" value ="{{ user.fname }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="lname">Last Name:</label>
-                                <input type="text" maxlength="30" name="lname" id="lname" class="form-control"
-                                    placeholder="Last Name" required autocomplete="on" value ="{{ user.lname }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address:</label>
-                                <input type="email" maxlength="50" name="email" id="email" class="form-control"
-                                    placeholder="Email" required autocomplete="on" value ="{{ user.email_address }}">
-                                <small id="emailhelp" class="form-text text-sand">We'll never share your email
-                                    with anyone else</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message:</label>
-                                <!-- text area set to scroll with a maximum input of 280 characters -->
-                                <textarea maxlength="280" name="message" id="message"
-                                    class="form-control" placeholder="What do you want to tell me?" required></textarea>
-                                <small id="maxchar" class="form-text text-sand">Maximum of 280 characters</small>
-                                <!-- Muted text contrast enhanced for wcag compliance -->
-                            </div>
-                            <div class="form-row text-center">
-                                <div class="col">
-                                    <button type="submit" class="btn-lg hvr-grow text-success">
-                                        <span class="text-success fa-solid fa-envelope"></span><strong> Message Me!</strong></button>
-                                </div>
-                            </div>
-                        </form>
-                        <br>
+<!-- Contact Form -->
+<div class="container-fluid form-container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">            
+            <a id="start-of-form"></a>
+            <div class=" text-sand">
+                <div class="col-12 text-center mt-4 text-uppercase title-color"><h1>{{page_title}}</h1></div>
+                <br>
+                <h2 class="text-center">
+                    Please complete the form below to send Admin an email.
+                </h2>
+                <h2 class="text-center">
+                    I aim to respond to messages within 48 hours.
+                </h2>
+                <br>
+                <form method="POST" name="sentmessage" id="contactForm">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" autofocus="autofocus" maxlength="25" name="username" id="username" class="form-control"
+                            placeholder="Not Registered" required autocomplete="on" value ="{{ user.username }}">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="fname">First Name:</label>
+                        <input type="text" maxlength="20" name="fname" id="fname" class="form-control"
+                            placeholder="First Name" required autocomplete="on" value ="{{ user.fname }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">Last Name:</label>
+                           <input type="text" maxlength="30" name="lname" id="lname" class="form-control"
+                                placeholder="Last Name" required autocomplete="on" value ="{{ user.lname }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" maxlength="50" name="email" id="email" class="form-control"
+                            placeholder="Email" required autocomplete="on" value ="{{ user.email_address }}">
+                            <small id="emailhelp" class="form-text text-blue text-center">We'll never share your email
+                            with anyone else</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <!-- text area set to scroll with a maximum input of 280 characters -->
+                        <textarea maxlength="280" name="message" id="message"
+                            class="form-control" placeholder="What do you want to tell me?" required></textarea>
+                            <small id="maxchar" class="form-text text-blue text-center">Maximum of 280 characters</small>
+                            <!-- Muted text contrast enhanced for wcag compliance -->
+                    </div>
+                    <div class="form-row text-center">
+                            <div class="col">
+                                <button type="submit" class="btn-lg hvr-grow text-success">
+                                    <span class="text-success fa-solid fa-envelope"></span><strong> Message Me!</strong></button>
+                        </div>
+                    </div>
+                </form>
+                <br>
             </div>
+        </div>
+    </div>
+</div>
 {% endblock %}  
