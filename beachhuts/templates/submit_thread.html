@@ -25,7 +25,7 @@
     <!-- max 4 tags per post(thread), if not exist, user can create a new one -->
     <select class="custom-select text-sand" id="thread_tags" name="thread_tags[]" 
       multiple="multiple" required>
-      <option value="" disabled></option>
+      <option value="Select Tag(s)" disabled></option>
       {% for tag in tag_list %}
       <option value="{{ tag.id }}">{{ tag.tag_name }}</option>
       {% endfor %}
@@ -33,7 +33,7 @@
   </div>
     <div class="text-center text-sand">  
       <p>If you cannot see the tag you want, <a href="{{url_for('add_tag')}}"
-        class="btn-lg hvr-grow text-blue" aris-label="go to add tag page"><span class="fas fa-plus-square right">
+        class="btn-lg hvr-grow text-blue" aria-label="go to add tag page"><span class="fas fa-plus-square right">
         </span><strong> Add Tag</strong></a> to add a tag(s)</p>
   </div>
   <br>
