@@ -847,23 +847,53 @@ Testing was focused to ensure the following criteria were met:
 
 Results:
 
+Pages that display lists of Posts and comments use the same formatting and colour schemes so it isn't strictly necessary to check all pages with identical contrast and colour components.
 <details><summary>Home Page</summary>
-<img src="docs/testing/.jpg">
+<img src="beachhuts/static/docs/testing/wcag-home.png">
+</details>
+<details><summary>About Page</summary>
+<img src="beachhuts/static/docs/testing/wcag-about.png">
+</details>
+<details><summary>Contact Page</summary>
+<img src="beachhuts/static/docs/testing/wcag-contact.png">
+</details>
+<details><summary>Signup Page</summary>
+<img src="beachhuts/static/docs/testing/wcag-signup.png">
+</details>
+<details><summary>Login Page</summary>
+<img src="beachhuts/static/docs/testing/wcag-login.png">
+</details>
+<details><summary>Search Results Page</summary>
+<img src="beachhuts/static/docs/testing/wcag-search-results.png">
+</details>
+<details><summary>My Threads Page</summary>
+<img src="beachhuts/static/docs/testing/wcag-my-threads.png">
+</details>
+<details><summary>View Full Thread Page</summary>
+<img src="beachhuts/static/docs/testing/wcag-view-full-thread.png">
+</details>
+<details><summary>Edit User Page</summary>
+<img src="beachhuts/static/docs/testing/wcag-edit-user.png">
+</details>
+<details><summary>Manage Users Page</summary>
+<img src="beachhuts/static/docs/testing/wcag-manage-users.png">
+</details>
+<details><summary>Admin Manage User</summary>
+<img src="beachhuts/static/docs/testing/wcag-edit-user-admin.png">
+</details>
+<details><summary>Manage Contacts Page</summary>
+<img src="beachhuts/static/docs/testing/wcag-manage-contacts.png">
+</details>
+<details><summary>Create Post Page</summary>
+<img src="beachhuts/static/docs/testing/wcag-create-a-post.png">
+</details>
+<details><summary>Edit Post Page</summary>
+<img src="beachhuts/static/docs/testing/wcag-edit-post.png">
+</details>
+<details><summary>Edit Comment Page</summary>
+<img src="beachhuts/static/docs/testing/wcag-edit-comment.png">
 </details>
 <br>
-
-Pages that display lists of Posts and comments use the same formatting and colour schemes so it isn't strictly necessary to check all pages with identical contrst and colour components.
-<br>
-<details><summary> Page</summary>
-<img src="docs/testing/.jpg">
-</details>
-<br>
-<details><summary> Page</summary>
-<img src="docs/testing/.jpg">
-</details>
-<br>
-
-
 Manual tests were also performed to ensure the website was as accessible as possible.
 
 ### Screen Reader
