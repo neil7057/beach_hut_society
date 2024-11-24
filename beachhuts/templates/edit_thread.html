@@ -20,10 +20,10 @@
 
     <div class="form-group">
       <label for="thread_tags" class="text-sand">Select Catgeory tags (Max. 4)</label>
-      <select class="custom-select" id="thread_tags" name="thread_tags[]" multiple="multiple">
-      <option role="option" aria-labelledby="thread-tags" aria-selected="false" value="" disabled></option>
+      <select class="custom-select" id="thread_tags" name="thread_tags[]" multiple="multiple" required>
+      <option role="option" value="" disabled></option>
       {% for tag in tags %}
-      <option role="option" aria-selected="false" aria-labelledby="thread-tags" value="{{ tag.id }}" {% if tag in thread.tags %}selected{% endif %}>{{ tag.tag_name }}</option>
+      <option role="option" value="{{ tag.id }}" {% if tag in thread.tags %}selected{% endif %}>{{ tag.tag_name }}</option>
       {% endfor %}
       </select>
     </div>
