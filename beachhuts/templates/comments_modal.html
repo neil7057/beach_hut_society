@@ -7,10 +7,10 @@
         <h3 class="indent-post"><strong><span class ="text-sand">{{ comments.author.username }}</span> commented :</strong></h3>
     </div>
     <div class="comment-body">
-        <p class="text-sand">{{ comments.comment_body }}</p>
+        <h3 class="text-sand">{{ comments.comment_body }}</h3>
         <br>
-        <h2 class="text-info"><span class="text-blue">posted on:</span> {{ comments.created_td.strftime('%d-%m-%Y') }} <span class="text-blue">
-            at </span> {{ comments.created_td.strftime('%H:%M') }}</h2>
+        <h4 class="text-info"><span class="text-blue">posted on:</span> {{ comments.created_td.strftime('%d-%m-%Y') }} <span class="text-blue">
+            at </span> {{ comments.created_td.strftime('%H:%M') }}</h4>
         <div>
         {% if current_user.is_authenticated %}
             {% if current_user.id == comments.author_id %}

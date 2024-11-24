@@ -52,7 +52,7 @@
     <!-- correct minor alignment issue when displayed after a list of threads  -->
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto index-format">
-                <p class ="text-blue text-center">Here are your comments on posts</p>
+                <h2 class ="text-blue text-center">Here are your comments on posts</h2>
                 {% for comments in comments %}
                 {% if current_user.id == comments.author_id%}     
                 {% include 'build_comments.html' %}
@@ -69,14 +69,14 @@
     {% elif comments %}
     <!-- no posts, check for comments -->
         {% else %}
-        <!-- no posdts or comments - display message -->
+        <!-- no posts or comments - display message -->
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto forum-post">
             <br>
             <p class ="text-sand text-center">You Have no posts or comments to view</p>
             <p class ="text-blue text-center">Why not create your first post and say Hello</p>
             <div class="text-center">
-            <a class="btn-lg hvr-grow text-sand aria-label="Go to the new post page (opens in a new tab)"
+            <a class="btn-lg hvr-grow text-sand" aria-label="Go to the new post page (opens in a new tab)"
                 href="{{ url_for('submit_thread') }}">
                 <span class="text-info fa-brands fa-microblog"></span> Post</a>
             </a>

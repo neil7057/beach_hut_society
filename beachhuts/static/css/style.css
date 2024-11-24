@@ -513,9 +513,11 @@ footer {
 
 .form-control {
     font-size: 1.5rem;
-    font-weight: 500;
-    color: #af9442;
-    background-color: #efe6a4;
+    font-weight: 700;
+    /* color: #af9442; */
+    color: black;
+    background-color: #fff;
+    /* background-color: #efe6a4; */
     border: 2px solid #da5619; 
     /* border-right: 0;   */
     border-radius: 2rem;
@@ -682,7 +684,8 @@ textarea.form-control {
 }
 
 .btn-search {
-    background-color: #efe6a4;
+    /* background-color: #efe6a4; */
+    background-color: #fff;
     color: #4203bf;
     border: 2px solid #da5619;   
     border-radius: 2rem;
