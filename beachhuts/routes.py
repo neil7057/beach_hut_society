@@ -54,7 +54,7 @@ def tags():
     """
     Displaying a grid of current tags
     """
-    tags = list(Tag.query.order_by(Tag.tag_name).all())
+    tags = list(Tag.query.order_by(asc(Tag.tag_name)).all())
     return render_template(
         "tags.html",
         page_title="Browse Tags",
