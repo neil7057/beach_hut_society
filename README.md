@@ -619,64 +619,62 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 This was carried out periodically as each page was created and amended and then finally checked again when pages were deemed complete and error free.
 
--   [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
+-   HTML pages are built from a common template (base.html) so cannot be directly scanned by url. Testing was achieved by viewing and copying page source into the validator.
 
-    <details><summary>Index Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+-   Due to the nature of the iterative processing within some pages, errors are generated referring to duplicate IDs. Theses are not genuine errors.
+
+-   [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
+ 
+    <details><summary>Home Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-home.png">
     </details>
     <details><summary>About Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    <img src="beachhuts/static/docs/testing/ws-about.png">
     </details>
     <details><summary>Add Tag Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    <img src="beachhuts/static/docs/testing/ws-add-tag.png">
     </details>
     <details><summary>Edit Profile Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--.jpg">
+    <img src="beachhuts/static/docs/testing/ws-edit-user.png">
     </details>
     <details><summary>Manage Users Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    <img src="beachhuts/static/docs/testing/ws-manage-users.png">
     </details>
      <details><summary>Edit User Page - Admin</summary>
-    <img src="beachhuts/static/docs/testing/w3--.jpg">
+    <img src="beachhuts/static/docs/testing/ws-edit-user-admin.png">
     </details>
      <details><summary>Manage Contacts - Admin</summary>
-    <img src="beachhuts/static/docs/testing/w3--.jpg">
-    </details>
-    <details><summary>Build Contacts Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--check.jpg">
-    </details>
-    <details><summary>Build Threads Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    <img src="beachhuts/static/docs/testing/ws-manage-contacts.png">
     </details>
     <details><summary>Contact Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    <img src="beachhuts/static/docs/testing/ws-contact.png">
     </details>
     <details><summary>Edit Comment Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--.jpg">
+    <img src="beachhuts/static/docs/testing/ws-edit-comment.png">
     </details>
     <details><summary>Edit Thread Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    <img src="beachhuts/static/docs/testing/ws-edit-thread.png">
     </details>
     <details><summary>Login Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    <img src="beachhuts/static/docs/testing/ws-login.png">
     </details>
-    <details><summary>My Threads User Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--.jpg">
+    <details><summary>My Threads Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-my-threads.png">
     </details>
     <details><summary>Search Results Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    <img src="beachhuts/static/docs/testing/ws-search-results.png">
     </details>
     <details><summary>Sign Up Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    <img src="beachhuts/static/docs/testing/ws-signup.png">
     </details>
     <details><summary>Submit Thread Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--check.jpg">
+    <img src="beachhuts/static/docs/testing/ws-post-thread.png">
     </details>
-    <details><summary>Tags Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--.jpg">
+    <details><summary>Browse Tags Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-browse-tags.png">
     </details>
     <details><summary>View Full Thread Page</summary>
-    <img src="beachhuts/static/docs/testing/w3--.jpg">
+    <img src="beachhuts/static/docs/testing/ws-view-full-thread.png">
     </details>
     
 ### CSS
@@ -707,15 +705,15 @@ This was checked each time substantial changes were made to PY files. A final ch
     <details><summary>init.py</summary>
     <img src="beachhuts/static/docs/testing/pep8-init.png">
     </details>
-
+    <br>
     <details><summary>env.py</summary>
     <img src="beachhuts/static/docs/testing/pep8-env.png">
     </details>
-    
+    <br>
     <details><summary>models.py</summary>
     <img src="dbeachhuts/static/docs/testing/pep8-models.png">
     </details>
-
+    <br>
     <details><summary>routes.py</summary>
     <img src="beachhuts/static/docs/testing/pep8-routes.png">
     </details>
@@ -848,52 +846,53 @@ Testing was focused to ensure the following criteria were met:
 Results:
 
 Pages that display lists of Posts and comments use the same formatting and colour schemes so it isn't strictly necessary to check all pages with identical contrast and colour components.
-<details><summary>Home Page</summary>
-<img src="beachhuts/static/docs/testing/wcag-home.png">
-</details>
-<details><summary>About Page</summary>
-<img src="beachhuts/static/docs/testing/wcag-about.png">
-</details>
-<details><summary>Contact Page</summary>
-<img src="beachhuts/static/docs/testing/wcag-contact.png">
-</details>
-<details><summary>Signup Page</summary>
-<img src="beachhuts/static/docs/testing/wcag-signup.png">
-</details>
-<details><summary>Login Page</summary>
-<img src="beachhuts/static/docs/testing/wcag-login.png">
-</details>
-<details><summary>Search Results Page</summary>
-<img src="beachhuts/static/docs/testing/wcag-search-results.png">
-</details>
-<details><summary>My Threads Page</summary>
-<img src="beachhuts/static/docs/testing/wcag-my-threads.png">
-</details>
-<details><summary>View Full Thread Page</summary>
-<img src="beachhuts/static/docs/testing/wcag-view-full-thread.png">
-</details>
-<details><summary>Edit User Page</summary>
-<img src="beachhuts/static/docs/testing/wcag-edit-user.png">
-</details>
-<details><summary>Manage Users Page</summary>
-<img src="beachhuts/static/docs/testing/wcag-manage-users.png">
-</details>
-<details><summary>Admin Manage User</summary>
-<img src="beachhuts/static/docs/testing/wcag-edit-user-admin.png">
-</details>
-<details><summary>Manage Contacts Page</summary>
-<img src="beachhuts/static/docs/testing/wcag-manage-contacts.png">
-</details>
-<details><summary>Create Post Page</summary>
-<img src="beachhuts/static/docs/testing/wcag-create-a-post.png">
-</details>
-<details><summary>Edit Post Page</summary>
-<img src="beachhuts/static/docs/testing/wcag-edit-post.png">
-</details>
-<details><summary>Edit Comment Page</summary>
-<img src="beachhuts/static/docs/testing/wcag-edit-comment.png">
-</details>
-<br>
+-   WCAG results:
+    <details><summary>Home Page</summary>
+    <img src="beachhuts/static/docs/testing/wcag-home.png">
+    </details>
+    <details><summary>About Page</summary>
+    <img src="beachhuts/static/docs/testing/wcag-about.png">
+    </details>
+    <details><summary>Contact Page</summary>
+    <img src="beachhuts/static/docs/testing/wcag-contact.png">
+    </details>
+    <details><summary>Signup Page</summary>
+    <img src="beachhuts/static/docs/testing/wcag-signup.png">
+    </details>
+    <details><summary>Login Page</summary>
+    <img src="beachhuts/static/docs/testing/wcag-login.png">
+    </details>
+    <details><summary>Search Results Page</summary>
+    <img src="beachhuts/static/docs/testing/wcag-search-results.png">
+    </details>
+    <details><summary>My Threads Page</summary>
+    <img src="beachhuts/static/docs/testing/wcag-my-threads.png">
+    </details>
+    <details><summary>View Full Thread Page</summary>
+    <img src="beachhuts/static/docs/testing/wcag-view-full-thread.png">
+    </details>
+    <details><summary>Edit User Page</summary>
+    <img src="beachhuts/static/docs/testing/wcag-edit-user.png">
+    </details>
+    <details><summary>Manage Users Page</summary>
+    <img src="beachhuts/static/docs/testing/wcag-manage-users.png">
+    </details>
+    <details><summary>Admin Manage User</summary>
+    <img src="beachhuts/static/docs/testing/wcag-edit-user-admin.png">
+    </details>
+    <details><summary>Manage Contacts Page</summary>
+    <img src="beachhuts/static/docs/testing/wcag-manage-contacts.png">
+    </details>
+    <details><summary>Create Post Page</summary>
+    <img src="beachhuts/static/docs/testing/wcag-create-a-post.png">
+    </details>
+    <details><summary>Edit Post Page</summary>
+    <img src="beachhuts/static/docs/testing/wcag-edit-post.png">
+    </details>
+    <details><summary>Edit Comment Page</summary>
+    <img src="beachhuts/static/docs/testing/wcag-edit-comment.png">
+    </details>
+
 Manual tests were also performed to ensure the website was as accessible as possible.
 
 ### Screen Reader
@@ -907,78 +906,78 @@ This confirmed that:
 ### Lighthouse Testing
 -   The create comment page is a modal and part of submit thread, so testing of that page covers both scenarios.   
 
-<details><summary>Home Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-home.png">
-</details>
-<br> 
-<details><summary>About Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-about.png">
-</details>
-<br>
-<details><summary>Contact Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-contact.png">
-</details>
-<br>
-<details><summary>Sign Up Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-signup.png">
-</details>
-<br>
-<details><summary>Log In Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-login.png">
-</details>
-<br> 
-<details><summary>Create Post Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-create-post.png">
-</details>
-<br>
-<details><summary>Edit Post Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-edit-post.png">
-</details>
-<br>
-<details><summary>Edit CommentPage</summary>
-<img src="beachhuts/static/docs/testing/ws-light-edit-comment.png">
-</details>
-<br> 
-<details><summary>Browse Tags Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-browse-tags.png">
-</details>
-<br>
-<details><summary>Add Tag Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-add-tag.png">
-</details>
-<br>
-<details><summary>View My Posts Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-my-threads.png">
-</details>
-<br>
-<details><summary>View Full Thread Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-view-full-thread.png">
-</details>
-<br>
-<details><summary>Search Results Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-search-results.png">
-</details>
-<br>
-<details><summary>Manage Users Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-manage-users.png">
-</details>
-<br>
-<details><summary>Manage Contacts Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-manage-contacts.png">
-</details>
-<br>
-<details><summary>Edit User Profile Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-edit-user.png">
-</details>
-<br>
-<details><summary>Edit User - Admin Page</summary>
-<img src="beachhuts/static/docs/testing/ws-light-edit-user-admin.png">
-</details>
-<br>
-<details><summary>Generic Delete Modal</summary>
-<img src="beachhuts/static/docs/testing/ws-light-Delete-modal.png">
-</details>
-<br>
+    <details><summary>Home Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-home.png">
+    </details>
+    <br> 
+    <details><summary>About Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-about.png">
+    </details>
+    <br>
+    <details><summary>Contact Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-contact.png">
+    </details>
+    <br>
+    <details><summary>Sign Up Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-signup.png">
+    </details>
+    <br>
+    <details><summary>Log In Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-login.png">
+    </details>
+    <br> 
+    <details><summary>Create Post Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-create-post.png">
+    </details>
+    <br>
+    <details><summary>Edit Post Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-edit-post.png">
+    </details>
+    <br>
+    <details><summary>Edit CommentPage</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-edit-comment.png">
+    </details>
+    <br> 
+    <details><summary>Browse Tags Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-browse-tags.png">
+    </details>
+    <br>
+    <details><summary>Add Tag Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-add-tag.png">
+    </details>
+    <br>
+    <details><summary>View My Posts Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-my-threads.png">
+    </details>
+    <br>
+    <details><summary>View Full Thread Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-view-full-thread.png">
+    </details>
+    <br>
+    <details><summary>Search Results Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-search-results.png">
+    </details>
+    <br>
+    <details><summary>Manage Users Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-manage-users.png">
+    </details>
+    <br>
+    <details><summary>Manage Contacts Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-manage-contacts.png">
+    </details>
+    <br>
+    <details><summary>Edit User Profile Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-edit-user.png">
+    </details>
+    <br>
+    <details><summary>Edit User - Admin Page</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-edit-user-admin.png">
+    </details>
+    <br>
+    <details><summary>Generic Delete Modal</summary>
+    <img src="beachhuts/static/docs/testing/ws-light-Delete-modal.png">
+    </details>
+    <br>
 
 ### Functional Testing
 
@@ -999,50 +998,165 @@ Links on all pages navigated to the correct pages as expeccted. External content
 
 
 -   #### Test Accounts:
+-   The folowing user accounts were created via the signup function rather than direct sql input to test the signup functionality:
+
     -   Admin:
+        *   Username: admin@admin.bhas
+        *   Password: 12345678    
 
     -   Normal Users:
+        *   Username: userone@user.com
+        *   Password: 12345678  
 
+        *   Username: usertwo@user.com
+        *   Password: 12345678 
 
+        *   Username: noposts@user.com
+        *   Password: 12345678 
+
+        *   Username: nothing@user.com
+        *   Password: 12345678 
 
 -   #### Sign Up Testing
+    -   The cursor is automatically positiioned at the start of the first input field.
+
+    -   Accounts are created with a unique ID and posted to the database correctly. Each field is correctly validated and the account cannot be created until all fields are populated with the correct minimum and maximum values.
+
+    -   Email address must be unique and the database is checked for duplicates. Password is checked to ensure it has been entered correctly.
+
+    -   Errors are presented as a Flash message below the sub menu and hero image. 
 
 -   #### Log In Testing
+    -   The cursor is automatically positiioned at the start of the first input field.
+
+    -   Email address and password are validated against the database.
+
+    -   Errors are presented as a Flash message below the sub menu and hero image. 
 
 -   #### Thread Post Testing
+    -   The cursor is automatically positiioned at the start of the first input field.
 
--   #### Comments Testing
+    -   The user must be logged in for the 'Post' options to appear. Duplicate Post titles are permitted. Fields are validated for minimum character rules. Title and content body are mandatory fields.
+
+    -   A maximum of 4 tags can be added. Attempting to add a fifth generates a suitable error. Tags are optional.
+
+    -   Errors are presented as a Flash message below the sub menu and hero image. 
+
+    -   Successful submission generates a confirmation Flash message and creates a record on the Thread table linked to the correct User. This is tested by online enquiry and psql query in the cli.
+
+    -   Users can edit and delete their own threads only and menus only appear if the logged in user has the correct permissions.
+
+    -   Admin users can edit and delete all posts.
+
+    #### Thread Enquiry Testing
+    -   The Home page displays a list of posts(threads) together with the first comment (if any) with most recent presented first. If Logged in, Comment, Edit and Delete buttons are presented according to thread and comment owner and admin status. This was tested extensively with teh various test accounts.
+
+    -   When Logged in the Home page also displays a summary of the User profile with a link to 'View My Posts'.
+        -   This presents a list of all threads created by the current logged in user, together with all associated comments.
+        -   If there are no Threads then comments owned by the current user are displayed.
+        -   If there are neither threads nor posts then a suitable message is diaplayed with an invittaion to create a post.
+
+    -   Where a thread contains multiple comments, a 'View Full Post' button is presented. This displays the Thead post and all associated comments.
+
+    -   Signifiicant testing was carried out using the test logins to simulate all the above scenarios, specifically that correct permissions were being applied to thread and comment edit and delete functions.
+
+    -   Edits were correctly applied to the database. Records were correctly deleted, including and associated records by cascade.
+
+-   #### Comments Creation Testing
+
+    -   The cursor is automatically positiioned at the start of the first input field.
+
+    -   The user must be logged in for the 'Comment' option to appear. The comment body is validated for minimum character rules. Content body is a mandatory field.
+
+    -   Errors are presented as a Flash message below the sub menu and hero image. 
+
+    -   Successful submission generates a confirmation Flash message and creates a record on the Comments table linked to the correct Thread and User. This is tested by online enquiry and psql query in the cli.
+
+     -   Users can edit and delete their own comments only and menus only appear if the logged in user has the correct permissions.
+
+    -   Admin users can edit and delete all comments.
+
+    #### Comments Enquiry Testing
+
+    -   The cursor is automatically positiioned at the start of the first input field.
+
+    -   The user must be logged in for the 'Comment' option to appear. The comment body is validated for minimum character rules. Content body is a mandatory field.
+
+    -   Errors are presented as a Flash message below the sub menu and hero image. 
+
+    -   Successful submission generates a confirmation Flash message and creates a record on the Comments table linked to the correct Thread and User. This is tested by online enquiry and psql query in the cli.
+
+     -   Users can edit and delete their own comments only and menus only appear if the logged in user has the correct permissions.
+
+    -   Admin users can edit and delete all comments.
 
 -   #### Tags Testing
+ 
+    -   The Tags button directs to the 'Browse Tags' page where users can view existing category tags and add new ones.
+
+    -   Only administrators can delete tags, so the option is hidden for ordinary users. 
+
+    -   For Adding Tags:
+
+        -   The cursor is automatically positiioned at the start of the first input field.
+     
+        -   Tag Case is forced to lowercase. Duplicate Tags are not permitted.
+
+        -   Errors are presented as a Flash message below the sub menu and hero image. 
 
 -   #### Manage Users Testing
 
+    -   Accessible from the 'Users' button visible only to administrators.
+
+    -   Once selected for Edit:
+
+        -   The cursor is automatically positiioned at the start of the first input field.
+
+        -   The form is pre-populated with existing database values.
+
+        -   Changes to values are validated. The databse is only updated for values that have changed.
+
+        -   Each field was updated in turn and also the form was submitted with no changes. Results were checked by online enquiry and via psql and were as anticipated.
+
+        -   Admin status toggle was checked and worked as expected.
+
+        -   Errors are presented as a Flash message below the sub menu and hero image. 
+
 -   #### Manage Contacts Testing
+
+    -   Accessible from the 'Contacts' button visible only to administrators.
+
+    -   There is a separate entry for each contact message created. Field titles are minimised as this is an admin page so they really should be familiar with record layout.
+
+    -   The only option is to 'Delete' which removes the record from the database. This was checked by online enquiry and psql query.
+
+    -   Error and success Flash messages are presented below the sub menu and hero image. 
 
 -   #### Search Function Testing
 
+    -   It's possible to search on content within the tags, thread title and thread body content whether logged in or not. 
+
+    -   This was tested with a variety of search terms and produced expected results.
+
+    -   Searches for non existent content produces an empty search page. Searches are case insensitive.
+
 -   #### Contact Testing
 
-Testing was performed to ensure that 
+    -   Testing was performed to ensure that 
 
-The form on the contact page was tested to ensure it functioned as expected when correct and incorrect data was input.
+    -   The form on the contact page was tested to ensure it functioned as expected when correct and incorrect data was input.
 
-Specifically:
+    -   Specifically:
 
--   Missing one or more input field:
-    An error was highlighted to the user and the form could not be submitted.
+        -   Missing one or more input field: An error was highlighted to the user and the form could not be submitted.
 
--   Incorrect email format:
-    An error was highlighted to the user and the form could not be submitted.
+        -   Incorrect email format: An error was highlighted to the user and the form could not be submitted.
     
--   Form completed correctly with valid information in all fields:
-    The form is able to be submitted.
+        -   Form completed correctly with valid information in all fields: The form is able to be submitted.
 
--   Form textarea will only accept a minimum of 1 and a maximum of 280 characters.
+        -   Form textarea will only accept a minimum of 1 and a maximum of 280 characters.
 
--   Succesful submission of the contacts/feedback form: A confirmation message is displayed. 
-
--   Incorrect submission was emulated by temporarily amending emailJS validation information to force an error. The "failed" confirmation message was displayed as expected and could be dismissed. 
+        -   Succesful submission of the contacts/feedback form: A confirmation Flash message is displayed. 
 
 - ### Links Testing
 

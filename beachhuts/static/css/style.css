@@ -592,6 +592,10 @@ input[type=radio] {
     height: 30px;
 }
 
+.make-lower {
+    text-transform: lowercase;
+}
+
 /* **SELECT2** */
 
 .select2-container--default .select2-selection--multiple {

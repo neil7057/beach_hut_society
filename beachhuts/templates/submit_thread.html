@@ -24,7 +24,7 @@
   <label for="thread_tags" class="text-sand">Select Category Tag(s) - Max 4</label>
     <!-- max 4 tags per post(thread), if not exist, user can create a new one -->
     <select class="custom-select text-sand" id="thread_tags" name="thread_tags[]" 
-      multiple="multiple" required>
+      multiple="multiple">
       <option value="" disabled>Select Tag(s)</option>
       {% for tag in tag_list %}
       <option value="{{ tag.id }}">{{ tag.tag_name }}</option>
