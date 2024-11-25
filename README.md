@@ -1081,7 +1081,7 @@ Links on all pages navigated to the correct pages as expeccted. External content
 
     -   The cursor is automatically positiioned at the start of the first input field.
 
-    -   The commnet, edit, delete buttons for the thread are still present but muted and inactive. I considerd hiding these but i think the flow is obvious.  
+    -   The comment, edit and delete buttons for the thread are hidden whilst the comment is being created.  
 
     -   The user must be logged in for the 'Comment' option to appear. The comment body is validated for minimum character rules. Content body is a mandatory field.
 
@@ -1229,7 +1229,7 @@ The 'go to' link reacts when hovered over.
 
 ### Known Bugs
 
-- There are no known errors.  
+- There is an acknowledged intermittent error on Heroku when running PostrgesSQL with Python V3 which causes the database to disconnect. This presents itself as an error 500 "Internal Server error"
 
 ### Future Releases
 -   Ideas for future development could include:

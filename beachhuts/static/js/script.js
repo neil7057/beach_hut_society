@@ -28,12 +28,16 @@
           form.classList.remove('d-none');
           form.classList.add('d-block');
         }{
-          $('#commentBody').focus();
           // https://www.sitepoint.com/jqueryhtml5-input-focus-cursor-positions/#:~:
           // text=To%20set%20the%20cursor%20position%20at%20the%20end%20of%20an,to%20set%20the%20cursor%20position.
+          $('#commentBody').focus();
+          // This will hide thread buttons on comment create
+          document.getElementById('thCom').style.display='none';
         }
     });
   }
+
+  document.getElementById('btnID').style.visibility='hidden';
 
   function hideCommentForm(threadId) {
     let commentForms = document.querySelectorAll('.commentForm');

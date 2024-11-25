@@ -50,14 +50,10 @@
         {% if current_user.is_authenticated %}
         <!-- if user logged in, show comments button -->
         <br>
-
-
-        <div class="d-block threadMenus" id="threadMenus" data-thread-id="{{ thread.id }}">
-          <form>
-
+          <div id="thCom">
+            <!-- ID wrapper for buttons to hide via JS when commnet being created -->
             <div class="text-center card-action">
-              <a class="btn btn-success small-font btn-circle " onclick="showCommentForm('{{ thread.id }}')">Comment</a>
-        
+              <a class="btn btn-success small-font btn-circle" onclick="showCommentForm('{{ thread.id }}')">Comment</a>
           <!-- if user create post show edit and delete buttons -->
               {% if current_user.id == thread.author_id %} 
               <a href="{{url_for('edit_thread', thread_id=thread.id)}}"
@@ -72,10 +68,9 @@
                 {% endif %}
               {% endif %}
             </div>
-            {% endif %}
- 
-        </form>
-      </div>
+          </div>
+        {% endif %}
+       
 
         <!-- show comments whether logged in or not -->
       {% include 'comments_modal.html' %}

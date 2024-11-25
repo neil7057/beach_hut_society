@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container-fluid ">
+<!-- <div class="container-fluid "> -->
   <br>
   <h2 class="text-center title-color">View Full Thread</h2>
   <br>
-  <div class="threads col-12 col-md-10 offset-md-1">
+  <div class="col-lg-8 col-md-10 mx-auto index-format">
     <div class="forum-post">
       <div class="thread-title">
           <p>{{ thread.thread_title }}</p>
@@ -34,65 +34,67 @@
       {% if current_user.is_authenticated %}
       <div id="commentForm" class="d-none commentForm indent-comment" data-thread-id="{{ thread.id }}">
         <form action="{{ url_for('submit_comments', thread_id=thread.id) }}" method="POST">
-        <div class="form-group indent-comment">
-          <label for="commentBody" class="text-sand indent-comment"><strong>Add a Comment:</strong></label>
-            <textarea class="form-control" autofocus="autofocus" id="commentBody" name="comment_body" rows="6" required></textarea>
-        </div>
-        <div class="text-center">
-          <button class="btn-lg btn-cancel hvr-grow text-cancel" onclick="hideCommentForm('{{ thread.id }}')">
-              <span class="text-danger fa-solid fa-circle-xmark"></span> <strong>Cancel</strong></button>
+          <div class="form-group indent-comment">
+            <label for="commentBody" class="text-sand indent-comment"><strong>Add a Comment:</strong></label>
+            <div class="text-center">
+              <textarea class="form-control" id="commentBody" name="comment_body" rows="6" required></textarea>
+              <a href="{{ url_for('cancel') }}" class="btn btn-cancel hvr-grow text-cancel">
+              <span class="text-danger fa-solid fa-circle-xmark"></span> <strong>Cancel</strong></a>
               <div class="divider"></div>
-              <button type="submit" class="btn-lg hvr-grow text-sand">
-              <span class="fa-solid fa-thumbs-up text-success"></span> Add Comment</button>
-          </div>
+              <button type="submit" class="btn-lg hvr-grow text-sand"><span class="fa-solid fa-thumbs-up text-success"></span> Add Comment</button>
+            </div>
+            </div>
         </form>
       </div>
-      <div class="text-center">
-        <a class="btn btn-success btn-circle" onclick="showCommentForm('{{ thread.id }}')">Comment</a>
-        {% if current_user.id == thread.author_id  or current_user.site_admin %}
-        <a href="{{url_for('edit_thread', thread_id=thread.id)}}" class="btn btn-info btn-circle">Edit</a>
-        {% include 'delete_thread_modal.html' %}
-        {% endif %}
+      <div id="thCom">
+        <!-- hides thread buttons via js on comment create  -->
+        <div class="text-center">
+          <a class="btn btn-success btn-circle" onclick="showCommentForm('{{ thread.id }}')">Comment</a>
+          {% if current_user.id == thread.author_id  or current_user.site_admin %}
+          <a href="{{url_for('edit_thread', thread_id=thread.id)}}" class="btn btn-info btn-circle">Edit</a>
+          {% include 'delete_thread_modal.html' %}
+          {% endif %}
+        </div>
       </div>
       <div class="comments">
-        {% for comments in thread.comments %}
+      {% for comments in thread.comments %}
+      <br>
+      <div class="comments-header text-blue">
+      <!-- Display the comment author and details/posting date -->
+        <h4 class="indent-post"><strong><span class ="text-sand">{{ comments.author.username }}</span> commented :</strong></h4>
+      </div>
+      <div class="comment-body">
+        <p class="text-sand">{{ comments.comment_body }}</p>
         <br>
-          <div class="comments-header text-blue">
-          <!-- Display the comment author and details/posting date -->
-            <h4 class="indent-post"><strong><span class ="text-sand">{{ comments.author.username }}</span> commented :</strong></h4>
-          </div>
-          <div class="comment-body">
-            <p class="text-sand">{{ comments.comment_body }}</p>
-            <br>
-            <p class="text-info"><span class="text-blue">posted on:</span> {{ comments.created_td.strftime('%d-%m-%Y') }} <span class="text-blue">
-              at </span> {{ comments.created_td.strftime('%H:%M') }}</p>
+        <p class="text-info"><span class="text-blue">posted on:</span> {{ comments.created_td.strftime('%d-%m-%Y') }} <span class="text-blue">
+          at </span> {{ comments.created_td.strftime('%H:%M') }}</p>
   
-            {% if current_user.is_authenticated %}
-              {% if current_user.id == comments.author_id %}
+        {% if current_user.is_authenticated %}
+          {% if current_user.id == comments.author_id %}
+          <br>
+          <div class="text-center card-action">
+            <a href="{{url_for('edit_comment', comments_id=comments.id)}}"
+              class="btn btn-info btn-circle">Edit</a>
+          {% include 'delete_comment_modal.html' %}
+          </div>
+          {% else %}
+        <!-- check if site admin and if so, allow comment deletion -->
+            {% if current_user.site_admin %}
               <br>
-              <div class="text-center card-action">
+              <div class="text-center card-action">    
                 <a href="{{url_for('edit_comment', comments_id=comments.id)}}"
                   class="btn btn-info btn-circle">Edit</a>
-              {% include 'delete_comment_modal.html' %}
+              {% include 'delete_comment_modal.html' %}         
               </div>
-              {% else %}
-        <!-- check if site admin and if so, allow comment deletion -->
-                {% if current_user.site_admin %}
-                  <br>
-                  <div class="text-center card-action">    
-                    <a href="{{url_for('edit_comment', comments_id=comments.id)}}"
-                      class="btn btn-info btn-circle">Edit</a>
-                  {% include 'delete_comment_modal.html' %}         
-                  </div>
-                {% endif %}
-              {% endif %}       
             {% endif %}
-          </div>
-          {% endfor %} 
+          {% endif %}       
+          {% endif %}
+        </div>
+      {% endfor %} 
       </div>
       {% endif %}
       <br>
     </div>
   </div>
-</div>
+<!-- </div> -->
 {% endblock %}
