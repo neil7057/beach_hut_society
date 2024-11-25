@@ -1018,7 +1018,7 @@ Links on all pages navigated to the correct pages as expeccted. External content
         *   Password: 12345678 
 
         Has access to create tag, threads and comments and access to edit own created threads and content.
-        Has Thread posts and comments.
+        Has Thread posts but has not commentted on other users' Thread posts.
 
         *   Username: noposts@user.bhas
         *   Password: 12345678 
@@ -1087,7 +1087,7 @@ Links on all pages navigated to the correct pages as expeccted. External content
 
     -   Successful submission generates a confirmation Flash message and creates a record on the Comments table linked to the correct Thread and User. This is tested by online enquiry and psql query in the cli.
 
-     -   Users can edit and delete their own comments only and menus only appear if the logged in user has the correct permissions.
+     -  Users can edit and delete their own comments only and menus only appear if the logged in user has the correct permissions.
 
     -   Admin users can edit and delete all comments.
 

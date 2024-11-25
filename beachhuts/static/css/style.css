@@ -127,6 +127,7 @@ li {
 
   #comment_body {
     color: #610000;
+    overflow-y: none;
   }
 
   #thread_title {
@@ -135,6 +136,7 @@ li {
 
   #thread_body {
     color: #610000;
+    overflow-y: none;
   }
 
 /*--------------------------------------------Heading*/
@@ -807,6 +809,12 @@ button[type="submit"] {
     text-decoration: none;
 }
 
+/* remove x from cancel dialog */
+.close {
+    color: #e91005;
+    float: none;
+    text-shadow: none;
+}
 .divider{
     width:5px;
     height:auto;

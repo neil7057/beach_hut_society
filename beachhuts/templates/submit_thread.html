@@ -8,6 +8,11 @@
     {{ page_title }}
   </h1>
   <br>
+  <div class="text-center text-sand">  
+    <p>Create any new tag(s) you need before you post, <a href="{{url_for('add_tag')}}"
+      class="btn-lg hvr-grow text-blue" aria-label="go to add tag page"><span class="fas fa-plus-square right">
+      </span><strong> Add Tag</strong></a></p>
+  </div>
   <form method="POST" class="account-form submit-thread-form">
   <div class="form-group">
     <label for="thread_title" class="text-sand">Title - Maximum of 50 Characters</label>
@@ -31,11 +36,7 @@
       {% endfor %}
     </select>  
   </div>
-    <div class="text-center text-sand">  
-      <p>If you cannot see the tag you want, <a href="{{url_for('add_tag')}}"
-        class="btn-lg hvr-grow text-blue" aria-label="go to add tag page"><span class="fas fa-plus-square right">
-        </span><strong> Add Tag</strong></a> to add a tag(s)</p>
-  </div>
+    
   <br>
   <div class="form-group form-check text-center">
     <input type="checkbox" class="form-check-input" id="thread_confirm" name="thread_confirm" required>

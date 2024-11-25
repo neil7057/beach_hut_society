@@ -5,7 +5,11 @@
   <br>
   <h1 class="text-uppercase text-center title-color">Edit Your Post</h1>
   <br>
-
+  <div class="text-center text-sand">  
+    <p>If you need a new Tag, create it first <a href="{{url_for('add_tag')}}"
+      class="btn-lg hvr-grow text-blue" aria-label="go to add tag page"><span class="fas fa-plus-square right">
+      </span><strong> Add Tag</strong></a></p>
+  </div>
   <form method="POST" class="account-form submit-thread-form">
     <div class="form-group">
       <label class="text-sand" for="thread_title">Title - Maximum of 50 Characters</label>
@@ -26,11 +30,6 @@
       <option value="{{ tag.id }}" {% if tag in thread.tags %}selected{% endif %}>{{ tag.tag_name }}</option>
       {% endfor %}
       </select>
-    </div>
-    <div class="text-center text-sand">  
-      <p>If you cannot see the tag you want, <a href="{{url_for('add_tag')}}"
-        class="btn-lg hvr-grow text-blue" aria-label="go to add tag page"><span class="fas fa-plus-square right">
-        </span><strong> Add Tag</strong></a> to add a tag(s)</p>
     </div>
     <br>
     <div class="form-group form-check">
