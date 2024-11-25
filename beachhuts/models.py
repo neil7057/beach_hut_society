@@ -93,7 +93,12 @@ class Comments(db.Model):
     created_td = db.Column(db.DateTime(timezone=True), default=func.now())
 
     # Relationships
-    author = db.relationship('User', backref='comments')
+    author = db.relationship('User', backref=db.backref(
+         'comments',
+        lazy=True,
+        cascade="all, delete-orphan"
+    )
+    )
     thread = db.relationship('Thread', backref=db.backref(
         'comments',
         lazy=True,

@@ -26,16 +26,16 @@
 </div>
 {% elif comments %}
 <!-- if there are no posts for this user, check for comments -->
-<div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto index-format">
-    <p class ="text-sand text-center">You Have no posts but have commented on these other posts</p>
-    {% for comments in comments %}
-    {% if current_user.id == comments.author_id %}     
-    {% include 'build_comments.html' %}
-    {% endif %}
-    {% endfor %}
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto forum-post index-format">
+            <p class ="text-sand text-center">You Have no posts but have commented on these other posts</p>
+            {% for comments in comments %}
+            {% if current_user.id == comments.author_id %}     
+            {% include 'build_comments.html' %}
+            {% endif %}
+            {% endfor %}
+        </div>
     </div>
-</div>
 {% endif %}
 
 {% if not threads %}
@@ -51,7 +51,7 @@
 <div class="container-fluid">
 <!-- correct minor alignment issue when displayed after a list of threads  -->
     <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto index-format">
+        <div class="col-lg-8 col-md-10 mx-auto forum-post index-format">
             <h2 class ="text-blue text-center">Here are your comments on posts</h2>
             {% for comments in comments %}
             {% if current_user.id == comments.author_id%}     

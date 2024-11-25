@@ -1005,16 +1005,16 @@ Links on all pages navigated to the correct pages as expeccted. External content
         *   Password: 12345678    
 
     -   Normal Users:
-        *   Username: userone@user.com
+        *   Username: userone@user.bhas
         *   Password: 12345678  
 
-        *   Username: usertwo@user.com
+        *   Username: usertwo@user.bhas
         *   Password: 12345678 
 
-        *   Username: noposts@user.com
+        *   Username: noposts@user.bhas
         *   Password: 12345678 
 
-        *   Username: nothing@user.com
+        *   Username: nothing@user.bhas
         *   Password: 12345678 
 
 -   #### Sign Up Testing
