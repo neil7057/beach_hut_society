@@ -1081,6 +1081,8 @@ Links on all pages navigated to the correct pages as expeccted. External content
 
     -   The cursor is automatically positiioned at the start of the first input field.
 
+    -   The commnet, edit, delete buttons for the thread are still present but muted and inactive. I considerd hiding these but i think the flow is obvious.  
+
     -   The user must be logged in for the 'Comment' option to appear. The comment body is validated for minimum character rules. Content body is a mandatory field.
 
     -   Errors are presented as a Flash message below the sub menu and hero image. 
