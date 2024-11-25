@@ -37,7 +37,6 @@
     });
   }
 
-  document.getElementById('btnID').style.visibility='hidden';
 
   function hideCommentForm(threadId) {
     let commentForms = document.querySelectorAll('.commentForm');
@@ -61,3 +60,11 @@
       maximumSelectionLength: 4,
     });
   });
+
+
+// force lower case for tag name
+// https://stackoverflow.com/questions/14106971/forcing-form-text-to-be-lower-case
+  function forceLower(strInput) 
+{
+strInput.value=strInput.value.toLowerCase();
+}

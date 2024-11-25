@@ -361,7 +361,16 @@ def search_results():
 
 
 @app.route("/build_contacts")
+@login_required
 def build_contacts():
+    """
+    Will return a list of contact records for admin to process.
+    """
+    if not current_user.site_admin:
+        flash('You must be a Administrator to ' +
+              'Manage Contacts', category='error')
+        return redirect(url_for('home'))
+
     first_contact = Contact.query.first()
     if not first_contact:
         flash('No Contact Records to Manage', category='error'

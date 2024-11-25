@@ -12,8 +12,9 @@
     <div class ="col-6 ">
     <div class="form-group">
     <label for="tag_name" class="text-sand">Tag Name - Maximum of 16 Characters</label>
-    <input type="text" autofocus="autofocus" maxlength="16" class="form-control make-lower" id="tag_name" name="tag_name"
-      placeholder="Keep it clean" required>
+    <!-- force input to all lowercase to better identify duplicates -->
+    <input type="text" autofocus="autofocus" maxlength="16" class="form-control" id=" make_lower" name="tag_name"
+      placeholder="Keep it clean" onkeyup="return forceLower(this);" required>
   </div>
 </div>
 </div>

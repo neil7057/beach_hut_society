@@ -594,7 +594,7 @@ input[type=radio] {
     height: 30px;
 }
 
-.make-lower {
+#make_lower {
     text-transform: lowercase;
 }
 
