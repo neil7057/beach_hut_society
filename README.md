@@ -1229,7 +1229,7 @@ The 'go to' link reacts when hovered over.
 
 ### Known Bugs
 
-- There is an acknowledged intermittent error on Heroku when running PostrgesSQL with Python V3 which causes the database to disconnect. This presents itself as an error 500 "Internal Server error"
+- There is an acknowledged intermittent error on Heroku when running PostrgesSQL with Python V3 which causes the database to disconnect. This presents itself as an error 500 "Internal Server error" and refreshing the screen resolves the issue. It isn't possible to replicate it on demand and it doesn't occur in the gitpod environment.
 
 ### Future Releases
 -   Ideas for future development could include:
