@@ -21,9 +21,9 @@
     <div class="form-group">
       <label for="thread_tags" class="text-sand">Select Catgeory tags (Max. 4)</label>
       <select class="custom-select" id="thread_tags" name="thread_tags[]" multiple="multiple" required>
-      <option role="option" value="Select Tag(s)" disabled></option>
+      <option value="" disabled>Select Tag(s)</option>
       {% for tag in tags %}
-      <option role="option" value="{{ tag.id }}" {% if tag in thread.tags %}selected{% endif %}>{{ tag.tag_name }}</option>
+      <option value="{{ tag.id }}" {% if tag in thread.tags %}selected{% endif %}>{{ tag.tag_name }}</option>
       {% endfor %}
       </select>
     </div>
