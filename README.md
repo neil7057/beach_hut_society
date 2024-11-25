@@ -1002,20 +1002,35 @@ Links on all pages navigated to the correct pages as expeccted. External content
 
     -   Admin:
         *   Username: admin@admin.bhas
-        *   Password: 12345678    
+        *   Password: 12345678 
+
+        Has full access to create, edit and delete all content and can manage users and contacts.
+        Has Thread Posts and Comments.   
 
     -   Normal Users:
         *   Username: userone@user.bhas
-        *   Password: 12345678  
+        *   Password: 12345678
+
+        Has access to create tag, threads and comments and access to edit own created threads and content.
+        Has Thread posts and comments.
 
         *   Username: usertwo@user.bhas
         *   Password: 12345678 
 
+        Has access to create tag, threads and comments and access to edit own created threads and content.
+        Has Thread posts and comments.
+
         *   Username: noposts@user.bhas
         *   Password: 12345678 
 
+        Has access to create tag, threads and comments and access to edit own created threads and content.
+        Has Not posted any Threads but has commented on other users' Thread posts.
+
         *   Username: nothing@user.bhas
         *   Password: 12345678 
+
+        Has access to create tag, threads and comments and access to edit any own created threads and content.
+        However, has Not posted any Threads and has not commented on any Thread posts.
 
 -   #### Sign Up Testing
     -   The cursor is automatically positiioned at the start of the first input field.

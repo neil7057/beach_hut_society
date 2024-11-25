@@ -699,11 +699,19 @@ textarea.form-control {
 
 input[type=text]:focus {
     background-color: #efe6a4;
-  }
+}
+
+input[type=email]:focus {
+    background-color: #efe6a4;
+}
+
+input[type=password]:focus {
+    background-color: #efe6a4;
+}
 
 textarea.form-control:focus {
     background-color: #efe6a4;
-  }
+}
 
 .btn-block {
     background-color: #4203bf;
