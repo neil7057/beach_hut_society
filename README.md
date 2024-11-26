@@ -1,6 +1,6 @@
 # My Beach Hut Appreciation Society Website
 
-![Mockup](docs/readme_images/site_mockup.jpg)
+![Mockup](beachhuts/static/docs/readme_images/screens/web-mockup.png)
 
 **Author Neil Allen**
 
@@ -847,6 +847,7 @@ Results:
 
 Pages that display lists of Posts and comments use the same formatting and colour schemes so it isn't strictly necessary to check all pages with identical contrast and colour components.
 -   WCAG results:
+
     <details><summary>Home Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-home.png">
     </details>
@@ -983,19 +984,63 @@ This confirmed that:
 
 - #### Navigation Links
 
-Testing was performed to ensure all navigation links on the respective pages, navigated to the correct pages as per design.
+    Testing was performed to ensure all navigation links on the respective pages, navigated to the correct pages as per design.
 
-This was done by clicking on the navigation links on each page on a desktop, laptop, tablet and mobile device.
+    This was done by clicking on the navigation links on each page on a desktop, laptop, tablet and mobile device.
 
-Additionally, Adminstrator and basic user accounts were created to check that correct menu options were presented and enhanced functionality restricted to Administrator privileged accounts. 
+    Additionally, Adminstrator and basic user accounts were created to check that correct menu options were presented and enhanced functionality restricted to Administrator privileged accounts. 
 
-Modals and forms display as expected. Edit/Delete functions are correctly restricted to the appropritae owner and user account class. 'Cancel' buttons work as expected.
+    Modals and forms display as expected. Edit/Delete functions are correctly restricted to the appropritae owner and user account class. 'Cancel' buttons work as expected.
 
-Links on all pages navigated to the correct pages as expeccted. External content opens in a new page.
+    Links on all pages navigated to the correct pages as expeccted. External content opens in a new page.
 
 -   #### Testing Approach
 
+    Basic functions were tested with minimal validation. Navigation tested before working code was added. Each function, such as Edit was tested and then replicated to other record types. 
 
+    Minor errors were logged and development continue duntil a function was constructed then the error list was revisited.
+
+    Functionality was tested against individual user permissions and then against additional users.
+
+    URLs for management functions and acces sto specific records were copied and attempted access from unauthorised accounts or when logged out to test security.
+
+    Data was checked on screen, and referential integrity checked via psql to ensure cascade deletion was working correctly, record relationships were being linked to the correct owner and no orphaned recorsd were being created. 
+
+    Create:
+
+    -   User Account/login
+    -   Threads(posts)
+    -   Comments
+    -   Tags
+    -   Contact Records
+        
+    Read:
+
+    -   User Profile - Own
+    -   All User Profiles - Admin
+    -   Threads(posts) - Any
+    -   Comments - Any
+    -   Tags - Logged in users
+    -   Contact Records - Admin
+
+    Update:
+
+    -   User Profile - Own
+    -   All User Profiles - Admin
+    -   Threads(posts) - Own
+    -   Threads Any - Admin
+    -   Comments - Own
+    -   Comments Any - Admin
+   
+    Delete:  
+    
+    -   User Profiles - Admin
+    -   Threads(posts) - Own
+    -   Threads Any - Admin
+    -   Comments - Own
+    -   Comments Any - Admin
+    -   Contacts - Admin
+    -   Tags - Admin
 
 -   #### Test Accounts:
 -   The folowing user accounts were created via the signup function rather than direct sql input to test the signup functionality:
@@ -1325,6 +1370,8 @@ The project was deployed to Heroku using the following steps:
 -   Free background removal on various images using [photoroom](https://www.photoroom.com/tools/background-remover). 
 
 -   The main background image is a standard Microsoft image. Other images are copyright free.
+
+-   Free mockup generator using [Multi Device Website Mockup](https://techsini.com/multi-mockup/).
 
 ### Acknowledgements
 
