@@ -6,7 +6,7 @@
 
 ## Beach Hut Appreciation Society
 
-This is my website. It's a bit of fun to demonstrate capability in CRUD functionality. It's a website forum for beach hut aficianados and utilises Bootstrap and Flask and a Postgres Sql Dtabase. Written in HTML, CSS and Python following a common approach to data structures supporting similar applications. 
+This is my website. It's a bit of fun to demonstrate capability in CRUD functionality. It's a website forum for beach hut aficianados and utilises Bootstrap and Flask and a Postgres Sql Database. Written in HTML, CSS and Python; data structures follow those employed in similar applications with additions for enhanced functionality/complexity. 
 
 [View the live project here.](https://beach-hut-appreciation-society-0c8700c133d2.herokuapp.com/)
 
@@ -38,7 +38,8 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
         *   [Contact](#contact)
         *   [Edit Profile](#edit-profile)
         *   [Edit Profile - Admin](#edit-profile---admin)
-        *   [View Full Post Page](#view-full-posts-page)
+        *   [View My Posts Page](#view-all-posts-for-user)
+        *   [View Full Post Page](#view-full-post)
         *   [Posts](#posts)
             *   [Create Post](#create-a-new-post)
             *   [Edit Post](#edit-post)
@@ -91,8 +92,8 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 7. [Testing](#testing)
     *   [HTML](#html)
     *   [CSS](#css)
-    *   [JavaSceipt](#javascript)
-    *   [PeP8](#pep8)
+    *   [JavaScript](#javascript)
+    *   [pep8](#pep8))
     *   [Testing User Stories from User Experience (UX) Section](#testing-user-stories-from-user-experience-ux-section)
         *   [First Time Visitor Goals](#first-time-visitor-goals-1)
         *   [Returning Visitor Goals](#returning-visitor-goals-1)
@@ -108,9 +109,12 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
         *   [Sign Up](#sign-up-testing)
         *   [Log In](#log-in-testing)
         *   [Thread Post](#thread-post-testing)
-        *   [Comments](#comments-testing)
+        *   [Thread Enquiry Testing](#thread-enquiry-testing)
+        *   [Comment Creation Testing](#comments-creation-testing)
+        *   [Comments Enquiry Testing](#comments-enquiry-testing)
         *   [Tags](#tags-testing)
         *   [Manage Users](#manage-users-testing)
+        *   [Manage Contacts](#manage-contacts)
         *   [Search Function](#search-function-testing)
         *   [Contact](#contact-testing)   
         *   [Links Testing](#links-testing)
@@ -136,17 +140,17 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
 
 ## Overview
 
-The website is a Blog site for lovers of Beach Huts. anonymous visitors can read the About page, search by keyword, send a Contact message and view the latest posts and latest comment. To access the full posts and additional comments or to post or comment on a post, Visitors must sign-up using their email address and then Login.
+The website is a Blog site for lovers of Beach Huts. Anonymous visitors can read the about page, search by keyword, send a Contact message and view the latest posts and latest comment. To access the full posts and additional comments or to post or comment on a post, visitors must sign-up using their email address and then Login.
 
 Logged in users can view all posts and comments and create new posts and comments and category Tags. Logged in users can edit and delete their own posts and can edit and delete their own comments whether on their own post or someone elses.
 
-Logged in users can list their own posts and comments and can edit basic user details. They cannot delet their account as that would remove posts and comments and i decided that content should remain - unless it's offensive.
+Logged in users can list their own posts and comments and can edit basic user details. They cannot delete their account as that would remove posts and comments and i decided that content should remain - unless it's offensive.
 
 Administrators can post, edit and delete their own threads and comments as per normal users but additionally can:
 -   Delete Tags
 -   Delete Contact records
 -   Edit user accounts to change the main entries
--   Reseet a user's password
+-   Reset a user's password
 -   Toggle User status between normal/admin
 -   Delete the User account should it be deemed necessary
 
@@ -175,21 +179,20 @@ Administrators can also review and delete contact messages.
 
 -   ### Design
     -   #### Colour Scheme
-        -   I've used the pastel beach themed colours to reflect the subject matter of the site. A pale blue (#C8E4FD) background for the body.
-        Titles alternatively in Dark Blue (#4203BF) and Sand (#AA4313) with text in Light Blue and Sand. Buttons are consistent according to function.
+        -   I've used pastel beach themed colours to reflect the subject matter of the site. A pale blue (#C8E4FD) background for the body. Titles alternatively in Dark Blue (#4203BF) and Sand (#AA4313) with text in Light Blue and Sand. Buttons are consistent according to function.
         -   General navigation buttons are similarly styled and edit, comment and delete buttons are styled differently to differentiate but remain consistnet amongst the forum post and tag elements.
         -   Some colours were muted or changed to meet WAVE guidelines during final stage testing. 
         
     -   #### Typography
-        -   The fonts chosen are Original Surfer and Seaweed Script to adhere to the beach theme. Seaweed Script is novel and suitable for titles  but unsuitable for use in large text blocks as it can make it difficult to read. Sans-serif is the fallback font.
+        -   The fonts chosen are Original Surfer and Seaweed Script to adhere to the beach theme. Seaweed Script is novel and suitable for titles but unsuitable for use in large text blocks as it can make it difficult to read. Sans-serif is the fallback font.
  
     -   #### Imagery
         -   There is a Hero image in the base template which propogates to each page and gives the site a consistenmt look and feel.
         -   There is a beach logo on larger screens but is hidden below 1000px.
-        -   The site has a couple of additional images on the About page but as a blog site is mostly text based, for now..
+        -   The site has a couple of additional images on the about page but as a blog site is mostly text based, for now.
 
     -   #### Design Considerations
-        -   The site is built with templates based on Base.html so retains a consistent Header and Footer
+        -   The site is built with templates based on base.html so retains a consistent Header and Footer
      
         -   Colours are Bold yet soft and are selected to communicate a fun, beach theme and reflect the varied colours that are common to beach hut installations.
 
@@ -201,22 +204,22 @@ Administrators can also review and delete contact messages.
 
         -   Menu button text is Sand with a yellow background. The admin only function is highlighted in Green.
 
-        -   There are popup confirmations on all Delete functions and each update page also offers a 'cancel' function rather than expecting the user to use tha back button or actively click elsewhere.
+        -   There are popup confirmations on all Delete functions and each update page also offers a 'cancel' function rather than expecting the user to use the back button or actively click elsewhere.
 
         -   Administrators have additional functions which are presented when they access different areas of the site.
 
-        -   Error and confirmation messages are displayed at the top of the main site area, below the secondary menus. I chose not to make these disappear automatically or after a stated time as I personally find that inconvenient and prefer to have messages displayed until I have read that at my pace and taken action to dismiss them.
+        -   Error and confirmation messages are displayed at the top of the main site area, below the secondary menus. I chose not to make these disappear automatically or after a stated time as I personally find that inconvenient and prefer to have messages displayed until I have read them at my pace and taken action to dismiss them.
         
-        -   Threads(posts) and the first comment are visible to all visitors but users have to register and login to see full posts, full comments or be able to post or comment.
+        -   Threads(posts) and the most recent comment are visible to all visitors but users have to register and login to see full posts, full comments or be able to post or comment.
 
-        -   Logged in users get to see their user profile, can edit it and can see all their own posts on a 'view all posts' page. I chose not to allow users to delete their own accounts as that would remove content from the site, incluidng any responses from other users. 
+        -   Logged in users get to see their user profile, can edit it and can see all their own posts on a 'view all posts' page. I chose not to allow users to delete their own accounts as that would remove content from the site, incluidng any responses (comments) from other users. 
 
 -   ### Database Design
 -   #### Table Structure
     *   A User Table with unique ID. User information. 
     *   A Thread Table with unique ID. Essentially a forum post, linked to a User.
-    *   A Comments Table with unique ID. A comment or comments, attached to Thread and linked to the User who posted the comment, not necessarilly the same user who posted the thread.
-    *   A Tag Table with unique ID. A category that can be attached to a post to assist with searches. 
+    *   A Comments Table with unique ID. A comment or comments, attached to Thread and linked to the User who posted the comment, not necessarilly the same user who posted the Thread.
+    *   A Tag Table with unique ID. A category that can be attached to a Thread to assist with searches. 
     *   A Thread-Tag Table to resolve the Many-to-Many relationship between Tags and Threads.
     *   A Contact Table with unique ID. Holds messages for admin review and processing.
 
@@ -226,7 +229,7 @@ Administrators can also review and delete contact messages.
     </details>
 
 -   ### Wireframes
-    -   Many functions are repetitive so create, edit and delete are basically similar for different record types.
+    -   Many functions are repetitive, so create, edit and delete are basically similar for different record types.
     -   It wasn't necessary therefore to wireframe all proposed images and I chose to create a template for each distinct function.
     -   Developemnt was then iterative and Agile.
 -   #### Base
@@ -276,8 +279,13 @@ Administrators can also review and delete contact messages.
     </details>
 
 -   #### View All Posts For User
-    <details><summary>View All posts For A User</summary>
+    <details><summary>View All Posts For A User</summary>
     <img src="beachhuts/static/docs/readme_images/wireframes/my-threads.png">
+    </details>
+
+-   #### View Full Post
+    <details><summary>View Full Post</summary>
+    <img src="beachhuts/static/docs/readme_images/wireframes/view-full-thread.png">
     </details>
 
 -   #### Posts
@@ -324,7 +332,7 @@ Administrators can also review and delete contact messages.
 
 -   #### Manage Contacts
     <details><summary>Manage Contacts</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/search-resultsmanage-contacts.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/search-results/manage-contacts.png">
     </details>
 
 -   #### Search Results 
@@ -348,26 +356,26 @@ Administrators can also review and delete contact messages.
     -   Admin functions to manage Users and edit/delete all elements
     -   User profile editing
     -   Contact/feedback Form
-    -   Admin Mangement of contact communications
+    -   Admin mangement of contact communications
     -   Search facility
 
-    The site is templated and built around a Base HTML file containing a consistent Header and Footer:
+    The site is templated and built around a base HTML file containing a consistent Header and Footer:
 
     The site has a navbar which remains central to the screen on desktop, tablet and mobile.
 
-    A second menu bar is presented according to logged in/logged out status. Administrators are presented with additional 'Manage Users' and 'Manage Contacts' button.
+    A second menu bar is presented according to logged in/logged out status. Administrators are presented with additional manage users and manage contacts buttons - Styled 'Users' and 'Contacts'.
     
     There is also a footer on every page with links to social media sites and the Contact page.
 
     Messages on the Contact page create a database entry for review by Admin, who can delete the records after processing.
 
-    The Hero image is consistent across all pages and there is a search bar. There is a small loogo on larger screens but hidden at smaller resolutions.
+    The Hero image is consistent across all pages and there is a search bar. There is a small logo on larger screens but hidden at smaller resolutions.
     
     Each page has a scrolling 'top of page' anchor link.
 
     Social media links all point to beach hut specific sites if they exist and standard social channels if not. 
 
-    Permissions to create, update and delete content are determined by user ID, ststus and content craetor ID. 
+    Permissions to create, update and delete content are determined by user ID, status and content creator ID. 
     
 ## Features
 
@@ -515,7 +523,7 @@ Administrators can also review and delete contact messages.
     <img src="beachhuts/static/docs/readme_images/screens/admin-manage-users2.png">
     </details>
 
-    ### Manage Contacts Page
+### Manage Contacts Page
 * Admin only function. Menu Button Hidden for normal users.
     <details><summary>Manage Contacts Page</summary>
     <img src="beachhuts/static/docs/readme_images/screens/admin-manage-contacts.png">
@@ -525,8 +533,9 @@ Administrators can also review and delete contact messages.
     <img src="beachhuts/static/docs/readme_images/screens/delete-contact-confirm.png">
     </details>
 
--   #### Search Results Page
-    <details><summary>Search Page</summary>
+### Search Results Page
+
+-   <details><summary>Search Page</summary>
     <img src="beachhuts/static/docs/readme_images/screens/search-results.png">
     </details>
 
@@ -563,7 +572,7 @@ Administrators can also review and delete contact messages.
 * Contact form.
 * Search facility.
 * Sign Up and login functionality.
-* Access to Create, Edit and Delete of site elements are controlled by user status and permissions.
+* Access to Create, Edit and Delete database records are controlled by user status and permissions.
 * There are links to social media.
 * The site is clean and uncluttered and follows a Beach theme.
 
@@ -689,13 +698,14 @@ This was checked periodically as each page was created and CSS code added and am
 
 ### JavaScript
 
-This was checked periodically as each page was created and CSS code added and amended. A final check was carried out when all other testing had been satisfactorily completed.
+This was checked periodically as each page was created and js code added and amended. A final check was carried out when all other testing had been satisfactorily completed.
 
 -   [jshint JavaScript Validator](https://jshint.com/)
 
     <details><summary>Main JS - scripts.js</summary>
     <img src="beachhuts/static/docs/testing/jshint-scripts-js.jpg">
     </details>
+
 ### PeP8
 
 This was checked each time substantial changes were made to PY files. A final check was carried out when all other testing had been satisfactorily completed.
@@ -705,15 +715,15 @@ This was checked each time substantial changes were made to PY files. A final ch
     <details><summary>init.py</summary>
     <img src="beachhuts/static/docs/testing/pep8-init.png">
     </details>
-    <br>
+
     <details><summary>env.py</summary>
     <img src="beachhuts/static/docs/testing/pep8-env.png">
     </details>
-    <br>
+
     <details><summary>models.py</summary>
     <img src="dbeachhuts/static/docs/testing/pep8-models.png">
     </details>
-    <br>
+
     <details><summary>routes.py</summary>
     <img src="beachhuts/static/docs/testing/pep8-routes.png">
     </details>
@@ -734,7 +744,7 @@ This was checked each time substantial changes were made to PY files. A final ch
     2. As a First Time Visitor, I want to get an indictaion of the types of content. 
 
         1. The Home page lists the forum threads with most recent first.
-        2. The first comment on each post is also displayed.
+        2. The most recent comment on each post is also displayed.
         3. There is a search facility on the header of each page.
 
     3. As a First Time Visitor, I want to be able to sign up and post.
@@ -759,8 +769,7 @@ This was checked each time substantial changes were made to PY files. A final ch
 
     3. As a Returning Visitor, I want to be able to view all my posts.
        
-        1. Once logged in, the Home page shows a summary of the User's account with a button to view all their 
-        posts and comments.
+        1. Once logged in, the Home page shows a summary of the User's account with a button to view all their posts and comments.
         2. There is a search facility to find posts with specific keywords or categories.
 
 -   #### Frequent User Goals
@@ -770,15 +779,12 @@ This was checked each time substantial changes were made to PY files. A final ch
         2. The Search facility will return matches based on post title and content and user name. 
 
     2. As a Frequent User, I want to be abe to manage my account settings.        
-        1. Once logged in, the edit profile button is presented in the account summary as the first
-         item on the home page.
+        1. Once logged in, the edit profile button is presented in the account summary as the first item on the home page.
         2. The User can amend username, first and last name.
         3. The User can send a message to request password reset or notify a change of email address.
-        4. Users can Edit and Delete their own posts and comments via conveniently placed buttons
-        on the respective post/comment.
+        4. Users can Edit and Delete their own posts and comments via conveniently placed buttons on the respective post/comment.
 
     3. As a Frequent User, I want to be able to post and comment on my and other threads.
-
         1. Users can create category Tags to attach to posts for ease of searching.
         2. Users can post from the main menu on any page.
         3. Users can comment on their own or other users posts.
@@ -998,13 +1004,13 @@ This confirmed that:
 
     Basic functions were tested with minimal validation. Navigation tested before working code was added. Each function, such as Edit was tested and then replicated to other record types. 
 
-    Minor errors were logged and development continue duntil a function was constructed then the error list was revisited.
+    Minor errors were logged and development continued until a function was constructed then the error list was revisited.
 
     Functionality was tested against individual user permissions and then against additional users.
 
-    URLs for management functions and acces sto specific records were copied and attempted access from unauthorised accounts or when logged out to test security.
+    URLs for management functions and access to specific records were copied and attempted access from unauthorised accounts or when logged out to test security.
 
-    Data was checked on screen, and referential integrity checked via psql to ensure cascade deletion was working correctly, record relationships were being linked to the correct owner and no orphaned recorsd were being created. 
+    Data was checked on screen, and referential integrity checked via psql to ensure cascade deletion was working correctly, record relationships were being linked to the correct owner and no orphaned records were being created. 
 
     Create:
 
@@ -1106,24 +1112,23 @@ This confirmed that:
 
     -   Users can edit and delete their own threads only and menus only appear if the logged in user has the correct permissions.
 
-    -   Admin users can edit and delete all posts.
+    -   Admin users can edit and delete all posts(Threads).
 
-    #### Thread Enquiry Testing
-    -   The Home page displays a list of posts(threads) together with the first comment (if any) with most recent presented first. If Logged in, Comment, Edit and Delete buttons are presented according to thread and comment owner and admin status. This was tested extensively with teh various test accounts.
+ -  #### Thread Enquiry Testing
+    -   The Home page displays a list of posts(threads) together with a single comment (if any) - most recent presented first. If Logged in, Comment, Edit and Delete buttons are presented according to thread and comment owner and admin status. This was tested extensively with the various test accounts.
 
     -   When Logged in the Home page also displays a summary of the User profile with a link to 'View My Posts'.
-        -   This presents a list of all threads created by the current logged in user, together with all associated comments.
+        -   This presents a list of all threads created by the current logged in user, together with all associated comments, sorted most recent first.
         -   If there are no Threads then comments owned by the current user are displayed.
-        -   If there are neither threads nor posts then a suitable message is diaplayed with an invittaion to create a post.
+        -   If there are neither threads nor posts then a suitable message is displayed with an invitation to create a post.
 
-    -   Where a thread contains multiple comments, a 'View Full Post' button is presented. This displays the Thead post and all associated comments.
+    -   Where a thread contains multiple comments, a 'View Full Post' button is presented. This displays the Thead post and all associated comments. Comments are displayed sorted most-recent-to-oldest.
 
     -   Signifiicant testing was carried out using the test logins to simulate all the above scenarios, specifically that correct permissions were being applied to thread and comment edit and delete functions.
 
-    -   Edits were correctly applied to the database. Records were correctly deleted, including and associated records by cascade.
+    -   Edits were correctly applied to the database. Records were correctly deleted, including any associated records by cascade.
 
 -   #### Comments Creation Testing
-
     -   The cursor is automatically positiioned at the start of the first input field.
 
     -   The comment, edit and delete buttons for the thread are hidden whilst the comment is being created.  
@@ -1132,14 +1137,13 @@ This confirmed that:
 
     -   Errors are presented as a Flash message below the sub menu and hero image. 
 
-    -   Successful submission generates a confirmation Flash message and creates a record on the Comments table linked to the correct Thread and User. This is tested by online enquiry and psql query in the cli.
+    -   Successful submission generates a confirmation Flash message and creates a record on the Comments table linked to the correct Thread and User. This was tested by online enquiry and psql query in the cli.
 
-     -  Users can edit and delete their own comments only and menus only appear if the logged in user has the correct permissions.
+     -  Users can edit and delete their own comments only, and menus only appear if the logged in user has the correct permissions.
 
     -   Admin users can edit and delete all comments.
 
-    #### Comments Enquiry Testing
-
+ -  #### Comments Edit Testing
     -   The cursor is automatically positiioned at the start of the first input field.
 
     -   The user must be logged in for the 'Comment' option to appear. The comment body is validated for minimum character rules. Content body is a mandatory field.
@@ -1190,7 +1194,7 @@ This confirmed that:
 
     -   There is a separate entry for each contact message created. Field titles are minimised as this is an admin page so they really should be familiar with record layout.
 
-    -   The only option is to 'Delete' which removes the record from the database. This was checked by online enquiry and psql query.
+    -   The only option is 'Delete' which removes the record from the database. This was checked by online enquiry and psql query.
 
     -   Error and success Flash messages are presented below the sub menu and hero image. 
 
@@ -1200,7 +1204,7 @@ This confirmed that:
 
     -   This was tested with a variety of search terms and produced expected results.
 
-    -   Searches for non existent content produces an empty search page. Searches are case insensitive.
+    -   Searches for non-existent content produces an empty search page. Searches are case insensitive.
 
 -   #### Contact Testing
 
@@ -1220,36 +1224,33 @@ This confirmed that:
 
         -   Succesful submission of the contacts/feedback form: A confirmation Flash message is displayed. 
 
-- ### Links Testing
+-   #### Links Testing
 
-Testing was performed to:
+    Testing was performed to:
 
--   Open each hyperlink on each page and check that it is a valid URL and opens in a new page.
+    -   Open each hyperlink on each page and check that it is a valid URL and opens in a new page.
+    -   Checked on desktop, tablet and mobile.
+    -   Footer Social Media Icons / Links
 
--   Checked on desktop, tablet and mobile.
+    Testing was performed:
+    -   on the Font Awesome Social Media icons in the footer to ensure that each one    opened in a new tab and that each one had a 'grow' hover effect.
 
--   ### Footer Social Media Icons / Links
+    -   Each item opened a new tab when clicked as expected and correct hover effect was present.
 
-Testing was performed on the Font Awesome Social Media icons in the footer to ensure that each one opened in a new tab and that each one
-had a 'grow' hover effect.
+-   #### Footer Contact Information
 
-Each item opened a new tab when clicked as expected and correct hover effect was present.
-
--   ### Footer Contact Information
-
-The 'go to' link reacts when hovered over.
+    -   The 'go to' link reacts when hovered over.
 
 ### Further Testing
 
--   Testing was carried out as each function was developed. The menu structure, navigation and footer were tested until error free on base.html before other page fucntionality was developed.
--   Code for creation, edit and delete was tested with Models that didnt update the database to check processing functionality before data chnages were attempted.
--   Admin and normal user accounts were created to support testing of restricted/enhanced permissions.
--   As each page was completed, existing succesful tests were rerun to ensure that proven functionality hadn't been affected. 
--   The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
--   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7/8/X and iPad.
--   A large amount of testing was done to ensure that all pages were linking correctly.
--   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
-
+*   Testing was carried out as each function was developed. The menu structure, navigation and footer were tested until error free on base.html before other page fucntionality was developed.
+*   Code for creation, edit and delete was tested with Models that didnt update the database to check processing functionality before data chnages were attempted.
+*   Admin and normal user accounts were created to support testing of restricted/enhanced permissions.
+*   As each page was completed, existing succesful tests were rerun to ensure that proven functionality hadn't been affected. 
+*   The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
+*   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7/8/X and iPad.
+*   A large amount of testing was done to ensure that all pages were linking correctly.
+*   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
 ### Bugs and Fixes
 
@@ -1274,10 +1275,10 @@ The 'go to' link reacts when hovered over.
 
 ### Known Bugs
 
-- There is an acknowledged intermittent error on Heroku when running PostrgesSQL with Python V3 which causes the database to disconnect. This presents itself as an error 500 "Internal Server error" and refreshing the screen resolves the issue. It isn't possible to replicate it on demand and it doesn't occur in the gitpod environment.
+*   There is an acknowledged intermittent error on Heroku when running PostrgesSQL with Python V3 which causes the database to disconnect. This presents itself as an error 500 "Internal Server error" and refreshing the screen resolves the issue. It isn't possible to replicate it on demand and it doesn't occur in the gitpod environment.
 
 ### Future Releases
--   Ideas for future development could include:
+*   Ideas for future development could include:
     -   Enabling pictures to be added to posts.
     -   User password self reset.
 
@@ -1300,7 +1301,7 @@ The following git commands were used throughout development to push code to the 
 
 ### Clone the Repository Code Locally
 
-- Navigate to the GitHub Repository you want to clone to use locally:
+*   Navigate to the GitHub Repository you want to clone to use locally:
 
     - Click on the code drop down button.
     - Click on HTTPS.
@@ -1316,7 +1317,7 @@ The project was deployed to Heroku using the following steps:
 
 ### App Deployment to Heroku
 
-- You will need to deploy the application using Heroku.
+*   You will need to deploy the application using Heroku.
 
 1. Create a requirements.txt file:
     -   Type ``` pip3 freeze --local > requirements.txt ``` in theGitpod CLI.
@@ -1350,37 +1351,37 @@ The project was deployed to Heroku using the following steps:
 
 ### Code
 
--   [Bootstrap4](https://getbootstrap.com/docs/4.4/getting-started/introduction):
+*   [Bootstrap4](https://getbootstrap.com/docs/4.4/getting-started/introduction):
     -   Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System.
 
--   [jQuery:](https://jquery.com/): 
+*   [jQuery:](https://jquery.com/): 
     -   jQuery is used to make the JavaScript code more succinct and simplify some processing.
 
 ### Content
 
--   All content was written by the developer with a great deal of assistance from youtube tutorials and stack overflow.
+*   All content was written by the developer with a great deal of assistance from youtube tutorials and stack overflow.
 
--   Mostly trial and error and getting one function working and then replicating it.
+*   Mostly trial and error and getting one function working and then replicating it.
 
--   Inspiration was taken from existing blog sites and sample projects:
+*   Inspiration was taken from existing blog sites and sample projects:
     -   https://www.digitalocean.com/community/tutorials/how-to-use-one-to-many-database-relationships-with-flask-sqlalchemy
 
 ### Media
 
--   Free background removal on various images using [photoroom](https://www.photoroom.com/tools/background-remover). 
+*   Free background removal on various images using [photoroom](https://www.photoroom.com/tools/background-remover). 
 
--   The main background image is a standard Microsoft image. Other images are copyright free.
+*   The main background image is a standard Microsoft image. Other images are copyright free.
 
--   Free mockup generator using [Multi Device Website Mockup](https://techsini.com/multi-mockup/).
+*   Free mockup generator using [Multi Device Website Mockup](https://techsini.com/multi-mockup/).
 
 ### Acknowledgements
 
--   My Mentor for his continuous helpful feedback and support. His industry experience is noticeable in his insighteful guidance. 
+*   My Mentor for his continuous helpful feedback and support. His industry experience is noticeable in his insighteful guidance. 
 
--   I can't overestimate the value of Stackoverflow resources at their website and on Youtube.
+*   I can't overestimate the value of Stackoverflow resources at their website and on Youtube.
 
--   The whole community of developers who freely advise and share their knowledge via blogs, videos and web comments.
+*   The whole community of developers who freely advise and share their knowledge via blogs, videos and web comments.
 
--   Tutor support at Code Institute for their support.
+*   Tutor support at Code Institute for their support.
 
--   Tutor support at City of Bristol College for continued support and motivation.
+*   Tutor support at City of Bristol College for continued support and motivation.
