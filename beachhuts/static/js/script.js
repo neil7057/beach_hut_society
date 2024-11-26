@@ -1,5 +1,6 @@
 /* jshint esversion: 6 */
 /* globals $:false */
+
   
 // Scrolling side button - Get the button:
   let mybutton = document.getElementById("myHomeBtn");

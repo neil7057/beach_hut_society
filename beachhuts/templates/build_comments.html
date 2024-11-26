@@ -5,7 +5,7 @@
          how-to-use-one-to-many-database-relationships-with-flask-sqlalchemy -->
       <h3 class="indent-post"><strong><span class ="text-sand">{{ comments.author.username }}</span>
         commented :</strong></h3>
-      <h4 class="indent-post"><span class ="text-sand">on post: </span></span>
+      <h4 class="indent-post"><span class ="text-sand">on post: </span>
         <span ><a class="text-blue" href="{{url_for('get_thread_title', thread_id=comments.thread_id) }}"><strong>
         {{ comments.thread.thread_title }}</strong></a></span></h4>
   </div>
