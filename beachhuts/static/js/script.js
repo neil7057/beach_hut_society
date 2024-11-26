@@ -31,9 +31,14 @@
           // https://www.sitepoint.com/jqueryhtml5-input-focus-cursor-positions/#:~:
           // text=To%20set%20the%20cursor%20position%20at%20the%20end%20of%20an,to%20set%20the%20cursor%20position.
           $('#commentBody').focus();
-          // This will hide thread buttons on comment create
-          document.getElementById('thCom').style.display='none';
-        }
+          // This will hide thread buttons on comment create, iterate through for all instances
+          let commentForms = document.querySelectorAll('#threadComment');
+          commentForms.forEach(function(form) {
+          if (form.getAttribute('data-thread-id') === threadId) {
+              form.classList.remove('d-block');
+              form.classList.add('d-none');
+
+        }});}
     });
   }
 

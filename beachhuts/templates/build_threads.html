@@ -50,8 +50,9 @@
         {% if current_user.is_authenticated %}
         <!-- if user logged in, show comments button -->
         <br>
-          <div id="thCom">
-            <!-- ID wrapper for buttons to hide via JS when commnet being created -->
+        <form>
+          <!-- wrap in form so js function can target and hide buttons -->
+          <div id="threadComment" class="d-block" data-thread-id="{{ thread.id }}">
             <div class="text-center card-action">
               <a class="btn btn-success small-font btn-circle" onclick="showCommentForm('{{ thread.id }}')">Comment</a>
           <!-- if user create post show edit and delete buttons -->
@@ -69,6 +70,7 @@
               {% endif %}
             </div>
           </div>
+        </form>
         {% endif %}
        
 
