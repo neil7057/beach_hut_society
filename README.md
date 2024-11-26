@@ -140,7 +140,7 @@ The website is a Blog site for lovers of Beach Huts. anonymous visitors can read
 
 Logged in users can view all posts and comments and create new posts and comments and category Tags. Logged in users can edit and delete their own posts and can edit and delete their own comments whether on their own post or someone elses.
 
-Logged in users can list their own posts and comments and can edit basic user details. They cannot delet thier account as that would remove posts and comments and i decided that contnet should remain - unless its offensive.
+Logged in users can list their own posts and comments and can edit basic user details. They cannot delet their account as that would remove posts and comments and i decided that content should remain - unless it's offensive.
 
 Administrators can post, edit and delete their own threads and comments as per normal users but additionally can:
 -   Delete Tags

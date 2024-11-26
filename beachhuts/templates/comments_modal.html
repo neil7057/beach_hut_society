@@ -1,6 +1,7 @@
 <!-- show first comment only to avoid busy screen -->
 <div class="comments">
-    {% for comments in thread.comments %}
+    <!-- display most recent first -->
+    {% for comments in thread.comments | reverse %}
     {% if loop.index == 1 %}
     <br>
     <div class="comments-header text-blue">

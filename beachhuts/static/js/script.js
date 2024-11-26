@@ -14,12 +14,14 @@
       mybutton.style.display = "none";
     }
   }
+
   
 // When the user clicks on the button, scroll to the top of the document
   $("#myHomeBtn").click(function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   });
+
 
 // Toggle the comments reply form and sets cursor at start of text area
   function showCommentForm(threadId) {
@@ -29,8 +31,6 @@
           form.classList.remove('d-none');
           form.classList.add('d-block');
         }{
-          // https://www.sitepoint.com/jqueryhtml5-input-focus-cursor-positions/#:~:
-          // text=To%20set%20the%20cursor%20position%20at%20the%20end%20of%20an,to%20set%20the%20cursor%20position.
           $('#commentBody').focus();
           // This will hide thread buttons on comment create, iterate through for all instances
           let commentForms = document.querySelectorAll('#threadComment');
@@ -44,8 +44,8 @@
     });
   }
 
-  function hideCommentForm(threadId) {
-    
+
+  function hideCommentForm(threadId) {  
     let commentForms = document.querySelectorAll('.commentForm');
     commentForms.forEach(function(form) {
       if (form.getAttribute('data-thread-id') === threadId) {
@@ -54,6 +54,7 @@
         }
     });
   }
+
 
 // select 2 for multiselect - select2.org/getting-started/basic-usage
 // Initialize select2
