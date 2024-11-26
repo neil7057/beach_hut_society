@@ -1,5 +1,5 @@
 /* jshint esversion: 6 */
-/*globals $:false */
+/* globals $:false */
   
 // Scrolling side button - Get the button:
   let mybutton = document.getElementById("myHomeBtn");
@@ -37,13 +37,14 @@
           if (form.getAttribute('data-thread-id') === threadId) {
               form.classList.remove('d-block');
               form.classList.add('d-none');
-
-        }});}
+        }
+      });
+    }
     });
   }
 
-
   function hideCommentForm(threadId) {
+    
     let commentForms = document.querySelectorAll('.commentForm');
     commentForms.forEach(function(form) {
       if (form.getAttribute('data-thread-id') === threadId) {
