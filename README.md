@@ -163,13 +163,13 @@ Administrators can also review and delete contact messages.
     -   #### First Time Visitor Goals
 
         1. As a First Time Visitor, I want to see what the site is about.
-        2. As a First Time Visitor, I want to get an indictaion of the types of content. 
+        2. As a First Time Visitor, I want to get an indication of the types of content. 
         3. As a First Time Visitor, I want to be able to sign up and post.
 
     -   #### Returning Visitor Goals
 
         1. As a Returning Visitor, I want to be able to log in and view posts.
-        2. As a Returning Visitor, I wannt to see a list of the latest forum posts.
+        2. As a Returning Visitor, I want to see a list of the latest forum posts.
         3. As a Returning Visitor, I want to be able to view all my posts.
 
     -   #### Frequent User Goals
@@ -179,15 +179,15 @@ Administrators can also review and delete contact messages.
 
 -   ### Design
     -   #### Colour Scheme
-        -   I've used pastel beach themed colours to reflect the subject matter of the site. A pale blue (#C8E4FD) background for the body. Titles alternatively in Dark Blue (#4203BF) and Sand (#AA4313) with text in Light Blue and Sand. Buttons are consistent according to function.
-        -   General navigation buttons are similarly styled and edit, comment and delete buttons are styled differently to differentiate but remain consistnet amongst the forum post and tag elements.
+        -   I've used pastel beach themed colours to reflect the subject matter of the site. A pale blue (#C8E4FD) background for the body. Titles alternately in Dark Blue (#4203BF) and Sand (#AA4313) with text in Light Blue and Sand. Buttons are consistent according to function.
+        -   General navigation buttons are similarly styled and edit, comment and delete buttons are styled differently to differentiate but remain consistent amongst the forum post and tag elements.
         -   Some colours were muted or changed to meet WAVE guidelines during final stage testing. 
         
     -   #### Typography
         -   The fonts chosen are Original Surfer and Seaweed Script to adhere to the beach theme. Seaweed Script is novel and suitable for titles but unsuitable for use in large text blocks as it can make it difficult to read. Sans-serif is the fallback font.
  
     -   #### Imagery
-        -   There is a Hero image in the base template which propogates to each page and gives the site a consistenmt look and feel.
+        -   There is a Hero image in the base template which propogates to each page and gives the site a consistent look and feel.
         -   There is a beach logo on larger screens but is hidden below 1000px.
         -   The site has a couple of additional images on the about page but as a blog site is mostly text based, for now.
 
@@ -212,13 +212,13 @@ Administrators can also review and delete contact messages.
         
         -   Threads(posts) and the most recent comment are visible to all visitors but users have to register and login to see full posts, full comments or be able to post or comment.
 
-        -   Logged in users get to see their user profile, can edit it and can see all their own posts on a 'view all posts' page. I chose not to allow users to delete their own accounts as that would remove content from the site, incluidng any responses (comments) from other users. 
+        -   Logged in users get to see their user profile, can edit it and can see all their own posts on a 'view all posts' page. I chose not to allow users to delete their own accounts as that would remove content from the site, including any responses (comments) from other users. 
 
 -   ### Database Design
 -   #### Table Structure
     *   A User Table with unique ID. User information. 
     *   A Thread Table with unique ID. Essentially a forum post, linked to a User.
-    *   A Comments Table with unique ID. A comment or comments, attached to Thread and linked to the User who posted the comment, not necessarilly the same user who posted the Thread.
+    *   A Comments Table with unique ID. A comment or comments, attached to a Thread and linked to the User who posted the comment, not necessarilly the same user who posted the Thread.
     *   A Tag Table with unique ID. A category that can be attached to a Thread to assist with searches. 
     *   A Thread-Tag Table to resolve the Many-to-Many relationship between Tags and Threads.
     *   A Contact Table with unique ID. Holds messages for admin review and processing.
@@ -231,7 +231,7 @@ Administrators can also review and delete contact messages.
 -   ### Wireframes
     -   Many functions are repetitive, so create, edit and delete are basically similar for different record types.
     -   It wasn't necessary therefore to wireframe all proposed images and I chose to create a template for each distinct function.
-    -   Developemnt was then iterative and Agile.
+    -   Development was then iterative and Agile.
 -   #### Base
     <details><summary>Base Template</summary>
     <img src="beachhuts/static/docs/readme_images/wireframes/base-html.png">
@@ -332,7 +332,7 @@ Administrators can also review and delete contact messages.
 
 -   #### Manage Contacts
     <details><summary>Manage Contacts</summary>
-    <img src="beachhuts/static/docs/readme_images/wireframes/search-results/manage-contacts.png">
+    <img src="beachhuts/static/docs/readme_images/wireframes/manage-contacts.png">
     </details>
 
 -   #### Search Results 
@@ -359,7 +359,7 @@ Administrators can also review and delete contact messages.
     -   Admin mangement of contact communications
     -   Search facility
 
-    The site is templated and built around a base HTML file containing a consistent Header and Footer:
+    The site is templated and built around a base HTML file containing a consistent Header and Footer.
 
     The site has a navbar which remains central to the screen on desktop, tablet and mobile.
 
@@ -386,11 +386,13 @@ Administrators can also review and delete contact messages.
 -   Landing page image   
     *   The first page is the index or home page.
     *   For visitors, this shows a list of forum posts sorted with most recent first.
-    *   For users, this shows the user profile summary plus the list of Forum posts.
+    *   For users, this shows the user profile summary plus the list of forum posts.
     *   This will help to immediately show the visitor/user what the website is about. 
+
     <details><summary>Landing Page - Visitor</summary>
     <img src="beachhuts/static/docs/readme_images/screens/home-logged-out.png">
     </details>
+    <br>
     <details><summary>Landing Page - User</summary>
     <img src="beachhuts/static/docs/readme_images/screens/home-logged-in.png">
     </details>
@@ -471,7 +473,7 @@ Administrators can also review and delete contact messages.
 
 -   #### Edit Post Page
     <details><summary>Edit Post Page</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/edit_thread.png">
+    <img src="beachhuts/static/docs/readme_images/screens/edit-thread.png">
     </details>
 
 -   #### Delete Post Page
@@ -514,10 +516,11 @@ Administrators can also review and delete contact messages.
 
 ### Manage Users Page
 * Admin only function. Menu Button Hidden for normal users.
-    <details><summary>Manage Users Menu</summary>
-    <img src="beachhuts/static/docs/readme_images/screens/admin-manage-users.png">
-    </details>
 
+    <details><summary>Manage Users Menu</summary>
+    <img src="beachhuts/static/docs/readme_images/screens/manage-users.png">
+    </details>
+    <br>
 * Admin only function. Menu Button Hidden for normal users.
     <details><summary>Manage Users Page</summary>
     <img src="beachhuts/static/docs/readme_images/screens/admin-manage-users2.png">
@@ -525,10 +528,11 @@ Administrators can also review and delete contact messages.
 
 ### Manage Contacts Page
 * Admin only function. Menu Button Hidden for normal users.
+
     <details><summary>Manage Contacts Page</summary>
     <img src="beachhuts/static/docs/readme_images/screens/admin-manage-contacts.png">
     </details>
-
+    <br>
     <details><summary>Confirmation Dialog</summary>
     <img src="beachhuts/static/docs/readme_images/screens/delete-contact-confirm.png">
     </details>
@@ -715,15 +719,15 @@ This was checked each time substantial changes were made to PY files. A final ch
     <details><summary>init.py</summary>
     <img src="beachhuts/static/docs/testing/pep8-init.png">
     </details>
-
+    <br>
     <details><summary>env.py</summary>
     <img src="beachhuts/static/docs/testing/pep8-env.png">
     </details>
-
+    <br>
     <details><summary>models.py</summary>
-    <img src="dbeachhuts/static/docs/testing/pep8-models.png">
+    <img src="beachhuts/static/docs/testing/pep8-models.png">
     </details>
-
+    <br>
     <details><summary>routes.py</summary>
     <img src="beachhuts/static/docs/testing/pep8-routes.png">
     </details>
@@ -741,52 +745,66 @@ This was checked each time substantial changes were made to PY files. A final ch
         3. There is a Contact messaging page to ask questions before signup.
 
 
-    2. As a First Time Visitor, I want to get an indictaion of the types of content. 
+    2. As a First Time Visitor, I want to get an indication of the types of content. 
 
         1. The Home page lists the forum threads with most recent first.
+
         2. The most recent comment on each post is also displayed.
+        
         3. There is a search facility on the header of each page.
 
     3. As a First Time Visitor, I want to be able to sign up and post.
        
         1. A link to signup is clearly displayed in the header menu and also in the comments
          on the list of posts. 
+        
         2. Once signed up, buttons are presented for post and comment option 
-        3. Once logged in, Post and tag buttons are displayed
+        
+        3. Once logged in, post and tag buttons are displayed
 
 -   #### Returning Visitor Goals
 
     1. As a Returning Visitor, I want to be able to log in and view posts.
        
         1. The login button is prominently displayed on all pages. 
+        
         2. The post button is prominently displayed and there is an option to comment on all other users' posts.
+        
         3. There is a search facility to find posts by title or category.
 
-    2. As a Returning Visitor, I wannt to see a list of the latest forum posts.
+    2. As a Returning Visitor, I want to see a list of the latest forum posts.
 
         1. The latest posts are listed on the home page, most recent first.
+        
         2. Each page menu bar has a link to the comments and feedback page where a user can submit a request for more information.
 
     3. As a Returning Visitor, I want to be able to view all my posts.
        
         1. Once logged in, the Home page shows a summary of the User's account with a button to view all their posts and comments.
+        
         2. There is a search facility to find posts with specific keywords or categories.
 
 -   #### Frequent User Goals
 
     1. As a Frequent User, I want to be able to search for on topic content by keyword.        
         1. There is a search facility on all pages, located central to the header.
-        2. The Search facility will return matches based on post title and content and user name. 
+        
+        2. The search facility will return matches based on post title and content and user name. 
 
     2. As a Frequent User, I want to be abe to manage my account settings.        
         1. Once logged in, the edit profile button is presented in the account summary as the first item on the home page.
+        
         2. The User can amend username, first and last name.
+        
         3. The User can send a message to request password reset or notify a change of email address.
+        
         4. Users can Edit and Delete their own posts and comments via conveniently placed buttons on the respective post/comment.
 
     3. As a Frequent User, I want to be able to post and comment on my and other threads.
         1. Users can create category Tags to attach to posts for ease of searching.
+        
         2. Users can post from the main menu on any page.
+        
         3. Users can comment on their own or other users posts.
         
 ### Responsiveness
@@ -857,48 +875,64 @@ Pages that display lists of Posts and comments use the same formatting and colou
     <details><summary>Home Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-home.png">
     </details>
+    <br>
     <details><summary>About Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-about.png">
     </details>
+    <br>
     <details><summary>Contact Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-contact.png">
     </details>
+    <br>
     <details><summary>Signup Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-signup.png">
     </details>
+    <br>
     <details><summary>Login Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-login.png">
     </details>
+    <br>
     <details><summary>Search Results Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-search-results.png">
     </details>
+    <br>
+    Produces a 'multiple form label' error due to iterative processing and display of multiple Comment records. Not a genuine error.
     <details><summary>My Threads Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-my-threads.png">
     </details>
+    <br>
     <details><summary>View Full Thread Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-view-full-thread.png">
     </details>
+    <br>
     <details><summary>Edit User Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-edit-user.png">
     </details>
+    <br>
     <details><summary>Manage Users Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-manage-users.png">
     </details>
+    <br>
     <details><summary>Admin Manage User</summary>
     <img src="beachhuts/static/docs/testing/wcag-edit-user-admin.png">
     </details>
+    <br>
     <details><summary>Manage Contacts Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-manage-contacts.png">
     </details>
+    <br>
     <details><summary>Create Post Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-create-a-post.png">
     </details>
+    <br>
     <details><summary>Edit Post Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-edit-post.png">
     </details>
+    <br>
     <details><summary>Edit Comment Page</summary>
     <img src="beachhuts/static/docs/testing/wcag-edit-comment.png">
     </details>
+    <br>
 
 Manual tests were also performed to ensure the website was as accessible as possible.
 
@@ -979,10 +1013,6 @@ This confirmed that:
     <br>
     <details><summary>Edit User - Admin Page</summary>
     <img src="beachhuts/static/docs/testing/ws-light-edit-user-admin.png">
-    </details>
-    <br>
-    <details><summary>Generic Delete Modal</summary>
-    <img src="beachhuts/static/docs/testing/ws-light-Delete-modal.png">
     </details>
     <br>
 
@@ -1081,10 +1111,10 @@ This confirmed that:
         *   Password: 12345678 
 
         Has access to create tag, threads and comments and access to edit any own created threads and content.
-        However, has Not posted any Threads and has not commented on any Thread posts.
+        However, has Not posted any Threads and has Not commented on any Thread posts.
 
 -   #### Sign Up Testing
-    -   The cursor is automatically positiioned at the start of the first input field.
+    -   The cursor is automatically positioned at the start of the first input field.
 
     -   Accounts are created with a unique ID and posted to the database correctly. Each field is correctly validated and the account cannot be created until all fields are populated with the correct minimum and maximum values.
 
@@ -1093,7 +1123,7 @@ This confirmed that:
     -   Errors are presented as a Flash message below the sub menu and hero image. 
 
 -   #### Log In Testing
-    -   The cursor is automatically positiioned at the start of the first input field.
+    -   The cursor is automatically positioned at the start of the first input field.
 
     -   Email address and password are validated against the database.
 
@@ -1126,12 +1156,11 @@ This confirmed that:
 
     -   Where a thread contains multiple comments, a 'View Full Post' button is presented. This displays the Thead post and all associated comments. Comments are displayed sorted most-recent-to-oldest.
 
-    -   Signifiicant testing was carried out using the test logins to simulate all the above scenarios, specifically that correct permissions were being applied to thread and comment edit and delete functions.
+    -   Significant testing was carried out using the test logins to simulate all the above scenarios, specifically that correct permissions were being applied to thread and comment edit and delete functions.
 
     -   Edits were correctly applied to the database. Records were correctly deleted, including any associated records by cascade.
 
 -   #### Comments Creation Testing
-    -   The cursor is automatically positiioned at the start of the first input field.
 
     -   The comment, edit and delete buttons for the thread are hidden whilst the comment is being created.  
 
@@ -1148,7 +1177,7 @@ This confirmed that:
     -   Admin users can edit and delete all comments.
 
  -  #### Comments Edit Testing
-    -   The cursor is automatically positiioned at the start of the first input field.
+    -   The cursor is automatically positioned at the start of the first input field.
 
     -   The user must be logged in and be the owner of the comment for the 'edit' and 'delete' options to appear.
     
@@ -1172,7 +1201,7 @@ This confirmed that:
 
     -   For Adding Tags:
 
-        -   The cursor is automatically positiioned at the start of the first input field.
+        -   The cursor is automatically positioned at the start of the first input field.
 
         -   Tags can be created from the Tag menu, Thread post creation or Thread edit pages.
      
@@ -1186,11 +1215,11 @@ This confirmed that:
 
     -   Once selected for Edit:
 
-        -   The cursor is automatically positiioned at the start of the first input field.
+        -   The cursor is automatically positioned at the start of the first input field.
 
         -   The form is pre-populated with existing database values.
 
-        -   Changes to values are validated. The databse is only updated for values that have changed.
+        -   Changes to values are validated. The database is only updated for values that have changed.
 
         -   Each field was updated in turn and also the form was submitted with no changes. Results were checked by online enquiry and via psql and were as anticipated.
 
@@ -1218,8 +1247,6 @@ This confirmed that:
 
 -   #### Contact Testing
 
-    -   Testing was performed to ensure that 
-
     -   The form on the contact page was tested to ensure it functioned as expected when correct and incorrect data was input.
 
     -   Specifically:
@@ -1236,6 +1263,8 @@ This confirmed that:
 
         -   Large messages text wrap appropriately.
 
+    -   Correct submission generates a success flash message and stores a Contact record on the Database. This was checked via online enquiry and psql.
+
 -   #### Links Testing
 
     Testing was performed to:
@@ -1245,7 +1274,7 @@ This confirmed that:
     -   Footer Social Media Icons / Links
 
     Testing was performed:
-    -   on the Font Awesome Social Media icons in the footer to ensure that each one opened in a new tab and that each one had a 'grow' hover effect.
+    -   On the Font Awesome Social Media icons in the footer to ensure that each one opened in a new tab and that each one had a 'grow' hover effect.
 
     -   Each item opened a new tab when clicked as expected and correct hover effect was present.
 
