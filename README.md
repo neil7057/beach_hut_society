@@ -433,18 +433,18 @@ Administrators can also review and delete contact messages.
     </details>
 
 -   #### My Posts Page
--   User has no posts and has not commented on any posts.
+    User has no posts and has not commented on any posts.
     <details><summary>My Posts - No Posts</summary>
     <img src="beachhuts/static/docs/readme_images/screens/my-threads-nothing.png">
     </details>
-    <br>
--   User has posted and may have commented on posts.
-        <details><summary>My Posts - Posts</summary>
+    
+    User has posted and may have commented on posts.
+    <details><summary>My Posts - Posts</summary>
     <img src="beachhuts/static/docs/readme_images/screens/my-threads-posts.png">
     </details>
-    <br>
--   User has no posts but has commented on other users' posts.
-        <details><summary>My Posts - Comments Only</summary>
+    
+    User has no posts but has commented on other users' posts.
+    <details><summary>My Posts - Comments Only</summary>
     <img src="beachhuts/static/docs/readme_images/screens/my-threads-comments-only.png">
     </details>
 
