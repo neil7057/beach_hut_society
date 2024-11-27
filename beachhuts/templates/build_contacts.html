@@ -15,7 +15,7 @@
         <p class="contact-layout"> F:   <span class="text-sand">{{ contact.fname }}</span><span>
           L:   <span class="text-sand">{{ contact.lname }}</span></span></p>
         <p class="contact-layout">D:  <span class="text-sand">{{ contact.created_td.strftime("%d %B, %Y, %H:%M") }}</span></p>
-        <p id="message" class="contact-layout thread-comment-wrap">M:  <span class="text-sand">{{ contact.message }}</span></p>  
+        <p id="message" class="contact-layout thread-comment-wrap indent-post">M:  <span class="text-sand">{{ contact.message }}</span></p>  
         <div class="text-center">
           {% include 'delete_contact_modal.html' %}
         </div>             
