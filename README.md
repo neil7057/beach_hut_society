@@ -111,7 +111,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
         *   [Thread Post](#thread-post-testing)
         *   [Thread Enquiry Testing](#thread-enquiry-testing)
         *   [Comment Creation Testing](#comments-creation-testing)
-        *   [Comments Enquiry Testing](#comments-enquiry-testing)
+        *   [Comments Edit Testing](#comments-edit-testing)
         *   [Tags](#tags-testing)
         *   [Manage Users](#manage-users-testing)
         *   [Manage Contacts](#manage-contacts)
@@ -1104,6 +1104,8 @@ This confirmed that:
 
     -   The user must be logged in for the 'Post' options to appear. Duplicate Post titles are permitted. Fields are validated for minimum character rules. Title and content body are mandatory fields.
 
+    -   Large Thread Body messages text wrap appropriately.
+
     -   A maximum of 4 tags can be added. Attempting to add a fifth generates a suitable error. Tags are optional.
 
     -   Errors are presented as a Flash message below the sub menu and hero image. 
@@ -1133,26 +1135,32 @@ This confirmed that:
 
     -   The comment, edit and delete buttons for the thread are hidden whilst the comment is being created.  
 
-    -   The user must be logged in for the 'Comment' option to appear. The comment body is validated for minimum character rules. Content body is a mandatory field.
+    -   The user must be logged in for the 'Comment' option to appear.
+    
+    -   The comment body is validated for minimum character rules. Content body is a mandatory field.
+
+    -   Large Comment Body messages text wrap appropriately.
 
     -   Errors are presented as a Flash message below the sub menu and hero image. 
 
     -   Successful submission generates a confirmation Flash message and creates a record on the Comments table linked to the correct Thread and User. This was tested by online enquiry and psql query in the cli.
-
-     -  Users can edit and delete their own comments only, and menus only appear if the logged in user has the correct permissions.
 
     -   Admin users can edit and delete all comments.
 
  -  #### Comments Edit Testing
     -   The cursor is automatically positiioned at the start of the first input field.
 
-    -   The user must be logged in for the 'Comment' option to appear. The comment body is validated for minimum character rules. Content body is a mandatory field.
+    -   The user must be logged in and be the owner of the comment for the 'edit' and 'delete' options to appear.
+    
+    -   The comment body is validated for minimum character rules. Content body is a mandatory field.
+
+    -   Large Comment Body messages text wrap appropriately.
 
     -   Errors are presented as a Flash message below the sub menu and hero image. 
 
-    -   Successful submission generates a confirmation Flash message and creates a record on the Comments table linked to the correct Thread and User. This is tested by online enquiry and psql query in the cli.
+    -   Successful submission generates a confirmation Flash message and updates the correct record on the Comments table linked to the correct Thread and User. This is tested by online enquiry and psql query in the cli.
 
-     -   Users can edit and delete their own comments only and menus only appear if the logged in user has the correct permissions.
+    -   Users can edit and delete their own comments only and menus only appear if the logged in user has the correct permissions.
 
     -   Admin users can edit and delete all comments.
 
@@ -1165,8 +1173,10 @@ This confirmed that:
     -   For Adding Tags:
 
         -   The cursor is automatically positiioned at the start of the first input field.
+
+        -   Tags can be created from the Tag menu, Thread post creation or Thread edit pages.
      
-        -   Tag Case is forced to lowercase. Duplicate Tags are not permitted.
+        -   Tag Case is forced to lowercase on input. Duplicate Tags are not permitted.
 
         -   Errors are presented as a Flash message below the sub menu and hero image. 
 
@@ -1192,7 +1202,7 @@ This confirmed that:
 
     -   Accessible from the 'Contacts' button visible only to administrators.
 
-    -   There is a separate entry for each contact message created. Field titles are minimised as this is an admin page so they really should be familiar with record layout.
+    -   There is a separate entry for each contact message created, oldest message first. Field titles are minimised as this is an admin page so they really should be familiar with record layout.
 
     -   The only option is 'Delete' which removes the record from the database. This was checked by online enquiry and psql query.
 
@@ -1224,6 +1234,8 @@ This confirmed that:
 
         -   Succesful submission of the contacts/feedback form: A confirmation Flash message is displayed. 
 
+        -   Large messages text wrap appropriately.
+
 -   #### Links Testing
 
     Testing was performed to:
@@ -1233,7 +1245,7 @@ This confirmed that:
     -   Footer Social Media Icons / Links
 
     Testing was performed:
-    -   on the Font Awesome Social Media icons in the footer to ensure that each one    opened in a new tab and that each one had a 'grow' hover effect.
+    -   on the Font Awesome Social Media icons in the footer to ensure that each one opened in a new tab and that each one had a 'grow' hover effect.
 
     -   Each item opened a new tab when clicked as expected and correct hover effect was present.
 
@@ -1244,7 +1256,7 @@ This confirmed that:
 ### Further Testing
 
 *   Testing was carried out as each function was developed. The menu structure, navigation and footer were tested until error free on base.html before other page fucntionality was developed.
-*   Code for creation, edit and delete was tested with Models that didnt update the database to check processing functionality before data chnages were attempted.
+*   Code for creation, edit and delete was tested with Models that didn't update the database to check processing functionality before data changes were attempted.
 *   Admin and normal user accounts were created to support testing of restricted/enhanced permissions.
 *   As each page was completed, existing succesful tests were rerun to ensure that proven functionality hadn't been affected. 
 *   The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
@@ -1258,11 +1270,11 @@ This confirmed that:
 
 *   Model changes would not propogate to Heroku despite Databse recreation. This was solved by creating a new Sql hosting instance and updating Heroku config.
 
-*   Permissions not being applie dto admin accounts caused by an errant 'div'.
+*   Permissions not being applied to admin accounts caused by an errant 'div'.
 
-*   Search bar woudlnt line up with icon. Margins and padding on standard bootstrap settings overwritten by css changes. 
+*   Search bar wouldn't line up with icon. Margins and padding on standard bootstrap settings overwritten by css changes. 
 
-*    Posts and commnets not consistently displaying. Moved formatting to earlier in loop processing.
+*   Posts and comments not consistently displaying. Moved formatting to earlier in loop processing.
 
 *   Comment processing causing Model error. Confusion over singular comment (db field) and comments (table name).
 
