@@ -30,18 +30,20 @@
       if (form.getAttribute('data-thread-id') === threadId) {
           form.classList.remove('d-none');
           form.classList.add('d-block');
-        }{
-          $('#commentBody').focus();
+        }});
+        {let commentBodies = document.querySelectorAll('#commentBody');
+          commentBodies.forEach(function(form) {
+            if (form.getAttribute('data-thread-id') === threadId) {
+              $('#commentBody').focus();
+          }})};
+          {
           // This will hide thread buttons on comment create, iterate through for all instances
           let commentForms = document.querySelectorAll('#threadComment');
           commentForms.forEach(function(form) {
           if (form.getAttribute('data-thread-id') === threadId) {
               form.classList.remove('d-block');
               form.classList.add('d-none');
-        }
-      });
-    }
-    });
+          }})};
   }
 
 
