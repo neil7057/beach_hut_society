@@ -93,7 +93,7 @@ This is my website. It's a bit of fun to demonstrate capability in CRUD function
     *   [HTML](#html)
     *   [CSS](#css)
     *   [JavaScript](#javascript)
-    *   [pep8](#pep8))
+    *   [pep8](#pep8)
     *   [Testing User Stories from User Experience (UX) Section](#testing-user-stories-from-user-experience-ux-section)
         *   [First Time Visitor Goals](#first-time-visitor-goals-1)
         *   [Returning Visitor Goals](#returning-visitor-goals-1)
