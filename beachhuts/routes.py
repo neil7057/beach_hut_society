@@ -278,7 +278,7 @@ def my_threads():
     # build comments on other threads.
     comments = list(Comments.query.filter_by(author_id=current_user.id).
                     order_by(desc(Comments.created_td)).all())
-    
+
     return render_template(
         "my_threads.html",
         page_title="My Forum Posts",
